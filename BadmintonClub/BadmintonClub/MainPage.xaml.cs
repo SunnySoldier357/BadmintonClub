@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BadmintonClub.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,12 @@ namespace BadmintonClub
 {
 	public partial class MainPage : ContentPage
 	{
+        static BlogPostViewModel blogPostViewmodel = new BlogPostViewModel();
+
 		public MainPage()
 		{
 			InitializeComponent();
+            MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
 		}
 	}
 }

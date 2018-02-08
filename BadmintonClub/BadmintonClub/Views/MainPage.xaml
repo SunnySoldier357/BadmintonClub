@@ -14,8 +14,7 @@
                             <StackLayout HorizontalOptions="Fill"
                                      VerticalOptions="Fill"
                                      Padding="0, 0, 0, 3">
-                                <StackLayout BackgroundColor="Black"
-                                         Padding="3, 7, 3, 7"
+                                <StackLayout Padding="3, 7, 3, 7"
                                          Spacing="0">
                                     <Label Text="{Binding Title}" 
                                        FontAttributes="Bold"

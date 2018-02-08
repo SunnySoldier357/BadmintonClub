@@ -16,43 +16,7 @@ namespace BadmintonClub
 		{
             blogPostViewmodel = new BlogPostViewModel();
 			InitializeComponent();
-
-            ListView MyListView = new ListView
-            {
-                // Source of data items
-                ItemsSource = blogPostViewmodel.BlogPostCollection,
-
-                // Template for each item
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    Label titleLabel = new Label();
-                    titleLabel.SetBinding(Label.TextProperty, "Title");
-
-                    Label publishmentDetailsLabel = new Label();
-                    publishmentDetailsLabel.SetBinding(Label.TextProperty, "DateTimePublishedString");
-
-                    return new ViewCell
-                    {
-                        View = new StackLayout
-                        {
-                            Children =
-                            {
-                                titleLabel,
-                                publishmentDetailsLabel
-                            }
-                        }
-                    };
-                })
-            };
-
-            // Build the Page
-            this.Content = new StackLayout
-            {
-                Children =
-                {
-                    MyListView
-                }
-            };
+            MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
         }
 	}
 }

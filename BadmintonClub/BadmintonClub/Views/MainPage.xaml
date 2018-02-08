@@ -11,8 +11,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="Orange"
-                                     HorizontalOptions="Fill"
+                            <StackLayout HorizontalOptions="Fill"
                                      VerticalOptions="Fill"
                                      Padding="0, 0, 0, 3">
                                 <StackLayout BackgroundColor="Black"

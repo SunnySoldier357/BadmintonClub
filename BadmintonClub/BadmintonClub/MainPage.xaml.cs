@@ -10,12 +10,49 @@ namespace BadmintonClub
 {
 	public partial class MainPage : ContentPage
 	{
-        static BlogPostViewModel blogPostViewmodel = new BlogPostViewModel();
+        static BlogPostViewModel blogPostViewmodel;
 
 		public MainPage()
 		{
+            blogPostViewmodel = new BlogPostViewModel();
 			InitializeComponent();
-            MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
-		}
+
+            ListView MyListView = new ListView
+            {
+                // Source of data items
+                ItemsSource = blogPostViewmodel.BlogPostCollection,
+
+                // Template for each item
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label titleLabel = new Label();
+                    titleLabel.SetBinding(Label.TextProperty, "Title");
+
+                    Label publishmentDetailsLabel = new Label();
+                    publishmentDetailsLabel.SetBinding(Label.TextProperty, "DateTimePublishedString");
+
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Children =
+                            {
+                                titleLabel,
+                                publishmentDetailsLabel
+                            }
+                        }
+                    };
+                })
+            };
+
+            // Build the Page
+            this.Content = new StackLayout
+            {
+                Children =
+                {
+                    MyListView
+                }
+            };
+        }
 	}
 }

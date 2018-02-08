@@ -8,7 +8,8 @@ namespace BadmintonClub.Models
     {
         // Properties
         public string Title { get; set; }
-        public DateTime DateTimePublished { get; set; }
+        public DateTime DateTimePublished { private get; set; }
+        public string DateTimePublishedString { get { return DateTimePublished.ToLongDateString(); } }
         public string BodyOfPost { get; set; }
         public string PublisherName { get; set; }
 

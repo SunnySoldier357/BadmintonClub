@@ -11,7 +11,7 @@ namespace BadmintonClub.Models
         public DateTime DateTimePublished { private get; set; }
         public string DateTimePublishedString { get { return DateTimePublished.ToLongDateString(); } }
         public string BodyOfPost { get; set; }
-        public string PublisherName { get; set; }
+        public string PublisherName { get; set; } // Change to User Class
 
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, string publisherName)
         {

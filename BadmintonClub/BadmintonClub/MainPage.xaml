@@ -11,10 +11,11 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <ScrollView>
-            <ListView x:Name="MyListView">
+            <ListView x:Name="MyListView"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -23,17 +24,13 @@
                                      VerticalOptions="FillAndExpand"
                                      Padding="0, 0, 0, 3">
                                 <StackLayout BackgroundColor="Black"
-                                         Padding="3"
-                                         MinimumHeightRequest="1000">
+                                         Padding="3, 7, 3, 7">
                                     <Label Text="{Binding Title}" 
                                        FontAttributes="Bold"
-                                       FontSize="Large"
-                                       MinimumHeightRequest="1000"/>
-                                    <Label Text="{Binding PublisherName}" 
-                                       MinimumHeightRequest="1000"/>
-                                    <Label Text="{Binding BodyOfPost}" />
+                                       FontSize="Large"/>
+                                    <Label Text="{Binding DateTimePublishedString}" 
+                                           FontSize="Micro"/>
                                 </StackLayout>
-
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -41,5 +38,5 @@
             </ListView>
         </ScrollView>
     </ContentPage.Content>
-    
+
 </ContentPage>

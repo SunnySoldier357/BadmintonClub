@@ -22,7 +22,7 @@
                                     <Label Text="{Binding DateTimePublishedString}" 
                                        FontSize="Micro"
                                        Margin="0,5,0,0"
-                                       VerticalOptions="End"/>
+                                       VerticalTextAlignment="End"/>
                                     <Label Text="{Binding BodyOfPost}"
                                        Margin="0,5,0,0"/>
                                     <Label Text="{Binding PublisherName}"

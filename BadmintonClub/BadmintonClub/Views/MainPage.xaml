@@ -20,15 +20,9 @@
                                            FontAttributes="Bold"
                                            FontSize="Large"/>
                                     <Label Text="{Binding DateTimePublishedString}" 
-<<<<<<< HEAD
-                                       FontSize="Micro"
-                                       Margin="0,5,0,0"
-                                       VerticalTextAlignment="End"/>
-=======
                                            FontSize="Micro"
                                            Margin="10,5,0,0"
                                            FontAttributes="Italic"/>
->>>>>>> e26edaba9d4adef7fadced4e42bc11d5932b3679
                                     <Label Text="{Binding BodyOfPost}"
                                            Margin="0,5,0,0"/>
                                     <Label Text="{Binding PublisherName}"

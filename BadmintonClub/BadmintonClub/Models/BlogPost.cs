@@ -13,14 +13,14 @@ namespace BadmintonClub.Models
             get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 
                 DateTimePublished.ToShortTimeString().ToLower()); } } 
         public string BodyOfPost { get; set; }
-        public string PublisherName { get; set; } // Change to User Class
+        public User User { get; set; } // Change to User Class
 
-        public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, string publisherName)
+        public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {
             Title = title;
             DateTimePublished = dateTimePublished;
             BodyOfPost = bodyOfPost;
-            PublisherName = publisherName;
+            User = user;
         }
     }
 }

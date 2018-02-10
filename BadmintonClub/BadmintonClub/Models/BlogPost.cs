@@ -8,12 +8,14 @@ namespace BadmintonClub.Models
     {
         // Properties
         public string Title { get; set; }
+
         public DateTime DateTimePublished { get; set; }
         public string DateTimePublishedString {
             get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 
                 DateTimePublished.ToShortTimeString().ToLower()); } } 
+
         public string BodyOfPost { get; set; }
-        public User User { get; set; } // Change to User Class
+        public User User { get; set; }
 
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {

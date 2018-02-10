@@ -2,31 +2,41 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BadmintonClub.ViewModels
 {
-    public class BlogPostViewModel
+    public class BlogPostViewModel : INotifyPropertyChanged
     {
-        /*
+        private ObservableCollection<BlogPost> blogPostCollection;
+
         public ObservableCollection<BlogPost> BlogPostCollection
         {
             get
             {
-                ObservableCollection<BlogPost> sorted = (ObservableCollection<BlogPost>)(from g in BlogPostCollection orderby g.DateTimePublished descending select g);
-                return sorted;
+                blogPostCollection = new ObservableCollection<BlogPost>(from g in blogPostCollection orderby g.DateTimePublished descending select g);
+                NotifyPropertyChanged();
+                return blogPostCollection;
             }
-            set { BlogPostCollection = value; }
+            set { blogPostCollection = value; }
         }
-        */
-        public ObservableCollection<BlogPost> BlogPostCollection { get; set; }
 
         public BlogPostViewModel()
         {
-            BlogPostCollection = new ObservableCollection<BlogPost>();
+            blogPostCollection = new ObservableCollection<BlogPost>();
             initialiseCollection();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
 
         private void initialiseCollection()
         {
@@ -38,7 +48,8 @@ namespace BadmintonClub.ViewModels
 
         public void AddBlogPost(BlogPost bp)
         {
-            BlogPostCollection.Add(bp);
+            blogPostCollection.Add(bp);
+            NotifyPropertyChanged();
         }
     }
 }

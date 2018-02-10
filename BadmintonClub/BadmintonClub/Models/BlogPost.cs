@@ -8,7 +8,7 @@ namespace BadmintonClub.Models
     {
         // Properties
         public string Title { get; set; }
-        public DateTime DateTimePublished { private get; set; }
+        public DateTime DateTimePublished { get; set; }
         public string DateTimePublishedString {
             get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 
                 DateTimePublished.ToShortTimeString().ToLower()); } } 

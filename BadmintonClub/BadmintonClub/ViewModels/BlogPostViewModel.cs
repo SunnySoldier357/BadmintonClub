@@ -17,7 +17,9 @@ namespace BadmintonClub.ViewModels
         {
             get
             {
-                blogPostCollection = new ObservableCollection<BlogPost>(from g in blogPostCollection orderby g.DateTimePublished descending select g);
+                blogPostCollection = new ObservableCollection<BlogPost>(from g in blogPostCollection
+                                                                        orderby g.DateTimePublished descending
+                                                                        select g);
                 NotifyPropertyChanged();
                 return blogPostCollection;
             }

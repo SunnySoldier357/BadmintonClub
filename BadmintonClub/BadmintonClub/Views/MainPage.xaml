@@ -8,15 +8,20 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Skyline Badminton Club Blog" 
-                           FontSize="Large"/>
 
-                    <Button FontFamily="Segoe MDL 2 Assest" 
-                            Text="\ue10c" />
                 </StackLayout>
 
                 <ListView x:Name="MyListView"
                           HasUnevenRows="True">
+                    <ListView.Header>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Skyline Badminton Club Blog" 
+                                   FontSize="Large"/>
+
+                            <Button Text="Add" />
+                        </StackLayout>
+                    </ListView.Header>
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BadmintonClub.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace BadmintonClub
 {
 	public partial class App : Application
 	{
+        public User SignedInUser;
+
 		public App ()
 		{
 			InitializeComponent();

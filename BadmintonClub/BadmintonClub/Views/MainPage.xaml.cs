@@ -18,5 +18,10 @@ namespace BadmintonClub
 			InitializeComponent();
             MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
         }
-	}
+
+        public void AddBlogPostButton_Clicked(object sender, EventArgs e)
+        {
+            // Pop up or new page to add new blogpost
+        }
+    }
 }

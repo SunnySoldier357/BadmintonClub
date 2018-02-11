@@ -23,5 +23,15 @@ namespace BadmintonClub.Models
             Title = title + (title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club";
             ClearanceLevel = clearanceLevel;
         }
+
+        public bool IsMaster()
+        {
+            return ClearanceLevel >= 2;
+        }
+
+        public bool IsAdmin()
+        {
+            return ClearanceLevel >= 1;
+        }
     }
 }

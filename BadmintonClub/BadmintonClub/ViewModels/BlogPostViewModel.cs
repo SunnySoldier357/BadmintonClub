@@ -51,7 +51,7 @@ namespace BadmintonClub.ViewModels
         public void AddBlogPost(BlogPost bp)
         {
             blogPostCollection.Add(bp);
-            NotifyPropertyChanged();
+            //NotifyPropertyChanged();
         }
     }
 }

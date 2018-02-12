@@ -4,18 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace BadmintonClub
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace BadmintonClub.Views
 {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BlogPage : ContentPage
 	{
         static BlogPostViewModel blogPostViewmodel;
 
-		public BlogPage()
+        public BlogPage()
 		{
             blogPostViewmodel = new BlogPostViewModel();
-			InitializeComponent();
+            InitializeComponent();
             MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
         }
 
@@ -25,7 +28,7 @@ namespace BadmintonClub
             {
                 // Pop up or new page to add new blogpost
             }
-            
+
         }
     }
 }

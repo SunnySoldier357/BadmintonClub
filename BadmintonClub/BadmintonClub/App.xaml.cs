@@ -11,15 +11,12 @@ namespace BadmintonClub
 {
 	public partial class App : Application
 	{
-        public static User SignedInUser;
-
 		public App ()
 		{
 			InitializeComponent();
 
 			MainPage = new BlogPage();
-            SignedInUser = new User("Sandeep", "Singh Sidhu", "Co-President", 2);
-		}
+        }
 
 		protected override void OnStart ()
 		{

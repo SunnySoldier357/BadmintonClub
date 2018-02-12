@@ -6,15 +6,22 @@ namespace BadmintonClub.Models
 {
     public class User
     {
+        // Static Variables
+        public static User SignedInUser { get; set; }
+
+        // Private Properties
         private int clearanceLevel;
 
-        // Properties
+        // Public Properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
         public string Title { get; set; }
         public int ClearanceLevel { get { return clearanceLevel; }
             set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } // 0-Member 1-Admin/Board 2-Master
+
+        // Consstructors
+        public User() : this(null, null, null, 0) { }
 
         public User(string firstName, string lastName, string title, int clearanceLevel)
         {
@@ -24,14 +31,20 @@ namespace BadmintonClub.Models
             ClearanceLevel = clearanceLevel;
         }
 
+        // Getters
         public bool IsMaster()
         {
-            return ClearanceLevel == 2;
+            return clearanceLevel == 2;
         }
 
         public bool IsAdmin()
         {
-            return ClearanceLevel >= 1;
+            return clearanceLevel >= 1;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("[Name: {0}, Title: {1}, Clearance Level: {2}]", FullName, Title, ClearanceLevel);
         }
     }
 }

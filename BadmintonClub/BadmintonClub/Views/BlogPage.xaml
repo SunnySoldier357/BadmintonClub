@@ -12,8 +12,7 @@
                            FontSize="Large"/>
 
                     <Button x:Name="AddBlogPostButton"
-                            Text="Add" 
-                            Clicked="AddBlogPostButton_Clicked"/>
+                            Text="Add" />
                 </StackLayout>
             </ListView.Header>
 

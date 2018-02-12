@@ -1,4 +1,5 @@
-﻿using BadmintonClub.ViewModels;
+﻿using BadmintonClub.Models;
+using BadmintonClub.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +11,18 @@ using Xamarin.Forms.Xaml;
 
 namespace BadmintonClub.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+	//[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BlogPage : ContentPage
 	{
-        static BlogPostViewModel blogPostViewmodel;
+        static BlogPostViewModel blogPostViewmodel = new BlogPostViewModel();
 
         public BlogPage()
 		{
-            blogPostViewmodel = new BlogPostViewModel();
             InitializeComponent();
+
             MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
-        }
-
-        public void AddBlogPostButton_Clicked(object sender, EventArgs e)
-        {
-            if (App.SignedInUser.IsAdmin())
-            {
-                // Pop up or new page to add new blogpost
-            }
-
+            AddBlogPostButton.Text = "Test";
+            //AddBlogPostButton.IsEnabled = User.SignedInUser.IsAdmin();
         }
     }
 }

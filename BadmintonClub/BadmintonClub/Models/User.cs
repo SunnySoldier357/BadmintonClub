@@ -26,7 +26,7 @@ namespace BadmintonClub.Models
 
         public bool IsMaster()
         {
-            return ClearanceLevel >= 2;
+            return ClearanceLevel == 2;
         }
 
         public bool IsAdmin()

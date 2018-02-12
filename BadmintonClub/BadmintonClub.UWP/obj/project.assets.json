@@ -3060,7 +3060,7 @@
   },
   "libraries": {
     "Microsoft.Net.Native.Compiler/2.0.0": {
-      "sha512": "fY/kWT70qhS8fpKqFzr23FmeWr8UsQJUESDyIeT4U4197ZWWcQ4rQdkHqD4tvb1SMqAuWaFbAkTmNbfEP37UJQ==",
+      "sha512": "LOVoWPYT9iJu7/CKsWt6hm5b2FSCfuJAOD1CUEoa0OEL1xR3THY+NPtRL57jmV6gVZOIiuw7iro60r4MV6sODA==",
       "type": "package",
       "path": "microsoft.net.native.compiler/2.0.0",
       "files": [
@@ -5034,7 +5034,7 @@
       ]
     },
     "Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
-      "sha512": "svqEclOg2g3pmsVen1/sCCsozefwISlHQcB/Y5yxqovG6tx+LIxN0XtGH4XSieLbf5PbzVIXmHoPPrWb0QhuaA==",
+      "sha512": "2RI4q8FfR0S50V4YdZIZtzfyA2Bo4+jJHQXG+TDN7D4mPrFiIswIq8HVeDWS9xZsDwz23z7d/T2qi4rZa60Sig==",
       "type": "package",
       "path": "microsoft.netcore.universalwindowsplatform/6.0.1",
       "files": [
@@ -6755,24 +6755,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sande_gblcen6\\.nuget\\packages\\": {},
+    "C:\\Users\\singsan19\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
+      "projectUniqueName": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
       "projectName": "BadmintonClub.UWP",
-      "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
-      "packagesPath": "C:\\Users\\sande_gblcen6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\obj\\",
+      "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
+      "packagesPath": "C:\\Users\\singsan19\\.nuget\\packages\\",
+      "outputPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sande_gblcen6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\singsan19\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -6786,8 +6786,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
-              "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
+            "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
+              "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
             }
           }
         }

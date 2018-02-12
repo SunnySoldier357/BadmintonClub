@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "MonoAndroid,Version=v8.0": {
+    "MonoAndroid,Version=v7.1": {
       "Xamarin.Android.Support.Animated.Vector.Drawable/25.4.0.2": {
         "type": "package",
         "dependencies": {
@@ -696,7 +696,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "MonoAndroid,Version=v8.0": [
+    "MonoAndroid,Version=v7.1": [
       "BadmintonClub >= 1.0.0",
       "Xamarin.Android.Support.Design >= 25.4.0.2",
       "Xamarin.Android.Support.v4 >= 25.4.0.2",
@@ -707,46 +707,46 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sande_gblcen6\\.nuget\\packages\\": {},
+    "C:\\Users\\singsan19\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
+      "projectUniqueName": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
       "projectName": "BadmintonClub.Android",
-      "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
-      "packagesPath": "C:\\Users\\sande_gblcen6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\obj\\",
+      "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
+      "packagesPath": "C:\\Users\\singsan19\\.nuget\\packages\\",
+      "outputPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sande_gblcen6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\singsan19\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
-        "monoandroid80"
+        "monoandroid71"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "monoandroid80": {
+        "monoandroid71": {
           "projectReferences": {
-            "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
-              "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
+            "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
+              "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
             }
           }
         }
       }
     },
     "frameworks": {
-      "monoandroid80": {
+      "monoandroid71": {
         "dependencies": {
           "Xamarin.Android.Support.Design": {
             "target": "Package",

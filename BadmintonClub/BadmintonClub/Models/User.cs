@@ -20,8 +20,14 @@ namespace BadmintonClub.Models
         public int ClearanceLevel { get { return clearanceLevel; }
             set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } // 0-Member 1-Admin/Board 2-Master
 
-        // Consstructors
-        public User() : this(null, null, null, 0) { }
+        public int GamesPlayed { get; private set; }
+        public int GamesWon { get; private set; }
+        public int GamesLost { get; private set; }
+        public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
+        public List<Match> Matches { get; private set; }
+
+        // Constructors
+        public User() : this("Default", "Default", "Default", 0) { }
 
         public User(string firstName, string lastName, string title, int clearanceLevel)
         {
@@ -29,6 +35,17 @@ namespace BadmintonClub.Models
             LastName = lastName;
             Title = title + (title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club";
             ClearanceLevel = clearanceLevel;
+        }
+
+        // Public Methods
+        public void AddMatch(User opponent, int playerScore, int userScore)
+        {
+            Match temp = new Match(this, opponent, playerScore, userScore);
+            GamesPlayed++;
+            if (temp.MatchWinner.Equals(FullName))
+                GamesWon++;
+            else
+                GamesLost++;
         }
 
         // Getters

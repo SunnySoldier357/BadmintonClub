@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BadmintonClub.Views.SeasonPage">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Season Table">
+        <ContentPage.Content>
+            <ListView x:Name="SeasonTableListView">
+                <ListView.HeaderTemplate>
+                    
+                </ListView.HeaderTemplate>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Season Stats" />
+    <!-- Maybe a Season Tournament Page-->
+  <ContentPage Title="Tab 3" />
+</TabbedPage>

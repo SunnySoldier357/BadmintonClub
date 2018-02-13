@@ -6,9 +6,6 @@ namespace BadmintonClub.Models
 {
     public class User
     {
-        // Static Variables
-        public static User SignedInUser { get; set; }
-
         // Private Properties
         private int clearanceLevel;
 

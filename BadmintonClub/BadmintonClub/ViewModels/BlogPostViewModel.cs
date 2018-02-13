@@ -26,13 +26,13 @@ namespace BadmintonClub.ViewModels
             set { blogPostCollection = value; }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public BlogPostViewModel()
         {
             blogPostCollection = new ObservableCollection<BlogPost>();
             initialiseCollection();
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
@@ -51,7 +51,6 @@ namespace BadmintonClub.ViewModels
         public void AddBlogPost(BlogPost bp)
         {
             blogPostCollection.Add(bp);
-            //NotifyPropertyChanged();
         }
     }
 }

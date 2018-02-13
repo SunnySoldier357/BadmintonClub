@@ -1,4 +1,5 @@
 ﻿using BadmintonClub.Models;
+using BadmintonClub.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,13 +15,13 @@ namespace BadmintonClub.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeasonPage : TabbedPage
     {
-        static ObservableCollection<User> Users = new ObservableCollection<User>();
+        static UserViewModel userViewModel = new UserViewModel();
 
         public SeasonPage ()
         {
             InitializeComponent();
 
-            SeasonTableListView.ItemsSource = Users;
+            SeasonTableListView.ItemsSource = userViewModel.UserCollection;
         }
     }
 }

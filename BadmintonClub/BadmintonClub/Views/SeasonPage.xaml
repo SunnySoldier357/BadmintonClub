@@ -6,15 +6,18 @@
     <ContentPage Title="Season Table">
         <ContentPage.Content>
             <ListView x:Name="SeasonTableListView">
-                <ListView.HeaderTemplate>
-                    
-                </ListView.HeaderTemplate>
-                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding FullName}" />
+                                <Label Text="{Binding FullName}" 
+                                       WidthRequest="100" 
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding GamesPlayed}"
+                                       WidthRequest="20" />
+                                <Label Text="{Binding GamesWon}"
+                                       WidthRequest="20" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -22,7 +25,6 @@
             </ListView>
         </ContentPage.Content>
     </ContentPage>
+    
     <ContentPage Title="Season Stats" />
-    <!-- Maybe a Season Tournament Page-->
-  <ContentPage Title="Tab 3" />
 </TabbedPage>

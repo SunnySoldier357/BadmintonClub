@@ -137,4 +137,7 @@
       <Name>BadmintonClub</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger.png" />
+  </ItemGroup>
 </Project>

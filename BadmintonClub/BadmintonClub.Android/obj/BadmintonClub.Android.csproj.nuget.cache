@@ -1,5 +1,9 @@
 {
   "version": 1,
+<<<<<<< HEAD
   "dgSpecHash": "PJxBYnbh1rl3AqGwRRdFFXYsQ0tFzW7uGQJIf4F6C0xY2yT6shdPnLjgZZaBsG3X1vnjbcXuzSWK9o8HI7yeTA==",
+=======
+  "dgSpecHash": "hWZZmBoSgP+K9o4rNgo+lrKhHpdcvvdecQlHTmGAxPZ2UPsDcyiR3RCuKGAmuzyOMJIfXnzb14kc2/yApuyADw==",
+>>>>>>> GUI_Design
   "success": true
 }

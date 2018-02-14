@@ -18,6 +18,19 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\values\styles.xml
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\R.cs.flag
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\uploadflags.txt
+<<<<<<< HEAD
+=======
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\BadmintonClub.Android.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\FormsViewGroup.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\Xamarin.Forms.Core.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\BadmintonClub.Android.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+>>>>>>> GUI_Design
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\BadmintonClub.Android.dll

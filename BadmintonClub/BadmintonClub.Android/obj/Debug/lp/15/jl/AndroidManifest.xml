@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+>>>>>>> GUI_Design
 <!--
  Copyright (C) 2014 The Android Open Source Project
 
@@ -14,6 +18,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="android.support.v4" >
@@ -26,6 +31,14 @@
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.coreui">
+
+    <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.coreui" />
+
+    <application>
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
+>>>>>>> GUI_Design
     </application>
 
 </manifest>

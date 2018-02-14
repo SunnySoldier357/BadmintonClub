@@ -14,9 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="android.support.v7.palette">
 
     <uses-sdk android:minSdkVersion="14" />
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.mediacompat">
+
+    <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.mediacompat" />
+>>>>>>> GUI_Design
 
     <application>
         <meta-data android:name="android.support.VERSION" android:value="26.1.0" />

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BadmintonClub.Views.BlogPage">
+    
+    <ContentPage.Content>
+        <ListView x:Name="MyListView"
+                  HasUnevenRows="True">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Skyline Badminton Club Blog" 
+                           FontSize="Large"/>
+
+                    <Button x:Name="AddBlogPostButton"
+                            Text="Add" />
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="5"
+                                     Spacing="0">
+                            <BoxView HeightRequest="3"
+                                     HorizontalOptions="Fill"
+                                     BackgroundColor="Accent"/>
+                            <Label Text="{Binding Title}"
+                                   Margin="0,10,0,0"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"/>
+                            <Label Text="{Binding DateTimePublishedString}" 
+                                   FontSize="Micro"
+                                   Margin="10,5,0,0"
+                                   FontAttributes="Italic"/>
+                            <Label Text="{Binding BodyOfPost}"
+                                   Margin="0,5,0,0"/>
+                            <Label Text="{Binding User.FullName}"
+                                   Margin="0,10,15,0"
+                                   HorizontalOptions="End"/>
+                            <Label Text="{Binding User.Title}"
+                                   Margin="0,0,15,0"
+                                   HorizontalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+    
+</ContentPage>

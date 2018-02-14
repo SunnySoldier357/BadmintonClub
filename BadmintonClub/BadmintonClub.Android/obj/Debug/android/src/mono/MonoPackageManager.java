@@ -109,6 +109,15 @@ class MonoPackageManager_Resources {
 		"BadmintonClub.Android.dll",
 		"BadmintonClub.dll",
 		"FormsViewGroup.dll",
+<<<<<<< HEAD
+=======
+		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
+		"Microsoft.AppCenter.Analytics.dll",
+		"Microsoft.AppCenter.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.Android.Bindings.dll",
+		"Microsoft.AppCenter.Crashes.dll",
+		"Microsoft.AppCenter.dll",
+>>>>>>> GUI_Design
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",

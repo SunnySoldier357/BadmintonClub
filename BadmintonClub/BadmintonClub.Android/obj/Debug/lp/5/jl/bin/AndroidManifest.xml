@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2016 The Android Open Source Project
@@ -21,5 +22,17 @@
     <application>
         <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT" />
     </application>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.microsoft.appcenter.crashes"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="29"
+    android:versionName="1.2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="27" />
+>>>>>>> GUI_Design
 
 </manifest>

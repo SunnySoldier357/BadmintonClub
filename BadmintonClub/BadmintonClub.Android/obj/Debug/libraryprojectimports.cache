@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
+    <Jar>obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
+    <Jar>obj\Debug\lp\9\jl\arch-core-common.jar</Jar>
+    <Jar>obj\Debug\lp\10\jl\arch-lifecycle-common.jar</Jar>
+    <Jar>obj\Debug\lp\13\jl\support-annotations.jar</Jar>
     <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
     <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\10\jl\arch-lifecycle-common.jar</Jar>
     <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\11\jl\bin\classes.jar</Jar>

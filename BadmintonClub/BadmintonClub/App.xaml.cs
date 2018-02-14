@@ -18,8 +18,8 @@ namespace BadmintonClub
 		{
 			InitializeComponent();
 
-			//MainPage = new BlogPage();
-            MainPage = new SeasonPage();
+            //MainPage = new BlogPage();
+            MainPage = new HamburgerNavigationPage();
         }
 
 		protected override void OnStart ()

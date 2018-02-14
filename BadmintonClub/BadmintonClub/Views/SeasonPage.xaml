@@ -13,10 +13,13 @@
                                 <Label Text="{Binding FullName}" 
                                        WidthRequest="100" 
                                        VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center"/>
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"/>
                                 <Label Text="{Binding GamesPlayed}"
                                        WidthRequest="20" />
                                 <Label Text="{Binding GamesWon}"
+                                       WidthRequest="20" />
+                                <Label Text="{Binding PointsInCurrentSeason}"
                                        WidthRequest="20" />
                             </StackLayout>
                         </ViewCell>

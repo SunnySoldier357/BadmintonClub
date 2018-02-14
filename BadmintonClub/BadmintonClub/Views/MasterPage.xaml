@@ -15,7 +15,7 @@
                                           TargetType="{x:Type local:BlogPage}" />
                     
                     <local:MasterPageItem Title="Season" 
-                                          IconSource="hamburger.png" 
+                                          IconSource="contacts.png" 
                                           TargetType="{x:Type local:SeasonPage}" />
                 </x:Array>
             </ListView.ItemsSource>

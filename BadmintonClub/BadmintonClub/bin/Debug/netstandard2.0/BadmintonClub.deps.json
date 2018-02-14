@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "2bef4c5d99ef50d5aeb5a1fb1c47470d8ab88cdf"
+    "signature": "b27794e5b5b5f10aba0a2076d6ffd15280883abb"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,34 +9,11 @@
     ".NETStandard,Version=v2.0/": {
       "BadmintonClub/1.0.0": {
         "dependencies": {
-          "Microsoft.AppCenter.Analytics": "1.3.0",
-          "Microsoft.AppCenter.Crashes": "1.3.0",
           "NETStandard.Library": "2.0.1",
           "Xamarin.Forms": "2.5.0.122203"
         },
         "runtime": {
           "BadmintonClub.dll": {}
-        }
-      },
-      "Microsoft.AppCenter/1.3.0": {
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.dll": {}
-        }
-      },
-      "Microsoft.AppCenter.Analytics/1.3.0": {
-        "dependencies": {
-          "Microsoft.AppCenter": "1.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll": {}
-        }
-      },
-      "Microsoft.AppCenter.Crashes/1.3.0": {
-        "dependencies": {
-          "Microsoft.AppCenter": "1.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -59,27 +36,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Microsoft.AppCenter/1.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1P+Z5t8qOSeDiSf3XdFWr2J4WEzwoHeaaDGZjc0yXh84VfGbeTmMRR2xk3DFxF+e2aiF7bMW2SmXlwEW4O304w==",
-      "path": "microsoft.appcenter/1.3.0",
-      "hashPath": "microsoft.appcenter.1.3.0.nupkg.sha512"
-    },
-    "Microsoft.AppCenter.Analytics/1.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-y1HvdabfXrkC6audw4j82A65iMGH5hrwOs53vJ1n93LL1h6jLdrXnVJA40AeIqGDsJDXM5DGo0Eonaegm9mdUg==",
-      "path": "microsoft.appcenter.analytics/1.3.0",
-      "hashPath": "microsoft.appcenter.analytics.1.3.0.nupkg.sha512"
-    },
-    "Microsoft.AppCenter.Crashes/1.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FK+uymzRcePbr/Da7eisRCip6Ukcd+q+w9FiubE3COxjXThKNWCr0oR5dcSGbkKwa3kbCECTxmstorO2oXLYDw==",
-      "path": "microsoft.appcenter.crashes/1.3.0",
-      "hashPath": "microsoft.appcenter.crashes.1.3.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",

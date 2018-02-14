@@ -21,8 +21,6 @@ namespace BadmintonClub.Views
             InitializeComponent();
 
             MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
-            AddBlogPostButton.Text = "Test";
-            //AddBlogPostButton.IsEnabled = User.SignedInUser.IsAdmin();
         }
     }
 }

@@ -1,21 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BadmintonClub.Views.BlogPage">
+             x:Class="BadmintonClub.Views.BlogPage"
+             Title="Badminton Club Blog">
     
     <ContentPage.Content>
         <ListView x:Name="MyListView"
                   HasUnevenRows="True">
-            <ListView.Header>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Skyline Badminton Club Blog" 
-                           FontSize="Large"/>
-
-                    <Button x:Name="AddBlogPostButton"
-                            Text="Add" />
-                </StackLayout>
-            </ListView.Header>
-
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:BadmintonClub.Views"
+             x:Class="BadmintonClub.Views.MasterPage"
+             Padding="0,40,0,0"
+             Icon="hamburger.png"
+             Title="Panel">
+    <StackLayout>
+        <ListView x:Name="contentPane">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:MasterPageItem}">
+                    <local:MasterPageItem Title="Blog" 
+                                          IconSource="hamburger.png" 
+                                          TargetType="{x:Type local:BlogPage}" />
+                    
+                    <local:MasterPageItem Title="Season" 
+                                          IconSource="hamburger.png" 
+                                          TargetType="{x:Type local:SeasonPage}" />
+                </x:Array>
+            </ListView.ItemsSource>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding IconSource}" />
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Title}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

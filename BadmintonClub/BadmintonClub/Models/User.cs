@@ -21,6 +21,7 @@ namespace BadmintonClub.Models
         public int GamesWon { get; private set; }
         public int GamesLost { get; private set; }
         public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
+        public int PointsInCurrentSeason { get; set; }
         public List<Match> Matches { get; private set; }
 
         // Constructors

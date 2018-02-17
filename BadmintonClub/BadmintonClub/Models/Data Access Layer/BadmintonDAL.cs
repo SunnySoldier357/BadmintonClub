@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace BadmintonClub.Models.Data_Access_Layer
 {
@@ -35,6 +32,11 @@ namespace BadmintonClub.Models.Data_Access_Layer
         }
 
         // Public Methods
+        public void OpenConnection()
+        {
+            connection.Open();
+        }
+
         public void CloseConnection()
         {
             connection.Close();
@@ -50,32 +52,27 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return null;
         }
 
-        public void OpenConnection()
-        {
-            connection.Open();
-        }
-
         // Private Methods
         private DataTable getDT(Table t)
         {
             connection.Open();
             DataTable dt = new DataTable();
 
-            string table = "";
+            string table = "dbo.";
             switch (t)
             {
                 case Table.BlogPosts:
-                    table = "dbo.BlogPosts";
+                    table += "BlogPosts";
                     break;
                 case Table.Matches:
-                    table = "dbo.Matches";
+                    table += "Matches";
                     break;
                 case Table.Users:
-                    table = "dbo.Users";
+                    table += "Users";
                     break;
             }
-            SqlCommand command = new SqlCommand(string.Format("SELECT * FROM {0}", table), 
-                connection);
+
+            SqlCommand command = new SqlCommand(string.Format("SELECT * FROM {0}", table), connection);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             adapter.Fill(dt);
 
@@ -83,7 +80,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return dt;
         }
 
-        // Private Constructs
+        // Nested Enums
         private enum Table
         {
             BlogPosts,

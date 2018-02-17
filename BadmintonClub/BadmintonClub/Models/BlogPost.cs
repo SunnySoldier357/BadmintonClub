@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BadmintonClub.Models
 {
     public class BlogPost
     {
-        // Properties
+        // Pulbic Properties
         public string Title { get; set; }
 
         public DateTime DateTimePublished { get; set; }
@@ -17,6 +15,7 @@ namespace BadmintonClub.Models
         public string BodyOfPost { get; set; }
         public User User { get; set; }
 
+        // Constructors
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {
             Title = title;

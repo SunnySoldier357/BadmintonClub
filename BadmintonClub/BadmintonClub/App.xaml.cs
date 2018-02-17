@@ -9,7 +9,6 @@ namespace BadmintonClub
 		{
 			InitializeComponent();
 
-            //MainPage = new BlogPage();
             MainPage = new MainPage();
         }
 

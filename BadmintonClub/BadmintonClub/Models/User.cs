@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace BadmintonClub.Models
 {
@@ -15,16 +13,20 @@ namespace BadmintonClub.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+
         public string Title { get { return title; }
             set { title = value + (value.ToLower().Contains("of") ? " for" : " of") + " Badminton Club"; } }
+
+        // 0-Member   1-Admin/Board   2-Master
         public int ClearanceLevel { get { return clearanceLevel; }
-            set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } // 0-Member 1-Admin/Board 2-Master
+            set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } 
 
         public int GamesPlayed { get; private set; }
         public int GamesWon { get; private set; }
         public int GamesLost { get { return GamesPlayed - GamesWon; } }
         public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
         public int PointsInCurrentSeason { get; set; }
+
         public List<Match> Matches { get; private set; }
 
         // Constructors
@@ -67,11 +69,6 @@ namespace BadmintonClub.Models
         public bool IsAdmin()
         {
             return clearanceLevel >= 1;
-        }
-
-        public override string ToString()
-        {
-            return string.Format("[Name: {0}, Title: {1}, Clearance Level: {2}]", FullName, Title, ClearanceLevel);
         }
     }
 }

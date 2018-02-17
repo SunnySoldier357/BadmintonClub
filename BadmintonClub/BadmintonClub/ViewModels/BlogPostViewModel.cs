@@ -1,8 +1,10 @@
 ﻿using BadmintonClub.Models;
+using BadmintonClub.Models.Data_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -11,6 +13,7 @@ namespace BadmintonClub.ViewModels
 {
     public class BlogPostViewModel : INotifyPropertyChanged
     {
+        private BadmintonDAL bDAL;
         private ObservableCollection<BlogPost> blogPostCollection;
 
         public ObservableCollection<BlogPost> BlogPostCollection
@@ -31,7 +34,17 @@ namespace BadmintonClub.ViewModels
         public BlogPostViewModel()
         {
             blogPostCollection = new ObservableCollection<BlogPost>();
-            initialiseCollection();
+
+            bDAL = new BadmintonDAL();
+            foreach (DataRow row in bDAL.BlogPostsDT.Rows)
+            {
+                int userID = (int)row["userID"];
+                User user = bDAL.GetUser(userID);
+                DateTime datetime = (DateTime)row["datePublished"];
+                blogPostCollection.Add(new BlogPost(row["title"].ToString(), datetime, row["bodyOfPost"].ToString(), user));
+            }
+
+            //initialiseCollection();
         }
 
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

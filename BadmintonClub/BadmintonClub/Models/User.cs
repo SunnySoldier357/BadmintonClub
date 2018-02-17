@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace BadmintonClub.Models
@@ -8,24 +9,37 @@ namespace BadmintonClub.Models
     {
         // Private Properties
         private int clearanceLevel;
+        private string title;
 
         // Public Properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
-        public string Title { get; set; }
+        public string Title { get { return title; }
+            set { title = value + (value.ToLower().Contains("of") ? " for" : " of") + " Badminton Club"; } }
         public int ClearanceLevel { get { return clearanceLevel; }
             set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } // 0-Member 1-Admin/Board 2-Master
 
         public int GamesPlayed { get; private set; }
         public int GamesWon { get; private set; }
-        public int GamesLost { get; private set; }
+        public int GamesLost { get { return GamesPlayed - GamesWon; } }
         public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
         public int PointsInCurrentSeason { get; set; }
         public List<Match> Matches { get; private set; }
 
         // Constructors
         public User() : this("Default", "Default", "Default", 0) { }
+
+        public User(DataRow row)
+        {
+            FirstName = row["firstName"].ToString();
+            LastName = row["lastName"].ToString();
+            Title = row["title"].ToString();
+            ClearanceLevel = (int)row["clearanceLevel"];
+            GamesPlayed = (int)row["gamesPlayed"];
+            GamesWon = (int)row["gamesWon"];
+            PointsInCurrentSeason = (int)row["pointsInCurrentSeason"];
+        }
 
         public User(string firstName, string lastName, string title, int clearanceLevel)
         {
@@ -42,8 +56,6 @@ namespace BadmintonClub.Models
             GamesPlayed++;
             if (temp.MatchWinner.Equals(FullName))
                 GamesWon++;
-            else
-                GamesLost++;
         }
 
         // Getters

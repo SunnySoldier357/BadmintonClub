@@ -364,6 +364,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "System.Data.SqlClient": "4.4.2",
           "Xamarin.Forms": "2.5.0.122203"
         },
         "compile": {

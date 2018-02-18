@@ -5,5 +5,13 @@
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <Source>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</Source>
+    <SmallTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</SmallTileSource>
+    <MediumTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</MediumTileSource>
+    <WideTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</WideTileSource>
+    <LargeTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</LargeTileSource>
+    <AppIconSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</AppIconSource>
+    <SplashScreenSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</SplashScreenSource>
+    <PackageLogoSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.jpg</PackageLogoSource>
   </PropertyGroup>
 </Project>

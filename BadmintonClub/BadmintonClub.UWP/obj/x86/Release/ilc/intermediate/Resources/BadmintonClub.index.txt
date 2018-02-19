@@ -1,0 +1,2 @@
+BadmintonClub, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  BadmintonClub.App.xaml

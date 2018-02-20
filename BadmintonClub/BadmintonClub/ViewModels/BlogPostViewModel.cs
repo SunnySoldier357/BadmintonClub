@@ -12,7 +12,6 @@ namespace BadmintonClub.ViewModels
     public class BlogPostViewModel : INotifyPropertyChanged
     {
         // Private Properties
-        //private BadmintonDAL bDAL;
         private ObservableCollection<BlogPost> blogPostCollection;
 
         // Public Properties

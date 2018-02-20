@@ -6,12 +6,17 @@ namespace BadmintonClub.Models
     public class User
     {
         // Private Properties
+        [Newtonsoft.Json.JsonIgnore]
         private int clearanceLevel;
+
+        [Newtonsoft.Json.JsonIgnore]
         private string title;
 
         // Public Properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        [Newtonsoft.Json.JsonIgnore]
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
 
         public string Title { get { return title; }
@@ -23,8 +28,13 @@ namespace BadmintonClub.Models
 
         public int GamesPlayed { get; private set; }
         public int GamesWon { get; private set; }
+
+        [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon; } }
+
+        [Newtonsoft.Json.JsonIgnore]
         public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
+
         public int PointsInCurrentSeason { get; set; }
 
         public List<Match> Matches { get; private set; }

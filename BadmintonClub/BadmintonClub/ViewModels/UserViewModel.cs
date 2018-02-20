@@ -1,46 +1,96 @@
 ﻿using BadmintonClub.Models;
+using BadmintonClub.Models.Data_Access_Layer;
+using MvvmHelpers;
 using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BadmintonClub.ViewModels
 {
-    public class UserViewModel : INotifyPropertyChanged
+    public class UserViewModel : BaseViewModel
     {
         // Public Static Properties
         public static User SignedInUser = new User();
 
         // Private Properties
-        private ObservableCollection<User> userCollection;
+        private AzureService azureService;
+
+        private ICommand addUserCommand;
+        private ICommand loadUsersCommand;
 
         // Public Properties
-        public ObservableCollection<User> UserCollection {
-            get { return userCollection; }
-            set { userCollection = value; }
-        }
+        public ObservableRangeCollection<User> Users { get; } 
+            = new ObservableRangeCollection<User>();
 
-        // Events and Event Handlers
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ICommand AddUserCommand =>
+            addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
+        public ICommand LoadUsersCommand =>
+            loadUsersCommand ?? (loadUsersCommand = new Command(async () => await executeLoadUsersCommandAsync()));
 
         // Constructors
         public UserViewModel()
         {
-            userCollection = new ObservableCollection<User>();
-            initialiseCollection();
+            azureService = DependencyService.Get<AzureService>();
         }
 
-        // TO DO: NEED TO BE REPLACED TO CONNECT WITH THE DATABASE
-        private void initialiseCollection()
+        // Private Methods
+        public async Task executeAddUserCommandAsync()
         {
-            userCollection.Add(new User("Sandeep", "Singh Sidhu", "Co-President", 2));
-            userCollection.Add(new User("Marques", "Wong", "Co-President", 2));
-            userCollection.Add(new User("Archit", "Guniligari", "Vice President", 1));
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                var user = await azureService.AddUser();
+                Users.Add(user);
+                SortUsers();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("OH NO!" + ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        public async Task executeLoadUsersCommandAsync()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+                var users = await azureService.GetUsers();
+                Users.ReplaceRange(users.OrderByDescending(user => user.PointsInCurrentSeason)
+                    .ThenBy(User => User.FirstName));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("OH NO!" + ex);
+
+                // await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync users, you may be offline", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private void SortUsers()
+        {
+            var users = from user in Users
+                        orderby user.PointsInCurrentSeason descending, user.FirstName
+                        select user;
+
+            Users.ReplaceRange(users);
         }
     }
 }

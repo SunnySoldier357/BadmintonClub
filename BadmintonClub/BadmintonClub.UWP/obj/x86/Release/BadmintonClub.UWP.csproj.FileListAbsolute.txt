@@ -557,8 +557,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Console.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Data.Common.ildll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Data.Common.ilpdb
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Data.SqlClient.ildll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Data.SqlClient.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Diagnostics.Debug.ildll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Diagnostics.Debug.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Diagnostics.DiagnosticSource.ildll
@@ -571,8 +569,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Drawing.Primitives.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.FileSystem.ildll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.FileSystem.ilpdb
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.Pipes.ildll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.IO.Pipes.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Net.Http.ildll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Net.Http.ilpdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\ILTransformed\System.Net.NameResolution.ildll
@@ -683,17 +679,12 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Console.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Data.Common.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Data.Common.index.txt
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Data.SqlClient.0.rsrc
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Data.SqlClient.1.rsrc
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Data.SqlClient.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Diagnostics.TraceSource.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Diagnostics.TraceSource.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Drawing.Primitives.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Drawing.Primitives.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.IO.FileSystem.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.IO.FileSystem.index.txt
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.IO.Pipes.0.rsrc
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.IO.Pipes.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Net.Http.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Net.Http.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Net.NameResolution.0.rsrc
@@ -753,9 +744,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Security.Cryptography.X509Certificates.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Security.Principal.Windows.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Security.Principal.Windows.index.txt
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Text.Encoding.CodePages.0.rsrc
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Text.Encoding.CodePages.1.rsrc
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Text.Encoding.CodePages.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Threading.0.rsrc
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Threading.index.txt
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x86\Release\ilc\intermediate\Resources\System.Threading.Overlapped.0.rsrc

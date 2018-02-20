@@ -21,8 +21,6 @@ using global::Windows.Foundation.Collections;
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Security.Cryptography.Algorithms")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Net.NameResolution")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Net.Sockets")]
-[assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.IO.Pipes")]
-[assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Data.SqlClient")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Security.Principal.Windows")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Net.Security")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Net.Primitives")]

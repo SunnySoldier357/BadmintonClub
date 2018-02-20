@@ -1,18 +1,18 @@
 ﻿using BadmintonClub.Models;
-using BadmintonClub.Models.Data_Access_Layer;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace BadmintonClub.ViewModels
 {
     public class BlogPostViewModel : INotifyPropertyChanged
     {
         // Private Properties
-        private BadmintonDAL bDAL;
+        //private BadmintonDAL bDAL;
         private ObservableCollection<BlogPost> blogPostCollection;
 
         // Public Properties
@@ -42,14 +42,16 @@ namespace BadmintonClub.ViewModels
         {
             blogPostCollection = new ObservableCollection<BlogPost>();
 
-            bDAL = new BadmintonDAL();
-            foreach (DataRow row in bDAL.BlogPostsDT.Rows)
-            {
-                int userID = (int)row["userID"];
-                User user = bDAL.GetUser(userID);
-                DateTime datetime = (DateTime)row["datePublished"];
-                blogPostCollection.Add(new BlogPost(row["title"].ToString(), datetime, row["bodyOfPost"].ToString(), user));
-            }
+            StringBuilder text = new StringBuilder();
+            for (int i = 0; i < 100; i++)
+                text.Append("This is a test blog.");
+
+            User temp = new User("Sandeep", "Singh Sidhu", "Co-President", 2);
+            AddBlogPost(new BlogPost("Update 10/2", new DateTime(2018, 2, 10, 7, 0, 0), text.ToString(), temp));
+            AddBlogPost(new BlogPost("Update 25/1", new DateTime(2018, 1, 25, 7, 18, 0), text.ToString(), temp));
+            AddBlogPost(new BlogPost("Update 20/2", new DateTime(2018, 2, 20, 13, 0, 0), text.ToString(), temp));
+            AddBlogPost(new BlogPost("Update 15/2", new DateTime(2018, 2, 15, 7, 0, 0), text.ToString(), temp));
+            AddBlogPost(new BlogPost("Update 20/1", new DateTime(2018, 1, 20, 7, 0, 0), text.ToString(), temp));
         }
 
         // Public Methods

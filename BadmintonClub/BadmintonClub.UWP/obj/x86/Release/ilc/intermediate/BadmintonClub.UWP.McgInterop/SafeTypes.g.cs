@@ -240,79 +240,12 @@ namespace _
 		public int InterfaceIndex;
 	}
 
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+Kernel32+CREATEFILE2_EXTENDED_PARAMETERS,System.IO.Pipes, Version=4.1.1.0, Culture=neutral, PublicKeyTok" +
-		"en=b03f5f7f11d50a3a")]
-	public unsafe partial struct Interop_Kernel32_CREATEFILE2_EXTENDED_PARAMETERS__System_IO_Pipes
-	{
-		public uint dwSize;
-		public uint dwFileAttributes;
-		public uint dwFileFlags;
-		public uint dwSecurityQosFlags;
-		public global::System.IntPtr lpSecurityAttributes;
-		public global::System.IntPtr hTemplateFile;
-	}
-
-	[global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential, Pack=1)]
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+CredHandle,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50" +
-		"a3a")]
-	public unsafe partial struct Interop_SspiCli_CredHandle__System_Data_SqlClient
-	{
-		public global::System.IntPtr dwLower;
-		public global::System.IntPtr dwUpper;
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SecBufferDesc,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11" +
-		"d50a3a")]
-	public unsafe partial struct Interop_SspiCli_SecBufferDesc__System_Data_SqlClient
-	{
-		public int ulVersion;
-		public int cBuffers;
-		public void* pBuffers;
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+LUID,System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
 		"a")]
 	public unsafe partial struct Interop_LUID__System_Security_Principal_Windows
 	{
 		public uint LowPart;
 		public int HighPart;
-	}
-
-	[global::System.Flags]
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+ContextFlags,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d" +
-		"50a3a")]
-	public enum Interop_SspiCli_ContextFlags__System_Data_SqlClient
-	{
-		Zero = 0,
-		Delegate = 1,
-		MutualAuth = 2,
-		ReplayDetect = 4,
-		SequenceDetect = 8,
-		Confidentiality = 16,
-		UseSessionKey = 32,
-		InitUseSuppliedCreds = 128,
-		AllocateMemory = 256,
-		Connection = 2048,
-		InitExtendedError = 16384,
-		AcceptExtendedError = 32768,
-		InitStream = 32768,
-		AcceptStream = 65536,
-		InitIntegrity = 65536,
-		AcceptIntegrity = 131072,
-		InitIdentify = 131072,
-		InitManualCredValidation = 524288,
-		AcceptIdentify = 524288,
-		ProxyBindings = 67108864,
-		AllowMissingBindings = 268435456,
-		UnverifiedTargetName = 536870912,
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+Endianness,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50" +
-		"a3a")]
-	public enum Interop_SspiCli_Endianness__System_Data_SqlClient
-	{
-		SECURITY_NETWORK_DREP = 0,
-		SECURITY_NATIVE_DREP = 16,
 	}
 
 	[global::System.Flags]
@@ -366,24 +299,6 @@ namespace _
 		public void* pvExtraPolicyStatus;
 	}
 
-	[global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential, Pack=1)]
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+CredHandle,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-		"a")]
-	public unsafe partial struct Interop_SspiCli_CredHandle__System_Net_Security
-	{
-		public global::System.IntPtr dwLower;
-		public global::System.IntPtr dwUpper;
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SecBufferDesc,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d5" +
-		"0a3a")]
-	public unsafe partial struct Interop_SspiCli_SecBufferDesc__System_Net_Security
-	{
-		public int ulVersion;
-		public int cBuffers;
-		public void* pBuffers;
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+UNICODE_STRING,System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5" +
 		"f7f11d50a3a")]
 	public unsafe partial struct Interop_UNICODE_STRING__System_Security_Principal_Windows
@@ -405,39 +320,22 @@ namespace _
 		public global::System.IntPtr SecurityQualityOfService;
 	}
 
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SCHANNEL_CRED,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d5" +
-		"0a3a")]
-	public unsafe partial struct Interop_SspiCli_SCHANNEL_CRED__System_Net_Security
+	[global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential, Pack=1)]
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+CredHandle,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+		"a")]
+	public unsafe partial struct Interop_SspiCli_CredHandle__System_Net_Security
 	{
-		public int dwVersion;
-		public int cCreds;
-		public global::System.IntPtr paCred;
-		public global::System.IntPtr hRootStore;
-		public int cMappers;
-		public global::System.IntPtr aphMappers;
-		public int cSupportedAlgs;
-		public global::System.IntPtr palgSupportedAlgs;
-		public int grbitEnabledProtocols;
-		public int dwMinimumCipherStrength;
-		public int dwMaximumCipherStrength;
-		public int dwSessionLifespan;
-		public global::_.Interop_SspiCli_SCHANNEL_CRED_Flags__System_Net_Security dwFlags;
-		public int reserved;
+		public global::System.IntPtr dwLower;
+		public global::System.IntPtr dwUpper;
 	}
 
-	[global::System.Flags]
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SCHANNEL_CRED+Flags,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f" +
-		"7f11d50a3a")]
-	public enum Interop_SspiCli_SCHANNEL_CRED_Flags__System_Net_Security
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SecBufferDesc,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d5" +
+		"0a3a")]
+	public unsafe partial struct Interop_SspiCli_SecBufferDesc__System_Net_Security
 	{
-		Zero = 0,
-		SCH_CRED_NO_SYSTEM_MAPPER = 2,
-		SCH_CRED_NO_SERVERNAME_CHECK = 4,
-		SCH_CRED_MANUAL_CRED_VALIDATION = 8,
-		SCH_CRED_NO_DEFAULT_CREDS = 16,
-		SCH_CRED_AUTO_CRED_VALIDATION = 32,
-		SCH_SEND_AUX_RECORD = 2097152,
-		SCH_USE_STRONG_CRYPTO = 4194304,
+		public int ulVersion;
+		public int cBuffers;
+		public void* pBuffers;
 	}
 
 	[global::System.Flags]
@@ -498,6 +396,41 @@ namespace _
 		SECPKG_ATTR_ISSUER_LIST_EX = 89,
 		SECPKG_ATTR_CONNECTION_INFO = 90,
 		SECPKG_ATTR_UI_INFO = 104,
+	}
+
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SCHANNEL_CRED,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d5" +
+		"0a3a")]
+	public unsafe partial struct Interop_SspiCli_SCHANNEL_CRED__System_Net_Security
+	{
+		public int dwVersion;
+		public int cCreds;
+		public global::System.IntPtr paCred;
+		public global::System.IntPtr hRootStore;
+		public int cMappers;
+		public global::System.IntPtr aphMappers;
+		public int cSupportedAlgs;
+		public global::System.IntPtr palgSupportedAlgs;
+		public int grbitEnabledProtocols;
+		public int dwMinimumCipherStrength;
+		public int dwMaximumCipherStrength;
+		public int dwSessionLifespan;
+		public global::_.Interop_SspiCli_SCHANNEL_CRED_Flags__System_Net_Security dwFlags;
+		public int reserved;
+	}
+
+	[global::System.Flags]
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SCHANNEL_CRED+Flags,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f" +
+		"7f11d50a3a")]
+	public enum Interop_SspiCli_SCHANNEL_CRED_Flags__System_Net_Security
+	{
+		Zero = 0,
+		SCH_CRED_NO_SYSTEM_MAPPER = 2,
+		SCH_CRED_NO_SERVERNAME_CHECK = 4,
+		SCH_CRED_MANUAL_CRED_VALIDATION = 8,
+		SCH_CRED_NO_DEFAULT_CREDS = 16,
+		SCH_CRED_AUTO_CRED_VALIDATION = 32,
+		SCH_SEND_AUX_RECORD = 2097152,
+		SCH_USE_STRONG_CRYPTO = 4194304,
 	}
 
 	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+Crypt32+CRYPT_OID_INFO,System.Security.Cryptography.Encoding, Version=4.1.1.0, Culture=neutral, PublicKe" +
@@ -613,23 +546,6 @@ namespace _
 		public global::System.IntPtr Buffer;
 	}
 
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SChannel+SCHANNEL_ALERT_TOKEN,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f" +
-		"5f7f11d50a3a")]
-	public unsafe partial struct Interop_SChannel_SCHANNEL_ALERT_TOKEN__System_Net_Security
-	{
-		public uint dwTokenType;
-		public uint dwAlertType;
-		public uint dwAlertNumber;
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SecPkgContext_IssuerListInfoEx,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyT" +
-		"oken=b03f5f7f11d50a3a")]
-	public unsafe partial struct Interop_SspiCli_SecPkgContext_IssuerListInfoEx__System_Net_Security
-	{
-		public global::System.Runtime.InteropServices.SafeHandle aIssuers;
-		public uint cIssuers;
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SID_AND_ATTRIBUTES,System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b" +
 		"03f5f7f11d50a3a")]
 	public unsafe partial struct Interop_SID_AND_ATTRIBUTES__System_Security_Principal_Windows
@@ -651,6 +567,15 @@ namespace _
 	{
 		public uint GroupCount;
 		public global::_.Interop_SID_AND_ATTRIBUTES__System_Security_Principal_Windows Groups;
+	}
+
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SChannel+SCHANNEL_ALERT_TOKEN,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f" +
+		"5f7f11d50a3a")]
+	public unsafe partial struct Interop_SChannel_SCHANNEL_ALERT_TOKEN__System_Net_Security
+	{
+		public uint dwTokenType;
+		public uint dwAlertType;
+		public uint dwAlertNumber;
 	}
 
 	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+LSA_TRANSLATED_NAME,System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=" +
@@ -686,6 +611,14 @@ namespace _
 		public global::System.IntPtr Sid;
 		public int DomainIndex;
 		public uint Flags;
+	}
+
+	[global::System.Runtime.InteropServices.McgRedirectedType("Interop+SspiCli+SecPkgContext_IssuerListInfoEx,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyT" +
+		"oken=b03f5f7f11d50a3a")]
+	public unsafe partial struct Interop_SspiCli_SecPkgContext_IssuerListInfoEx__System_Net_Security
+	{
+		public global::System.Runtime.InteropServices.SafeHandle aIssuers;
+		public uint cIssuers;
 	}
 }
 
@@ -1691,29 +1624,6 @@ namespace Microsoft.Win32.SafeHandles
 		}
 	}
 
-	[global::System.Runtime.InteropServices.McgRedirectedType("Microsoft.Win32.SafeHandles.SafePipeHandle,System.IO.Pipes, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03" +
-		"f5f7f11d50a3a")]
-	public unsafe class SafePipeHandle__System_IO_Pipes : global::System.Runtime.InteropServices.SafeHandle
-	{
-		public SafePipeHandle__System_IO_Pipes() : 
-				base(default(global::System.IntPtr), false)
-		{
-		}
-
-		public override bool IsInvalid
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		protected override bool ReleaseHandle()
-		{
-			return false;
-		}
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("Microsoft.Win32.SafeHandles.SafeLsaReturnBufferHandle,System.Security.Principal.Windows, Version=4.1.1.0, Cultur" +
 		"e=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
 	public unsafe class SafeLsaReturnBufferHandle__System_Security_Principal_Windows : global::System.Runtime.InteropServices.SafeHandle
@@ -1807,44 +1717,8 @@ namespace Microsoft.Win32.SafeHandles
 	}
 }
 
-namespace System.Data
-{
-	// Unmanaged Function Pointer - Calling Convention CDecl
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.Data.LocalDBAPI+LocalDBFormatMessageDelegate,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, Pub" +
-		"licKeyToken=b03f5f7f11d50a3a")]
-	public unsafe delegate int LocalDBAPI_LocalDBFormatMessageDelegate__System_Data_SqlClient(
-				int hrLocalDB, 
-				uint dwFlags, 
-				uint dwLanguageId, 
-				global::System.Text.StringBuilder buffer, 
-				ref uint buflen);
-}
-
 namespace System.Net.Security
 {
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.Security.SafeFreeContextBuffer_SECURITY,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, Publ" +
-		"icKeyToken=b03f5f7f11d50a3a")]
-	public unsafe class SafeFreeContextBuffer_SECURITY__System_Data_SqlClient : global::System.Runtime.InteropServices.SafeHandle
-	{
-		public SafeFreeContextBuffer_SECURITY__System_Data_SqlClient() : 
-				base(default(global::System.IntPtr), false)
-		{
-		}
-
-		public override bool IsInvalid
-		{
-			get
-			{
-				return false;
-			}
-		}
-
-		protected override bool ReleaseHandle()
-		{
-			return false;
-		}
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.Security.SafeFreeContextBuffer_SECURITY,System.Net.Security, Version=4.1.1.0, Culture=neutral, Public" +
 		"KeyToken=b03f5f7f11d50a3a")]
 	public unsafe class SafeFreeContextBuffer_SECURITY__System_Net_Security : global::System.Runtime.InteropServices.SafeHandle
@@ -2077,32 +1951,6 @@ namespace System.Security.Cryptography
 	}
 }
 
-namespace System_IO
-{
-	[global::System.Flags]
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.IO.FileShare,System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-	public enum FileShare__System_Private_CoreLib
-	{
-		None = 0,
-		Read = 1,
-		Write = 2,
-		ReadWrite = 3,
-		Delete = 4,
-		Inheritable = 16,
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.IO.FileMode,System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-	public enum FileMode__System_Private_CoreLib
-	{
-		CreateNew = 1,
-		Create = 2,
-		Open = 3,
-		OpenOrCreate = 4,
-		Truncate = 5,
-		Append = 6,
-	}
-}
-
 namespace System_Net
 {
 	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecPkgContext_ConnectionInfo,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b0" +
@@ -2118,18 +1966,6 @@ namespace System_Net
 		public int KeyExchKeySize;
 	}
 
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecurityPackageInfo,System.Data.SqlClient, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f1" +
-		"1d50a3a")]
-	public unsafe partial struct SecurityPackageInfo__System_Data_SqlClient
-	{
-		public int Capabilities;
-		public short Version;
-		public short RPCID;
-		public int MaxToken;
-		public global::System.IntPtr Name;
-		public global::System.IntPtr Comment;
-	}
-
 	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecPkgContext_StreamSizes,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5" +
 		"f7f11d50a3a")]
 	public unsafe partial class SecPkgContext_StreamSizes__System_Net_Security
@@ -2139,6 +1975,18 @@ namespace System_Net
 		public int cbMaximumMessage;
 		public int cBuffers;
 		public int cbBlockSize;
+	}
+
+	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecurityPackageInfo,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d" +
+		"50a3a")]
+	public unsafe partial struct SecurityPackageInfo__System_Net_Security
+	{
+		public int Capabilities;
+		public short Version;
+		public short RPCID;
+		public int MaxToken;
+		public global::System.IntPtr Name;
+		public global::System.IntPtr Comment;
 	}
 
 	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecPkgContext_Sizes,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d" +
@@ -2157,18 +2005,6 @@ namespace System_Net
 	{
 		public global::System.IntPtr PackageInfo;
 		public uint NegotiationState;
-	}
-
-	[global::System.Runtime.InteropServices.McgRedirectedType("System.Net.SecurityPackageInfo,System.Net.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d" +
-		"50a3a")]
-	public unsafe partial struct SecurityPackageInfo__System_Net_Security
-	{
-		public int Capabilities;
-		public short Version;
-		public short RPCID;
-		public int MaxToken;
-		public global::System.IntPtr Name;
-		public global::System.IntPtr Comment;
 	}
 }
 

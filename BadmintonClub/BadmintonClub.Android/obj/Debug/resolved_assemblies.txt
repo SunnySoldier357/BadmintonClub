@@ -55,10 +55,11 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Xml.XPath.XDocument.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Data.SqlClient.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.ComponentModel.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Reflection.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Threading.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Collections.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Reflection.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Diagnostics.Debug.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Linq.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
@@ -67,7 +68,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Globalization.dll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.IO.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll

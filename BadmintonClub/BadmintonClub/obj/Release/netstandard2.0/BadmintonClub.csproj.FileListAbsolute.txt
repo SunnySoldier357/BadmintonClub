@@ -11,3 +11,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Release\netstandard2.0\BadmintonClub.AssemblyInfo.cs
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Release\netstandard2.0\BadmintonClub.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Release\netstandard2.0\BadmintonClub.pdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Release\netstandard2.0\BadmintonClub.csprojResolveAssemblyReference.cache
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Release\netstandard2.0\BadmintonClub.dll.mdb
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Release\netstandard2.0\BadmintonClub.dll.mdb

@@ -5,7 +5,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="BadmintonClub.Android" android:icon="@drawable/badmintonclublogo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+  <application android:label="Badminton Club" android:icon="@drawable/badmintonclublogo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="BadmintonClub" android:theme="@style/MainTheme" android:name="md53fa26719889a72bc0266de120a3d8fe4.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

@@ -6,7 +6,8 @@
     
     <ContentPage.Content>
         <ListView x:Name="MyListView"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding BlogPosts}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

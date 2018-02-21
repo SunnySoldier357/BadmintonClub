@@ -14,7 +14,7 @@ namespace BadmintonClub.Views
         {
             InitializeComponent();
 
-            SeasonTableListView.ItemsSource = userViewModel.UserCollection;
+            SeasonTableListView.ItemsSource = userViewModel.Users;
         }
     }
 }

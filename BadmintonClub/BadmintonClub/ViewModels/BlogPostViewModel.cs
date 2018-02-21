@@ -1,63 +1,104 @@
 ﻿using BadmintonClub.Models;
+using BadmintonClub.Models.Data_Access_Layer;
+using MvvmHelpers;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BadmintonClub.ViewModels
 {
-    public class BlogPostViewModel : INotifyPropertyChanged
+    public class BlogPostViewModel : BaseViewModel
     {
         // Private Properties
-        private ObservableCollection<BlogPost> blogPostCollection;
+        private AzureService azureService;
+
+        private ICommand addBlogPostCommand;
+        private ICommand loadBlogPostsCommand;
 
         // Public Properties
-        public ObservableCollection<BlogPost> BlogPostCollection
-        {
-            get
-            {
-                blogPostCollection = new ObservableCollection<BlogPost>(from g in blogPostCollection
-                                                                        orderby g.DateTimePublished descending
-                                                                        select g);
-                NotifyPropertyChanged();
-                return blogPostCollection;
-            }
-            set { blogPostCollection = value; }
-        }
+        public ObservableRangeCollection<BlogPost> BlogPosts { get; }
+        = new ObservableRangeCollection<BlogPost>();
 
-        // Events and Event Handlers
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ICommand AddBlogPostCommmand =>
+            addBlogPostCommand ?? (addBlogPostCommand = new Command(async () => await executeAddBlogPostCommandAsync()));
+        public ICommand LoadBlogPostsCommand =>
+            loadBlogPostsCommand ?? (loadBlogPostsCommand = new Command(async () => await executeLoadBlogPostsCommandAsync()));
 
         // Constructors
         public BlogPostViewModel()
         {
-            blogPostCollection = new ObservableCollection<BlogPost>();
-
-            StringBuilder text = new StringBuilder();
-            for (int i = 0; i < 100; i++)
-                text.Append("This is a test blog.");
-
-            User temp = new User("Sandeep", "Singh Sidhu", "Co-President", 2);
-            AddBlogPost(new BlogPost("Update 10/2", new DateTime(2018, 2, 10, 7, 0, 0), text.ToString(), temp));
-            AddBlogPost(new BlogPost("Update 25/1", new DateTime(2018, 1, 25, 7, 18, 0), text.ToString(), temp));
-            AddBlogPost(new BlogPost("Update 20/2", new DateTime(2018, 2, 20, 13, 0, 0), text.ToString(), temp));
-            AddBlogPost(new BlogPost("Update 15/2", new DateTime(2018, 2, 15, 7, 0, 0), text.ToString(), temp));
-            AddBlogPost(new BlogPost("Update 20/1", new DateTime(2018, 1, 20, 7, 0, 0), text.ToString(), temp));
+            azureService = DependencyService.Get<AzureService>();
         }
 
-        // Public Methods
-        public void AddBlogPost(BlogPost bp)
+        // Private Methods
+        private async Task executeAddBlogPostCommandAsync()
         {
-            blogPostCollection.Add(bp);
-            NotifyPropertyChanged();
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < 100; i++)
+                    builder.Append(string.Format("This is a test blog {0}.", i));
+
+                var blogpost = await azureService.AddBlogPost("Default Title", builder.ToString());
+                BlogPosts.Add(blogpost);
+                sortBlogPosts();
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("OH NO!" + ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private async Task executeLoadBlogPostsCommandAsync()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+                var blogposts = await azureService.GetBlogPosts();
+                BlogPosts.ReplaceRange(blogposts);
+
+                sortBlogPosts();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("OH NO!" + ex);
+
+                // await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync blog posts, you may be offline", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        private void sortBlogPosts()
+        {
+            var blogposts = from bp in BlogPosts
+                            orderby bp.DateTimePublished descending
+                            select bp;
+
+            BlogPosts.ReplaceRange(blogposts);
         }
     }
 }

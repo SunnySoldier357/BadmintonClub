@@ -46,9 +46,9 @@ namespace BadmintonClub.ViewModels
             {
                 IsBusy = true;
 
-                var user = await azureService.AddUser();
+                var user = await azureService.AddUser("Default", "Name");
                 Users.Add(user);
-                SortUsers();
+                sortUsers();
             }
             catch (Exception ex)
             {
@@ -69,8 +69,8 @@ namespace BadmintonClub.ViewModels
             {
                 IsBusy = true;
                 var users = await azureService.GetUsers();
-                Users.ReplaceRange(users.OrderByDescending(user => user.PointsInCurrentSeason)
-                    .ThenBy(User => User.FirstName));
+                Users.ReplaceRange(users);
+                sortUsers();
             }
             catch (Exception ex)
             {
@@ -84,7 +84,7 @@ namespace BadmintonClub.ViewModels
             }
         }
 
-        private void SortUsers()
+        private void sortUsers()
         {
             var users = from user in Users
                         orderby user.PointsInCurrentSeason descending, user.FirstName

@@ -1,5 +1,5 @@
 ﻿using BadmintonClub.ViewModels;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,14 +8,19 @@ namespace BadmintonClub.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BlogPage : ContentPage
 	{
-        static BlogPostViewModel blogPostViewmodel;
+        private BlogPostViewModel blogPostViewmodel;
 
         public BlogPage()
 		{
             InitializeComponent();
+            BindingContext = blogPostViewmodel = new BlogPostViewModel();
+        }
 
-            blogPostViewmodel = new BlogPostViewModel();
-            MyListView.ItemsSource = blogPostViewmodel.BlogPostCollection;
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            blogPostViewmodel.LoadBlogPostsCommand.Execute(null);
         }
     }
 }

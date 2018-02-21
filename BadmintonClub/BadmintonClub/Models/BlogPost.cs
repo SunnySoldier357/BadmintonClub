@@ -4,15 +4,19 @@ namespace BadmintonClub.Models
 {
     public class BlogPost
     {
-        // Pulbic Properties
+        // Public Properties
         public string Title { get; set; }
 
         public DateTime DateTimePublished { get; set; }
+        
+        [Newtonsoft.Json.JsonIgnore]
         public string DateTimePublishedString {
             get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 
                 DateTimePublished.ToShortTimeString().ToLower()); } } 
 
         public string BodyOfPost { get; set; }
+        public int UserID { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
         public User User { get; set; }
 
         // Constructors

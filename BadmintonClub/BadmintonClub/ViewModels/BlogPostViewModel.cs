@@ -96,11 +96,6 @@ namespace BadmintonClub.ViewModels
             var sorted = from bp in BlogPosts
                          orderby bp.DateTimePublished descending
                          select bp;
-            Debug.WriteLine("Sortblogposts()");
-            foreach (var item in sorted)
-            {
-                Debug.WriteLine(item.ToString());
-            }
 
             if (sorted.Count() == 1)
                 BlogPosts.Replace(sorted.First());

@@ -14,9 +14,24 @@ namespace BadmintonClub.Views
 		{
             InitializeComponent();
             BindingContext = blogPostViewmodel = new BlogPostViewModel();
+
+            BlogPostListView.ItemTapped += (sender, e) =>
+            {
+                if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
+                    BlogPostListView.SelectedItem = null;
+            };
+
+            if (Device.OS != TargetPlatform.iOS && Device.OS != TargetPlatform.Android)
+            {
+                ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = "Refresh",
+                    Command = blogPostViewmodel.LoadBlogPostsCommand
+                });
+            }
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 

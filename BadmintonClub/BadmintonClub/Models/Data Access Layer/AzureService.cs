@@ -1,4 +1,5 @@
-﻿using BadmintonClub.ViewModels;
+﻿using BadmintonClub.Models.Data_Access_Layer;
+using BadmintonClub.ViewModels;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -6,9 +7,13 @@ using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(AzureService))]
 namespace BadmintonClub.Models.Data_Access_Layer
 {
     public class AzureService
@@ -17,27 +22,28 @@ namespace BadmintonClub.Models.Data_Access_Layer
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<User> userTable;
 
-        private MobileServiceClient client = null;
+        public MobileServiceClient Client = null;
 
         // Public Methods
         public async Task Initialise()
         {
-            if (client?.SyncContext?.IsInitialized ?? false)
+            if (Client?.SyncContext?.IsInitialized ?? false)
                 return;
 
             string appUrl = "https://badmintonclub.azurewebsites.net";
-            client = new MobileServiceClient(appUrl);
+            Client = new MobileServiceClient(appUrl);
 
-            string fileName = "badmintonclubrecords.db";
-            var store = new MobileServiceSQLiteStore(fileName);
-            
+            string path = "badmintonclubrecords.db";
+            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
+            var store = new MobileServiceSQLiteStore(path);
+
             store.DefineTable<BlogPost>();
             store.DefineTable<User>();
 
-            await client.SyncContext.InitializeAsync(store);
+            await Client.SyncContext.InitializeAsync(store);
 
-            blogPostTable = client.GetSyncTable<BlogPost>();
-            userTable = client.GetSyncTable<User>();
+            blogPostTable = Client.GetSyncTable<BlogPost>();
+            userTable = Client.GetSyncTable<User>();
         }
 
         public async Task SyncBlogPost()
@@ -51,7 +57,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     return;
 
                 // Device is online
-                await client.SyncContext.PushAsync();
+                await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
             }
@@ -98,6 +104,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             var data = await blogPostTable
                 .OrderByDescending(bp => bp.DateTimePublished)
                 .ToEnumerableAsync();
+
             return data;
         }
 

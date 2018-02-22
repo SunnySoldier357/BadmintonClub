@@ -13,6 +13,8 @@ namespace BadmintonClub.Models
         private string title;
 
         // Public Properties
+        public string Id { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -37,7 +39,7 @@ namespace BadmintonClub.Models
 
         public int PointsInCurrentSeason { get; set; }
 
-        public List<Match> Matches { get; private set; }
+        public ICollection<Match> Matches { get; private set; }
 
         // Constructors
         public User() : this("Default", "Default", "Default", 0) { }

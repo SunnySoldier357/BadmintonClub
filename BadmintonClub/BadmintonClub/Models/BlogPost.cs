@@ -5,6 +5,8 @@ namespace BadmintonClub.Models
     public class BlogPost
     {
         // Public Properties
+        public string Id { get; set; }
+
         public string Title { get; set; }
 
         public DateTime DateTimePublished { get; set; }
@@ -20,12 +22,20 @@ namespace BadmintonClub.Models
         public User User { get; set; }
 
         // Constructors
+        public BlogPost() : this("Defalut", DateTime.Now, "NA", new User()) { }
+
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {
             Title = title;
             DateTimePublished = dateTimePublished;
             BodyOfPost = bodyOfPost;
             User = user;
+        }
+
+        // DEBUG PURPOSES
+        public override string ToString()
+        {
+            return string.Format("Id : {0} ; Title : {1}", Id, Title);
         }
     }
 }

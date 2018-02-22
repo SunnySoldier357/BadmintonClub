@@ -55,7 +55,6 @@ namespace BadmintonClub.ViewModels
                 var blogpost = await azureService.AddBlogPost("Default Title", builder.ToString());
                 BlogPosts.Add(blogpost);
                 sortBlogPosts();
-                
             }
             catch (Exception ex)
             {
@@ -94,11 +93,19 @@ namespace BadmintonClub.ViewModels
 
         private void sortBlogPosts()
         {
-            var blogposts = from bp in BlogPosts
-                            orderby bp.DateTimePublished descending
-                            select bp;
+            var sorted = from bp in BlogPosts
+                         orderby bp.DateTimePublished descending
+                         select bp;
+            Debug.WriteLine("Sortblogposts()");
+            foreach (var item in sorted)
+            {
+                Debug.WriteLine(item.ToString());
+            }
 
-            BlogPosts.ReplaceRange(blogposts);
+            if (sorted.Count() == 1)
+                BlogPosts.Replace(sorted.First());
+            else
+                BlogPosts.ReplaceRange(sorted);
         }
     }
 }

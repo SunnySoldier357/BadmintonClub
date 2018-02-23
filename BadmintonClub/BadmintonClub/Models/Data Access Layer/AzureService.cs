@@ -45,7 +45,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             userTable = Client.GetSyncTable<User>();
         }
 
-        public async Task SyncBlogPost()
+        public async Task SyncAllDataTables()
         {
             await Initialise();
 
@@ -55,7 +55,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
-                // Device is online
+                // Device is online, continue...
                 await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
@@ -66,11 +66,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
             }
         }
 
-        public async Task SyncUser()
-        {
-
-        }
-
         public async Task<BlogPost> AddBlogPost(string title, string bodyOfPost)
         {
             await Initialise();
@@ -78,7 +73,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             BlogPost blogpost = new BlogPost(title, DateTime.Now, bodyOfPost, UserViewModel.SignedInUser);
 
             await blogPostTable.InsertAsync(blogpost);
-            await SyncBlogPost();
+            await SyncAllDataTables();
 
             return blogpost;
         }
@@ -90,7 +85,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             User user = new User(firstName, lastName, "Member", 0);
 
             await userTable.InsertAsync(user);
-            await SyncUser();
+            await SyncAllDataTables();
 
             return user;
         }
@@ -98,7 +93,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         public async Task<IEnumerable<BlogPost>> GetBlogPosts()
         {
             await Initialise();
-            await SyncBlogPost();
+            await SyncAllDataTables();
 
             var data = await blogPostTable
                 .OrderByDescending(bp => bp.DateTimePublished)
@@ -110,7 +105,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         public async Task<IEnumerable<User>> GetUsers()
         {
             await Initialise();
-            await SyncUser();
+            await SyncAllDataTables();
 
             var data = await userTable
                 .OrderByDescending(user => user.PointsInCurrentSeason)

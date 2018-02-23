@@ -17,11 +17,11 @@ namespace BadmintonClub.Views
 
             BlogPostListView.ItemTapped += (sender, e) =>
             {
-                if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
+                if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
                     BlogPostListView.SelectedItem = null;
             };
 
-            if (Device.OS != TargetPlatform.iOS && Device.OS != TargetPlatform.Android)
+            if (Device.RuntimePlatform != Device.iOS && Device.RuntimePlatform != Device.Android)
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

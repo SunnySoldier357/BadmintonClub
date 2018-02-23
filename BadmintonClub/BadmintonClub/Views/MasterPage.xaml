@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="using:BadmintonClub.Views"
+             xmlns:local="clr-namespace:BadmintonClub.Views"
              x:Class="BadmintonClub.Views.MasterPage"
              Padding="0,40,0,0"
              Icon="hamburger.png"
-             Title="Panel">
+             Title="Menu">
+    
     <StackLayout>
         <ListView x:Name="contentPane">
             <ListView.ItemsSource>
@@ -13,7 +14,7 @@
                     <local:MasterPageItem Title="Blog" 
                                           IconSource="hamburger.png" 
                                           TargetType="{x:Type local:BlogPage}" />
-                    
+
                     <local:MasterPageItem Title="Season" 
                                           IconSource="contacts.png" 
                                           TargetType="{x:Type local:SeasonPage}" />

@@ -1,5 +1,4 @@
 ﻿using BadmintonClub.ViewModels;
-using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,8 +7,10 @@ namespace BadmintonClub.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BlogPage : ContentPage
 	{
+        // Private Properties
         private BlogPostViewModel blogPostViewmodel;
 
+        // Constructor
         public BlogPage()
 		{
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace BadmintonClub.Views
             }
         }
 
+        // Event Handlers
         protected override void OnAppearing()
         {
             base.OnAppearing();

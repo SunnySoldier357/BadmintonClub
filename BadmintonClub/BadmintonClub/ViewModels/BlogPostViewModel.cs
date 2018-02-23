@@ -43,7 +43,7 @@ namespace BadmintonClub.ViewModels
             try
             {
                 IsBusy = true;
-
+                // TEMPORARY
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < 100; i++)
                     builder.Append(string.Format("This is a test blog {0}.", i));

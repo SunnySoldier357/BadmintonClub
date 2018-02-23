@@ -1,65 +1,42 @@
 ﻿using System.Collections.Generic;
-using System.Data;
 
 namespace BadmintonClub.Models
 {
     public class User
     {
-        // Private Properties
-        [Newtonsoft.Json.JsonIgnore]
-        private int clearanceLevel;
-
-        [Newtonsoft.Json.JsonIgnore]
-        private string title;
-
         // Public Properties
-        public string Id { get; set; }
+        public int ClearanceLevel { get; set; } // 0-Member   1-Admin/Board   2-Master
+        public int GamesPlayed { get; set; }
+        public int GamesWon { get; set; }
+        public int PointsInCurrentSeason { get; set; }
 
         public string FirstName { get; set; }
+        public string Id { get; set; }
         public string LastName { get; set; }
+        public string Title { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
-
-        public string Title { get { return title; }
-            set { title = value + (value.ToLower().Contains("of") ? " for" : " of") + " Badminton Club"; } }
-
-        // 0-Member   1-Admin/Board   2-Master
-        public int ClearanceLevel { get { return clearanceLevel; }
-            set { clearanceLevel = (value == 0 || value == 1 | value == 2) ? value : 0; } } 
-
-        public int GamesPlayed { get; private set; }
-        public int GamesWon { get; private set; }
+        public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
 
         [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon; } }
 
         [Newtonsoft.Json.JsonIgnore]
-        public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
+        public List<Match> Matches { get; set; }
 
-        public int PointsInCurrentSeason { get; set; }
-
-        public ICollection<Match> Matches { get; private set; }
+        [Newtonsoft.Json.JsonIgnore]
+        public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+        [Newtonsoft.Json.JsonIgnore]
+        public string TitleDisplay { get { return Title + (Title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club"; } }
 
         // Constructors
-        public User() : this("Default", "Default", "Default", 0) { }
-
-        public User(DataRow row)
-        {
-            FirstName = row["firstName"].ToString();
-            LastName = row["lastName"].ToString();
-            Title = row["title"].ToString();
-            ClearanceLevel = (int)row["clearanceLevel"];
-            GamesPlayed = (int)row["gamesPlayed"];
-            GamesWon = (int)row["gamesWon"];
-            PointsInCurrentSeason = (int)row["pointsInCurrentSeason"];
-        }
+        public User() : this("Default", "Default", "Member", 0) { }
 
         public User(string firstName, string lastName, string title, int clearanceLevel)
         {
             FirstName = firstName;
             LastName = lastName;
-            Title = title + (title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club";
+            Title = title;
             ClearanceLevel = clearanceLevel;
         }
 
@@ -75,12 +52,12 @@ namespace BadmintonClub.Models
         // Getters
         public bool IsMaster()
         {
-            return clearanceLevel == 2;
+            return ClearanceLevel == 2;
         }
 
         public bool IsAdmin()
         {
-            return clearanceLevel >= 1;
+            return ClearanceLevel >= 1;
         }
     }
 }

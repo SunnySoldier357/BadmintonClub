@@ -3,19 +3,25 @@
     public class Match
     {
         // Public Properties
-        public string PlayerName { get; set; }
+        public int OpponentScore { get; set; }
         public int PlayerScore { get; set; }
 
-        public string OpponentName { get; set; }
-        public int OpponentScore { get; set; }
+        public string Id { get; set; }
+        public string OpponentID { get; set; }
+        public string PlayerID { get; set; }
 
-        public string MatchWinner { get { return PlayerScore > OpponentScore ? PlayerName : OpponentName; } }
+        [Newtonsoft.Json.JsonIgnore]
+        public User MatchWinner { get { return PlayerScore > OpponentScore ? Player : Opponent; } }
+        [Newtonsoft.Json.JsonIgnore]
+        public User Opponent { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        public User Player { get; set; }
 
-        // Constructors
+        // Constructor
         public Match(User player, User opponent, int playerScore, int opponentScore)
         {
-            PlayerName = player.FullName;
-            OpponentName = opponent.FullName;
+            Player = player;
+            Opponent = opponent;
             PlayerScore = playerScore;
             OpponentScore = opponentScore;
         }

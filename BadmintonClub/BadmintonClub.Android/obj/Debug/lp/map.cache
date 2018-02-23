@@ -42,14 +42,3 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
-netstandard
-System.ComponentModel
-System.Resources.ResourceManager
-System.Diagnostics.Debug
-System.Collections
-System.Threading
-System.Threading.Tasks
-System.Diagnostics.Tools
-System.Globalization
-System.ObjectModel
-System.Reflection.Extensions

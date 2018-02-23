@@ -1,5 +1,4 @@
 ﻿using BadmintonClub.ViewModels;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,13 +7,13 @@ namespace BadmintonClub.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeasonPage : TabbedPage
     {
-        static UserViewModel userViewModel = new UserViewModel();
+        // Public Properties
+        UserViewModel userViewModel = new UserViewModel();
 
-        public SeasonPage ()
+        // Constructor
+        public SeasonPage()
         {
             InitializeComponent();
-
-            SeasonTableListView.ItemsSource = userViewModel.Users;
         }
     }
 }

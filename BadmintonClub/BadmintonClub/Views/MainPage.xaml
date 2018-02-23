@@ -3,6 +3,7 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:local="clr-namespace:BadmintonClub.Views;assembly=BadmintonClub"
                   x:Class="BadmintonClub.Views.MainPage">
+    
     <MasterDetailPage.Master>
         <local:MasterPage x:Name="masterPage" />
     </MasterDetailPage.Master>

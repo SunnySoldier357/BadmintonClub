@@ -4,8 +4,10 @@
              x:Class="BadmintonClub.Views.SeasonPage">
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Season Table">
+        
         <ContentPage.Content>
-            <ListView x:Name="SeasonTableListView">
+            <ListView x:Name="SeasonTableListView"
+                      ItemsSource="{Binding userViewModel.Users}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

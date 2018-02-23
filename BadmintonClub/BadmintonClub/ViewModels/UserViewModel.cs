@@ -68,6 +68,7 @@ namespace BadmintonClub.ViewModels
             try
             {
                 IsBusy = true;
+
                 var users = await azureService.GetUsers();
                 Users.ReplaceRange(users);
                 sortUsers();
@@ -76,7 +77,7 @@ namespace BadmintonClub.ViewModels
             {
                 Debug.WriteLine("OH NO!" + ex);
 
-                // await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync users, you may be offline", "OK");
+                await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync users, you may be offline", "OK");
             }
             finally
             {

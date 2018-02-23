@@ -45,27 +45,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
             userTable = Client.GetSyncTable<User>();
         }
 
-        public async Task SyncAllDataTables()
-        {
-            await Initialise();
-
-            try
-            {
-                // Device is offline, skip!
-                if (!CrossConnectivity.Current.IsConnected)
-                    return;
-
-                // Device is online, continue...
-                await Client.SyncContext.PushAsync();
-                await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
-                await userTable.PullAsync("allUser", userTable.CreateQuery());
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-        }
-
         public async Task<BlogPost> AddBlogPost(string title, string bodyOfPost)
         {
             await Initialise();
@@ -112,6 +91,27 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 .ThenBy(user => user.FirstName)
                 .ToEnumerableAsync();
             return data;
+        }
+
+        public async Task SyncAllDataTables()
+        {
+            await Initialise();
+
+            try
+            {
+                // Device is offline, skip!
+                if (!CrossConnectivity.Current.IsConnected)
+                    return;
+
+                // Device is online, continue...
+                await Client.SyncContext.PushAsync();
+                await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
+                await userTable.PullAsync("allUser", userTable.CreateQuery());
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

@@ -31,11 +31,5 @@ namespace BadmintonClub.Models
             BodyOfPost = bodyOfPost;
             User = user;
         }
-
-        // DEBUG PURPOSES
-        public override string ToString()
-        {
-            return string.Format("Id : {0} ; Title : {1}", Id, Title);
-        }
     }
 }

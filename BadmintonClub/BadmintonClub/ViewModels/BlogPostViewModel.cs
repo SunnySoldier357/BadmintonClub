@@ -2,12 +2,8 @@
 using BadmintonClub.Models.Data_Access_Layer;
 using MvvmHelpers;
 using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -58,7 +54,7 @@ namespace BadmintonClub.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("OH NO!" + ex);
+                Debug.WriteLine("OH NO! " + ex);
             }
             finally
             {
@@ -81,9 +77,9 @@ namespace BadmintonClub.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("OH NO!" + ex);
+                Debug.WriteLine("\nOH NO! " + ex);
 
-                // await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync blog posts, you may be offline", "OK");
+                await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync blog posts, you may be offline", "OK");
             }
             finally
             {
@@ -93,14 +89,7 @@ namespace BadmintonClub.ViewModels
 
         private void sortBlogPosts()
         {
-            var sorted = from bp in BlogPosts
-                         orderby bp.DateTimePublished descending
-                         select bp;
-
-            if (sorted.Count() == 1)
-                BlogPosts.Replace(sorted.First());
-            else
-                BlogPosts.ReplaceRange(sorted);
+            BlogPosts.OrderByDescending(bp => bp.DateTimePublished);
         }
     }
 }

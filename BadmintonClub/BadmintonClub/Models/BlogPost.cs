@@ -7,11 +7,10 @@ namespace BadmintonClub.Models
         // Public Properties
         public DateTime DateTimePublished { get; set; }
 
-        public int UserID { get; set; }
-
         public string BodyOfPost { get; set; }
         public string Id { get; set; }
         public string Title { get; set; }
+        public string UserID { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
         public string DateTimePublishedString {

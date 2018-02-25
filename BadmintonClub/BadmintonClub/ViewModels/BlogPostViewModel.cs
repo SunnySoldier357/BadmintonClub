@@ -16,22 +16,42 @@ namespace BadmintonClub.ViewModels
         // Private Properties
         private AzureService azureService;
 
+        private bool addingNewItem = false;
+
+        private GridLength listViewColumnWidth = GridLength.Star;
+        private GridLength newItemColumnWidth = 0;
+
         private ICommand addBlogPostCommand;
         private ICommand loadBlogPostsCommand;
 
         // Public Properties
-        public bool AddingNewItem { get; set; } = false;
-        public bool NotAddingNewItem { get { return !AddingNewItem; } }
+        public bool AddingNewItem
+        {
+            get => addingNewItem;
+            set => SetProperty(ref addingNewItem, value);
+        }
+        public bool NotAddingNewItem { get => !addingNewItem; }
 
-        public ObservableRangeCollection<BlogPost> BlogPosts { get; }
-           = new ObservableRangeCollection<BlogPost>();
-        public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
-           = new ObservableRangeCollection<BlogPost>();
+        public GridLength ListViewColumnWidth
+        {
+            get => listViewColumnWidth;
+            set => SetProperty(ref listViewColumnWidth, value);
+        }
+        public GridLength NewItemColumnWidth
+        {
+            get => newItemColumnWidth;
+            set => SetProperty(ref newItemColumnWidth, value);
+        }
 
-        public ICommand AddBlogPostCommmand =>
+        public ICommand AddBlogPostCommand =>
             addBlogPostCommand ?? (addBlogPostCommand = new Command(async () => await executeAddBlogPostCommandAsync()));
         public ICommand LoadBlogPostsCommand =>
             loadBlogPostsCommand ?? (loadBlogPostsCommand = new Command(async () => await executeLoadBlogPostsCommandAsync()));
+
+        public ObservableRangeCollection<BlogPost> BlogPosts { get; }
+            = new ObservableRangeCollection<BlogPost>();
+        public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
+            = new ObservableRangeCollection<BlogPost>();
 
         // Constructors
         public BlogPostViewModel()

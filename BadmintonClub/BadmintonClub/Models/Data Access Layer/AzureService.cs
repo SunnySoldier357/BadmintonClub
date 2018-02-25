@@ -84,9 +84,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
         public async Task<User> GetUser(string id)
         {
             await Initialise();
-            await SyncAllDataTables();
 
-            return await userTable.LookupAsync(id = "1");
+            return await userTable.LookupAsync(id);
         }
 
         public async Task<IEnumerable<User>> GetUsers()

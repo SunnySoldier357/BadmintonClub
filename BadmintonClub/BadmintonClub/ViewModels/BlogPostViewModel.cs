@@ -20,8 +20,13 @@ namespace BadmintonClub.ViewModels
         private ICommand loadBlogPostsCommand;
 
         // Public Properties
+        public bool AddingNewItem { get; set; } = false;
+        public bool NotAddingNewItem { get { return !AddingNewItem; } }
+
         public ObservableRangeCollection<BlogPost> BlogPosts { get; }
-        = new ObservableRangeCollection<BlogPost>();
+           = new ObservableRangeCollection<BlogPost>();
+        public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
+           = new ObservableRangeCollection<BlogPost>();
 
         public ICommand AddBlogPostCommmand =>
             addBlogPostCommand ?? (addBlogPostCommand = new Command(async () => await executeAddBlogPostCommandAsync()));
@@ -71,8 +76,19 @@ namespace BadmintonClub.ViewModels
             {
                 IsBusy = true;
                 var blogposts = await azureService.GetBlogPosts();
-                BlogPosts.ReplaceRange(blogposts);
 
+                BlogPosts.Clear();
+                foreach (var item in blogposts)
+                {
+                    BlogPosts.Add(new BlogPost()
+                    {
+                        Title = item.Title,
+                        BodyOfPost = item.BodyOfPost,
+                        DateTimePublished = item.DateTimePublished,
+                        Publisher = await azureService.GetUser(item.UserID)
+                    });
+                }
+                
                 sortBlogPosts();
             }
             catch (Exception ex)
@@ -89,7 +105,11 @@ namespace BadmintonClub.ViewModels
 
         private void sortBlogPosts()
         {
-            BlogPosts.OrderByDescending(bp => bp.DateTimePublished);
+            var data = from bp in BlogPosts
+                       orderby bp.DateTimePublished descending
+                       select bp;
+
+            BlogPostSorted.ReplaceRange(data);
         }
     }
 }

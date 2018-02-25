@@ -1,4 +1,9 @@
 ﻿using BadmintonClub.ViewModels;
+using MvvmHelpers;
+using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,9 +32,17 @@ namespace BadmintonClub.Views
                 ToolbarItems.Add(new ToolbarItem
                 {
                     Text = "Refresh",
-                    Command = blogPostViewmodel.LoadBlogPostsCommand
+                    Command = blogPostViewmodel.LoadBlogPostsCommand,
+                    Icon = "refresh.png"
                 });
             }
+
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Text = "Add Post",
+                //Command = new Command(() => blogPostViewmodel.AddingNewItem = true),
+                Icon = "add.png"
+            });
         }
 
         // Event Handlers

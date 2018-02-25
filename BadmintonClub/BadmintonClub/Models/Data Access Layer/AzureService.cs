@@ -49,7 +49,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             await Initialise();
 
-            BlogPost blogpost = new BlogPost(title, DateTime.Now, bodyOfPost, UserViewModel.SignedInUser);
+            BlogPost blogpost = new BlogPost() { Title = title, BodyOfPost = bodyOfPost, UserID = "1", DateTimePublished = DateTime.Now };
 
             await blogPostTable.InsertAsync(blogpost);
             await SyncAllDataTables();
@@ -74,11 +74,19 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await Initialise();
             await SyncAllDataTables();
 
-            var data = await blogPostTable
-                .OrderByDescending(bp => bp.DateTimePublished)
-                .ToEnumerableAsync();
+            IEnumerable<BlogPost> data = await blogPostTable
+                                         .OrderByDescending(bp => bp.DateTimePublished)
+                                         .ToEnumerableAsync();
 
             return data;
+        }
+
+        public async Task<User> GetUser(string id)
+        {
+            await Initialise();
+            await SyncAllDataTables();
+
+            return await userTable.LookupAsync(id = "1");
         }
 
         public async Task<IEnumerable<User>> GetUsers()

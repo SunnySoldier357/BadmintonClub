@@ -18,17 +18,23 @@ namespace BadmintonClub.Models
                 DateTimePublished.ToShortTimeString().ToLower()); } } 
 
         [Newtonsoft.Json.JsonIgnore]
-        public User User { get; set; }
+        public User Publisher { get; set; }
 
         // Constructors
-        public BlogPost() : this("Default", DateTime.Now, "NA", new User()) {}
+        public BlogPost() : this("NIL", DateTime.Now, "NIL", new User()) {}
 
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {
             Title = title;
             DateTimePublished = dateTimePublished;
             BodyOfPost = bodyOfPost;
-            User = user;
+            Publisher = user;
+        }
+
+        // DEBUG PURPOSES
+        public override string ToString()
+        {
+            return string.Format("ID: {0}, Title: {1}, UserID: {2}, User: [{3}]", Id, Title, UserID, Publisher.ToString());
         }
     }
 }

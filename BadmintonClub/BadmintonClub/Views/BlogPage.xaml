@@ -7,10 +7,11 @@
     <ContentPage.Content>
         <ListView x:Name="BlogPostListView"
                   HasUnevenRows="True"
-                  ItemsSource="{Binding BlogPosts}"
+                  ItemsSource="{Binding BlogPostSorted}"
                   IsPullToRefreshEnabled="True"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                   RefreshCommand="{Binding LoadBlogPostsCommand}">
+            <!-- IsVisible="{Binding NotAddingNewItem}" -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -29,10 +30,10 @@
                                    FontAttributes="Italic"/>
                             <Label Text="{Binding BodyOfPost}"
                                    Margin="0,5,0,0"/>
-                            <Label Text="{Binding User.FullName}"
+                            <Label Text="{Binding Publisher.FullName}"
                                    Margin="0,10,15,0"
                                    HorizontalOptions="End"/>
-                            <Label Text="{Binding User.TitleDisplay}"
+                            <Label Text="{Binding Publisher.TitleDisplay}"
                                    Margin="0,0,15,0"
                                    HorizontalOptions="End" />
                         </StackLayout>
@@ -40,6 +41,17 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+<!--
+        <StackLayout IsVisible="{Binding AddingNewItem}">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Title: "
+                       Margin="10,0,10,0" />
+
+                <Entry x:Name="AddBlogPostEntry"
+                       Margin="0,0,10,0" />
+            </StackLayout>
+        </StackLayout>
+        -->
     </ContentPage.Content>
     
 </ContentPage>

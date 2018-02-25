@@ -59,5 +59,11 @@ namespace BadmintonClub.Models
         {
             return ClearanceLevel >= 1;
         }
+
+        // DEBUG PURPOSES
+        public override string ToString()
+        {
+            return string.Format("Name: {0}, ID: {1}, Title: {2}", FullName, Id, TitleDisplay);
+        }
     }
 }

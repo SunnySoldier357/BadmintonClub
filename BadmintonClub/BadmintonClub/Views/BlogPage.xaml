@@ -35,7 +35,8 @@
                                        Margin="10,5,0,0"
                                        FontAttributes="Italic"/>
                                 <Label Text="{Binding BodyOfPost}"
-                                       Margin="0,5,15,0"/>
+                                       Margin="0,5,15,0"
+                                       LineBreakMode="WordWrap"/>
                                 <Label Text="{Binding Publisher.FullName}"
                                        Margin="0,10,15,0"
                                        HorizontalOptions="End"/>

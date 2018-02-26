@@ -1,5 +1,4 @@
-﻿using BadmintonClub.Models.Data_Access_Layer;
-using BadmintonClub.ViewModels;
+﻿using BadmintonClub.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,13 +36,12 @@ namespace BadmintonClub.Views
             ToolbarItems.Add(new ToolbarItem
             {
                 Text = "Add Post",
-                Command = new Command(() => 
+                Command = new Command(() =>
                 {
-                    switchToEditView();
+                    switchToEditView(false);
                 }),
                 Icon = "add.png"
             });
-
         }
 
         // Event Handlers
@@ -73,12 +71,9 @@ namespace BadmintonClub.Views
             blogPostViewmodel.AddingNewItem = false;
             blogPostViewmodel.NewItemColumnWidth = 0;
             blogPostViewmodel.ListViewColumnWidth = GridLength.Star;
-
-            BlogPostTitleEntry.Text = "";
-            BlogPostBodyEditor.Text = "";
         }
 
-        private void switchToEditView()
+        private void switchToEditView(bool editing)
         {
             blogPostViewmodel.AddingNewItem = true;
             blogPostViewmodel.NewItemColumnWidth = GridLength.Star;
@@ -86,6 +81,9 @@ namespace BadmintonClub.Views
                 blogPostViewmodel.ListViewColumnWidth = GridLength.Star;
             else
                 blogPostViewmodel.ListViewColumnWidth = 0;
+
+            BlogPostTitleEntry.Text = editing ? blogPostViewmodel.BlogTitle : "";
+            BlogPostBodyEditor.Text = editing ? blogPostViewmodel.BodyOfPost : "";
         }
     }
 }

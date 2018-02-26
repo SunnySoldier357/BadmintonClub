@@ -49,7 +49,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             await Initialise();
 
-            BlogPost blogpost = new BlogPost() { Title = title, BodyOfPost = bodyOfPost, UserID = "1", DateTimePublished = DateTime.Now };
+            BlogPost blogpost = new BlogPost() { Title = title, BodyOfPost = bodyOfPost, UserID = UserViewModel.SignedInUser.Id, DateTimePublished = DateTime.Now };
 
             await blogPostTable.InsertAsync(blogpost);
             await SyncAllDataTables();

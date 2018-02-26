@@ -24,6 +24,9 @@ namespace BadmintonClub.ViewModels
         private ICommand addBlogPostCommand;
         private ICommand loadBlogPostsCommand;
 
+        private string bodyOfPost;
+        private string blogTitle;
+
         // Public Properties
         public bool AddingNewItem
         {
@@ -53,6 +56,17 @@ namespace BadmintonClub.ViewModels
         public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
             = new ObservableRangeCollection<BlogPost>();
 
+        public string BodyOfPost
+        {
+            get => bodyOfPost;
+            set => SetProperty(ref bodyOfPost, value);
+        }
+        public string BlogTitle
+        {
+            get => blogTitle;
+            set => SetProperty(ref blogTitle, value);
+        }
+
         // Constructors
         public BlogPostViewModel()
         {
@@ -68,12 +82,8 @@ namespace BadmintonClub.ViewModels
             try
             {
                 IsBusy = true;
-                // TEMPORARY
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < 100; i++)
-                    builder.Append(string.Format("This is a test blog {0}.", i));
 
-                var blogpost = await azureService.AddBlogPost("Default Title", builder.ToString());
+                var blogpost = await azureService.AddBlogPost(BlogTitle, BodyOfPost);
                 BlogPosts.Add(blogpost);
                 sortBlogPosts();
             }

@@ -1,9 +1,4 @@
 ﻿using BadmintonClub.ViewModels;
-using MvvmHelpers;
-using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

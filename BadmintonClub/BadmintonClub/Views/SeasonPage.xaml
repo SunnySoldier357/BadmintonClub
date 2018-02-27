@@ -6,59 +6,60 @@
     <ContentPage Title="Season Table">
 
         <ContentPage.Content>
-            <Grid HorizontalOptions="FillAndExpand"
-                  ColumnSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="30" />
-                </Grid.ColumnDefinitions>
-                
+            <Grid HorizontalOptions="FillAndExpand">
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Label Text="Name" 
-                       FontAttributes="Bold"
-                       HorizontalOptions="FillAndExpand"/>
-                <Label Grid.Column="1"
-                       Text="GP" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="2"
-                       Text="W" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="3"
-                       Text="D" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="4"
-                       Text="L" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="5"
-                       Text="F" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="6"
-                       Text="A" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="7"
-                       Text="PD" 
-                       FontAttributes="Bold"/>
-                <Label Grid.Column="8"
-                       Text="P" 
-                       FontAttributes="Bold"/>
-
                 <ListView x:Name="SeasonTableListView"
-                          Grid.ColumnSpan="10"
-                          Grid.Row="1"
                           ItemsSource="{Binding UserSorted}"
                           HorizontalOptions="FillAndExpand">
+
+                    <ListView.Header>
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Name" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1"
+                                   Text="GP" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="2"
+                                   Text="W" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="3"
+                                   Text="D" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="4"
+                                   Text="L" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="5"
+                                   Text="F" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="6"
+                                   Text="A" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="7"
+                                   Text="PD" 
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="8"
+                                   Text="P" 
+                                   FontAttributes="Bold"/>
+                        </Grid>
+                    </ListView.Header>
+
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -98,8 +99,24 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
+                <StackLayout Grid.Row="1">
+                    <Label Text="Glossary" />
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
                 <StackLayout IsVisible="{Binding IsBusy}"
-                             Style="{StaticResource LoadingStackLayoutStyle}">
+                             Style="{StaticResource LoadingStackLayoutStyle}"
+                             Grid.RowSpan="2">
                     <ActivityIndicator IsRunning="{Binding IsBusy}" 
                                        Color="LimeGreen" />
 

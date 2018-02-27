@@ -1,30 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BadmintonClub.Views.SeasonPage">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="BadmintonClub.Views.SeasonPage">
 
     <ContentPage Title="Season Table">
-        
+
         <ContentPage.Content>
-            <Grid>
+            <Grid HorizontalOptions="FillAndExpand"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Name" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="FillAndExpand"/>
+                <Label Grid.Column="1"
+                       Text="GP" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="2"
+                       Text="W" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="3"
+                       Text="D" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="4"
+                       Text="L" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="5"
+                       Text="F" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="6"
+                       Text="A" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="7"
+                       Text="PD" 
+                       FontAttributes="Bold"/>
+                <Label Grid.Column="8"
+                       Text="P" 
+                       FontAttributes="Bold"/>
+
                 <ListView x:Name="SeasonTableListView"
-                          ItemsSource="{Binding Users}">
+                          Grid.ColumnSpan="10"
+                          Grid.Row="1"
+                          ItemsSource="{Binding UserSorted}"
+                          HorizontalOptions="FillAndExpand">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding FullName}" 
-                                           WidthRequest="100" 
-                                           VerticalTextAlignment="Center"
-                                           HorizontalTextAlignment="Center"
-                                           HorizontalOptions="FillAndExpand"/>
-                                    <Label Text="{Binding GamesPlayed}"
-                                           WidthRequest="20" />
-                                    <Label Text="{Binding GamesWon}"
-                                           WidthRequest="20" />
-                                    <Label Text="{Binding PointsInCurrentSeason}"
-                                           WidthRequest="20" />
-                                </StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding FullName}" />
+                                    <Label Grid.Column="1"
+                                           Text="{Binding GamesPlayed}"/>
+                                    <Label Grid.Column="2"
+                                           Text="{Binding GamesWon}" />
+                                    <Label Grid.Column="3"
+                                           Text="{Binding GamesLost}" />
+                                    <Label Grid.Column="4"
+                                           Text="{Binding GamesLost}" />
+                                    <Label Grid.Column="5"
+                                           Text="{Binding PointsFor}" />
+                                    <Label Grid.Column="6"
+                                           Text="{Binding PointsAgainst}" />
+                                    <Label Grid.Column="7"
+                                           Text="{Binding PointDifference}" />
+                                    <Label Grid.Column="8"
+                                           Text="{Binding PointsInCurrentSeason}"/>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -41,9 +109,8 @@
                            Style="{DynamicResource ListItemTextStyle}" />
                 </StackLayout>
             </Grid>
-            
         </ContentPage.Content>
     </ContentPage>
-    
+
     <ContentPage Title="Season Stats" />
 </TabbedPage>

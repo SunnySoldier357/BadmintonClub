@@ -27,6 +27,8 @@ namespace BadmintonClub.ViewModels
         private ICommand addUserCommand;
         private ICommand loadUsersCommand;
 
+        private string loadingMessage;
+
         // Public Properties
         public ObservableRangeCollection<User> Users { get; } 
             = new ObservableRangeCollection<User>();
@@ -35,6 +37,12 @@ namespace BadmintonClub.ViewModels
             addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
         public ICommand LoadUsersCommand =>
             loadUsersCommand ?? (loadUsersCommand = new Command(async () => await executeLoadUsersCommandAsync()));
+
+        public string LoadingMessage
+        {
+            get => loadingMessage;
+            set => SetProperty(ref loadingMessage, value);
+        }
 
         // Constructors
         public UserViewModel()
@@ -50,6 +58,7 @@ namespace BadmintonClub.ViewModels
 
             try
             {
+                LoadingMessage = "Adding New User...";
                 IsBusy = true;
 
                 var user = await azureService.AddUser("Default", "Name");
@@ -62,6 +71,7 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
+                LoadingMessage = "";
                 IsBusy = false;
             }
         }
@@ -73,10 +83,12 @@ namespace BadmintonClub.ViewModels
 
             try
             {
+                LoadingMessage = "Loading Users...";
                 IsBusy = true;
 
                 var users = await azureService.GetUsers();
                 Users.ReplaceRange(users);
+                Debug.WriteLine("/nItems in Users ({0}) vs from azureService ({1})", Users.Count(), users.Count());
                 sortUsers();
             }
             catch (Exception ex)
@@ -87,17 +99,21 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
+                LoadingMessage = "";
                 IsBusy = false;
             }
         }
 
         private void sortUsers()
         {
+            LoadingMessage = "Sorting Users...";
+
             var users = from user in Users
                         orderby user.PointsInCurrentSeason descending, user.FirstName
                         select user;
 
             Users.ReplaceRange(users);
+            Debug.WriteLine("/nNumber of Users after sorting: {0}", Users.Count());
         }
     }
 }

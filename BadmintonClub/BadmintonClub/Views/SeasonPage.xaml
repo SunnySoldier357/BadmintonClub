@@ -6,28 +6,42 @@
     <ContentPage Title="Season Table">
         
         <ContentPage.Content>
-            <ListView x:Name="SeasonTableListView"
-                      ItemsSource="{Binding Users}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding FullName}" 
-                                       WidthRequest="100" 
-                                       VerticalTextAlignment="Center"
-                                       HorizontalTextAlignment="Center"
-                                       HorizontalOptions="FillAndExpand"/>
-                                <Label Text="{Binding GamesPlayed}"
-                                       WidthRequest="20" />
-                                <Label Text="{Binding GamesWon}"
-                                       WidthRequest="20" />
-                                <Label Text="{Binding PointsInCurrentSeason}"
-                                       WidthRequest="20" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Grid>
+                <ListView x:Name="SeasonTableListView"
+                          ItemsSource="{Binding Users}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding FullName}" 
+                                           WidthRequest="100" 
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding GamesPlayed}"
+                                           WidthRequest="20" />
+                                    <Label Text="{Binding GamesWon}"
+                                           WidthRequest="20" />
+                                    <Label Text="{Binding PointsInCurrentSeason}"
+                                           WidthRequest="20" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackLayout IsVisible="{Binding IsBusy}"
+                             Style="{StaticResource LoadingStackLayoutStyle}">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                       Color="LimeGreen" />
+
+                    <Label Text="{Binding LoadingMessage}"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           Style="{DynamicResource ListItemTextStyle}" />
+                </StackLayout>
+            </Grid>
+            
         </ContentPage.Content>
     </ContentPage>
     

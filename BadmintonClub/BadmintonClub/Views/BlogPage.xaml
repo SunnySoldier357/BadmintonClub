@@ -23,11 +23,8 @@
                         <ViewCell>
                             <StackLayout Padding="5"
                                          Spacing="0">
-                                <BoxView HeightRequest="3"
-                                         HorizontalOptions="Fill"
-                                         BackgroundColor="LimeGreen"/>
                                 <Label Text="{Binding Title}"
-                                       Margin="0,10,0,0"
+                                       Margin="0,5,0,0"
                                        FontAttributes="Bold"
                                        FontSize="Large"/>
                                 <Label Text="{Binding DateTimePublishedString}" 
@@ -41,8 +38,12 @@
                                        Margin="0,10,15,0"
                                        HorizontalOptions="End"/>
                                 <Label Text="{Binding Publisher.TitleDisplay}"
-                                       Margin="0,0,15,0"
+                                       Margin="0,0,15,10"
                                        HorizontalOptions="End" />
+                                <BoxView HeightRequest="3"
+                                         HorizontalOptions="Fill"
+                                         BackgroundColor="LimeGreen" 
+                                         Margin="0,0,0,5"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -83,11 +84,8 @@
             </StackLayout>
 
             <StackLayout IsVisible="{Binding IsBusy}"
-                         Padding="32"
                          Grid.ColumnSpan="2"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         BackgroundColor="Black">
+                         Style="{StaticResource LoadingStackLayoutStyle}">
                 <ActivityIndicator IsRunning="{Binding IsBusy}" 
                                    Color="LimeGreen" />
 

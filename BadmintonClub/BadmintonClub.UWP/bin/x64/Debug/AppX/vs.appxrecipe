@@ -31,13 +31,21 @@
     <AppXManifest Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2018-02-27T04:19:18.028</Modified>
+=======
+      <Modified>2018-02-27T01:37:12.874</Modified>
+>>>>>>> parent of 7f6e656... progress in table UI
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.exe">
       <PackagePath>entrypoint\BadmintonClub.UWP.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2018-02-27T04:19:16.226</Modified>
+=======
+      <Modified>2018-02-27T01:37:11.320</Modified>
+>>>>>>> parent of 7f6e656... progress in table UI
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
       <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
@@ -765,7 +773,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard2.0\BadmintonClub.dll">
       <PackagePath>BadmintonClub.dll</PackagePath>
+<<<<<<< HEAD
       <Modified>2018-02-27T04:19:10.630</Modified>
+=======
+      <Modified>2018-02-27T01:37:05.573</Modified>
+>>>>>>> parent of 7f6e656... progress in table UI
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\add.png">
       <PackagePath>add.png</PackagePath>
@@ -1043,11 +1055,19 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2018-02-27T04:19:16.949</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
       <PackagePath>BadmintonClub.UWP.exe</PackagePath>
       <Modified>2018-02-27T04:19:18.021</Modified>
+=======
+      <Modified>2018-02-27T01:37:12.119</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
+      <PackagePath>BadmintonClub.UWP.exe</PackagePath>
+      <Modified>2018-02-27T01:37:12.864</Modified>
+>>>>>>> parent of 7f6e656... progress in table UI
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

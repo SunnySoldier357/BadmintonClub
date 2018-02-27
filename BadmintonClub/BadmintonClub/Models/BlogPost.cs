@@ -13,6 +13,11 @@ namespace BadmintonClub.Models
         public string UserID { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
+        public string BodyOfPostJustified
+        {
+            get { return string.Format("<html><body  style=\"text-align: justify;\"><p>{0}</p></body></html>", BodyOfPost); }
+        }
+        [Newtonsoft.Json.JsonIgnore]
         public string DateTimePublishedString
         {
             get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 

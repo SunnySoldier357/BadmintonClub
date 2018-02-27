@@ -15,7 +15,8 @@
 
                 <ListView x:Name="SeasonTableListView"
                           ItemsSource="{Binding UserSorted}"
-                          HorizontalOptions="FillAndExpand">
+                          HorizontalOptions="FillAndExpand"
+                          HasUnevenRows="True">
 
                     <ListView.Header>
                         <Grid HorizontalOptions="FillAndExpand">
@@ -32,31 +33,31 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Text="Name" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="1"
                                    Text="GP" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="2"
                                    Text="W" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="3"
                                    Text="D" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="4"
                                    Text="L" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="5"
                                    Text="F" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="6"
                                    Text="A" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="7"
                                    Text="PD" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                             <Label Grid.Column="8"
                                    Text="P" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold" />
                         </Grid>
                     </ListView.Header>
 
@@ -84,7 +85,7 @@
                                     <Label Grid.Column="3"
                                            Text="{Binding GamesLost}" />
                                     <Label Grid.Column="4"
-                                           Text="{Binding GamesLost}" />
+                                           Text="{Binding GamesLost}" />`
                                     <Label Grid.Column="5"
                                            Text="{Binding PointsFor}" />
                                     <Label Grid.Column="6"
@@ -100,13 +101,88 @@
                 </ListView>
 
                 <StackLayout Grid.Row="1">
-                    <Label Text="Glossary" />
+                    <Label Text="GLOSSARY" 
+                           FontAttributes="Bold"/>
                     <StackLayout Orientation="Horizontal">
+                        <StackLayout Spacing="30">
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="GP" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Games Played" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="W" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Games Won" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="D" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Games Drawn" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Spacing="30">
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="L" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Games Lost" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="F" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Points Scored For" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="A" 
+                                              FontAttributes="Bold" />
+                                        <Span Text=": Points Scored Against" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
                         <StackLayout>
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span />
+                                        <Span Text="PD" FontAttributes="Bold" />
+                                        <Span Text=": Point Difference" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="P" FontAttributes="Bold" />
+                                        <Span Text=": Poitns in Current Season" />
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

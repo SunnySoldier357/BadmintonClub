@@ -26,6 +26,7 @@ namespace BadmintonClub.ViewModels
 
         private string bodyOfPost;
         private string blogTitle;
+        private string loadingMessage;
 
         // Public Properties
         public bool AddingNewItem
@@ -66,6 +67,11 @@ namespace BadmintonClub.ViewModels
             get => blogTitle;
             set => SetProperty(ref blogTitle, value);
         }
+        public string LoadingMessage
+        {
+            get => loadingMessage;
+            set => SetProperty(ref loadingMessage, value);
+        }
 
         // Constructors
         public BlogPostViewModel()
@@ -81,6 +87,7 @@ namespace BadmintonClub.ViewModels
 
             try
             {
+                LoadingMessage = "Adding new Blog Post...";
                 IsBusy = true;
 
                 var blogpost = await azureService.AddBlogPost(BlogTitle, BodyOfPost);
@@ -93,6 +100,7 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
+                LoadingMessage = "";
                 IsBusy = false;
             }
         }
@@ -104,6 +112,7 @@ namespace BadmintonClub.ViewModels
 
             try
             {
+                LoadingMessage = "Loading Blog Posts...";
                 IsBusy = true;
                 var blogposts = await azureService.GetBlogPosts();
 
@@ -129,12 +138,15 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
+                LoadingMessage = "";
                 IsBusy = false;
             }
         }
 
         private void sortBlogPosts()
         {
+            LoadingMessage = "Sorting Blog Posts...";
+
             var data = from bp in BlogPosts
                        orderby bp.DateTimePublished descending
                        select bp;

@@ -9,13 +9,13 @@ namespace BadmintonClub.Views
 	public partial class BlogPage : ContentPage
 	{
         // Private Properties
-        private BlogPostViewModel blogPostViewmodel;
+        private BlogPostViewModel blogPostViewModel;
 
         // Constructor
         public BlogPage()
 		{
             InitializeComponent();
-            BindingContext = blogPostViewmodel = new BlogPostViewModel();
+            BindingContext = blogPostViewModel = new BlogPostViewModel();
 
             BlogPostListView.ItemTapped += (sender, e) =>
             {
@@ -28,20 +28,23 @@ namespace BadmintonClub.Views
                 ToolbarItems.Add(new ToolbarItem
                 {
                     Text = "Refresh",
-                    Command = blogPostViewmodel.LoadBlogPostsCommand,
+                    Command = blogPostViewModel.LoadBlogPostsCommand,
                     Icon = "refresh.png"
                 });
             }
 
-            ToolbarItems.Add(new ToolbarItem
+            if (UserViewModel.SignedInUser.IsAdmin())
             {
-                Text = "Add Post",
-                Command = new Command(() =>
+                ToolbarItems.Add(new ToolbarItem
                 {
-                    switchToEditView(false);
-                }),
-                Icon = "add.png"
-            });
+                    Text = "Add Post",
+                    Command = new Command(() =>
+                    {
+                        switchToEditView(false);
+                    }),
+                    Icon = "add.png"
+                });
+            }
         }
 
         // Event Handlers
@@ -52,9 +55,9 @@ namespace BadmintonClub.Views
 
         public void BlogPostSaveButton_Clicked(object sender, EventArgs e)
         {
-            blogPostViewmodel.BlogTitle = BlogPostTitleEntry.Text;
-            blogPostViewmodel.BodyOfPost = BlogPostBodyEditor.Text;
-            blogPostViewmodel.AddBlogPostCommand.Execute(null);
+            blogPostViewModel.BlogTitle = BlogPostTitleEntry.Text;
+            blogPostViewModel.BodyOfPost = BlogPostBodyEditor.Text;
+            blogPostViewModel.AddBlogPostCommand.Execute(null);
             switchToMainView();
         }
 
@@ -62,28 +65,28 @@ namespace BadmintonClub.Views
         {
             base.OnAppearing();
 
-            blogPostViewmodel.LoadBlogPostsCommand.Execute(null);
+            blogPostViewModel.LoadBlogPostsCommand.Execute(null);
         }
 
         // Private Methods
         private void switchToMainView()
         {
-            blogPostViewmodel.AddingNewItem = false;
-            blogPostViewmodel.NewItemColumnWidth = 0;
-            blogPostViewmodel.ListViewColumnWidth = GridLength.Star;
+            blogPostViewModel.AddingNewItem = false;
+            blogPostViewModel.NewItemColumnWidth = 0;
+            blogPostViewModel.ListViewColumnWidth = GridLength.Star;
         }
 
         private void switchToEditView(bool editing)
         {
-            blogPostViewmodel.AddingNewItem = true;
-            blogPostViewmodel.NewItemColumnWidth = GridLength.Star;
+            blogPostViewModel.AddingNewItem = true;
+            blogPostViewModel.NewItemColumnWidth = GridLength.Star;
             if (Device.RuntimePlatform == Device.UWP && Application.Current.MainPage.Width >= 1000)
-                blogPostViewmodel.ListViewColumnWidth = GridLength.Star;
+                blogPostViewModel.ListViewColumnWidth = GridLength.Star;
             else
-                blogPostViewmodel.ListViewColumnWidth = 0;
+                blogPostViewModel.ListViewColumnWidth = 0;
 
-            BlogPostTitleEntry.Text = editing ? blogPostViewmodel.BlogTitle : "";
-            BlogPostBodyEditor.Text = editing ? blogPostViewmodel.BodyOfPost : "";
+            BlogPostTitleEntry.Text = editing ? blogPostViewModel.BlogTitle : "";
+            BlogPostBodyEditor.Text = editing ? blogPostViewModel.BodyOfPost : "";
         }
     }
 }

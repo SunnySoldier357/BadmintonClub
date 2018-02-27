@@ -7,13 +7,22 @@ namespace BadmintonClub.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeasonPage : TabbedPage
     {
-        // Public Properties
-        UserViewModel userViewModel = new UserViewModel();
+        // Private Properties
+        private UserViewModel userViewModel;
 
         // Constructor
         public SeasonPage()
         {
             InitializeComponent();
+            BindingContext = userViewModel = new UserViewModel();
+        }
+
+        // Event Handlers
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            userViewModel.LoadUsersCommand.Execute(null);
         }
     }
 }

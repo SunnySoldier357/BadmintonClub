@@ -11,7 +11,8 @@
 namespace BadmintonClub.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views\\BlogPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views" +
+        "\\BlogPage.xaml")]
     public partial class BlogPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

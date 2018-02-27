@@ -81,6 +81,21 @@
                             Text="Cancel"/>
                 </StackLayout>
             </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         Padding="32"
+                         Grid.ColumnSpan="2"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         BackgroundColor="Black">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                   Color="LimeGreen" />
+
+                <Label Text="{Binding LoadingMessage}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       Style="{DynamicResource ListItemTextStyle}" />
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 

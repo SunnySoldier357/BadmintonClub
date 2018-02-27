@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
-<<<<<<< HEAD
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\20\jl\arch-core-common.jar</Jar>
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\21\jl\arch-lifecycle-common.jar</Jar>
@@ -22,32 +21,6 @@
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\37\jl\bin\classes.jar</Jar>
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\38\jl\bin\classes.jar</Jar>
     <Jar>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\39\jl\bin\classes.jar</Jar>
-=======
-    <Jar>obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
-    <Jar>obj\Debug\lp\20\jl\arch-core-common.jar</Jar>
-    <Jar>obj\Debug\lp\21\jl\arch-lifecycle-common.jar</Jar>
-    <Jar>obj\Debug\lp\24\jl\support-annotations.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\20\jl\arch-core-common.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\21\jl\arch-lifecycle-common.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\22\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\23\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\24\jl\support-annotations.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\25\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\26\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\27\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\29\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\30\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\31\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\32\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\33\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\34\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\35\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\36\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\37\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\38\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\39\jl\bin\classes.jar</Jar>
->>>>>>> parent of 7f6e656... progress in table UI
   </Jars>
   <ResolvedResourceDirectories>
     <ResolvedResourceDirectory>C:\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\lp\2\jl\res</ResolvedResourceDirectory>

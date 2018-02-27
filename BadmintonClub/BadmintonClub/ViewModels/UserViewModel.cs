@@ -32,6 +32,8 @@ namespace BadmintonClub.ViewModels
         // Public Properties
         public ObservableRangeCollection<User> Users { get; } 
             = new ObservableRangeCollection<User>();
+        public ObservableRangeCollection<User> UserSorted { get; }
+            = new ObservableRangeCollection<User>();
 
         public ICommand AddUserCommand =>
             addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
@@ -88,7 +90,7 @@ namespace BadmintonClub.ViewModels
 
                 var users = await azureService.GetUsers();
                 Users.ReplaceRange(users);
-                Debug.WriteLine("/nItems in Users ({0}) vs from azureService ({1})", Users.Count(), users.Count());
+
                 sortUsers();
             }
             catch (Exception ex)
@@ -112,8 +114,7 @@ namespace BadmintonClub.ViewModels
                         orderby user.PointsInCurrentSeason descending, user.FirstName
                         select user;
 
-            Users.ReplaceRange(users);
-            Debug.WriteLine("/nNumber of Users after sorting: {0}", Users.Count());
+            UserSorted.ReplaceRange(users);
         }
     }
 }

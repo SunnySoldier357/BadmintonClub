@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BadmintonClub.Views.SeasonPage">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="BadmintonClub.Views.SeasonPage">
 
     <ContentPage Title="Season Table">
-        
+
         <ContentPage.Content>
-<<<<<<< HEAD
             <Grid HorizontalOptions="FillAndExpand">
 
                 <Grid.RowDefinitions>
@@ -96,27 +95,6 @@
                                     <Label Grid.Column="8"
                                            Text="{Binding PointsInCurrentSeason}"/>
                                 </Grid>
-=======
-            <Grid>
-                <ListView x:Name="SeasonTableListView"
-                          ItemsSource="{Binding Users}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding FullName}" 
-                                           WidthRequest="100" 
-                                           VerticalTextAlignment="Center"
-                                           HorizontalTextAlignment="Center"
-                                           HorizontalOptions="FillAndExpand"/>
-                                    <Label Text="{Binding GamesPlayed}"
-                                           WidthRequest="20" />
-                                    <Label Text="{Binding GamesWon}"
-                                           WidthRequest="20" />
-                                    <Label Text="{Binding PointsInCurrentSeason}"
-                                           WidthRequest="20" />
-                                </StackLayout>
->>>>>>> parent of 7f6e656... progress in table UI
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -224,9 +202,8 @@
                            Style="{DynamicResource ListItemTextStyle}" />
                 </StackLayout>
             </Grid>
-            
         </ContentPage.Content>
     </ContentPage>
-    
+
     <ContentPage Title="Season Stats" />
 </TabbedPage>

@@ -24,6 +24,11 @@ namespace BadmintonClub.ViewModels
         // Private Properties
         private AzureService azureService;
 
+        private bool addingNewMatch;
+
+        private GridLength listViewColumnWidth = GridLength.Star;
+        private GridLength newMatchColumnWidth = 0;
+
         private ICommand addMatchCommand;
         private ICommand addUserCommand;
         private ICommand loadMatchesCommand;
@@ -32,8 +37,27 @@ namespace BadmintonClub.ViewModels
         private string loadingMessage;
 
         // Public Properties
+        public bool AddingNewMatch
+        {
+            get => addingNewMatch;
+            set => SetProperty(ref addingNewMatch, value);
+        }
+
+        public GridLength ListViewColumnWidth
+        {
+            get => listViewColumnWidth;
+            set => SetProperty(ref listViewColumnWidth, value);
+        }
+        public GridLength NewMatchColumnWidth
+        {
+            get => newMatchColumnWidth;
+            set => SetProperty(ref newMatchColumnWidth, value);
+        }
+
         public ObservableRangeCollection<Match> Matches { get; }
             = new ObservableRangeCollection<Match>();
+        public ObservableRangeCollection<string> UserNames { get; }
+            = new ObservableRangeCollection<string>();
         public ObservableRangeCollection<User> Users { get; } 
             = new ObservableRangeCollection<User>();
         public ObservableRangeCollection<User> UserSorted { get; }
@@ -167,10 +191,21 @@ namespace BadmintonClub.ViewModels
             LoadingMessage = "Sorting Users...";
 
             var users = from user in Users
-                        orderby user.PointsInCurrentSeason descending, user.FirstName
+                        orderby user.PointsInCurrentSeason descending, 
+                                user.PointDifference descending,
+                                user.PointsFor descending,
+                                user.FirstName,
+                                user.LastName
                         select user;
 
             UserSorted.ReplaceRange(users);
+
+            var usernames = from user in Users
+                            orderby user.FirstName,
+                                    user.LastName
+                            select user.FullName;
+
+            UserNames.ReplaceRange(usernames);
         }
     }
 }

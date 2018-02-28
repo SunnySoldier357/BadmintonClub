@@ -9,6 +9,11 @@
         <ContentPage.Content>
             <Grid HorizontalOptions="FillAndExpand">
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding ListViewColumnWidth}" />
+                    <ColumnDefinition Width="{Binding NewMatchColumnWidth}" />
+                </Grid.ColumnDefinitions>
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -87,7 +92,7 @@
                                     <Label Grid.Column="2"
                                            Text="{Binding GamesWon}" />
                                     <Label Grid.Column="3"
-                                           Text="{Binding GamesLost}" />
+                                           Text="{Binding GamesDrawn}" />
                                     <Label Grid.Column="4"
                                            Text="{Binding GamesLost}" />
                                     <Label Grid.Column="5"
@@ -116,6 +121,18 @@
                                 </Label.FormattedText>
                             </Label>
                         </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding AddingNewMatch}"
+                             Grid.Column="1"
+                             Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Player" 
+                               FontSize="Large"
+                               FontAttributes="Bold" />
+
+                        <Picker ItemsSource="{Binding UserNames}" />
                     </StackLayout>
                 </StackLayout>
 

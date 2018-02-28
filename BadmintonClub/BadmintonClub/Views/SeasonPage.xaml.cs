@@ -37,7 +37,7 @@ namespace BadmintonClub.Views
                 ToolbarItems.Add(new ToolbarItem
                 {
                     Text = "Add Match",
-                    Command = userViewModel.AddMatchCommand,
+                    Command = new Command(() => switchToEditView()),
                     Icon = "add.png"
                 });
             }
@@ -49,6 +49,17 @@ namespace BadmintonClub.Views
             base.OnAppearing();
 
             userViewModel.LoadUsersCommand.Execute(null);
+        }
+
+        // Private Methods
+        private void switchToEditView()
+        {
+            userViewModel.AddingNewMatch = true;
+            userViewModel.NewMatchColumnWidth = GridLength.Star;
+            if (Device.RuntimePlatform == Device.UWP && Application.Current.MainPage.Width >= 1000)
+                userViewModel.ListViewColumnWidth = GridLength.Star;
+            else
+                userViewModel.ListViewColumnWidth = 0;
         }
     }
 }

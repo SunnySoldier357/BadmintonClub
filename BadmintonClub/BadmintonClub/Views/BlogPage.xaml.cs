@@ -38,10 +38,7 @@ namespace BadmintonClub.Views
                 ToolbarItems.Add(new ToolbarItem
                 {
                     Text = "Add Post",
-                    Command = new Command(() =>
-                    {
-                        switchToEditView(false);
-                    }),
+                    Command = new Command(() => switchToEditView(false)),
                     Icon = "add.png"
                 });
             }

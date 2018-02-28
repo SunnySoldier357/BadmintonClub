@@ -15,6 +15,32 @@ namespace BadmintonClub.Views
         {
             InitializeComponent();
             BindingContext = userViewModel = new UserViewModel();
+
+            SeasonTableListView.ItemTapped += (sender, e) =>
+            {
+                if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+                    SeasonTableListView.SelectedItem = null;
+            };
+
+            if (Device.RuntimePlatform != Device.iOS && Device.RuntimePlatform != Device.Android)
+            {
+                ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = "Refresh",
+                    Command = userViewModel.LoadUsersCommand,
+                    Icon = "refresh.png"
+                });
+            }
+
+            if (UserViewModel.SignedInUser.IsAdmin())
+            {
+                ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = "Add Match",
+                    Command = userViewModel.AddMatchCommand,
+                    Icon = "add.png"
+                });
+            }
         }
 
         // Event Handlers

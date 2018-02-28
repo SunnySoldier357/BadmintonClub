@@ -657,8 +657,8 @@
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\contacts.png">
-      <PackagePath>contacts.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\profile.png">
+      <PackagePath>profile.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LockScreenLogo.scale-100.png">
       <PackagePath>Assets\LockScreenLogo.scale-100.png</PackagePath>

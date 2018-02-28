@@ -13,7 +13,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\layout\toolbar.xml
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\values\styles.xml
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable\hamburger.png
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable\contacts.png
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable-hdpi\badmintonclublogo.png
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable-mdpi\badmintonclublogo.png
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable-xhdpi\badmintonclublogo.png
@@ -23,6 +22,8 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable\add.png
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\R.cs.flag
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\uploadflags.txt
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\res\drawable\profile.png
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard2.0\BadmintonClub.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Debug\BadmintonClub.Android.dll

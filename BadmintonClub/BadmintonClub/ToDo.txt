@@ -1,0 +1,5 @@
+﻿Things to optimise:
+ - Margins make text nicer
+ - iOS 20 pixel margin at the top
+ - Glossary for Season Table
+ - Colors LimeGrenn vs DarkGreen for better viewing

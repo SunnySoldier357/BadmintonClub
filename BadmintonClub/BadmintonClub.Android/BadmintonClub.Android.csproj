@@ -91,7 +91,7 @@
     <AndroidResource Include="Resources\drawable\hamburger.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\contacts.png" />
+    <AndroidResource Include="Resources\drawable\profile.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\badmintonClubLogo.png" />

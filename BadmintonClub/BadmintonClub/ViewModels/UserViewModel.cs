@@ -24,6 +24,7 @@ namespace BadmintonClub.ViewModels
         // Private Properties
         private AzureService azureService;
 
+        private ICommand addMatchCommand;
         private ICommand addUserCommand;
         private ICommand loadUsersCommand;
 
@@ -35,6 +36,8 @@ namespace BadmintonClub.ViewModels
         public ObservableRangeCollection<User> UserSorted { get; }
             = new ObservableRangeCollection<User>();
 
+        public ICommand AddMatchCommand =>
+            addMatchCommand ?? (addMatchCommand = new Command(async () => await executeAddMatchCommandAsync()));
         public ICommand AddUserCommand =>
             addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
         public ICommand LoadUsersCommand =>
@@ -53,7 +56,12 @@ namespace BadmintonClub.ViewModels
         }
 
         // Private Methods
-        public async Task executeAddUserCommandAsync()
+        private async Task executeAddMatchCommandAsync()
+        {
+
+        }
+
+        private async Task executeAddUserCommandAsync()
         {
             if (IsBusy)
                 return;

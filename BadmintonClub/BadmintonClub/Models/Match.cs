@@ -11,7 +11,8 @@
         public string PlayerID { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public User MatchWinner { get { return PlayerScore > OpponentScore ? Player : Opponent; } }
+        public string MatchWinner { get { return PlayerScore > OpponentScore ? Player.FullName : Opponent.FullName; } }
+
         [Newtonsoft.Json.JsonIgnore]
         public User Opponent { get; set; }
         [Newtonsoft.Json.JsonIgnore]

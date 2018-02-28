@@ -5,10 +5,14 @@ namespace BadmintonClub.Models
     public class User
     {
         // Public Properties
+        public bool IsCompetitive { get; set; }
+
         public int ClearanceLevel { get; set; } // 0-Member   1-Admin/Board   2-Master
         public int GamesPlayed { get; set; }
-        // NEED TO ADD GAMES LOST AND GAMES DRAWN INTO DB
+        public int GamesDrawn { get; set; }
         public int GamesWon { get; set; }
+        public int PointsAgainst { get; set; }
+        public int PointsFor { get; set; }
         public int PointsInCurrentSeason { get; set; }
 
         public string FirstName { get; set; }
@@ -22,11 +26,7 @@ namespace BadmintonClub.Models
         [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon; } }
         [Newtonsoft.Json.JsonIgnore]
-        public int PointsAgainst { get; set; }
-        [Newtonsoft.Json.JsonIgnore]
         public int PointDifference { get; set; }
-        [Newtonsoft.Json.JsonIgnore]
-        public int PointsFor { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
         public List<Match> Matches { get; set; }

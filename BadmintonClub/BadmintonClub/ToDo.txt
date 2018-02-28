@@ -2,4 +2,5 @@
  - Margins make text nicer
  - iOS 20 pixel margin at the top
  - Glossary for Season Table
- - Colors LimeGrenn vs DarkGreen for better viewing
+ - Colours LimeGrenn vs DarkGreen for better viewing
+ - Colour coding for season table like green vs red for positive or negative point difference

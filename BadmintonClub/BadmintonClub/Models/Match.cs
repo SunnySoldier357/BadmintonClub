@@ -18,6 +18,8 @@
         public User Player { get; set; }
 
         // Constructor
+        public Match() { }
+
         public Match(User player, User opponent, int playerScore, int opponentScore)
         {
             Player = player;

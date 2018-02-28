@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -19,6 +18,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
     {
         // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
+        private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<User> userTable;
 
         public MobileServiceClient Client = null;
@@ -37,11 +37,13 @@ namespace BadmintonClub.Models.Data_Access_Layer
             var store = new MobileServiceSQLiteStore(path);
 
             store.DefineTable<BlogPost>();
+            store.DefineTable<Match>();
             store.DefineTable<User>();
 
             await Client.SyncContext.InitializeAsync(store);
 
             blogPostTable = Client.GetSyncTable<BlogPost>();
+            matchTable = Client.GetSyncTable<Match>();
             userTable = Client.GetSyncTable<User>();
         }
 
@@ -49,12 +51,36 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             await Initialise();
 
-            BlogPost blogpost = new BlogPost() { Title = title, BodyOfPost = bodyOfPost, UserID = UserViewModel.SignedInUser.Id, DateTimePublished = DateTime.Now };
+            BlogPost blogpost = new BlogPost()
+            {
+                Title = title,
+                BodyOfPost = bodyOfPost,
+                UserID = UserViewModel.SignedInUser.Id,
+                DateTimePublished = DateTime.Now
+            };
 
             await blogPostTable.InsertAsync(blogpost);
             await SyncAllDataTables();
 
             return blogpost;
+        }
+
+        public async Task<Match> AddMatch(int playerScore, int opponentScore, string playerID, string opponentID)
+        {
+            await Initialise();
+
+            Match match = new Match()
+            {
+                PlayerScore = playerScore,
+                OpponentScore = opponentScore,
+                OpponentID = opponentID,
+                PlayerID = playerID
+            };
+
+            await matchTable.InsertAsync(match);
+            await SyncAllDataTables();
+
+            return match;
         }
 
         public async Task<User> AddUser(string firstName, string lastName)
@@ -77,6 +103,16 @@ namespace BadmintonClub.Models.Data_Access_Layer
             IEnumerable<BlogPost> data = await blogPostTable
                                          .OrderByDescending(bp => bp.DateTimePublished)
                                          .ToEnumerableAsync();
+
+            return data;
+        }
+
+        public async Task<IEnumerable<Match>> GetMatches()
+        {
+            await Initialise();
+            await SyncAllDataTables();
+
+            IEnumerable<Match> data = await matchTable.ToEnumerableAsync();
 
             return data;
         }
@@ -113,6 +149,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 // Device is online, continue...
                 await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
+                await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
             }
             catch (Exception ex)

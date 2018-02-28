@@ -26,11 +26,14 @@ namespace BadmintonClub.ViewModels
 
         private ICommand addMatchCommand;
         private ICommand addUserCommand;
+        private ICommand loadMatchesCommand;
         private ICommand loadUsersCommand;
 
         private string loadingMessage;
 
         // Public Properties
+        public ObservableRangeCollection<Match> Matches { get; }
+            = new ObservableRangeCollection<Match>();
         public ObservableRangeCollection<User> Users { get; } 
             = new ObservableRangeCollection<User>();
         public ObservableRangeCollection<User> UserSorted { get; }
@@ -40,6 +43,8 @@ namespace BadmintonClub.ViewModels
             addMatchCommand ?? (addMatchCommand = new Command(async () => await executeAddMatchCommandAsync()));
         public ICommand AddUserCommand =>
             addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
+        public ICommand LoadMatchesCommand =>
+            loadMatchesCommand ?? (loadMatchesCommand = new Command(async () => await executeLoadMatchesCommandAsync()));
         public ICommand LoadUsersCommand =>
             loadUsersCommand ?? (loadUsersCommand = new Command(async () => await executeLoadUsersCommandAsync()));
 
@@ -58,7 +63,26 @@ namespace BadmintonClub.ViewModels
         // Private Methods
         private async Task executeAddMatchCommandAsync()
         {
+            if (IsBusy)
+                return;
 
+            try
+            {
+                LoadingMessage = "Adding New Match...";
+                IsBusy = true;
+
+                var match = await azureService.AddMatch(22, 20, "1", "2");
+                Matches.Add(match);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                LoadingMessage = "";
+                IsBusy = false;
+            }
         }
 
         private async Task executeAddUserCommandAsync()
@@ -86,7 +110,31 @@ namespace BadmintonClub.ViewModels
             }
         }
 
-        public async Task executeLoadUsersCommandAsync()
+        private async Task executeLoadMatchesCommandAsync()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                LoadingMessage = "Loading Matches...";
+                IsBusy = true;
+
+                var matches = await azureService.GetMatches();
+                Matches.RemoveRange(matches);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                LoadingMessage = "";
+                IsBusy = false;
+            }
+        }
+
+        private async Task executeLoadUsersCommandAsync()
         {
             if (IsBusy)
                 return;

@@ -126,13 +126,43 @@
 
                 <StackLayout IsVisible="{Binding AddingNewMatch}"
                              Grid.Column="1"
-                             Orientation="Horizontal">
-                    <StackLayout>
-                        <Label Text="Player" 
-                               FontSize="Large"
-                               FontAttributes="Bold" />
+                             VerticalOptions="FillAndExpand">
+                    <Label Text="PLAYER" 
+                           FontSize="Large"
+                           FontAttributes="Bold" 
+                           VerticalOptions="Center"/>
 
-                        <Picker ItemsSource="{Binding UserNames}" />
+                    <Picker x:Name="PlayerNamePicker" 
+                            ItemsSource="{Binding UserNames}" 
+                            VerticalOptions="Center"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Score: " />
+
+                        <Entry x:Name="PlayerScoreEntry" 
+                               HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+
+                    <Label Text="OPPONENT"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center" />
+
+                    <Picker x:Name="OpponentNamePicker" 
+                            ItemsSource="{Binding UserNames}"
+                            VerticalOptions="Center" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Score: " />
+
+                        <Entry x:Name="OpponentScoreEntry" 
+                               HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Save" />
+
+                        <Button Text="Cancel" />
                     </StackLayout>
                 </StackLayout>
 

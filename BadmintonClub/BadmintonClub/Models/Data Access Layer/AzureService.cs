@@ -131,11 +131,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await Initialise();
             await SyncAllDataTables();
 
-            var userid = from user in userTable
-                         where user.FullName == name
-                         select user.Id;
-            // Problem
-            return userid.Query.First();
+            var query = from user in userTable
+                        where (user.FirstName + " " + user.LastName) == name
+                        select user.Id;
+
+            var result =  await userTable.ReadAsync(query);
+            return result.First();
         }
 
         public async Task<IEnumerable<User>> GetUsers()

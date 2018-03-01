@@ -19,12 +19,12 @@
         public User Player { get; set; }
 
         // Constructor
-        public Match() { }
+        public Match() : this("0", "0", 0, 0) { }
 
-        public Match(User player, User opponent, int playerScore, int opponentScore)
+        public Match(string playerID, string opponentID, int playerScore, int opponentScore)
         {
-            Player = player;
-            Opponent = opponent;
+            PlayerID = playerID;
+            OpponentID = opponentID;
             PlayerScore = playerScore;
             OpponentScore = opponentScore;
         }

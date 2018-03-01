@@ -50,10 +50,10 @@ namespace BadmintonClub.Models
         // Public Methods
         public void AddMatch(User opponent, int playerScore, int userScore)
         {
-            Match temp = new Match(this, opponent, playerScore, userScore);
-            GamesPlayed++;
-            if (temp.MatchWinner.Equals(FullName))
-                GamesWon++;
+            //Match temp = new Match(this, opponent, playerScore, userScore);
+            //GamesPlayed++;
+            //if (temp.MatchWinner.Equals(FullName))
+            //    GamesWon++;
         }
 
         // Getters

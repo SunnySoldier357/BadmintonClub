@@ -4,7 +4,6 @@ using MvvmHelpers;
 using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -24,8 +23,6 @@ namespace BadmintonClub.ViewModels
         private ICommand addBlogPostCommand;
         private ICommand loadBlogPostsCommand;
 
-        private string bodyOfPost;
-        private string blogTitle;
         private string loadingMessage;
 
         // Public Properties
@@ -48,7 +45,7 @@ namespace BadmintonClub.ViewModels
         }
 
         public ICommand AddBlogPostCommand =>
-            addBlogPostCommand ?? (addBlogPostCommand = new Command(async () => await executeAddBlogPostCommandAsync()));
+            addBlogPostCommand ?? (addBlogPostCommand = new Command(async (dynamic arguments) => await executeAddBlogPostCommandAsync(arguments)));
         public ICommand LoadBlogPostsCommand =>
             loadBlogPostsCommand ?? (loadBlogPostsCommand = new Command(async () => await executeLoadBlogPostsCommandAsync()));
 
@@ -57,16 +54,6 @@ namespace BadmintonClub.ViewModels
         public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
             = new ObservableRangeCollection<BlogPost>();
 
-        public string BodyOfPost
-        {
-            get => bodyOfPost;
-            set => SetProperty(ref bodyOfPost, value);
-        }
-        public string BlogTitle
-        {
-            get => blogTitle;
-            set => SetProperty(ref blogTitle, value);
-        }
         public string LoadingMessage
         {
             get => loadingMessage;
@@ -80,7 +67,7 @@ namespace BadmintonClub.ViewModels
         }
 
         // Private Methods
-        private async Task executeAddBlogPostCommandAsync()
+        private async Task executeAddBlogPostCommandAsync(dynamic arguments)
         {
             if (IsBusy)
                 return;
@@ -90,7 +77,7 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding new Blog Post...";
                 IsBusy = true;
 
-                var blogpost = await azureService.AddBlogPost(BlogTitle, BodyOfPost);
+                var blogpost = await azureService.AddBlogPost(arguments.BlogTitle, arguments.BodyOfPost);
                 BlogPosts.Add(blogpost);
                 sortBlogPosts();
             }
@@ -124,7 +111,7 @@ namespace BadmintonClub.ViewModels
                         Title = item.Title,
                         BodyOfPost = item.BodyOfPost,
                         DateTimePublished = item.DateTimePublished,
-                        Publisher = await azureService.GetUser(item.UserID)
+                        Publisher = await azureService.GetUserFromId(item.UserID)
                     });
                 }
                 

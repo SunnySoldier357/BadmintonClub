@@ -53,9 +53,13 @@ namespace BadmintonClub.Views
 
         public void MatchSaveButton_Clicked(object sender, EventArgs e)
         {
-            //blogPostViewModel.BlogTitle = BlogPostTitleEntry.Text;
-            //blogPostViewModel.BodyOfPost = BlogPostBodyEditor.Text;
-            //userViewModel.AddMatchCommand.Execute({ 3, 3, 3, 3});
+            userViewModel.AddMatchCommand.Execute(new
+            {
+                OpponentScore = OpponentScoreEntry.Text,
+                PlayerScore = PlayerScoreEntry.Text,
+                OpponentName = OpponentNamePicker.SelectedItem.ToString(),
+                PlayerName = PlayerNamePicker.SelectedItem.ToString()
+            });
             switchToMainView();
         }
 

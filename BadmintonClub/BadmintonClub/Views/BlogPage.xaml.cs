@@ -52,9 +52,11 @@ namespace BadmintonClub.Views
 
         public void BlogPostSaveButton_Clicked(object sender, EventArgs e)
         {
-            blogPostViewModel.BlogTitle = BlogPostTitleEntry.Text;
-            blogPostViewModel.BodyOfPost = BlogPostBodyEditor.Text;
-            blogPostViewModel.AddBlogPostCommand.Execute(null);
+            blogPostViewModel.AddBlogPostCommand.Execute(new
+            {
+                BlogTitle = BlogPostTitleEntry.Text,
+                BodyOfPost = BlogPostBodyEditor.Text
+            });
             switchToMainView();
         }
 
@@ -82,8 +84,10 @@ namespace BadmintonClub.Views
             else
                 blogPostViewModel.ListViewColumnWidth = 0;
 
-            BlogPostTitleEntry.Text = editing ? blogPostViewModel.BlogTitle : "";
-            BlogPostBodyEditor.Text = editing ? blogPostViewModel.BodyOfPost : "";
+            //BlogPostTitleEntry.Text = editing ? blogPostViewModel.BlogTitle : "";
+            //BlogPostBodyEditor.Text = editing ? blogPostViewModel.BodyOfPost : "";
+            BlogPostTitleEntry.Text = "";
+            BlogPostBodyEditor.Text = "";
         }
     }
 }

@@ -66,7 +66,7 @@ namespace BadmintonClub.ViewModels
             = new ObservableRangeCollection<User>();
 
         public ICommand AddMatchCommand =>
-            addMatchCommand ?? (addMatchCommand = new Command(async () => await executeAddMatchCommandAsync()));
+            addMatchCommand ?? (addMatchCommand = new Command(async (dynamic arguments) => await executeAddMatchCommandAsync(arguments)));
         public ICommand AddUserCommand =>
             addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
         public ICommand LoadMatchesCommand =>
@@ -87,7 +87,7 @@ namespace BadmintonClub.ViewModels
         }
 
         // Private Methods
-        private async Task executeAddMatchCommandAsync()
+        private async Task executeAddMatchCommandAsync(dynamic arguments)
         {
             if (IsBusy)
                 return;
@@ -97,7 +97,10 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding New Match...";
                 IsBusy = true;
 
-                var match = await azureService.AddMatch(22, 20, "1", "2");
+                string playerId = await azureService.GetUserIdFromName(arguments.PlayerName);
+                string opponentId = await azureService.GetUserIdFromName(arguments.OpponentName);
+
+                var match = await azureService.AddMatch(arguments.PlayerScore, arguments.OpponentScore, playerId, opponentId);
                 Matches.Add(match);
             }
             catch (Exception ex)

@@ -7,6 +7,7 @@ using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -117,11 +118,24 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task<User> GetUser(string id)
+        public async Task<User> GetUserFromId(string id)
         {
             await Initialise();
+            await SyncAllDataTables();
 
             return await userTable.LookupAsync(id);
+        }
+
+        public async Task<string> GetUserIdFromName(string name)
+        {
+            await Initialise();
+            await SyncAllDataTables();
+
+            var userid = from user in userTable
+                         where user.FullName == name
+                         select user.Id;
+            // Problem
+            return userid.Query.First();
         }
 
         public async Task<IEnumerable<User>> GetUsers()

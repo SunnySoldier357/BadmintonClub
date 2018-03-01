@@ -1,6 +1,9 @@
-﻿Things to optimise:
- - Margins make text nicer
+﻿Things to optimise (Easiest to hardest):
  - iOS 20 pixel margin at the top
  - Glossary for Season Table
  - Colours LimeGrenn vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
+ - Margins make text nicer
+ - Picker enhancements cannot pick the same person 
+ - Edit BlogPosts
+ - Optimisations for desktop vs. phone

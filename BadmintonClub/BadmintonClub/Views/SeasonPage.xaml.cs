@@ -1,4 +1,6 @@
 ﻿using BadmintonClub.ViewModels;
+using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -43,7 +45,20 @@ namespace BadmintonClub.Views
             }
         }
 
-        // Event Handlers
+        // Event Handlers\
+        public void MatchCancelButton_Clicked(object sender, EventArgs e)
+        {
+            switchToMainView();
+        }
+
+        public void MatchSaveButton_Clicked(object sender, EventArgs e)
+        {
+            //blogPostViewModel.BlogTitle = BlogPostTitleEntry.Text;
+            //blogPostViewModel.BodyOfPost = BlogPostBodyEditor.Text;
+            //userViewModel.AddMatchCommand.Execute({ 3, 3, 3, 3});
+            switchToMainView();
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -60,6 +75,13 @@ namespace BadmintonClub.Views
                 userViewModel.ListViewColumnWidth = GridLength.Star;
             else
                 userViewModel.ListViewColumnWidth = 0;
+        }
+
+        private void switchToMainView()
+        {
+            userViewModel.AddingNewMatch = false;
+            userViewModel.NewMatchColumnWidth = 0;
+            userViewModel.ListViewColumnWidth = GridLength.Star;
         }
     }
 }

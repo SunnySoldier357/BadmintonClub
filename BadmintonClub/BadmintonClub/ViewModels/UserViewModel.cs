@@ -56,7 +56,9 @@ namespace BadmintonClub.ViewModels
 
         public ObservableRangeCollection<Match> Matches { get; }
             = new ObservableRangeCollection<Match>();
-        public ObservableRangeCollection<string> UserNames { get; }
+        public ObservableRangeCollection<string> UserNamesOpponent { get; }
+            = new ObservableRangeCollection<string>();
+        public ObservableRangeCollection<string> UserNamesPlayer { get; }
             = new ObservableRangeCollection<string>();
         public ObservableRangeCollection<User> Users { get; } 
             = new ObservableRangeCollection<User>();
@@ -205,7 +207,8 @@ namespace BadmintonClub.ViewModels
                                     user.LastName
                             select user.FullName;
 
-            UserNames.ReplaceRange(usernames);
+            UserNamesPlayer.ReplaceRange(usernames);
+            UserNamesOpponent.ReplaceRange(usernames);
         }
     }
 }

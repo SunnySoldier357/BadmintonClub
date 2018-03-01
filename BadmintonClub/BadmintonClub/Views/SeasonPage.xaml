@@ -133,7 +133,8 @@
                            VerticalOptions="Center"/>
 
                     <Picker x:Name="PlayerNamePicker" 
-                            ItemsSource="{Binding UserNames}" 
+                            Title="Player Name"
+                            ItemsSource="{Binding UserNamesPlayer}"
                             VerticalOptions="Center"/>
 
                     <StackLayout Orientation="Horizontal">
@@ -148,8 +149,9 @@
                            FontAttributes="Bold"
                            VerticalOptions="Center" />
 
-                    <Picker x:Name="OpponentNamePicker" 
-                            ItemsSource="{Binding UserNames}"
+                    <Picker x:Name="OpponentNamePicker"
+                            Title="Opponent Name"
+                            ItemsSource="{Binding UserNamesOpponent}"
                             VerticalOptions="Center" />
 
                     <StackLayout Orientation="Horizontal">
@@ -160,9 +162,13 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
-                        <Button Text="Save" />
+                        <Button x:Name="MatchSaveButton"
+                                Clicked="MatchSaveButton_Clicked"
+                                Text="Save" />
 
-                        <Button Text="Cancel" />
+                        <Button x:Name="MatchCancelButton"
+                                Clicked="MatchCancelButton_Clicked" 
+                                Text="Cancel" />
                     </StackLayout>
                 </StackLayout>
 

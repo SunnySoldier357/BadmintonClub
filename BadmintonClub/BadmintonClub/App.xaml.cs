@@ -1,5 +1,9 @@
-﻿using BadmintonClub.ViewModels;
+﻿using BadmintonClub.Models;
+using BadmintonClub.Models.Data_Access_Layer;
+using BadmintonClub.ViewModels;
 using BadmintonClub.Views;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BadmintonClub
@@ -8,14 +12,21 @@ namespace BadmintonClub
 	{
         // Public Static Properties
         public UserViewModel UserVM { get; set; }
+        public User SignedInUser { get; private set; }
 
         // Constructor
         public App()
 		{
 			InitializeComponent();
+            Properties.Add("SignedInUser", new User("Sandeep", "Singh Sidhu", "Co-president", 2));
             UserVM = new UserViewModel();
-
-            MainPage = new MainPage();
+            if (!Properties.ContainsKey("SignedInUser"))
+                MainPage = new LoginPage();
+            else
+            {
+                SignedInUser = (User)Properties["SignedInUser"];
+                MainPage = new MainPage();
+            }
         }
 
         // Event Handlers

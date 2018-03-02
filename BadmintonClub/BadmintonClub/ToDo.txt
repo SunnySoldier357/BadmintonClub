@@ -1,5 +1,6 @@
 ﻿Main things that I have to do:
- - 
+ - Make match fixtures for the season
+ - Log in
 
 Things that are necessary before release:
  - Hide the add buttons when switching tabs (Season Page)

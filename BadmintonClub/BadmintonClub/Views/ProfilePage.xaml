@@ -5,7 +5,7 @@
              Title="Profile">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding SignedInUser.FullName}" />
+            <Label Text="Test" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

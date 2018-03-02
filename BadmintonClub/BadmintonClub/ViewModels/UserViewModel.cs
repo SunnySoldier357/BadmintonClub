@@ -100,7 +100,7 @@ namespace BadmintonClub.ViewModels
                 string playerId = await azureService.GetUserIdFromName(arguments.PlayerName);
                 string opponentId = await azureService.GetUserIdFromName(arguments.OpponentName);
 
-                var match = await azureService.AddMatch(arguments.PlayerScore, arguments.OpponentScore, playerId, opponentId);
+                var match = await azureService.AddMatch(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId);
                 Matches.Add(match);
             }
             catch (Exception ex)

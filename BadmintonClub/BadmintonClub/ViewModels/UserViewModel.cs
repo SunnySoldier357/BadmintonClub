@@ -102,6 +102,9 @@ namespace BadmintonClub.ViewModels
 
                 var match = await azureService.AddMatch(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId);
                 Matches.Add(match);
+                
+                // Problem: Load Users after adding a match
+                // LoadUsersCommand.Execute(null); ;
             }
             catch (Exception ex)
             {

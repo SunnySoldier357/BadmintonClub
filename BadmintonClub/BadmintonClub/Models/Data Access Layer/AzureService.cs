@@ -79,6 +79,16 @@ namespace BadmintonClub.Models.Data_Access_Layer
             };
 
             await matchTable.InsertAsync(match);
+
+            // Updating player's statistics according to Match results
+            match.Player = await userTable.LookupAsync(match.PlayerID);
+            match.Player.AddMatch(match, true);
+
+            match.Opponent = await userTable.LookupAsync(match.OpponentID);
+            match.Opponent.AddMatch(match, false);
+
+            await userTable.UpdateAsync(match.Player);
+            await userTable.UpdateAsync(match.Opponent);
             await SyncAllDataTables();
 
             return match;

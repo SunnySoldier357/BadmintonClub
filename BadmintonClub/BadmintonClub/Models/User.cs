@@ -24,9 +24,9 @@ namespace BadmintonClub.Models
         public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
 
         [Newtonsoft.Json.JsonIgnore]
-        public int GamesLost { get { return GamesPlayed - GamesWon; } }
+        public int GamesLost { get { return GamesPlayed - GamesWon - GamesDrawn; } }
         [Newtonsoft.Json.JsonIgnore]
-        public int PointDifference { get; set; }
+        public int PointDifference { get { return PointsFor - PointsAgainst; } }
 
         [Newtonsoft.Json.JsonIgnore]
         public List<Match> Matches { get; set; }
@@ -45,15 +45,29 @@ namespace BadmintonClub.Models
             LastName = lastName;
             Title = title;
             ClearanceLevel = clearanceLevel;
+            Matches = new List<Match>();
         }
 
         // Public Methods
-        public void AddMatch(User opponent, int playerScore, int userScore)
+        public void AddMatch(Match match, bool IsPlayer)
         {
-            //Match temp = new Match(this, opponent, playerScore, userScore);
-            //GamesPlayed++;
-            //if (temp.MatchWinner.Equals(FullName))
-            //    GamesWon++;
+            GamesPlayed++;
+
+            if (match.IsDraw())
+            {
+                GamesDrawn++;
+                PointsInCurrentSeason++;
+            }
+            else if (IsPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
+            {
+                GamesWon++;
+                PointsInCurrentSeason += 3;
+            }
+
+            PointsFor += IsPlayer ? match.PlayerScore : match.OpponentScore;
+            PointsAgainst += IsPlayer ? match.OpponentScore : match.PlayerScore;
+
+            Matches.Add(match);
         }
 
         // Getters

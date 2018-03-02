@@ -4,6 +4,8 @@
  - Colours LimeGrenn vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
  - Margins make text nicer
- - Picker enhancements cannot pick the same person 
  - Edit BlogPosts
  - Optimisations for desktop vs. phone
+
+ Things that are necessary before release:
+  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank 

@@ -11,9 +11,6 @@
         public string PlayerID { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public string MatchWinner { get { return PlayerScore > OpponentScore ? Player.FullName : Opponent.FullName; } }
-
-        [Newtonsoft.Json.JsonIgnore]
         public User Opponent { get; set; }
         [Newtonsoft.Json.JsonIgnore]
         public User Player { get; set; }
@@ -27,6 +24,17 @@
             OpponentID = opponentID;
             PlayerScore = playerScore;
             OpponentScore = opponentScore;
+        }
+
+        // Getters
+        public bool IsDraw()
+        {
+            return PlayerScore == OpponentScore;
+        }
+
+        public bool IsPlayerWinner()
+        {
+            return PlayerScore > OpponentScore;
         }
     }
 }

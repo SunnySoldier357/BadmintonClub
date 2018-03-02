@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BadmintonClub.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,18 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-		public ProfilePage ()
+        // Private Properties
+        private UserViewModel userViewModel;
+
+        // Constructor
+		public ProfilePage()
 		{
-			InitializeComponent ();
-		}
-	}
+			InitializeComponent();
+            BindingContext = userViewModel = (Application.Current as App).UserVM;
+
+            // Padding for iOS to not cover status bar
+            if (Device.RuntimePlatform == Device.iOS)
+                Padding = new Thickness(0, 20, 0, 0);
+        }
+    }
 }

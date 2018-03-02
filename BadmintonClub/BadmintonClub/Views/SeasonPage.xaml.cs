@@ -11,11 +11,18 @@ namespace BadmintonClub.Views
         // Private Properties
         private UserViewModel userViewModel;
 
+        // Public Properties
+        public string test = "test";
+
         // Constructor
         public SeasonPage()
         {
             InitializeComponent();
-            BindingContext = userViewModel = new UserViewModel();
+            BindingContext = userViewModel = (Application.Current as App).UserVM;
+
+            // Padding for iOS to not cover status bar
+            if (Device.RuntimePlatform == Device.iOS)
+                Padding = new Thickness(0, 20, 0, 0);
 
             SeasonTableListView.ItemTapped += (sender, e) =>
             {
@@ -44,7 +51,7 @@ namespace BadmintonClub.Views
             }
         }
 
-        // Event Handlers\
+        // Event Handlers
         public void MatchCancelButton_Clicked(object sender, EventArgs e)
         {
             switchToMainView();

@@ -1,11 +1,20 @@
-﻿Things to optimise (Easiest to hardest):
- - iOS 20 pixel margin at the top
+﻿Main things that I have to do:
+ - 
+
+Things that are necessary before release:
+ - Hide the add buttons when switching tabs (Season Page)
+ - Picker enhancements cannot pick the same person as well as text blocks cannot be blank
+
+Things to optimise (Easiest to hardest):
  - Glossary for Season Table
  - Colours LimeGrenn vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
  - Margins make text nicer
+ - Feedback Section
+ - Settings Section 
  - Edit BlogPosts
+ - Ensure that loading is done before adding or refreshing again
+ - Loading is only done when stuff is not up to date and that the local stuff is only update not deleted and recreated
+ - Make stuff happen faster
  - Optimisations for desktop vs. phone
-
- Things that are necessary before release:
-  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank 
+ - Season Table can be ordered by the selected column

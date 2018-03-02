@@ -17,6 +17,10 @@ namespace BadmintonClub.Views
             InitializeComponent();
             BindingContext = blogPostViewModel = new BlogPostViewModel();
 
+            // Padding for iOS to not cover status bar
+            if (Device.RuntimePlatform == Device.iOS)
+                Padding = new Thickness(0, 20, 0, 0);
+
             BlogPostListView.ItemTapped += (sender, e) =>
             {
                 if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)

@@ -1,14 +1,19 @@
-﻿using BadmintonClub.Views;
+﻿using BadmintonClub.ViewModels;
+using BadmintonClub.Views;
 using Xamarin.Forms;
 
 namespace BadmintonClub
 {
     public partial class App : Application
 	{
+        // Public Static Properties
+        public UserViewModel UserVM { get; set; }
+
         // Constructor
-		public App()
+        public App()
 		{
 			InitializeComponent();
+            UserVM = new UserViewModel();
 
             MainPage = new MainPage();
         }

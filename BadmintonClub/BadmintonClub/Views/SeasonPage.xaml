@@ -2,6 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="BadmintonClub.Views.SeasonPage"
+            xmlns:local="clr-namespace:BadmintonClub.Views"
             Title="Season">
 
     <ContentPage Title="Table">
@@ -187,5 +188,29 @@
         </ContentPage.Content>
     </ContentPage>
 
-    <ContentPage Title="Statistics" />
+    <ContentPage Title="Statistics">
+        <ContentPage.Content>
+            <StackLayout Spacing="30">
+                <StackLayout>
+                    <Label Text="PERFORMANCE" />
+                    <Label Text="Largest Point Differential" />
+                    <Label Text="Largest Point Total" />
+                    <Label Text="Longest Winning Streak" />
+                    <Label Text="Longest Current Winning Streak" />
+                    <Label Text="Longest Unbeaten Streak" />
+                    <Label Text="Longest Current Unbeaten Streak" />
+                    <Label Text="Longest Losing Streak" />
+                    <Label Text="Longest Current Losing Streak" />
+                    <Label Text="Longest Winless Streak" />
+                    <Label Text="Longest Current Winless Streak" />
+
+                    <Label Text="TOP PLAYERS" />
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding test}" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
 </TabbedPage>

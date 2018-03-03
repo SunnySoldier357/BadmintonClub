@@ -10,9 +10,11 @@ Things to optimise (Easiest to hardest):
  - Glossary for Season Table
  - Colours LimeGrenn vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
+ - No connection (Offline Stack)
  - Margins make text nicer
  - Feedback Section
  - Settings Section 
+ - Justified text
  - Edit BlogPosts
  - Ensure that loading is done before adding or refreshing again
  - Loading is only done when stuff is not up to date and that the local stuff is only update not deleted and recreated

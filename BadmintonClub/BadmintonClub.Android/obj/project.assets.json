@@ -1496,24 +1496,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\singsan19\\.nuget\\packages\\": {},
+    "C:\\Users\\sande_gblcen6\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
+      "projectUniqueName": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
       "projectName": "BadmintonClub.Android",
-      "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
-      "packagesPath": "C:\\Users\\singsan19\\.nuget\\packages\\",
-      "outputPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\obj\\",
+      "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\BadmintonClub.Android.csproj",
+      "packagesPath": "C:\\Users\\sande_gblcen6\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\singsan19\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sande_gblcen6\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -1527,8 +1527,8 @@
       "frameworks": {
         "monoandroid80": {
           "projectReferences": {
-            "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
-              "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
+            "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
+              "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
             }
           }
         }

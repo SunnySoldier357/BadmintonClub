@@ -22,7 +22,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
         private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<User> userTable;
 
-        public MobileServiceClient Client = null;
+        // Public Properties
+        public MobileServiceClient Client { get; set; } = null;
 
         // Public Methods
         public async Task Initialise()
@@ -123,7 +124,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await Initialise();
             await SyncAllDataTables();
 
-            IEnumerable<Match> data = await matchTable.ToEnumerableAsync();
+            var data = await matchTable.ToEnumerableAsync();
 
             return data;
         }
@@ -176,6 +177,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
+
+                await Client.SyncContext.PushAsync();
             }
             catch (Exception ex)
             {

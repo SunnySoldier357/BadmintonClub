@@ -178,6 +178,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
+                (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+
                 await Client.SyncContext.PushAsync();
             }
             catch (Exception ex)

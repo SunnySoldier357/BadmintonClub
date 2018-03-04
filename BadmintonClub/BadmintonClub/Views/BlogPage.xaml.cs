@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static BadmintonClub.App;
 
 namespace BadmintonClub.Views
 {
@@ -16,6 +17,9 @@ namespace BadmintonClub.Views
 		{
             InitializeComponent();
             BindingContext = blogPostViewModel = new BlogPostViewModel();
+
+            FinishLoadingDel = adminAppPostButton;
+            blogPostViewModel.LoadBlogPostsCommand.Execute(null);
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
@@ -34,16 +38,6 @@ namespace BadmintonClub.Views
                     Text = "Refresh",
                     Command = blogPostViewModel.LoadBlogPostsCommand,
                     Icon = "refresh.png"
-                });
-            }
-
-            if ((Application.Current as App).SignedInUser.IsAdmin())
-            {
-                ToolbarItems.Add(new ToolbarItem
-                {
-                    Text = "Add Post",
-                    Command = new Command(() => switchToEditView(false)),
-                    Icon = "add.png"
                 });
             }
         }
@@ -72,6 +66,19 @@ namespace BadmintonClub.Views
         }
 
         // Private Methods
+        private void adminAppPostButton()
+        {
+            if ((Application.Current as App).SignedInUser?.IsAdmin() ?? false)
+            {
+                ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = "Add Post",
+                    Command = new Command(() => switchToEditView(false)),
+                    Icon = "add.png"
+                });
+            }
+        }
+
         private void switchToMainView()
         {
             blogPostViewModel.AddingNewItem = false;
@@ -88,8 +95,6 @@ namespace BadmintonClub.Views
             else
                 blogPostViewModel.ListViewColumnWidth = 0;
 
-            //BlogPostTitleEntry.Text = editing ? blogPostViewModel.BlogTitle : "";
-            //BlogPostBodyEditor.Text = editing ? blogPostViewModel.BodyOfPost : "";
             BlogPostTitleEntry.Text = string.Empty;
             BlogPostBodyEditor.Text = string.Empty;
         }

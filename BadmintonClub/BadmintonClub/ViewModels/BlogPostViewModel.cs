@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using static BadmintonClub.App;
 
 namespace BadmintonClub.ViewModels
 {
@@ -127,6 +128,8 @@ namespace BadmintonClub.ViewModels
             {
                 LoadingMessage = string.Empty;
                 IsBusy = false;
+
+                FinishLoadingDel();
             }
         }
 

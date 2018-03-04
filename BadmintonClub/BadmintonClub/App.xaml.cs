@@ -7,6 +7,8 @@ namespace BadmintonClub
 {
     public partial class App : Application
 	{
+        // Public Static Properties
+        public static FinishLoading FinishLoadingDel;  // Used for BlogPage
 
         // Public Properties
         public string SignedInUserId { get; set; }
@@ -19,14 +21,13 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-            Properties.Add("SignedInUser", new User("Sandeep", "Singh Sidhu", "Co-president", 2));
-            Properties.Clear();
+
             UserVM = new UserViewModel();
-            if (!Properties.ContainsKey("SignedInUser"))
+            if (!Properties.ContainsKey("SignedInUserId"))
                 MainPage = new LoginPage();
             else
             {
-                SignedInUser = (User)Properties["SignedInUser"];
+                SignedInUserId = Properties["SignedInUserId"].ToString();
                 MainPage = new MainPage();
             }
         }
@@ -39,7 +40,7 @@ namespace BadmintonClub
 
 		protected override void OnSleep()
 		{
-            Properties[] = ;
+            Properties["SignedInUserId"] = SignedInUserId;
 		}
 
         protected override void OnStart()
@@ -52,5 +53,8 @@ namespace BadmintonClub
         {
             MainPage = new MainPage();
         }
+
+        // Classes. Structs, etc...
+        public delegate void FinishLoading();
     }
 }

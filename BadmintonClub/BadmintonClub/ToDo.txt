@@ -3,6 +3,7 @@
  - Log in
 
 Things that are necessary before release:
+ - Password entry for users 
  - Hide the add buttons when switching tabs (Season Page)
  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank
 

@@ -12,15 +12,6 @@ namespace BadmintonClub.ViewModels
 {
     public class UserViewModel : BaseViewModel
     {
-        // Public Static Properties
-        public static User SignedInUser = new User()
-        {
-            FirstName = "Test",
-            LastName = "Name",
-            Id = "1",
-            ClearanceLevel = 2
-        };
-
         // Private Properties
         private AzureService azureService;
 

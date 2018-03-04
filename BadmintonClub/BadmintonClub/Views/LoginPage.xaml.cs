@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using BadmintonClub.Models.Data_Access_Layer;
+using System;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +9,7 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+        // Constructor
 		public LoginPage()
 		{
 			InitializeComponent();
@@ -20,5 +18,32 @@ namespace BadmintonClub.Views
             if (Device.RuntimePlatform == Device.iOS)
                 Padding = new Thickness(0, 20, 0, 0);
         }
-	}
+
+        // Event Handlers
+        public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
+        {
+            AzureService azureService = DependencyService.Get<AzureService>();
+            if (!((LastNameEntry.Text?.Equals(null) ?? true) || (FirstNameEntry.Text?.Equals(null) ?? true)))
+            {
+                if (PINEntry.Text?.Equals("testPIN") ?? false)
+                {
+                    ErrorLabel.IsVisible = false;
+                    ErrorLabel.Text = string.Empty;
+
+                    App.SignedInUser = await azureService.AddUser(FirstNameEntry.Text, LastNameEntry.Text);
+                    (Application.Current as App).StartMainApplication();
+                }
+                else
+                {
+                    ErrorLabel.IsVisible = true;
+                    ErrorLabel.Text = "The PIN entered was wrong!";
+                }
+            }
+            else
+            {
+                ErrorLabel.IsVisible = true;
+                ErrorLabel.Text = "Do not leave the First Name and/or Last Name fields empty!";
+            }
+        }
+    }
 }

@@ -13,12 +13,30 @@
                 <Label Text="First Name: "/>
 
                 <Entry x:Name="FirstNameEntry" 
-                       HorizontalOptions="CenterAndExpand"/>
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <StackLayout>
-                
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Last Name: " />
+
+                <Entry x:Name="LastNameEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <StackLayout />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="PIN" />
+
+                <Entry x:Name="PINEntry"
+                       HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <Button x:Name="LogInButton"
+                    Text="Log In"
+                    Clicked="LogInButton_ClickedAsync"/>
+
+            <Label x:Name="ErrorLabel"
+                   TextColor="Red" 
+                   IsVisible="False"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

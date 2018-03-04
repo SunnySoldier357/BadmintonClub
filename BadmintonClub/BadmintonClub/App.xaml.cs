@@ -11,14 +11,16 @@ namespace BadmintonClub
     public partial class App : Application
 	{
         // Public Static Properties
-        public UserViewModel UserVM { get; set; }
-        public User SignedInUser { get; private set; }
+        public static User SignedInUser { get; set; }
+
+        public static UserViewModel UserVM { get; set; }
 
         // Constructor
         public App()
 		{
 			InitializeComponent();
             Properties.Add("SignedInUser", new User("Sandeep", "Singh Sidhu", "Co-president", 2));
+            Properties.Clear();
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUser"))
                 MainPage = new LoginPage();
@@ -43,6 +45,12 @@ namespace BadmintonClub
         protected override void OnStart()
         {
             // Handle when your app starts
+        }
+
+        // Public Methods
+        public void StartMainApplication()
+        {
+            MainPage = new MainPage();
         }
     }
 }

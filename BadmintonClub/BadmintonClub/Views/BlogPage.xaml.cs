@@ -37,7 +37,7 @@ namespace BadmintonClub.Views
                 });
             }
 
-            if (UserViewModel.SignedInUser.IsAdmin())
+            if (App.SignedInUser.IsAdmin())
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

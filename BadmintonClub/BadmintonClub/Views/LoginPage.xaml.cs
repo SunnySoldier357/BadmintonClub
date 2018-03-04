@@ -9,8 +9,11 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+        // Private Properties
+        private bool authenticated = false;
+
         // Constructor
-		public LoginPage()
+        public LoginPage()
 		{
 			InitializeComponent();
 
@@ -22,8 +25,11 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
+            //if (App.Authenticator != null)
+            //    authenticated = await App.Authenticator.Authenticate();
+
             AzureService azureService = DependencyService.Get<AzureService>();
-            if (!((LastNameEntry.Text?.Equals(null) ?? true) || (FirstNameEntry.Text?.Equals(null) ?? true)))
+            if (!(LastNameEntry.Text == null) || (FirstNameEntry.Text == null))
             {
                 if (PINEntry.Text?.Equals("testPIN") ?? false)
                 {

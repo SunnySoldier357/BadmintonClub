@@ -1,14 +1,15 @@
 ﻿using BadmintonClub.Models;
 using BadmintonClub.ViewModels;
 using BadmintonClub.Views;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BadmintonClub
 {
     public partial class App : Application
 	{
-        // Public Static Properties
-        public static FinishLoading FinishLoadingDel;  // Used for BlogPage
+        // Static Properties
+        public static FinishLoading FinishLoadingDel;  // Used for Admin Authentication
 
         // Public Properties
         public string SignedInUserId { get; set; }
@@ -21,6 +22,7 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
+            Properties["SignedInUserId"] = "1";
 
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))

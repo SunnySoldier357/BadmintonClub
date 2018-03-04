@@ -1,5 +1,4 @@
 ﻿using BadmintonClub.Models.Data_Access_Layer;
-using BadmintonClub.ViewModels;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -181,6 +180,29 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
 
                 await Client.SyncContext.PushAsync();
+            }
+            catch (MobileServicePushFailedException ex)
+            {
+                // Simple error/conflict handling
+                if (ex.PushResult != null)
+                {
+                    foreach (var error in ex.PushResult.Errors)
+                    {
+                        if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+                        {
+                            // Update failed, reverting to server's copy
+                            await error.CancelAndUpdateItemAsync(error.Result);
+                        }
+                        else
+                        {
+                            // Discard local changes
+                            await error.CancelAndDiscardItemAsync();
+                        }
+
+                        Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.",
+                            error.TableName, error.Item["id"]);
+                    }
+                }
             }
             catch (Exception ex)
             {

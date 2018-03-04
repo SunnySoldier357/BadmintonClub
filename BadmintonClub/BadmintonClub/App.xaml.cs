@@ -1,19 +1,18 @@
 ﻿using BadmintonClub.Models;
-using BadmintonClub.Models.Data_Access_Layer;
 using BadmintonClub.ViewModels;
 using BadmintonClub.Views;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BadmintonClub
 {
     public partial class App : Application
 	{
-        // Public Static Properties
-        public static User SignedInUser { get; set; }
+        // Public Properties
+        public string SignedInUserId { get; set; }
 
-        public static UserViewModel UserVM { get; set; }
+        public User SignedInUser { get; set; }
+
+        public UserViewModel UserVM { get; set; }
 
         // Constructor
         public App()

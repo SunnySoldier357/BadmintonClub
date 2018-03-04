@@ -23,7 +23,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         private IMobileServiceSyncTable<User> userTable;
 
         // Public Properties
-        public MobileServiceClient Client { get; set; } = null;
+        public MobileServiceClient Client { get; set; }
 
         // Public Methods
         public async Task Initialise()
@@ -57,7 +57,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             {
                 Title = title,
                 BodyOfPost = bodyOfPost,
-                UserID = App.SignedInUser.Id,
+                UserID = (Application.Current as App).SignedInUser.Id,
                 DateTimePublished = DateTime.Now
             };
 

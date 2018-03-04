@@ -37,7 +37,7 @@ namespace BadmintonClub.Views
                 });
             }
 
-            if (App.SignedInUser.IsAdmin())
+            if ((Application.Current as App).SignedInUser.IsAdmin())
             {
                 ToolbarItems.Add(new ToolbarItem
                 {
@@ -90,8 +90,8 @@ namespace BadmintonClub.Views
 
             //BlogPostTitleEntry.Text = editing ? blogPostViewModel.BlogTitle : "";
             //BlogPostBodyEditor.Text = editing ? blogPostViewModel.BodyOfPost : "";
-            BlogPostTitleEntry.Text = "";
-            BlogPostBodyEditor.Text = "";
+            BlogPostTitleEntry.Text = string.Empty;
+            BlogPostBodyEditor.Text = string.Empty;
         }
     }
 }

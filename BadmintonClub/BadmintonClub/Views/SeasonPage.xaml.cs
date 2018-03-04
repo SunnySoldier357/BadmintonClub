@@ -18,7 +18,7 @@ namespace BadmintonClub.Views
         public SeasonPage()
         {
             InitializeComponent();
-            BindingContext = userViewModel = App.UserVM;
+            BindingContext = userViewModel = (Application.Current as App).UserVM;
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
@@ -40,7 +40,7 @@ namespace BadmintonClub.Views
                 });
             }
 
-            if (App.SignedInUser.IsAdmin())
+            if ((Application.Current as App).SignedInUser.IsAdmin())
             {
                 ToolbarItems.Add(new ToolbarItem
                 {

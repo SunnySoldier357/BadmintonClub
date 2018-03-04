@@ -87,7 +87,7 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
-                LoadingMessage = "";
+                LoadingMessage = string.Empty;
                 IsBusy = false;
             }
         }
@@ -125,7 +125,7 @@ namespace BadmintonClub.ViewModels
             }
             finally
             {
-                LoadingMessage = "";
+                LoadingMessage = string.Empty;
                 IsBusy = false;
             }
         }

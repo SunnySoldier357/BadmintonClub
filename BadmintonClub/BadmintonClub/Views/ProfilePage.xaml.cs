@@ -20,7 +20,7 @@ namespace BadmintonClub.Views
 		public ProfilePage()
 		{
 			InitializeComponent();
-            BindingContext = userViewModel = App.UserVM;
+            BindingContext = userViewModel = (Application.Current as App).UserVM;
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)

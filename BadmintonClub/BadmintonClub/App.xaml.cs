@@ -7,6 +7,7 @@ namespace BadmintonClub
 {
     public partial class App : Application
 	{
+
         // Public Properties
         public string SignedInUserId { get; set; }
 
@@ -38,7 +39,7 @@ namespace BadmintonClub
 
 		protected override void OnSleep()
 		{
-			// Handle when your app sleeps
+            Properties[] = ;
 		}
 
         protected override void OnStart()

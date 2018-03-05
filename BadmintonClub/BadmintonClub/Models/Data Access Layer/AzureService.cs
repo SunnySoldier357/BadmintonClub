@@ -57,6 +57,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Title = title,
                 BodyOfPost = bodyOfPost,
                 UserID = (Application.Current as App).SignedInUser.Id,
+                Publisher = await userTable.LookupAsync((Application.Current as App).SignedInUser.Id), 
                 DateTimePublished = DateTime.Now
             };
 
@@ -111,9 +112,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await Initialise();
             await SyncAllDataTables();
 
-            IEnumerable<BlogPost> data = await blogPostTable
-                                         .OrderByDescending(bp => bp.DateTimePublished)
-                                         .ToEnumerableAsync();
+            var data = await blogPostTable
+                       .OrderByDescending(bp => bp.DateTimePublished)
+                       .ToEnumerableAsync();
 
             return data;
         }

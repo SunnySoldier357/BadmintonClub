@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="net_gssapi_operation_failed" xml:space="preserve">
-    <value>GSSAPI operation failed with status: {0} (Minor status: {1}).</value>
-  </data>
-  <data name="SQL_UnknownSysTxIsolationLevel" xml:space="preserve">
-    <value>Unrecognized System.Transactions.IsolationLevel enumeration value: {0}.</value>
-  </data>
-  <data name="SQL_KerberosTicketMissingError" xml:space="preserve">
-    <value>Cannot access Kerberos ticket. Ensure Kerberos has been initialized with 'kinit'.</value>
-  </data>
   <data name="SQL_BulkLoadCannotConvertValue" xml:space="preserve">
     <value>The given value of type {0} from the data source cannot be converted to type {1} of the specified target column.</value>
   </data>
@@ -141,15 +132,6 @@
   <data name="SQL_BulkLoadInvalidVariantValue" xml:space="preserve">
     <value>Value cannot be converted to SqlVariant.</value>
   </data>
-  <data name="ADP_DeriveParametersNotSupported" xml:space="preserve">
-    <value>{0} DeriveParameters only supports CommandType.StoredProcedure, not CommandType.{1}.</value>
-  </data>
-  <data name="SQL_CannotGetDTCAddress" xml:space="preserve">
-    <value>Unable to get the address of the distributed transaction coordinator for the server, from the server.  Is DTC enabled on the server?</value>
-  </data>
-  <data name="ADP_BadParameterName" xml:space="preserve">
-    <value>Specified parameter name '{0}' is not valid.</value>
-  </data>
   <data name="ADP_MissingConnectionOptionValue" xml:space="preserve">
     <value>Use of key '{0}' requires the key '{1}' to be present.</value>
   </data>
@@ -161,9 +143,6 @@
   </data>
   <data name="ADP_OperationAbortedExceptionMessage" xml:space="preserve">
     <value>Operation aborted due to an exception (see InnerException for details).</value>
-  </data>
-  <data name="MDF_DataTableDoesNotExist" xml:space="preserve">
-    <value>The collection '{0}' is missing from the metadata XML.</value>
   </data>
   <data name="Snix_Execute" xml:space="preserve">
     <value>A transport-level error has occurred when sending the request to the server.</value>
@@ -192,17 +171,8 @@
   <data name="SqlMetaData_SpecifyBothSortOrderAndOrdinal" xml:space="preserve">
     <value>The sort order and ordinal must either both be specified, or neither should be specified (SortOrder.Unspecified and -1).  The values given were: order = {0}, ordinal = {1}.</value>
   </data>
-  <data name="net_auth_message_not_encrypted" xml:space="preserve">
-    <value>Protocol error: A received message contains a valid signature but it was not encrypted as required by the effective Protection Level.</value>
-  </data>
-  <data name="MDF_MissingRestrictionRow" xml:space="preserve">
-    <value>A restriction exists for which there is no matching row in the restrictions collection.</value>
-  </data>
   <data name="SqlMisc_InvalidOpStreamClosed" xml:space="preserve">
     <value>Invalid attempt to call {0} when the stream is closed.</value>
-  </data>
-  <data name="SqlParameter_InvalidTableDerivedPrecisionForTvp" xml:space="preserve">
-    <value>Precision '{0}' required to send all values in column '{1}' exceeds the maximum supported precision '{2}'. The values must all fit in a single precision.</value>
   </data>
   <data name="ADP_ConnectionStringSyntax" xml:space="preserve">
     <value>Format of the initialization string does not conform to specification starting at index {0}.</value>
@@ -213,8 +183,8 @@
   <data name="SQL_BulkLoadConflictingTransactionOption" xml:space="preserve">
     <value>Must not specify SqlBulkCopyOption.UseInternalTransaction and pass an external Transaction at the same time.</value>
   </data>
-  <data name="net_nego_not_supported_empty_target_with_defaultcreds" xml:space="preserve">
-    <value>Target name should be non-empty if default credentials are passed.</value>
+  <data name="SqlMisc_BufferInsufficientMessage" xml:space="preserve">
+    <value>The buffer is insufficient. Read or write operation failed.</value>
   </data>
   <data name="ADP_InvalidMultipartName" xml:space="preserve">
     <value>{0} '{1}'.</value>
@@ -228,26 +198,14 @@
   <data name="SQL_DbTypeNotSupportedOnThisPlatform" xml:space="preserve">
     <value>Type {0} is not supported on this platform.</value>
   </data>
-  <data name="SQL_SqlServerBrowserNotAccessible" xml:space="preserve">
-    <value>Cannot connect to SQL Server Browser. Ensure SQL Server Browser has been started.</value>
-  </data>
   <data name="SQL_StreamSeekNotSupported" xml:space="preserve">
     <value>The Stream does not support seeking.</value>
-  </data>
-  <data name="AZURESQL_UsGovEndpoint" xml:space="preserve">
-    <value>.database.usgovcloudapi.net</value>
   </data>
   <data name="ADP_CollectionIsNotParent" xml:space="preserve">
     <value>The {0} is already contained by another {1}.</value>
   </data>
   <data name="ADP_InvalidSizeValue" xml:space="preserve">
     <value>Invalid parameter Size value '{0}'. The value must be greater than or equal to 0.</value>
-  </data>
-  <data name="net_nego_channel_binding_not_supported" xml:space="preserve">
-    <value>No support for channel binding on operating systems other than Windows.</value>
-  </data>
-  <data name="SQL_UnsupportedSysTxVersion" xml:space="preserve">
-    <value>The currently loaded System.Transactions.dll does not support Global Transactions.</value>
   </data>
   <data name="SQL_InvalidBufferSizeOrIndex" xml:space="preserve">
     <value>Buffer offset '{1}' plus the bytes available '{0}' is greater than the length of the passed in buffer.</value>
@@ -257,9 +215,6 @@
   </data>
   <data name="SQL_UnsupportedKeyword" xml:space="preserve">
     <value>The keyword '{0}' is not supported on this platform.</value>
-  </data>
-  <data name="MDF_TooManyRestrictions" xml:space="preserve">
-    <value>More restrictions were provided than the requested schema ('{0}') supports.</value>
   </data>
   <data name="SqlMisc_InvalidArraySizeMessage" xml:space="preserve">
     <value>Invalid array size.</value>
@@ -285,9 +240,6 @@
   <data name="ADP_PendingAsyncOperation" xml:space="preserve">
     <value>Can not start another operation while there is an asynchronous operation pending.</value>
   </data>
-  <data name="ADP_LocalTransactionPresent" xml:space="preserve">
-    <value>Cannot enlist in the transaction because a local transaction is in progress on the connection.  Finish local transaction and retry.</value>
-  </data>
   <data name="SQLCR_TDSVestionNotPreserved" xml:space="preserve">
     <value>The server did not preserve the exact client TDS version requested during a recovery attempt, connection recovery is not possible.</value>
   </data>
@@ -309,9 +261,6 @@
   <data name="SqlMisc_NotFilledMessage" xml:space="preserve">
     <value>SQL Type has not been loaded with data.</value>
   </data>
-  <data name="MDF_InvalidXmlMissingColumn" xml:space="preserve">
-    <value>The metadata XML is invalid. The {0} collection must contain a {1} column and it must be a string column.</value>
-  </data>
   <data name="SQLCR_InvalidConnectRetryCountValue" xml:space="preserve">
     <value>Invalid ConnectRetryCount value (should be 0-255).</value>
   </data>
@@ -321,26 +270,17 @@
   <data name="ADP_ConnectionStateMsg" xml:space="preserve">
     <value>The connection's current state: {0}.</value>
   </data>
-  <data name="MDF_AmbigousCollectionName" xml:space="preserve">
-    <value>The collection name '{0}' matches at least two collections with the same name but with different case, but does not match any of them exactly.</value>
-  </data>
-  <data name="SqlDependency_InvalidTimeout" xml:space="preserve">
-    <value>Timeout specified is invalid. Timeout cannot be &lt; 0.</value>
-  </data>
   <data name="SQLROR_UnexpectedRoutingInfo" xml:space="preserve">
     <value>Unexpected routing information received.</value>
-  </data>
-  <data name="MDF_MissingDataSourceInformationColumn" xml:space="preserve">
-    <value>One of the required DataSourceInformation tables columns is missing.</value>
   </data>
   <data name="SQL_NetworkLibraryNotSupported" xml:space="preserve">
     <value>The keyword 'Network Library' is not supported on this platform, prefix the 'Data Source' with the protocol desired instead ('tcp:' for a TCP connection, or 'np:' for a Named Pipe connection).</value>
   </data>
-  <data name="InvalidSchemaTableOrdinals" xml:space="preserve">
-    <value>Invalid column ordinals in schema table.  ColumnOrdinals, if present, must not have duplicates or gaps.</value>
-  </data>
   <data name="ADP_ParameterValueOutOfRange" xml:space="preserve">
     <value>Parameter value '{0}' is out of range.</value>
+  </data>
+  <data name="SqlMisc_WriteOffsetLargerThanLenMessage" xml:space="preserve">
+    <value>Cannot write from an offset that is larger than current length. It would leave uninitialized data in the buffer.</value>
   </data>
   <data name="ADP_InvalidSourceBufferIndex" xml:space="preserve">
     <value>Invalid source buffer (size of {0}) offset: {1}</value>
@@ -348,8 +288,8 @@
   <data name="SQL_TimeScaleValueOutOfRange" xml:space="preserve">
     <value>Scale value '{0}' is either less than 0 or greater than the maximum allowed scale of 7.</value>
   </data>
-  <data name="ADP_TransactionPresent" xml:space="preserve">
-    <value>Connection currently has transaction enlisted.  Finish current transaction and retry.</value>
+  <data name="SqlMisc_WriteNonZeroOffsetOnNullMessage" xml:space="preserve">
+    <value>Cannot write to non-zero offset, because current value is Null.</value>
   </data>
   <data name="ADP_ConnectionStateMsg_OpenFetching" xml:space="preserve">
     <value>The connection's current state is fetching.</value>
@@ -359,9 +299,6 @@
   </data>
   <data name="SQL_SSPIInitializeError" xml:space="preserve">
     <value>Cannot initialize SSPI package.</value>
-  </data>
-  <data name="AZURESQL_ChinaEndpoint" xml:space="preserve">
-    <value>.database.chinacloudapi.cn</value>
   </data>
   <data name="SQL_BulkLoadNonMatchingColumnName" xml:space="preserve">
     <value>The given ColumnName '{0}' does not match up with any column in data source.</value>
@@ -377,12 +314,6 @@
   </data>
   <data name="ADP_OperationAborted" xml:space="preserve">
     <value>Operation aborted.</value>
-  </data>
-  <data name="SqlDependency_DuplicateStart" xml:space="preserve">
-    <value>SqlDependency does not support calling Start() with different connection strings having the same server, user, and database in the same app domain.</value>
-  </data>
-  <data name="PlatformNotSupported_DataSqlClient" xml:space="preserve">
-    <value>System.Data.SqlClient is not supported on this platform.</value>
   </data>
   <data name="SQL_MoneyOverflow" xml:space="preserve">
     <value>SqlDbType.SmallMoney overflow.  Value '{0}' is out of range.  Must be between -214,748.3648 and 214,748.3647.</value>
@@ -438,9 +369,6 @@
   <data name="SQL_Duration_PreLogin_Begin" xml:space="preserve">
     <value>The duration spent while attempting to connect to this server was - [Pre-Login] initialization={0};</value>
   </data>
-  <data name="MDF_IncorrectNumberOfDataSourceInformationRows" xml:space="preserve">
-    <value>The DataSourceInformation table must contain exactly one row.</value>
-  </data>
   <data name="ADP_ConnectionStateMsg_Closed" xml:space="preserve">
     <value>The connection's current state is closed.</value>
   </data>
@@ -449,12 +377,6 @@
   </data>
   <data name="SQL_WrongType" xml:space="preserve">
     <value>Expecting argument of type {1}, but received type {0}.</value>
-  </data>
-  <data name="SqlDependency_NoMatchingServerDatabaseStart" xml:space="preserve">
-    <value>SqlDependency.Start has been called for the server the command is executing against more than once, but there is no matching server/user/database Start() call for current command.</value>
-  </data>
-  <data name="SqlDependency_EventNoDuplicate" xml:space="preserve">
-    <value>SqlDependency.OnChange does not support multiple event registrations for the same delegate.</value>
   </data>
   <data name="SQLROR_TimeoutAfterRoutingInfo" xml:space="preserve">
     <value>Server provided routing information, but timeout already expired.</value>
@@ -467,9 +389,6 @@
   </data>
   <data name="SqlMisc_NumeToDecOverflowMessage" xml:space="preserve">
     <value>Conversion from SqlDecimal to Decimal overflows.</value>
-  </data>
-  <data name="SqlDependency_IdMismatch" xml:space="preserve">
-    <value>No SqlDependency exists for the key.</value>
   </data>
   <data name="SQL_Timeout_PreLogin_InitializeConnection" xml:space="preserve">
     <value>Connection Timeout Expired.  The timeout period elapsed while attempting to create and initialize a socket to the server.  This could be either because the server was unreachable or unable to respond back in time.</value>
@@ -489,17 +408,11 @@
   <data name="ADP_InvalidSeekOrigin" xml:space="preserve">
     <value>Specified SeekOrigin value is invalid.</value>
   </data>
-  <data name="net_ntlm_not_possible_default_cred" xml:space="preserve">
-    <value>NTLM authentication is not possible with default credentials on this platform.</value>
-  </data>
   <data name="ADP_NegativeParameter" xml:space="preserve">
     <value>Invalid value for argument '{0}'. The value must be greater than or equal to 0.</value>
   </data>
   <data name="SqlParameter_DBNullNotSupportedForTVP" xml:space="preserve">
     <value>DBNull value for parameter '{0}' is not supported. Table-valued parameters cannot be DBNull.</value>
-  </data>
-  <data name="SQLNotify_AlreadyHasCommand" xml:space="preserve">
-    <value>This SqlCommand object is already associated with another SqlDependency object.</value>
   </data>
   <data name="ADP_CollectionInvalidType" xml:space="preserve">
     <value>The {0} only accepts non-null {1} type objects, not {2} objects.</value>
@@ -509,9 +422,6 @@
   </data>
   <data name="ADP_InvalidMetaDataValue" xml:space="preserve">
     <value>Invalid value for this metadata.</value>
-  </data>
-  <data name="MDF_InvalidXmlInvalidValue" xml:space="preserve">
-    <value>The metadata XML is invalid. The {1} column of the {0} collection must contain a non-empty string.</value>
   </data>
   <data name="ADP_ConnectionStateMsg_OpenExecuting" xml:space="preserve">
     <value>The connection's current state is executing.</value>
@@ -539,9 +449,6 @@
   </data>
   <data name="SQL_Duration_Login_Begin" xml:space="preserve">
     <value>The duration spent while attempting to connect to this server was - [Pre-Login] initialization={0}; handshake={1}; [Login] initialization={2}; </value>
-  </data>
-  <data name="MDF_NoColumns" xml:space="preserve">
-    <value>The schema table contains no columns.</value>
   </data>
   <data name="SNI_PN0" xml:space="preserve">
     <value>HTTP Provider</value>
@@ -576,20 +483,14 @@
   <data name="SqlParameter_UnexpectedTypeNameForNonStruct" xml:space="preserve">
     <value>TypeName specified for parameter '{0}'.  TypeName must only be set for Structured parameters.</value>
   </data>
-  <data name="ADP_NoStoredProcedureExists" xml:space="preserve">
-    <value>The stored procedure '{0}' doesn't exist.</value>
-  </data>
   <data name="SQL_InvalidSQLServerVersionUnknown" xml:space="preserve">
     <value>Unsupported SQL Server version.  The .Net Framework SqlClient Data Provider can only be used with SQL Server versions 7.0 and later.</value>
-  </data>
-  <data name="MDF_UnableToBuildCollection" xml:space="preserve">
-    <value>Unable to build schema collection '{0}';</value>
   </data>
   <data name="SQL_PendingBeginXXXExists" xml:space="preserve">
     <value>The command execution cannot proceed due to a pending asynchronous operation already in progress.</value>
   </data>
-  <data name="SqlDependency_NoMatchingServerStart" xml:space="preserve">
-    <value>When using SqlDependency without providing an options value, SqlDependency.Start() must be called for each server that is being executed against.</value>
+  <data name="SqlMisc_SqlTypeMessage" xml:space="preserve">
+    <value>SqlType error.</value>
   </data>
   <data name="SqlMisc_InvalidPrecScaleMessage" xml:space="preserve">
     <value>Invalid numeric precision/scale.</value>
@@ -605,9 +506,6 @@
   </data>
   <data name="SQL_BulkCopyDestinationTableName" xml:space="preserve">
     <value>SqlBulkCopy.WriteToServer failed because the SqlBulkCopy.DestinationTableName is an invalid multipart name</value>
-  </data>
-  <data name="Snix_PreLoginBeforeSuccessfulWrite" xml:space="preserve">
-    <value>The client was unable to establish a connection because of an error during connection initialization process before login. Possible causes include the following:  the client tried to connect to an unsupported version of SQL Server; the server was too busy to accept new connections; or there was a resource limitation (insufficient memory or maximum allowed connections) on the server.</value>
   </data>
   <data name="ADP_ParameterConversionFailed" xml:space="preserve">
     <value>Failed to convert parameter value from a {0} to a {1}.</value>
@@ -753,15 +651,6 @@
   <data name="Sql_InternalError" xml:space="preserve">
     <value>Internal Error</value>
   </data>
-  <data name="net_nego_protection_level_not_supported" xml:space="preserve">
-    <value>Requested protection level is not supported with the GSSAPI implementation currently installed.</value>
-  </data>
-  <data name="MDF_UndefinedCollection" xml:space="preserve">
-    <value>The requested collection ({0}) is not defined.</value>
-  </data>
-  <data name="NullSchemaTableDataTypeNotSupported" xml:space="preserve">
-    <value>DateType column for field '{0}' in schema table is null.  DataType must be non-null.</value>
-  </data>
   <data name="SQL_BulkLoadExistingTransaction" xml:space="preserve">
     <value>Unexpected existing transaction.</value>
   </data>
@@ -785,9 +674,6 @@
   </data>
   <data name="SQL_BulkLoadMissingDestinationTable" xml:space="preserve">
     <value>The DestinationTableName property must be set before calling this method.</value>
-  </data>
-  <data name="MDF_CollectionNameISNotUnique" xml:space="preserve">
-    <value>There are multiple collections named '{0}'.</value>
   </data>
   <data name="SQL_NonBlobColumn" xml:space="preserve">
     <value>Invalid attempt to GetBytes on column '{0}'.  The GetBytes function can only be used on columns of type Text, NText, or Image.</value>
@@ -813,9 +699,6 @@
   <data name="SQL_InvalidParameterTypeNameFormat" xml:space="preserve">
     <value>Invalid 3 part name format for TypeName.</value>
   </data>
-  <data name="SqlProvider_InvalidDataColumnMaxLength" xml:space="preserve">
-    <value>The size of column '{0}' is not supported. The size is {1}.</value>
-  </data>
   <data name="Snix_Read" xml:space="preserve">
     <value>A transport-level error has occurred when receiving results from the server.</value>
   </data>
@@ -840,12 +723,6 @@
   <data name="Snix_ProcessSspi" xml:space="preserve">
     <value>A transport-level error has occurred during SSPI handshake.</value>
   </data>
-  <data name="LocalDBNotSupported" xml:space="preserve">
-    <value>LocalDB is not supported on this platform.</value>
-  </data>
-  <data name="SQL_BatchedUpdatesNotAvailableOnContextConnection" xml:space="preserve">
-    <value>Batching updates is not supported on the context connection.</value>
-  </data>
   <data name="ADP_InternalProviderError" xml:space="preserve">
     <value>Internal .Net Framework Data Provider error {0}.</value>
   </data>
@@ -864,20 +741,11 @@
   <data name="SQL_InvalidSSPIPacketSize" xml:space="preserve">
     <value>Invalid SSPI packet size.</value>
   </data>
-  <data name="event_OperationReturnedSomething" xml:space="preserve">
-    <value>{0} returned {1}.</value>
-  </data>
-  <data name="AZURESQL_GenericEndpoint" xml:space="preserve">
-    <value>.database.windows.net</value>
-  </data>
   <data name="SqlMetaData_InvalidSqlDbTypeForConstructorFormat" xml:space="preserve">
     <value>The dbType {0} is invalid for this constructor.</value>
   </data>
   <data name="SQL_UserInstanceFailure" xml:space="preserve">
     <value>A user instance was requested in the connection string but the server specified does not support this option.</value>
-  </data>
-  <data name="ADP_SingleValuedProperty" xml:space="preserve">
-    <value>The only acceptable value for the property '{0}' is '{1}'.</value>
   </data>
   <data name="SQL_BulkLoadInvalidTimeout" xml:space="preserve">
     <value>Timeout Value '{0}' is less than 0.</value>
@@ -939,8 +807,8 @@
   <data name="SQLCR_EncryptionChanged" xml:space="preserve">
     <value>The server did not preserve SSL encryption during a recovery attempt, connection recovery is not possible.</value>
   </data>
-  <data name="ADP_TransactionCompletedButNotDisposed" xml:space="preserve">
-    <value>The transaction associated with the current connection has completed but has not been disposed.  The transaction must be disposed before the connection can be used to execute SQL statements.</value>
+  <data name="Snix_PreLoginBeforeSuccessfullWrite" xml:space="preserve">
+    <value>The client was unable to establish a connection because of an error during connection initialization process before login. Possible causes include the following:  the client tried to connect to an unsupported version of SQL Server; the server was too busy to accept new connections; or there was a resource limitation (insufficient memory or maximum allowed connections) on the server.</value>
   </data>
   <data name="SqlMisc_ClosedXmlReaderMessage" xml:space="preserve">
     <value>Invalid attempt to access a closed XmlReader.</value>
@@ -960,12 +828,6 @@
   <data name="SqlConvert_ConvertFailed" xml:space="preserve">
     <value> Cannot convert object of type '{0}' to object of type '{1}'.</value>
   </data>
-  <data name="AZURESQL_GermanEndpoint" xml:space="preserve">
-    <value>.database.cloudapi.de</value>
-  </data>
-  <data name="net_invalid_enum" xml:space="preserve">
-    <value>The specified value is not valid in the '{0}' enumeration.</value>
-  </data>
   <data name="Sql_BulkLoadLcidMismatch" xml:space="preserve">
     <value>The locale id '{0}' of the source column '{1}' and the locale id '{2}' of the destination column '{3}' do not match.</value>
   </data>
@@ -981,35 +843,17 @@
   <data name="ADP_CollectionIndexString" xml:space="preserve">
     <value>An {0} with {1} '{2}' is not contained by this {3}.</value>
   </data>
-  <data name="MDF_UnsupportedVersion" xml:space="preserve">
-    <value> requested collection ({0}) is not supported by this version of the provider.</value>
-  </data>
   <data name="ADP_InvalidConnectionOptionValue" xml:space="preserve">
     <value>Invalid value for key '{0}'.</value>
   </data>
-  <data name="SQL_SqlCommandCommandText" xml:space="preserve">
-    <value>SqlCommand.DeriveParameters failed because the SqlCommand.CommandText property value is an invalid multipart name</value>
-  </data>
   <data name="IEnumerableOfSqlDataRecordHasNoRows" xml:space="preserve">
     <value>There are no records in the SqlDataRecord enumeration. To send a table-valued parameter with no rows, use a null reference for the value instead.</value>
-  </data>
-  <data name="net_MethodNotImplementedException" xml:space="preserve">
-    <value>This method is not implemented by this class.</value>
-  </data>
-  <data name="net_gssapi_operation_failed_detailed" xml:space="preserve">
-    <value>GSSAPI operation failed with error - {0} ({1}).</value>
   </data>
   <data name="SQL_Timeout_PreLogin_Begin" xml:space="preserve">
     <value>Connection Timeout Expired.  The timeout period elapsed at the start of the pre-login phase.  This could be because of insufficient time provided for connection timeout.</value>
   </data>
   <data name="SQL_ParsingError" xml:space="preserve">
     <value>Internal connection fatal error.</value>
-  </data>
-  <data name="net_context_buffer_too_small" xml:space="preserve">
-    <value>Insufficient buffer space. Required: {0} Actual: {1}.</value>
-  </data>
-  <data name="net_securitypackagesupport" xml:space="preserve">
-    <value>The requested security package is not supported.</value>
   </data>
   <data name="SqlProvider_SortOrdinalGreaterThanFieldCount" xml:space="preserve">
     <value>The sort ordinal {0} on field {1} exceeds the total number of fields.</value>
@@ -1056,9 +900,6 @@
   <data name="SqlMisc_MessageString" xml:space="preserve">
     <value>Message</value>
   </data>
-  <data name="MDF_QueryFailed" xml:space="preserve">
-    <value>Unable to build the '{0}' collection because execution of the SQL query failed. See the inner exception for details.</value>
-  </data>
   <data name="Data_InvalidOffsetLength" xml:space="preserve">
     <value>Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.</value>
   </data>
@@ -1066,16 +907,13 @@
     <value>Invalid command sent to ExecuteXmlReader.  The command must return an Xml result.</value>
   </data>
   <data name="SQL_SSPIGenerateError" xml:space="preserve">
-    <value>Failed to generate SSPI context.</value>
+    <value>The target principal name is incorrect.  Cannot generate SSPI context.</value>
   </data>
   <data name="SqlProvider_DuplicateSortOrdinal" xml:space="preserve">
     <value>The sort ordinal {0} was specified twice.</value>
   </data>
   <data name="SQL_InstanceFailure" xml:space="preserve">
     <value>Instance failure.</value>
-  </data>
-  <data name="SqlDependency_DefaultOptionsButNoStart" xml:space="preserve">
-    <value>When using SqlDependency without providing an options value, SqlDependency.Start() must be called prior to execution of a command added to the SqlDependency instance.</value>
   </data>
   <data name="SQLCR_InvalidConnectRetryIntervalValue" xml:space="preserve">
     <value>Invalid ConnectRetryInterval value (should be 1-60).</value>
@@ -1088,6 +926,9 @@
   </data>
   <data name="SqlParameter_UnsupportedTVPOutputParameter" xml:space="preserve">
     <value>ParameterDirection '{0}' specified for parameter '{1}' is not supported. Table-valued parameters only support ParameterDirection.Input.</value>
+  </data>
+  <data name="SqlMisc_NoBufferMessage" xml:space="preserve">
+    <value>There is no buffer. Read or write operation failed.</value>
   </data>
   <data name="ADP_OpenConnectionPropertySet" xml:space="preserve">
     <value>Not allowed to change the '{0}' property. {1}</value>
@@ -1122,9 +963,6 @@
   <data name="SNI_ERROR_6" xml:space="preserve">
     <value>Unsupported protocol specified</value>
   </data>
-  <data name="net_nego_server_not_supported" xml:space="preserve">
-    <value>Server implementation is not supported.</value>
-  </data>
   <data name="SQL_NotSupportedEnumerationValue" xml:space="preserve">
     <value>The {0} enumeration value, {1}, is not supported by the .Net Framework SqlClient Data Provider.</value>
   </data>
@@ -1133,9 +971,6 @@
   </data>
   <data name="ADP_MismatchedAsyncResult" xml:space="preserve">
     <value>Mismatched end method call for asyncResult.  Expected call to {0} but {1} was called instead.</value>
-  </data>
-  <data name="ADP_InvalidPrefixSuffix" xml:space="preserve">
-    <value>Specified QuotePrefix and QuoteSuffix values do not match.</value>
   </data>
   <data name="SQL_BulkLoadMappingInaccessible" xml:space="preserve">
     <value>The mapped collection is in use and cannot be accessed at this time;</value>
@@ -1152,21 +987,6 @@
   <data name="SQL_StreamReadNotSupported" xml:space="preserve">
     <value>The Stream does not support reading.</value>
   </data>
-  <data name="net_log_operation_failed_with_error" xml:space="preserve">
-    <value>{0} failed with error {1}.</value>
-  </data>
-  <data name="ADP_DoubleValuedProperty" xml:space="preserve">
-    <value>The acceptable values for the property '{0}' are '{1}' or '{2}'.</value>
-  </data>
-  <data name="SSPIInvalidHandleType" xml:space="preserve">
-    <value>'{0}' is not a supported handle type.</value>
-  </data>
-  <data name="MDF_MissingRestrictionColumn" xml:space="preserve">
-    <value>One or more of the required columns of the restrictions collection is missing.</value>
-  </data>
-  <data name="ADP_NotSupportedEnumerationValue" xml:space="preserve">
-    <value>The {0} enumeration value, {1}, is not supported by the {2} method.</value>
-  </data>
   <data name="SQL_Duration_PostLogin" xml:space="preserve">
     <value>The duration spent while attempting to connect to this server was - [Pre-Login] initialization={0}; handshake={1}; [Login] initialization={2}; authentication={3}; [Post-Login] complete={4}; </value>
   </data>
@@ -1178,9 +998,6 @@
   </data>
   <data name="SQLROR_RecursiveRoutingNotSupported" xml:space="preserve">
     <value>Two or more redirections have occurred. Only one redirection per login is allowed.</value>
-  </data>
-  <data name="GT_Disabled" xml:space="preserve">
-    <value>Global Transactions are not enabled for this Azure SQL Database. Please contact Azure SQL Database support for assistance.</value>
   </data>
   <data name="SQL_ExErrorNumberStateClass" xml:space="preserve">
     <value>Error Number:{0},State:{1},Class:{2}</value>
@@ -1197,20 +1014,11 @@
   <data name="SQL_CannotModifyPropertyAsyncOperationInProgress" xml:space="preserve">
     <value>{0} cannot be changed while async operation is in progress.</value>
   </data>
-  <data name="SqlDelegatedTransaction_PromotionFailed" xml:space="preserve">
-    <value>Failure while attempting to promote transaction.</value>
-  </data>
-  <data name="SqlDependency_DatabaseBrokerDisabled" xml:space="preserve">
-    <value>The SQL Server Service Broker for the current database is not enabled, and as a result query notifications are not supported.  Please enable the Service Broker for this database if you wish to use notifications.</value>
-  </data>
   <data name="SqlMetaData_NameTooLong" xml:space="preserve">
     <value>The name is too long.</value>
   </data>
   <data name="SQL_Timeout_FailoverInfo" xml:space="preserve">
     <value>This failure occurred while attempting to connect to the {0} server.</value>
-  </data>
-  <data name="MDF_InvalidXml" xml:space="preserve">
-    <value>The metadata XML is invalid.</value>
   </data>
   <data name="SQL_EnumeratedRecordFieldCountChanged" xml:space="preserve">
     <value>Number of fields in record '{0}' does not match the number in the original record.</value>

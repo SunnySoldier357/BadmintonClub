@@ -129,8 +129,8 @@
   <data name="Argument_TokenZero" xml:space="preserve">
     <value>Token cannot be zero.</value>
   </data>
-  <data name="PlatformNotSupported_Principal" xml:space="preserve">
-    <value>Windows Principal functionality is not supported on this platform.</value>
+  <data name="PlatformNotSupported_RequiresW2kSP3" xml:space="preserve">
+    <value>This operation is only supported on Windows 2000 SP3 or later operating systems.</value>
   </data>
   <data name="Argument_ImproperType" xml:space="preserve">
     <value>Improper types in collection.</value>
@@ -149,6 +149,12 @@
   </data>
   <data name="IdentityReference_IdentifierAuthorityTooLarge" xml:space="preserve">
     <value>The size of the identifier authority must not exceed 6 bytes.</value>
+  </data>
+  <data name="ExecutionEngine_MissingSecurityDescriptor" xml:space="preserve">
+    <value>Unable to retrieve security descriptor for this frame.</value>
+  </data>
+  <data name="InvalidOperation_AnonymousCannotImpersonate" xml:space="preserve">
+    <value>An anonymous identity cannot perform an impersonation.</value>
   </data>
   <data name="Arg_EmptyCollection" xml:space="preserve">
     <value>Collection must not be empty.</value>
@@ -170,6 +176,9 @@
   </data>
   <data name="IdentityReference_MustBeIdentityReference" xml:space="preserve">
     <value>The targetType parameter must be of IdentityReference type.</value>
+  </data>
+  <data name="UnknownError_Num" xml:space="preserve">
+    <value>Unknown error \"{0}\".</value>
   </data>
   <data name="IdentityReference_DomainNameTooLong" xml:space="preserve">
     <value>Domain name is too long.</value>

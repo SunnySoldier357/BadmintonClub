@@ -1,14 +1,29 @@
 ﻿using BadmintonClub.Models;
 using BadmintonClub.ViewModels;
 using BadmintonClub.Views;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BadmintonClub
 {
+    // Interface
+    public interface IAuthenticate
+    {
+        Task<bool> Authenticate();
+    }
+
     public partial class App : Application
 	{
         // Static Properties
         public static FinishLoading FinishLoadingDel;  // Used for Admin Authentication
+
+        public static IAuthenticate Authenticator { get; private set; }
+
+        // Static Methods
+        public static void Init(IAuthenticate authenticator)
+        {
+            Authenticator = authenticator;
+        }
 
         // Public Properties
         public string SignedInUserId { get; set; }

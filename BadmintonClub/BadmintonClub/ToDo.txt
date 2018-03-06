@@ -12,6 +12,7 @@ Things to optimise (Easiest to hardest):
  - Colours LimeGrenn vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
  - No connection (Offline Stack)
+ - Make date look nicer (no seconds)
  - Margins make text nicer
  - Feedback Section
  - Settings Section 

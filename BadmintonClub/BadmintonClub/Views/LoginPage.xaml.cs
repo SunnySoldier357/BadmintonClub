@@ -25,8 +25,8 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
-            //if (App.Authenticator != null)
-            //    authenticated = await App.Authenticator.Authenticate();
+            if (App.Authenticator != null)
+                authenticated = await App.Authenticator.Authenticate();
 
             AzureService azureService = DependencyService.Get<AzureService>();
             if (!(LastNameEntry.Text == null) || (FirstNameEntry.Text == null))

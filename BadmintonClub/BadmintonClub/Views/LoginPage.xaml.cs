@@ -23,7 +23,7 @@ namespace BadmintonClub.Views
         }
 
         // Event Handlers
-        public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
+        public async Task SignUpButton_ClickedAsync(object sender, EventArgs e)
         {
             AzureService azureService = DependencyService.Get<AzureService>();
             if (!(LastNameEntry.Text == null) || (FirstNameEntry.Text == null))

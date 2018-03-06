@@ -22,6 +22,7 @@ namespace BadmintonClub
 		{
 			InitializeComponent();
             Properties["SignedInUserId"] = "1";
+            Properties.Clear();
 
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))

@@ -3,40 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BadmintonClub.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout Spacing="30">
-            <Label Text="Log in"
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center"
-                   Margin="0,20,0,0"/>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="First Name: "/>
+            <Grid RowSpacing="30"
+                  ColumnSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                <Entry x:Name="FirstNameEntry" 
-                       HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Last Name: " />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.ColumnSpan="2"
+                       Text="Sign Up"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,0" />
+
+                <Label Grid.Row="1"
+                       Text="FirstName: " 
+                       VerticalOptions="Center" />
+
+                <Entry x:Name="FirstNameEntry"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalOptions="FillAndExpand" />
+
+                <Label Grid.Row="2"
+                       Text="LastName: " 
+                       VerticalOptions="Center" />
 
                 <Entry x:Name="LastNameEntry"
-                       HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       HorizontalOptions="FillAndExpand" />
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="PIN" />
+                <Label Grid.Row="3"
+                       Text="PIN: " 
+                       VerticalOptions="Center" />
 
                 <Entry x:Name="PINEntry"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       IsPassword="True"
                        HorizontalOptions="FillAndExpand" />
-            </StackLayout>
 
-            <Button x:Name="LogInButton"
-                    Text="Log In"
-                    Clicked="LogInButton_ClickedAsync"/>
+                <Button x:Name="SignUpButton"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Text="Sign Up"
+                        Clicked="SignUpButton_ClickedAsync"/>
+            </Grid>
 
             <Label x:Name="ErrorLabel"
                    TextColor="Red" 
                    IsVisible="False"/>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

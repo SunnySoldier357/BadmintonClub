@@ -36,8 +36,8 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-            Properties["SignedInUserId"] = "5";
-
+            //Properties["SignedInUserId"] = "5";
+            Properties.Clear();
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))
                 MainPage = new LoginPage();

@@ -14,24 +14,45 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(AzureService))]
 namespace BadmintonClub.Models.Data_Access_Layer
 {
-    public class AzureService
+    public partial class AzureService
     {
+        // Static Properties
+        public static AzureService DefaultManager { get; private set; } = new AzureService();
+
         // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<User> userTable;
 
         // Public Properties
-        public MobileServiceClient Client { get; set; }
+        public MobileServiceClient CurrentClient { get; private set; }
+
+        // Constructor
+        private AzureService()
+        {
+            CurrentClient = new MobileServiceClient(@"https://badmintonclub.azurewebsites.net");
+
+            var store = new MobileServiceSQLiteStore("badmintonclubrecords.db");
+            store.DefineTable<BlogPost>();
+            store.DefineTable<Match>();
+            store.DefineTable<User>();
+
+            // Initialises the SyncContext using the default IMobileServiceSyncHandler
+            CurrentClient.SyncContext.InitializeAsync(store);
+
+            blogPostTable = CurrentClient.GetSyncTable<BlogPost>();
+            matchTable = CurrentClient.GetSyncTable<Match>();
+            userTable = CurrentClient.GetSyncTable<User>();
+        }
 
         // Public Methods
-        public async Task Initialise()
+        public async Task InitialiseAsync()
         {
-            if (Client?.SyncContext?.IsInitialized ?? false)
+            if (CurrentClient?.SyncContext?.IsInitialized ?? false)
                 return;
 
             string appUrl = "https://badmintonclub.azurewebsites.net";
-            Client = new MobileServiceClient(appUrl);
+            CurrentClient = new MobileServiceClient(appUrl);
 
             string path = "badmintonclubrecords.db";
             path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
@@ -41,16 +62,16 @@ namespace BadmintonClub.Models.Data_Access_Layer
             store.DefineTable<Match>();
             store.DefineTable<User>();
 
-            await Client.SyncContext.InitializeAsync(store);
+            await CurrentClient.SyncContext.InitializeAsync(store);
 
-            blogPostTable = Client.GetSyncTable<BlogPost>();
-            matchTable = Client.GetSyncTable<Match>();
-            userTable = Client.GetSyncTable<User>();
+            blogPostTable = CurrentClient.GetSyncTable<BlogPost>();
+            matchTable = CurrentClient.GetSyncTable<Match>();
+            userTable = CurrentClient.GetSyncTable<User>();
         }
 
-        public async Task<BlogPost> AddBlogPost(string title, string bodyOfPost)
+        public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
         {
-            await Initialise();
+            await InitialiseAsync();
 
             BlogPost blogpost = new BlogPost()
             {
@@ -62,14 +83,14 @@ namespace BadmintonClub.Models.Data_Access_Layer
             };
 
             await blogPostTable.InsertAsync(blogpost);
-            await SyncAllDataTables();
+            await SyncAllDataTablesAsync();
 
             return blogpost;
         }
 
-        public async Task<Match> AddMatch(int playerScore, int opponentScore, string playerID, string opponentID)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID)
         {
-            await Initialise();
+            await InitialiseAsync();
 
             Match match = new Match()
             {
@@ -90,27 +111,27 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             await userTable.UpdateAsync(match.Player);
             await userTable.UpdateAsync(match.Opponent);
-            await SyncAllDataTables();
+            await SyncAllDataTablesAsync();
 
             return match;
         }
 
-        public async Task<User> AddUser(string firstName, string lastName)
+        public async Task<User> AddUserAsync(string firstName, string lastName)
         {
-            await Initialise();
+            await InitialiseAsync();
 
             User user = new User(firstName, lastName, "Member", 0);
 
             await userTable.InsertAsync(user);
-            await SyncAllDataTables();
+            await SyncAllDataTablesAsync();
 
             return user;
         }
 
-        public async Task<IEnumerable<BlogPost>> GetBlogPosts()
+        public async Task<IEnumerable<BlogPost>> GetBlogPostsAsync()
         {
-            await Initialise();
-            await SyncAllDataTables();
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
 
             var data = await blogPostTable
                        .OrderByDescending(bp => bp.DateTimePublished)
@@ -119,28 +140,28 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task<IEnumerable<Match>> GetMatches()
+        public async Task<IEnumerable<Match>> GetMatchesAsync()
         {
-            await Initialise();
-            await SyncAllDataTables();
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
 
             var data = await matchTable.ToEnumerableAsync();
 
             return data;
         }
 
-        public async Task<User> GetUserFromId(string id)
+        public async Task<User> GetUserFromIdAsync(string id)
         {
-            await Initialise();
-            await SyncAllDataTables();
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
 
             return await userTable.LookupAsync(id);
         }
 
-        public async Task<string> GetUserIdFromName(string name)
+        public async Task<string> GetUserIdFromNameAsync(string name)
         {
-            await Initialise();
-            await SyncAllDataTables();
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
 
             var query = from user in userTable
                         where (user.FirstName + " " + user.LastName) == name
@@ -150,10 +171,10 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return result.First();
         }
 
-        public async Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            await Initialise();
-            await SyncAllDataTables();
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
 
             var data = await userTable
                 .OrderByDescending(user => user.PointsInCurrentSeason)
@@ -162,9 +183,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task SyncAllDataTables()
+        public async Task SyncAllDataTablesAsync()
         {
-            await Initialise();
+            await InitialiseAsync();
 
             try
             {
@@ -173,14 +194,14 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     return;
 
                 // Device is online, continue...
-                await Client.SyncContext.PushAsync();
+                await CurrentClient.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
                 (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
 
-                await Client.SyncContext.PushAsync();
+                await CurrentClient.SyncContext.PushAsync();
             }
             catch (MobileServicePushFailedException ex)
             {

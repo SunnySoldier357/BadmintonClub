@@ -92,11 +92,11 @@ namespace BadmintonClub.UWP
         protected override void OnActivated(IActivatedEventArgs args)
         {
             base.OnActivated(args);
+
             if (args.Kind == ActivationKind.Protocol)
             {
                 var protocolArgs = args as ProtocolActivatedEventArgs;
-                var service = DependencyService.Get<AzureService>();
-                service.Client.ResumeWithURL(protocolArgs.Uri);
+                AzureService.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
         }
     }

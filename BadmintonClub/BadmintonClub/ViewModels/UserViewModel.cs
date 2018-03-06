@@ -88,10 +88,10 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding New Match...";
                 IsBusy = true;
 
-                string playerId = await azureService.GetUserIdFromName(arguments.PlayerName);
-                string opponentId = await azureService.GetUserIdFromName(arguments.OpponentName);
+                string playerId = await azureService.GetUserIdFromNameAsync(arguments.PlayerName);
+                string opponentId = await azureService.GetUserIdFromNameAsync(arguments.OpponentName);
 
-                var match = await azureService.AddMatch(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId);
+                var match = await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId);
                 Matches.Add(match);
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding New User...";
                 IsBusy = true;
 
-                var user = await azureService.AddUser("Default", "Name");
+                var user = await azureService.AddUserAsync("Default", "Name");
                 Users.Add(user);
                 sortUsers();
             }
@@ -142,7 +142,7 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Loading Matches...";
                 IsBusy = true;
 
-                var matches = await azureService.GetMatches();
+                var matches = await azureService.GetMatchesAsync();
                 Matches.RemoveRange(matches);
             }
             catch (Exception ex)
@@ -166,7 +166,7 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Loading Users...";
                 IsBusy = true;
 
-                var users = await azureService.GetUsers();
+                var users = await azureService.GetUsersAsync();
                 Users.ReplaceRange(users);
 
                 sortUsers();

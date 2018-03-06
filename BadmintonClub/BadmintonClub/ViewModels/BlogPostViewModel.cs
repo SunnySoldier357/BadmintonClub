@@ -78,7 +78,7 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding new Blog Post...";
                 IsBusy = true;
 
-                var blogpost = await azureService.AddBlogPost(arguments.BlogTitle, arguments.BodyOfPost);
+                var blogpost = await azureService.AddBlogPostAsync(arguments.BlogTitle, arguments.BodyOfPost);
                 BlogPosts.Add(blogpost);
                 sortBlogPosts();
             }
@@ -102,7 +102,7 @@ namespace BadmintonClub.ViewModels
             {
                 LoadingMessage = "Loading Blog Posts...";
                 IsBusy = true;
-                var blogposts = await azureService.GetBlogPosts();
+                var blogposts = await azureService.GetBlogPostsAsync();
 
                 BlogPosts.Clear();
                 foreach (var item in blogposts)
@@ -112,7 +112,7 @@ namespace BadmintonClub.ViewModels
                         Title = item.Title,
                         BodyOfPost = item.BodyOfPost,
                         DateTimePublished = item.DateTimePublished,
-                        Publisher = await azureService.GetUserFromId(item.UserID)
+                        Publisher = await azureService.GetUserFromIdAsync(item.UserID)
                     });
                 }
                 

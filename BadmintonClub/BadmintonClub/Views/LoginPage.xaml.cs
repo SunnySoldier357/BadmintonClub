@@ -36,7 +36,7 @@ namespace BadmintonClub.Views
                     ErrorLabel.IsVisible = false;
                     ErrorLabel.Text = string.Empty;
 
-                    (Application.Current as App).SignedInUser = await azureService.AddUser(FirstNameEntry.Text, LastNameEntry.Text);
+                    (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text, LastNameEntry.Text);
                     (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
                     (Application.Current as App).StartMainApplication();
                 }

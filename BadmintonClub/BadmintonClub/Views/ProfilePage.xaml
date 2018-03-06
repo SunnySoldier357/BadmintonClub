@@ -4,8 +4,13 @@
              x:Class="BadmintonClub.Views.ProfilePage"
              Title="Profile">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Test" />
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <Label Text="{Binding FullName}" 
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="Large"/>
+
+            <Label Text="Statistics"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

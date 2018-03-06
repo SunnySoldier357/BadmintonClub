@@ -13,7 +13,6 @@ C:\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonC
 C:\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.pdb
 C:\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.dll
 C:\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.pdb
-<<<<<<< HEAD
 C:\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.csprojResolveAssemblyReference.cache
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.deps.json
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.dll
@@ -31,5 +30,3 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.AssemblyInfo.cs
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.pdb
-=======
->>>>>>> parent of 3f95c3a... fixed name needing to refresh

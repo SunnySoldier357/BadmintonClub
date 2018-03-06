@@ -36,13 +36,8 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-<<<<<<< HEAD
             //Properties["SignedInUserId"] = "5";
             Properties.Clear();
-=======
-            Properties["SignedInUserId"] = "1";
-
->>>>>>> parent of 3f95c3a... fixed name needing to refresh
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))
                 MainPage = new LoginPage();

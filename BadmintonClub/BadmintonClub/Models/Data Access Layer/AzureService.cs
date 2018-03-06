@@ -57,7 +57,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Title = title,
                 BodyOfPost = bodyOfPost,
                 UserID = (Application.Current as App).SignedInUser.Id,
-                Publisher = (Application.Current as App).SignedInUser,
                 DateTimePublished = DateTime.Now
             };
 

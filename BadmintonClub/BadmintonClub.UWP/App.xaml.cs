@@ -88,16 +88,5 @@ namespace BadmintonClub.UWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
-        protected override void OnActivated(IActivatedEventArgs args)
-        {
-            base.OnActivated(args);
-
-            if (args.Kind == ActivationKind.Protocol)
-            {
-                var protocolArgs = args as ProtocolActivatedEventArgs;
-                AzureService.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
-            }
-        }
     }
 }

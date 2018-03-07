@@ -16,6 +16,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
 {
     public partial class AzureService
     {
+        // Static Properties
+        public static AzureService DefaultService { get; set; } = DependencyService.Get<AzureService>();
+
         // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
@@ -25,29 +28,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
         public MobileServiceClient Client { get; set; }
 
         // Public Methods
-        public async Task InitialiseAsync()
-        {
-            if (Client?.SyncContext?.IsInitialized ?? false)
-                return;
-
-            string appUrl = "https://badmintonclub.azurewebsites.net";
-            Client = new MobileServiceClient(appUrl);
-
-            string path = "badmintonclubrecords.db";
-            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
-            var store = new MobileServiceSQLiteStore(path);
-
-            store.DefineTable<BlogPost>();
-            store.DefineTable<Match>();
-            store.DefineTable<User>();
-
-            await Client.SyncContext.InitializeAsync(store);
-
-            blogPostTable = Client.GetSyncTable<BlogPost>();
-            matchTable = Client.GetSyncTable<Match>();
-            userTable = Client.GetSyncTable<User>();
-        }
-
         public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
         {
             await InitialiseAsync();
@@ -160,6 +140,52 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 .ThenBy(user => user.FirstName)
                 .ToEnumerableAsync();
             return data;
+        }
+
+        public async Task InitialiseAsync()
+        {
+            if (Client?.SyncContext?.IsInitialized ?? false)
+                return;
+
+            string appUrl = "https://badmintonclub.azurewebsites.net";
+            Client = new MobileServiceClient(appUrl);
+
+            string path = "badmintonclubrecords.db";
+            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
+            var store = new MobileServiceSQLiteStore(path);
+
+            store.DefineTable<BlogPost>();
+            store.DefineTable<Match>();
+            store.DefineTable<User>();
+
+            await Client.SyncContext.InitializeAsync(store);
+
+            blogPostTable = Client.GetSyncTable<BlogPost>();
+            matchTable = Client.GetSyncTable<Match>();
+            userTable = Client.GetSyncTable<User>();
+        }
+
+        public async Task<bool> LoginAsync(string fullName, string password)
+        {
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
+
+            var query = from user in userTable
+                        where (user.FirstName + " " + user.LastName).ToLower() == fullName.ToLower()
+                                && user.Password == password
+                        select user;
+
+            var users = await userTable.ReadAsync(query);
+
+            if (users.Count() == 1)
+            {
+                User first = users.First();
+                (Application.Current as App).SignedInUser = first;
+                (Application.Current as App).SignedInUserId = first.Id;
+                return true;
+            }
+
+            return false;
         }
 
         public async Task SyncAllDataTablesAsync()

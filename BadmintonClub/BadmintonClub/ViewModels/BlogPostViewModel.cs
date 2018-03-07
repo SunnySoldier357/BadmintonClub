@@ -64,7 +64,7 @@ namespace BadmintonClub.ViewModels
         // Constructors
         public BlogPostViewModel()
         {
-            azureService = DependencyService.Get<AzureService>();
+            azureService = AzureService.DefaultService;
         }
 
         // Private Methods

@@ -9,6 +9,9 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
+        // Private Methods
+        private AzureService azureService = AzureService.DefaultService;
+
         // Constructor
         public LoginPage()
 		{
@@ -22,29 +25,50 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
-            AzureService azureService = DependencyService.Get<AzureService>();
-            if (!(LastNameEntry.Text == null) || (FirstNameEntry.Text == null))
+            if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
             {
-                if (PINEntry.Text?.Equals("testPIN") ?? false)
+                resetLabel(LogInErrorLabel);
+
+                if (await azureService.LoginAsync(FullNameEntry.Text, LogInPasswordEntry.Text))
+                    (Application.Current as App).StartMainApplication();
+                else
+                    showLabel(LogInErrorLabel, "The name or password entered was incorrect.");
+            }
+            else
+                showLabel(LogInErrorLabel, "Do not leave the fields empty!");
+        }
+
+        public async Task SignUpButton_ClickedAsync(object sender, EventArgs e)
+        {
+            if (!(LastNameEntry.Text == null || FirstNameEntry.Text == null 
+                || SignUpPasswordEntry.Text == null || ClubPINEntry.Text == null))
+            {
+                if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    ErrorLabel.IsVisible = false;
-                    ErrorLabel.Text = string.Empty;
+                    resetLabel(SignUpErrorLabel);
 
                     (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text, LastNameEntry.Text);
                     (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
                     (Application.Current as App).StartMainApplication();
                 }
                 else
-                {
-                    ErrorLabel.IsVisible = true;
-                    ErrorLabel.Text = "The PIN entered was wrong!";
-                }
+                    showLabel(LogInErrorLabel, "The PIN entered was wrong!");
             }
             else
-            {
-                ErrorLabel.IsVisible = true;
-                ErrorLabel.Text = "Do not leave the First Name and/or Last Name fields empty!";
-            }
+                showLabel(LogInErrorLabel, "Do not leave the fields empty!");
+        }
+
+        // Private Methods
+        private void resetLabel(Label label)
+        {
+            label.IsVisible = false;
+            label.Text = string.Empty;
+        }
+
+        private void showLabel(Label label, string message)
+        {
+            label.IsVisible = true;
+            label.Text = message;
         }
     }
 }

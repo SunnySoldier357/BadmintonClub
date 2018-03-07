@@ -86,6 +86,7 @@
 
                 <Label x:Name="SignUpErrorLabel"
                        Grid.Row="6"
+                       Grid.ColumnSpan="2"
                        TextColor="Red"
                        IsVisible="False"/>
             </Grid>
@@ -137,6 +138,7 @@
 
                 <Label x:Name="LogInErrorLabel"
                        Grid.Row="4"
+                       Grid.ColumnSpan="2"
                        TextColor="Red"
                        IsVisible="False"/>
             </Grid>

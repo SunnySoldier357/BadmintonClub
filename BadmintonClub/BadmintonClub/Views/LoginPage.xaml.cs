@@ -25,14 +25,13 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
+            resetErrorLabels();
             if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
             {
-                resetLabel(LogInErrorLabel);
-
                 if (await azureService.LoginAsync(FullNameEntry.Text, LogInPasswordEntry.Text))
                     (Application.Current as App).StartMainApplication();
                 else
-                    showLabel(LogInErrorLabel, "The name or password entered was incorrect.");
+                    showLabel(LogInErrorLabel, "The name or password entered was incorrect. If you have never signed-up, please sign up first.");
             }
             else
                 showLabel(LogInErrorLabel, "Do not leave the fields empty!");
@@ -40,35 +39,47 @@ namespace BadmintonClub.Views
 
         public async Task SignUpButton_ClickedAsync(object sender, EventArgs e)
         {
+            resetErrorLabels();
+
             if (!(LastNameEntry.Text == null || FirstNameEntry.Text == null 
                 || SignUpPasswordEntry.Text == null || ClubPINEntry.Text == null))
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    resetLabel(SignUpErrorLabel);
-
-                    (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text, LastNameEntry.Text);
-                    (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
-                    (Application.Current as App).StartMainApplication();
+                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text, LastNameEntry.Text))
+                        showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
+                    else
+                    {
+                        (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text, LastNameEntry.Text, SignUpPasswordEntry.Text);
+                        (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
+                        (Application.Current as App).StartMainApplication();
+                    }
                 }
                 else
-                    showLabel(LogInErrorLabel, "The PIN entered was wrong!");
+                    showLabel(SignUpErrorLabel, "The PIN entered was wrong!");
             }
             else
-                showLabel(LogInErrorLabel, "Do not leave the fields empty!");
+                showLabel(SignUpErrorLabel, "Do not leave the fields empty!");
         }
 
         // Private Methods
-        private void resetLabel(Label label)
+        private void resetErrorLabels()
         {
-            label.IsVisible = false;
-            label.Text = string.Empty;
+            LogInErrorLabel.IsVisible = false;
+            SignUpErrorLabel.IsVisible = false;
+
+            LogInErrorLabel.Text = string.Empty;
+            SignUpErrorLabel.Text = string.Empty;
         }
 
         private void showLabel(Label label, string message)
         {
             label.IsVisible = true;
             label.Text = message;
+
+            LogInPasswordEntry.Text = string.Empty;
+            SignUpPasswordEntry.Text = string.Empty;
+            ClubPINEntry.Text = string.Empty;
         }
     }
 }

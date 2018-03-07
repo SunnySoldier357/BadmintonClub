@@ -12,7 +12,7 @@ namespace BadmintonClub
         public static FinishLoading FinishLoadingDel;  // Used for Admin Authentication
 
         // Public Properties
-        public string SignedInUserId { get; set; }
+        public string SignedInUserId { get; set; } = string.Empty;
 
         public User SignedInUser { get; set; }
 
@@ -22,7 +22,6 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-            //Properties["SignedInUserId"] = "1";
             Properties.Clear();
             
             UserVM = new UserViewModel();

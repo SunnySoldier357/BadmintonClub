@@ -75,16 +75,38 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return match;
         }
 
-        public async Task<User> AddUserAsync(string firstName, string lastName)
+        public async Task<User> AddUserAsync(string firstName, string lastName, string password)
         {
             await InitialiseAsync();
 
-            User user = new User(firstName, lastName, "Member", 0);
+            User user = new User()
+            {
+                Title = "Member",
+                FirstName = firstName,
+                LastName = lastName,
+                ClearanceLevel = 0,
+                Password = password
+            };
 
             await userTable.InsertAsync(user);
             await SyncAllDataTablesAsync();
 
             return user;
+        }
+
+        public async Task<bool> DoesUserExistAsync(string firstName, string lastName)
+        {
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
+
+            var query = from user in userTable
+                        where user.FirstName == firstName &&
+                              user.LastName == lastName
+                        select user;
+
+            var users = await userTable.ReadAsync(query);
+
+            return users.Count() == 1;
         }
 
         public async Task<IEnumerable<BlogPost>> GetBlogPostsAsync()
@@ -136,8 +158,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await SyncAllDataTablesAsync();
 
             var data = await userTable
-                .OrderByDescending(user => user.PointsInCurrentSeason)
-                .ThenBy(user => user.FirstName)
+                .OrderByDescending(user => user.FirstName)
                 .ToEnumerableAsync();
             return data;
         }
@@ -204,7 +225,10 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
-                (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+                if (!string.IsNullOrEmpty((Application.Current as App).SignedInUserId))
+                {
+                    (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+                }
 
                 await Client.SyncContext.PushAsync();
             }

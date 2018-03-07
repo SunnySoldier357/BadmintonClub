@@ -13,7 +13,6 @@ namespace BadmintonClub.Models
         public int GamesWon { get; set; }
         public int PointsAgainst { get; set; }
         public int PointsFor { get; set; }
-        public int PointsInCurrentSeason { get; set; }
 
         public string FirstName { get; set; }
         public string Id { get; set; }
@@ -57,12 +56,12 @@ namespace BadmintonClub.Models
             if (match.IsDraw())
             {
                 GamesDrawn++;
-                PointsInCurrentSeason++;
+                //PointsInCurrentSeason++;
             }
             else if (IsPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
             {
                 GamesWon++;
-                PointsInCurrentSeason += 3;
+                //PointsInCurrentSeason += 3;
             }
 
             PointsFor += IsPlayer ? match.PlayerScore : match.OpponentScore;

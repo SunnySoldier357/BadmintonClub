@@ -21,7 +21,6 @@ namespace BadmintonClub.ViewModels
         private GridLength newMatchColumnWidth = 0;
 
         private ICommand addMatchCommand;
-        private ICommand addUserCommand;
         private ICommand loadMatchesCommand;
         private ICommand loadUsersCommand;
 
@@ -58,8 +57,6 @@ namespace BadmintonClub.ViewModels
 
         public ICommand AddMatchCommand =>
             addMatchCommand ?? (addMatchCommand = new Command(async (dynamic arguments) => await executeAddMatchCommandAsync(arguments)));
-        public ICommand AddUserCommand =>
-            addUserCommand ?? (addUserCommand = new Command(async () => await executeAddUserCommandAsync()));
         public ICommand LoadMatchesCommand =>
             loadMatchesCommand ?? (loadMatchesCommand = new Command(async () => await executeLoadMatchesCommandAsync()));
         public ICommand LoadUsersCommand =>
@@ -105,31 +102,6 @@ namespace BadmintonClub.ViewModels
             }
 
             LoadUsersCommand.Execute(null);
-        }
-
-        private async Task executeAddUserCommandAsync()
-        {
-            if (IsBusy)
-                return;
-
-            try
-            {
-                LoadingMessage = "Adding New User...";
-                IsBusy = true;
-
-                var user = await azureService.AddUserAsync("Default", "Name");
-                Users.Add(user);
-                sortUsers();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("OH NO!" + ex);
-            }
-            finally
-            {
-                LoadingMessage = string.Empty;
-                IsBusy = false;
-            }
         }
 
         private async Task executeLoadMatchesCommandAsync()
@@ -189,8 +161,7 @@ namespace BadmintonClub.ViewModels
             LoadingMessage = "Sorting Users...";
 
             var users = from user in Users
-                        orderby user.PointsInCurrentSeason descending, 
-                                user.PointDifference descending,
+                        orderby user.PointDifference descending,
                                 user.PointsFor descending,
                                 user.FirstName,
                                 user.LastName

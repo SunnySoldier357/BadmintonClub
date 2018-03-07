@@ -1,12 +1,10 @@
 ﻿Main things that I have to do:
  - Make match fixtures for the season
- - Log in
  - Admin editing user names
  - Table for season stats vs user stats
- - show stats
+ - Show stats
 
 Things that are necessary before release:
- - Password entry for users 
  - Hide the add buttons when switching tabs (Season Page)
  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank
 

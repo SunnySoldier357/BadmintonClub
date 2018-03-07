@@ -1,4 +1,5 @@
-﻿using BadmintonClub.ViewModels;
+﻿using BadmintonClub.Models;
+using BadmintonClub.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,16 @@ namespace BadmintonClub.Views
 	public partial class ProfilePage : ContentPage
 	{
         // Private Properties
+        private User signedInUser;
+
         private UserViewModel userViewModel;
 
         // Constructor
 		public ProfilePage()
 		{
 			InitializeComponent();
-            BindingContext = userViewModel = (Application.Current as App).UserVM;
+            userViewModel = (Application.Current as App).UserVM;
+            BindingContext = signedInUser = (Application.Current as App).SignedInUser;
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)

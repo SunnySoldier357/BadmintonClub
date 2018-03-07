@@ -5,7 +5,12 @@
              Title="Profile">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Test" />
+            <Label Text="{Binding FullName}"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   HorizontalOptions="Center"/>
+
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

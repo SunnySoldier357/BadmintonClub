@@ -9,6 +9,7 @@ Things that are necessary before release:
  - Glossary for Season Table
  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank (Adding stuff)
  - No connection (Offline Stack)
+ - Loading notification for logging in and signing up
 
                                                    POSSIBLE IMPOVEMENTS
 

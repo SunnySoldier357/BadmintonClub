@@ -29778,26 +29778,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sande_gblcen6\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+    "C:\\Users\\singsan19\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
+      "projectUniqueName": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
       "projectName": "BadmintonClub.UWP",
-      "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
-      "packagesPath": "C:\\Users\\sande_gblcen6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\obj\\",
+      "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\BadmintonClub.UWP.csproj",
+      "packagesPath": "C:\\Users\\singsan19\\.nuget\\packages\\",
+      "outputPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sande_gblcen6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\singsan19\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -29811,8 +29809,8 @@
       "frameworks": {
         "uap10.0.14393": {
           "projectReferences": {
-            "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
-              "projectPath": "C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
+            "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj": {
+              "projectPath": "C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\BadmintonClub.csproj"
             }
           }
         }

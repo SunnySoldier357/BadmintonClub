@@ -31,14 +31,25 @@
     <AppXManifest Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2018-03-06T02:06:17.709</Modified>
+=======
+      <Modified>2018-03-05T16:10:31.748</Modified>
+>>>>>>> parent of 3f95c3a... fixed name needing to refresh
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.exe">
       <PackagePath>entrypoint\BadmintonClub.UWP.exe</PackagePath>
+<<<<<<< HEAD
+      <Modified>2018-03-06T02:06:14.982</Modified>
+=======
       <Modified>2018-03-05T16:09:38.686</Modified>
+>>>>>>> parent of 3f95c3a... fixed name needing to refresh
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
+      <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
+      <Modified>2017-10-12T00:23:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client.sqlitestore\4.0.2\lib\netstandard1.4\Microsoft.Azure.Mobile.Client.SQLiteStore.dll">
       <PackagePath>Microsoft.Azure.Mobile.Client.SQLiteStore.dll</PackagePath>
@@ -586,7 +597,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.dll">
       <PackagePath>BadmintonClub.dll</PackagePath>
+<<<<<<< HEAD
       <Modified>2018-03-06T02:06:12.310</Modified>
+=======
+      <Modified>2018-03-05T16:09:27.821</Modified>
+>>>>>>> parent of 3f95c3a... fixed name needing to refresh
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\add.png">
       <PackagePath>add.png</PackagePath>
@@ -864,11 +879,19 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2018-03-06T02:06:16.769</Modified>
+=======
+      <Modified>2018-03-05T16:10:24.474</Modified>
+>>>>>>> parent of 3f95c3a... fixed name needing to refresh
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
       <PackagePath>BadmintonClub.UWP.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2018-03-06T02:06:17.704</Modified>
+=======
+      <Modified>2018-03-05T16:10:31.732</Modified>
+>>>>>>> parent of 3f95c3a... fixed name needing to refresh
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

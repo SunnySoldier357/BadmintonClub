@@ -9,9 +9,6 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        // Private Properties
-        private bool authenticated = false;
-
         // Constructor
         public LoginPage()
 		{

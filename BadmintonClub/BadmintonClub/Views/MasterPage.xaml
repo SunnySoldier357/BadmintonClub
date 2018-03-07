@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BadmintonClub.Views"
+             xmlns:model="clr-namespace:BadmintonClub.Models"
              x:Class="BadmintonClub.Views.MasterPage"
              Padding="0,40,0,0"
              Icon="hamburger.png"
@@ -10,16 +11,16 @@
     <StackLayout>
         <ListView x:Name="contentPane">
             <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Blog" 
+                <x:Array Type="{x:Type model:MasterPageItem}">
+                    <model:MasterPageItem Title="Blog" 
                                           IconSource="hamburger.png" 
                                           TargetType="{x:Type local:BlogPage}" />
 
-                    <local:MasterPageItem Title="Season" 
+                    <model:MasterPageItem Title="Season" 
                                           IconSource="hamburger.png" 
                                           TargetType="{x:Type local:SeasonPage}" />
 
-                    <local:MasterPageItem Title="Profile"
+                    <model:MasterPageItem Title="Profile"
                                           IconSource="profile.png"
                                           TargetType="{x:Type local:ProfilePage}" />
                 </x:Array>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BadmintonClub.Views
+namespace BadmintonClub.Models
 {
     public class MasterPageItem
     {

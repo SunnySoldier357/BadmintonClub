@@ -17,8 +17,7 @@ namespace BadmintonClub.Models
         [Newtonsoft.Json.JsonIgnore]
         public string DateTimePublishedString
         {
-            get { return string.Format("Posted on {0} {1}.", DateTimePublished.Date, 
-                DateTimePublished.TimeOfDay.ToString().ToLower()); }
+            get { return string.Format("Posted on {0}.", DateTimePublished.ToString().ToLower()); }
         } 
 
         [Newtonsoft.Json.JsonIgnore]

@@ -1,6 +1,9 @@
 ﻿Main things that I have to do:
  - Make match fixtures for the season
  - Log in
+ - Admin editing user names
+ - Table for season stats vs user stats
+ - show stats
 
 Things that are necessary before release:
  - Password entry for users 

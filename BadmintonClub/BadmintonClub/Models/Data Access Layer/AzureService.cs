@@ -16,43 +16,22 @@ namespace BadmintonClub.Models.Data_Access_Layer
 {
     public partial class AzureService
     {
-        // Static Properties
-        public static AzureService DefaultManager { get; private set; } = new AzureService();
-
         // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<User> userTable;
 
         // Public Properties
-        public MobileServiceClient CurrentClient { get; private set; }
-
-        // Constructor
-        private AzureService()
-        {
-            CurrentClient = new MobileServiceClient(@"https://badmintonclub.azurewebsites.net");
-
-            var store = new MobileServiceSQLiteStore("badmintonclubrecords.db");
-            store.DefineTable<BlogPost>();
-            store.DefineTable<Match>();
-            store.DefineTable<User>();
-
-            // Initialises the SyncContext using the default IMobileServiceSyncHandler
-            CurrentClient.SyncContext.InitializeAsync(store);
-
-            blogPostTable = CurrentClient.GetSyncTable<BlogPost>();
-            matchTable = CurrentClient.GetSyncTable<Match>();
-            userTable = CurrentClient.GetSyncTable<User>();
-        }
+        public MobileServiceClient Client { get; set; }
 
         // Public Methods
         public async Task InitialiseAsync()
         {
-            if (CurrentClient?.SyncContext?.IsInitialized ?? false)
+            if (Client?.SyncContext?.IsInitialized ?? false)
                 return;
 
             string appUrl = "https://badmintonclub.azurewebsites.net";
-            CurrentClient = new MobileServiceClient(appUrl);
+            Client = new MobileServiceClient(appUrl);
 
             string path = "badmintonclubrecords.db";
             path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
@@ -62,11 +41,11 @@ namespace BadmintonClub.Models.Data_Access_Layer
             store.DefineTable<Match>();
             store.DefineTable<User>();
 
-            await CurrentClient.SyncContext.InitializeAsync(store);
+            await Client.SyncContext.InitializeAsync(store);
 
-            blogPostTable = CurrentClient.GetSyncTable<BlogPost>();
-            matchTable = CurrentClient.GetSyncTable<Match>();
-            userTable = CurrentClient.GetSyncTable<User>();
+            blogPostTable = Client.GetSyncTable<BlogPost>();
+            matchTable = Client.GetSyncTable<Match>();
+            userTable = Client.GetSyncTable<User>();
         }
 
         public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
@@ -78,6 +57,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Title = title,
                 BodyOfPost = bodyOfPost,
                 UserID = (Application.Current as App).SignedInUser.Id,
+                Publisher = (Application.Current as App).SignedInUser,
                 DateTimePublished = DateTime.Now
             };
 
@@ -132,7 +112,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
-            IEnumerable<BlogPost> data = await blogPostTable
+            var data = await blogPostTable
                                          .OrderByDescending(bp => bp.DateTimePublished)
                                          .ToEnumerableAsync();
 
@@ -193,14 +173,14 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     return;
 
                 // Device is online, continue...
-                await CurrentClient.SyncContext.PushAsync();
+                await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
                 (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
 
-                await CurrentClient.SyncContext.PushAsync();
+                await Client.SyncContext.PushAsync();
             }
             catch (MobileServicePushFailedException ex)
             {

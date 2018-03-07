@@ -6,24 +6,10 @@ using Xamarin.Forms;
 
 namespace BadmintonClub
 {
-    // Interface
-    public interface IAuthenticate
-    {
-        Task<bool> Authenticate();
-    }
-
     public partial class App : Application
 	{
         // Static Properties
         public static FinishLoading FinishLoadingDel;  // Used for Admin Authentication
-
-        public static IAuthenticate Authenticator { get; private set; }
-
-        // Static Methods
-        public static void Init(IAuthenticate authenticator)
-        {
-            Authenticator = authenticator;
-        }
 
         // Public Properties
         public string SignedInUserId { get; set; }
@@ -36,13 +22,8 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-<<<<<<< HEAD
-            //Properties["SignedInUserId"] = "5";
-            Properties.Clear();
-=======
             Properties["SignedInUserId"] = "1";
-
->>>>>>> parent of 3f95c3a... fixed name needing to refresh
+            
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))
                 MainPage = new LoginPage();

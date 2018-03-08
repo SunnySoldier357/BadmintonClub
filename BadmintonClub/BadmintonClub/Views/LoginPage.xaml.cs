@@ -1,4 +1,5 @@
 ﻿using BadmintonClub.Models.Data_Access_Layer;
+using Plugin.Connectivity;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -50,9 +51,14 @@ namespace BadmintonClub.Views
                         showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
                     else
                     {
-                        (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim(), SignUpPasswordEntry.Text.Trim());
-                        (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
-                        (Application.Current as App).StartMainApplication();
+                        if (CrossConnectivity.Current.IsConnected)
+                        {
+                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim(), SignUpPasswordEntry.Text.Trim());
+                            (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
+                            (Application.Current as App).StartMainApplication();
+                        }
+                        else
+                            showLabel(SignUpErrorLabel, "Device is offline. Sign-up is only available when device is online.");
                     }
                 }
                 else

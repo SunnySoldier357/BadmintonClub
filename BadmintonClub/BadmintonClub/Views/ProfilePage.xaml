@@ -3,6 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BadmintonClub.Views.ProfilePage"
              Title="Profile">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style  x:Key="StatsStackLayoutStyle" TargetType="StackLayout">
+                <Setter Property="BackgroundColor"
+                        Value="Gray"/>
+
+                <Setter Property="Margin"
+                        Value="10"/>
+
+                <Setter Property="Padding"
+                        Value="10"/>
+            </Style> 
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding FullName}"
@@ -10,7 +26,45 @@
                    FontSize="Large"
                    HorizontalOptions="Center"/>
 
-            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Games Played"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="{Binding GamesPlayed}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1"
+                             BackgroundColor="Gray"
+                             Margin="10"
+                             Padding="10">
+                    <Label Text="Games Won"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+
+                    <Label Text="{Binding GamesWon}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1"
+                             BackgroundColor="Gray">
+                    
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -28,3 +28,4 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.AssemblyInfo.cs
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.pdb
+C:\BadmintonClub\BadmintonClub\BadmintonClub\obj\Debug\netstandard1.4\BadmintonClub.csprojResolveAssemblyReference.cache

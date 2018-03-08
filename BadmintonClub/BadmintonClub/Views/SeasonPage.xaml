@@ -103,7 +103,7 @@
                                     <Label Grid.Column="7"
                                            Text="{Binding PointDifference}" />
                                     <Label Grid.Column="8"
-                                           Text="{Binding PointsInCurrentSeason}"/>
+                                           Text="A"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
@@ -170,6 +170,13 @@
                         <Button x:Name="MatchCancelButton"
                                 Clicked="MatchCancelButton_Clicked" 
                                 Text="Cancel" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Start a new Season? "/>
+
+                        <Switch x:Name="NewSeasonSwitch" 
+                                IsToggled="False"/>
                     </StackLayout>
                 </StackLayout>
 

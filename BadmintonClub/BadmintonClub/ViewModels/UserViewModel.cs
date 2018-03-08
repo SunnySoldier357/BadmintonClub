@@ -17,8 +17,8 @@ namespace BadmintonClub.ViewModels
 
         private bool addingNewMatch;
 
-        private GridLength listViewColumnWidth = GridLength.Star;
-        private GridLength newMatchColumnWidth = 0;
+        private GridLength listViewColumnWidth;
+        private GridLength newMatchColumnWidth;
 
         private ICommand addMatchCommand;
         private ICommand loadMatchesCommand;
@@ -45,22 +45,17 @@ namespace BadmintonClub.ViewModels
         }
 
         public ObservableRangeCollection<Match> Matches { get; }
-            = new ObservableRangeCollection<Match>();
         public ObservableRangeCollection<string> UserNamesOpponent { get; }
-            = new ObservableRangeCollection<string>();
         public ObservableRangeCollection<string> UserNamesPlayer { get; }
-            = new ObservableRangeCollection<string>();
         public ObservableRangeCollection<User> Users { get; } 
-            = new ObservableRangeCollection<User>();
         public ObservableRangeCollection<User> UserSorted { get; }
-            = new ObservableRangeCollection<User>();
 
-        public ICommand AddMatchCommand =>
-            addMatchCommand ?? (addMatchCommand = new Command(async (dynamic arguments) => await executeAddMatchCommandAsync(arguments)));
-        public ICommand LoadMatchesCommand =>
-            loadMatchesCommand ?? (loadMatchesCommand = new Command(async () => await executeLoadMatchesCommandAsync()));
-        public ICommand LoadUsersCommand =>
-            loadUsersCommand ?? (loadUsersCommand = new Command(async () => await executeLoadUsersCommandAsync()));
+        public ICommand AddMatchCommand => addMatchCommand ?? (addMatchCommand = 
+            new Command(async (dynamic arguments) => await executeAddMatchCommandAsync(arguments)));
+        public ICommand LoadMatchesCommand =>loadMatchesCommand ?? (loadMatchesCommand = 
+            new Command(async () => await executeLoadMatchesCommandAsync()));
+        public ICommand LoadUsersCommand =>loadUsersCommand ?? (loadUsersCommand = 
+            new Command(async () => await executeLoadUsersCommandAsync()));
 
         public string LoadingMessage
         {
@@ -72,6 +67,15 @@ namespace BadmintonClub.ViewModels
         public UserViewModel()
         {
             azureService = AzureService.DefaultService;
+
+            listViewColumnWidth = GridLength.Star;
+            newMatchColumnWidth = 0;
+
+            Matches = new ObservableRangeCollection<Match>();
+            UserNamesOpponent = new ObservableRangeCollection<string>();
+            UserNamesPlayer = new ObservableRangeCollection<string>();
+            Users = new ObservableRangeCollection<User>();
+            UserSorted = new ObservableRangeCollection<User>();
         }
 
         // Private Methods
@@ -88,7 +92,7 @@ namespace BadmintonClub.ViewModels
                 string playerId = await azureService.GetUserIdFromNameAsync(arguments.PlayerName);
                 string opponentId = await azureService.GetUserIdFromNameAsync(arguments.OpponentName);
 
-                var match = await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId);
+                var match = await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore), int.Parse(arguments.OpponentScore), playerId, opponentId, bool.Parse(arguments.NewSeason));
                 Matches.Add(match);
             }
             catch (Exception ex)

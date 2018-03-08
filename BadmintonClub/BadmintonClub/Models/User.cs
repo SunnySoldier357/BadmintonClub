@@ -21,7 +21,7 @@ namespace BadmintonClub.Models
         public string Title { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public double WinPercentage { get { return GamesPlayed == 0 ? double.NaN : GamesWon / GamesPlayed * 100; } }
+        public double WinPercentage { get { return GamesPlayed == 0 ? 0 : GamesWon / GamesPlayed * 100; } }
 
         [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon - GamesDrawn; } }

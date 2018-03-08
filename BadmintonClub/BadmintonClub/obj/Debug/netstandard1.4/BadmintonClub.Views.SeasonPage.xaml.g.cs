@@ -11,7 +11,8 @@
 namespace BadmintonClub.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views\\SeasonPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views" +
+        "\\SeasonPage.xaml")]
     public partial class SeasonPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -36,6 +37,9 @@ namespace BadmintonClub.Views {
         private global::Xamarin.Forms.Button MatchCancelButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Switch NewSeasonSwitch;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(SeasonPage));
             SeasonTableListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "SeasonTableListView");
@@ -45,6 +49,7 @@ namespace BadmintonClub.Views {
             OpponentScoreEntry = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "OpponentScoreEntry");
             MatchSaveButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "MatchSaveButton");
             MatchCancelButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "MatchCancelButton");
+            NewSeasonSwitch = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Switch>(this, "NewSeasonSwitch");
         }
     }
 }

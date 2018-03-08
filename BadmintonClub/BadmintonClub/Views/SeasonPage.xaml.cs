@@ -64,7 +64,8 @@ namespace BadmintonClub.Views
                 OpponentScore = OpponentScoreEntry.Text,
                 PlayerScore = PlayerScoreEntry.Text,
                 OpponentName = OpponentNamePicker.SelectedItem.ToString(),
-                PlayerName = PlayerNamePicker.SelectedItem.ToString()
+                PlayerName = PlayerNamePicker.SelectedItem.ToString(),
+                NewSeason = NewSeasonSwitch.IsToggled ? bool.TrueString : bool.FalseString
             });
             switchToMainView();
         }

@@ -22,6 +22,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
+        private IMobileServiceSyncTable<SeasonData> seasonDataTable;
         private IMobileServiceSyncTable<User> userTable;
 
         // Public Properties
@@ -47,16 +48,19 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
-        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID, bool newSeason)
         {
             await InitialiseAsync();
+
+            int seasonNumber = await GetSeasonNumberAsync();
 
             Match match = new Match()
             {
                 PlayerScore = playerScore,
                 OpponentScore = opponentScore,
                 OpponentID = opponentID,
-                PlayerID = playerID
+                PlayerID = playerID,
+                SeasonNumber = newSeason ? seasonNumber : seasonNumber + 1
             };
 
             await matchTable.InsertAsync(match);
@@ -91,6 +95,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await userTable.InsertAsync(user);
             await SyncAllDataTablesAsync();
 
+            SeasonData seasonData = new SeasonData(user.Id);
+            seasonData.SeasonNumber = await GetSeasonNumberAsync();
+
+            await seasonDataTable.InsertAsync(seasonData);
+            await SyncAllDataTablesAsync();
+
             return user;
         }
 
@@ -106,6 +116,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             var users = await userTable.ReadAsync(query);
 
+            Debug.WriteLine(users.Count());
+
             return users.Count() == 1;
         }
 
@@ -115,8 +127,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await SyncAllDataTablesAsync();
 
             var data = await blogPostTable
-                                         .OrderByDescending(bp => bp.DateTimePublished)
-                                         .ToEnumerableAsync();
+                       .OrderByDescending(bp => bp.DateTimePublished)
+                       .ToEnumerableAsync();
 
             return data;
         }
@@ -129,6 +141,29 @@ namespace BadmintonClub.Models.Data_Access_Layer
             var data = await matchTable.ToEnumerableAsync();
 
             return data;
+        }
+
+        public async Task<IEnumerable<SeasonData>> GetSeasonDataAsync()
+        {
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
+
+            var data = await seasonDataTable.ToEnumerableAsync();
+
+            foreach (var item in data)
+                item.Player = await userTable.LookupAsync(item.UserID);
+
+            return data;
+        }
+
+        public async Task<int> GetSeasonNumberAsync()
+        {
+            await InitialiseAsync();
+            await SyncAllDataTablesAsync();
+
+            var matches = await matchTable.ToEnumerableAsync();
+
+            return matches.Count() == 0 ? 1 : matches.Max(match => match.SeasonNumber);
         }
 
         public async Task<User> GetUserFromIdAsync(string id)
@@ -177,12 +212,14 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             store.DefineTable<BlogPost>();
             store.DefineTable<Match>();
+            store.DefineTable<SeasonData>();
             store.DefineTable<User>();
 
             await Client.SyncContext.InitializeAsync(store);
 
             blogPostTable = Client.GetSyncTable<BlogPost>();
             matchTable = Client.GetSyncTable<Match>();
+            seasonDataTable = Client.GetSyncTable<SeasonData>();
             userTable = Client.GetSyncTable<User>();
         }
 
@@ -223,6 +260,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
+                await seasonDataTable.PullAsync("allSeasonData", matchTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
                 if (!string.IsNullOrEmpty((Application.Current as App).SignedInUserId))

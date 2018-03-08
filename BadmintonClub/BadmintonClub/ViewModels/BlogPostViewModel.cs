@@ -16,10 +16,10 @@ namespace BadmintonClub.ViewModels
         // Private Properties
         private AzureService azureService;
 
-        private bool addingNewItem = false;
+        private bool addingNewItem;
 
-        private GridLength listViewColumnWidth = GridLength.Star;
-        private GridLength newItemColumnWidth = 0;
+        private GridLength listViewColumnWidth;
+        private GridLength newItemColumnWidth;
 
         private ICommand addBlogPostCommand;
         private ICommand loadBlogPostsCommand;
@@ -45,15 +45,13 @@ namespace BadmintonClub.ViewModels
             set => SetProperty(ref newItemColumnWidth, value);
         }
 
-        public ICommand AddBlogPostCommand =>
-            addBlogPostCommand ?? (addBlogPostCommand = new Command(async (dynamic arguments) => await executeAddBlogPostCommandAsync(arguments)));
-        public ICommand LoadBlogPostsCommand =>
-            loadBlogPostsCommand ?? (loadBlogPostsCommand = new Command(async () => await executeLoadBlogPostsCommandAsync()));
+        public ICommand AddBlogPostCommand =>addBlogPostCommand ?? (addBlogPostCommand = 
+            new Command(async (dynamic arguments) => await executeAddBlogPostCommandAsync(arguments)));
+        public ICommand LoadBlogPostsCommand =>loadBlogPostsCommand ?? (loadBlogPostsCommand = 
+            new Command(async () => await executeLoadBlogPostsCommandAsync()));
 
         public ObservableRangeCollection<BlogPost> BlogPosts { get; }
-            = new ObservableRangeCollection<BlogPost>();
         public ObservableRangeCollection<BlogPost> BlogPostSorted { get; }
-            = new ObservableRangeCollection<BlogPost>();
 
         public string LoadingMessage
         {
@@ -65,6 +63,14 @@ namespace BadmintonClub.ViewModels
         public BlogPostViewModel()
         {
             azureService = AzureService.DefaultService;
+
+            addingNewItem = false;
+
+            listViewColumnWidth = GridLength.Star;
+            newItemColumnWidth = 0;
+
+            BlogPosts = new ObservableRangeCollection<BlogPost>();
+            BlogPostSorted = new ObservableRangeCollection<BlogPost>();
         }
 
         // Private Methods

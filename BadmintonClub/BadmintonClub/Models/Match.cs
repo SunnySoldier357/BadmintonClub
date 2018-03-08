@@ -5,6 +5,7 @@
         // Public Properties
         public int OpponentScore { get; set; }
         public int PlayerScore { get; set; }
+        public int SeasonNumber { get; set; }
 
         public string Id { get; set; }
         public string OpponentID { get; set; }

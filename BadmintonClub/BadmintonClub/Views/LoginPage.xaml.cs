@@ -28,7 +28,7 @@ namespace BadmintonClub.Views
             resetErrorLabels();
             if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
             {
-                if (await azureService.LoginAsync(FullNameEntry.Text, LogInPasswordEntry.Text))
+                if (await azureService.LoginAsync(FullNameEntry.Text.Trim(), LogInPasswordEntry.Text.Trim()))
                     (Application.Current as App).StartMainApplication();
                 else
                     showLabel(LogInErrorLabel, "The name or password entered was incorrect. If you have never signed-up, please sign up first.");
@@ -46,11 +46,11 @@ namespace BadmintonClub.Views
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text, LastNameEntry.Text))
+                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim()))
                         showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
                     else
                     {
-                        (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text, LastNameEntry.Text, SignUpPasswordEntry.Text);
+                        (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim(), SignUpPasswordEntry.Text.Trim());
                         (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
                         (Application.Current as App).StartMainApplication();
                     }

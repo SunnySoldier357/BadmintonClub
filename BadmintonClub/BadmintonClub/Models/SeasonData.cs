@@ -8,6 +8,7 @@
         public int GamesWon { get; set; }
         public int PointsAgainst { get; set; }
         public int PointsFor { get; set; }
+        public int PointsInCurrentSeason { get; set; }
         public int SeasonNumber { get; set; }
 
         public string Id { get; set; }

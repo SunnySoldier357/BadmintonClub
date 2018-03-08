@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-08T02:27:23.316</Modified>
+      <Modified>2018-03-08T04:03:24.985</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.exe">
       <PackagePath>entrypoint\BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-08T02:27:20.806</Modified>
+      <Modified>2018-03-08T04:03:20.704</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
       <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
@@ -589,7 +589,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.dll">
       <PackagePath>BadmintonClub.dll</PackagePath>
-      <Modified>2018-03-08T02:27:18.581</Modified>
+      <Modified>2018-03-08T04:03:09.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\add.png">
       <PackagePath>add.png</PackagePath>
@@ -867,11 +867,11 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-08T02:27:22.417</Modified>
+      <Modified>2018-03-08T04:03:23.902</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
       <PackagePath>BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-08T02:27:23.312</Modified>
+      <Modified>2018-03-08T04:03:24.978</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

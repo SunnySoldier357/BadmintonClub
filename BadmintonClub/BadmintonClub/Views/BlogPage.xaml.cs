@@ -52,8 +52,8 @@ namespace BadmintonClub.Views
         {
             blogPostViewModel.AddBlogPostCommand.Execute(new
             {
-                BlogTitle = BlogPostTitleEntry.Text,
-                BodyOfPost = BlogPostBodyEditor.Text
+                BlogTitle = BlogPostTitleEntry.Text.Trim(),
+                BodyOfPost = BlogPostBodyEditor.Text.Trim()
             });
             switchToMainView();
         }

@@ -150,9 +150,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             var data = await seasonDataTable.ToEnumerableAsync();
 
-            foreach (var item in data)
-                item.Player = await userTable.LookupAsync(item.UserID);
-
             return data;
         }
 
@@ -170,7 +167,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             await InitialiseAsync();
             await SyncAllDataTablesAsync();
-
+            Debug.WriteLine(await userTable.LookupAsync(id));
             return await userTable.LookupAsync(id);
         }
 
@@ -260,7 +257,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await Client.SyncContext.PushAsync();
                 await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
                 await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
-                await seasonDataTable.PullAsync("allSeasonData", matchTable.CreateQuery());
+                await seasonDataTable.PullAsync("allSeasonData", seasonDataTable.CreateQuery());
                 await userTable.PullAsync("allUser", userTable.CreateQuery());
 
                 if (!string.IsNullOrEmpty((Application.Current as App).SignedInUserId))

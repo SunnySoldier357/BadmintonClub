@@ -9,16 +9,13 @@ namespace BadmintonClub.Views
     public partial class SeasonPage : TabbedPage
     {
         // Private Properties
-        private UserViewModel userViewModel;
-
-        // Public Properties
-        public string test = "test";
+        private SeasonDataViewModel seasonDataViewModel;
 
         // Constructor
         public SeasonPage()
         {
             InitializeComponent();
-            BindingContext = userViewModel = (Application.Current as App).UserVM;
+            BindingContext = seasonDataViewModel = new SeasonDataViewModel();
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
@@ -35,7 +32,7 @@ namespace BadmintonClub.Views
                 ToolbarItems.Add(new ToolbarItem
                 {
                     Text = "Refresh",
-                    Command = userViewModel.LoadUsersCommand,
+                    Command = seasonDataViewModel.LoadSeasonDataCommand,
                     Icon = "refresh.png"
                 });
             }
@@ -59,12 +56,12 @@ namespace BadmintonClub.Views
 
         public void MatchSaveButton_Clicked(object sender, EventArgs e)
         {
-            userViewModel.AddMatchCommand.Execute(new
+            seasonDataViewModel.AddMatchCommand.Execute(new
             {
-                OpponentScore = OpponentScoreEntry.Text,
-                PlayerScore = PlayerScoreEntry.Text,
-                OpponentName = OpponentNamePicker.SelectedItem.ToString(),
-                PlayerName = PlayerNamePicker.SelectedItem.ToString(),
+                OpponentScore = OpponentScoreEntry.Text.Trim(),
+                PlayerScore = PlayerScoreEntry.Text.Trim(),
+                OpponentName = OpponentNamePicker.SelectedItem.ToString().Trim(),
+                PlayerName = PlayerNamePicker.SelectedItem.ToString().Trim(),
                 NewSeason = NewSeasonSwitch.IsToggled ? bool.TrueString : bool.FalseString
             });
             switchToMainView();
@@ -74,25 +71,25 @@ namespace BadmintonClub.Views
         {
             base.OnAppearing();
 
-            userViewModel.LoadUsersCommand.Execute(null);
+            seasonDataViewModel.LoadSeasonDataCommand.Execute(null);
         }
 
         // Private Methods
         private void switchToEditView()
         {
-            userViewModel.AddingNewMatch = true;
-            userViewModel.NewMatchColumnWidth = GridLength.Star;
+            seasonDataViewModel.AddingNewMatch = true;
+            seasonDataViewModel.NewMatchColumnWidth = GridLength.Star;
             if (Device.RuntimePlatform == Device.UWP && Application.Current.MainPage.Width >= 1000)
-                userViewModel.ListViewColumnWidth = GridLength.Star;
+                seasonDataViewModel.ListViewColumnWidth = GridLength.Star;
             else
-                userViewModel.ListViewColumnWidth = 0;
+                seasonDataViewModel.ListViewColumnWidth = 0;
         }
 
         private void switchToMainView()
         {
-            userViewModel.AddingNewMatch = false;
-            userViewModel.NewMatchColumnWidth = 0;
-            userViewModel.ListViewColumnWidth = GridLength.Star;
+            seasonDataViewModel.AddingNewMatch = false;
+            seasonDataViewModel.NewMatchColumnWidth = 0;
+            seasonDataViewModel.ListViewColumnWidth = GridLength.Star;
         }
     }
 }

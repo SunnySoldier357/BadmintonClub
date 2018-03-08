@@ -45,6 +45,7 @@ namespace BadmintonClub.ViewModels
         }
 
         public ObservableRangeCollection<Match> Matches { get; }
+        public ObservableRangeCollection<SeasonData> SeasonDatas { get; }
         public ObservableRangeCollection<string> UserNamesOpponent { get; }
         public ObservableRangeCollection<string> UserNamesPlayer { get; }
         public ObservableRangeCollection<User> Users { get; } 
@@ -72,6 +73,7 @@ namespace BadmintonClub.ViewModels
             newMatchColumnWidth = 0;
 
             Matches = new ObservableRangeCollection<Match>();
+            SeasonDatas = new ObservableRangeCollection<SeasonData>();
             UserNamesOpponent = new ObservableRangeCollection<string>();
             UserNamesPlayer = new ObservableRangeCollection<string>();
             Users = new ObservableRangeCollection<User>();

@@ -21,12 +21,12 @@
                 </Grid.RowDefinitions>
 
                 <ListView x:Name="SeasonTableListView"
-                          ItemsSource="{Binding UserSorted}"
+                          ItemsSource="{Binding SeasonDataSorted}"
                           HorizontalOptions="FillAndExpand"
                           HasUnevenRows="True"
                           IsPullToRefreshEnabled="True"
                           IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                          RefreshCommand="{Binding LoadUsersCommand}">
+                          RefreshCommand="{Binding LoadSeasonDataCommand}">
 
                     <ListView.Header>
                         <Grid HorizontalOptions="FillAndExpand">
@@ -87,7 +87,7 @@
                                         <ColumnDefinition Width="30" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding FullName}" />
+                                    <Label Text="{Binding Player.FullName}" />
                                     <Label Grid.Column="1"
                                            Text="{Binding GamesPlayed}"/>
                                     <Label Grid.Column="2"
@@ -103,7 +103,7 @@
                                     <Label Grid.Column="7"
                                            Text="{Binding PointDifference}" />
                                     <Label Grid.Column="8"
-                                           Text="A"/>
+                                           Text="{Binding PointsInCurrentSeason}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

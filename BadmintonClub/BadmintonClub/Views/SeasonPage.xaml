@@ -172,7 +172,7 @@
                                 Text="Cancel" />
                     </StackLayout>
 
-                    <StackLayout>
+                    <StackLayout Orientation="Horizontal">
                         <Label Text="Start a new Season? "/>
 
                         <Switch x:Name="NewSeasonSwitch" 

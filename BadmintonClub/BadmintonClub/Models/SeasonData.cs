@@ -38,5 +38,25 @@
             PointsAgainst = 0;
             PointsFor = 0;
         }
+
+        // Public Methods
+        public void AddMatch(Match match, bool isPlayer)
+        {
+            GamesPlayed++;
+
+            if (match.IsDraw())
+            {
+                GamesDrawn++;
+                PointsInCurrentSeason++;
+            }
+            else if (isPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
+            {
+                GamesWon++;
+                PointsInCurrentSeason += 3;
+            }
+
+            PointsFor += isPlayer ? match.PlayerScore : match.OpponentScore;
+            PointsAgainst += isPlayer ? match.OpponentScore : match.PlayerScore;
+        }
     }
 }

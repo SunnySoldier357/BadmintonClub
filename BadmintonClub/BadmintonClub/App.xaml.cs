@@ -21,6 +21,7 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
+            Properties.Clear();
             
             UserVM = new UserViewModel();
             if (!Properties.ContainsKey("SignedInUserId"))

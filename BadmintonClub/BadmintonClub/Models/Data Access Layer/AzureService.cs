@@ -67,11 +67,23 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             // Updating player's statistics according to Match results
             match.Player = await userTable.LookupAsync(match.PlayerID);
+            var query = from season in seasonDataTable
+                        where season.UserID == match.PlayerID
+                        select season;
+            match.Player.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
             match.Player.AddMatch(match, true);
+            match.Player.UserSeasonData.AddMatch(match, true);
 
             match.Opponent = await userTable.LookupAsync(match.OpponentID);
+            query = from season in seasonDataTable
+                    where season.UserID == match.OpponentID
+                    select season;
+            match.Opponent.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
             match.Opponent.AddMatch(match, false);
+            match.Opponent.UserSeasonData.AddMatch(match, false);
 
+            await seasonDataTable.UpdateAsync(match.Player.UserSeasonData);
+            await seasonDataTable.UpdateAsync(match.Opponent.UserSeasonData);
             await userTable.UpdateAsync(match.Player);
             await userTable.UpdateAsync(match.Opponent);
             await SyncAllDataTablesAsync();

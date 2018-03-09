@@ -22,10 +22,7 @@ namespace BadmintonClub.Models
         public string Password { get; set; }
         public string Title { get; set; }
 
-        [Newtonsoft.Json.JsonIgnore]
-        public string WinPercentage { get { return GamesPlayed == 0 ? "0 %" : 
-            Math.Round((double)GamesWon / (double)GamesPlayed * 100.0, 2, MidpointRounding.AwayFromZero).ToString() 
-            + " %"; } }
+
 
         [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon - GamesDrawn; } }
@@ -36,9 +33,21 @@ namespace BadmintonClub.Models
         public ObservableRangeCollection<Match> Matches { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
+        public SeasonData UserSeasonData { get; set; }
+
+        [Newtonsoft.Json.JsonIgnore]
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
         [Newtonsoft.Json.JsonIgnore]
         public string TitleDisplay { get { return Title + (Title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club"; } }
+        [Newtonsoft.Json.JsonIgnore]
+        public string WinPercentage
+        {
+            get
+            {
+                return GamesPlayed == 0 ? "0 %" : Math.Round((double)GamesWon / (double)GamesPlayed * 100.0, 
+                    2, MidpointRounding.AwayFromZero).ToString()+ " %";
+            }
+        }
 
         // Constructors
         public User() : this("Default", "Default", "Member", 0) { }
@@ -53,23 +62,17 @@ namespace BadmintonClub.Models
         }
 
         // Public Methods
-        public void AddMatch(Match match, bool IsPlayer)
+        public void AddMatch(Match match, bool isPlayer)
         {
             GamesPlayed++;
 
             if (match.IsDraw())
-            {
                 GamesDrawn++;
-                //PointsInCurrentSeason++;
-            }
-            else if (IsPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
-            {
+            else if (isPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
                 GamesWon++;
-                //PointsInCurrentSeason += 3;
-            }
 
-            PointsFor += IsPlayer ? match.PlayerScore : match.OpponentScore;
-            PointsAgainst += IsPlayer ? match.OpponentScore : match.PlayerScore;
+            PointsFor += isPlayer ? match.PlayerScore : match.OpponentScore;
+            PointsAgainst += isPlayer ? match.OpponentScore : match.PlayerScore;
 
             Matches.Add(match);
         }

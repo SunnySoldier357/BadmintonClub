@@ -104,20 +104,17 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return user;
         }
 
-        public async Task<bool> DoesUserExistAsync(string firstName, string lastName)
+        public async Task<bool> DoesUserExistAsync(string fullName)
         {
             await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var query = from user in userTable
-                        where user.FirstName == firstName &&
-                              user.LastName == lastName
+                        where (user.FirstName + " " + user.LastName) == fullName
                         select user;
 
             var users = await userTable.ReadAsync(query);
-
-            Debug.WriteLine(users.Count());
-
+            
             return users.Count() == 1;
         }
 

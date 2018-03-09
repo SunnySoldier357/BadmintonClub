@@ -29,10 +29,15 @@ namespace BadmintonClub.Views
             resetErrorLabels();
             if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
             {
-                if (await azureService.LoginAsync(FullNameEntry.Text.Trim(), LogInPasswordEntry.Text.Trim()))
-                    (Application.Current as App).StartMainApplication();
+                if (await azureService.DoesUserExistAsync(FullNameEntry.Text.Trim()))
+                {
+                    if (await azureService.LoginAsync(FullNameEntry.Text.Trim(), LogInPasswordEntry.Text.Trim()))
+                        (Application.Current as App).StartMainApplication();
+                    else
+                        showLabel(LogInErrorLabel, "The name or password entered was incorrect.");
+                }
                 else
-                    showLabel(LogInErrorLabel, "The name or password entered was incorrect. If you have never signed-up, please sign up first.");
+                    showLabel(LogInErrorLabel, "User does not exist. Please sign up!");
             }
             else
                 showLabel(LogInErrorLabel, "Do not leave the fields empty!");
@@ -47,7 +52,7 @@ namespace BadmintonClub.Views
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim()))
+                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text.Trim() + " " +  LastNameEntry.Text.Trim()))
                         showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
                     else
                     {

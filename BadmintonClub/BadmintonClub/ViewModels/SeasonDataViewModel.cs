@@ -158,7 +158,7 @@ namespace BadmintonClub.ViewModels
                                season.Player.LastName
                        select season;
 
-            SeasonDataSorted.RemoveRange(data);
+            SeasonDataSorted.ReplaceRange(data);
 
             var usernames = from season in SeasonDataCollection
                             orderby season.Player.FirstName,

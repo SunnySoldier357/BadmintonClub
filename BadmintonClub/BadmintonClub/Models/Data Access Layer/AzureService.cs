@@ -76,6 +76,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await userTable.UpdateAsync(match.Opponent);
             await SyncAllDataTablesAsync();
 
+            if (playerID.Equals((Application.Current as App).SignedInUserId) ||
+                opponentID.Equals((Application.Current as App).SignedInUserId))
+                (Application.Current as App).SignedInUser.Matches.Add(match);
             return match;
         }
 
@@ -95,10 +98,11 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await userTable.InsertAsync(user);
             await SyncAllDataTablesAsync();
 
-            SeasonData seasonData = new SeasonData(user.Id);
-            seasonData.SeasonNumber = await GetSeasonNumberAsync();
+            await seasonDataTable.InsertAsync(new SeasonData(user.Id)
+            {
+                SeasonNumber = await GetSeasonNumberAsync()
+            });
 
-            await seasonDataTable.InsertAsync(seasonData);
             await SyncAllDataTablesAsync();
 
             return user;
@@ -164,7 +168,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             await InitialiseAsync();
             await SyncAllDataTablesAsync();
-            Debug.WriteLine(await userTable.LookupAsync(id));
             return await userTable.LookupAsync(id);
         }
 
@@ -260,6 +263,20 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 if (!string.IsNullOrEmpty((Application.Current as App).SignedInUserId))
                 {
                     (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+
+                    var query = from match in matchTable
+                                where match.OpponentID == (Application.Current as App).SignedInUserId ||
+                                      match.PlayerID == (Application.Current as App).SignedInUserId
+                                select match;
+
+                    (Application.Current as App).SignedInUser.Matches.Clear();
+                    var data = await matchTable.ReadAsync(query);
+                    foreach (var item in data)
+                    {
+                        item.Player = await userTable.LookupAsync(item.PlayerID);
+                        item.Opponent = await userTable.LookupAsync(item.OpponentID);
+                        (Application.Current as App).SignedInUser.Matches.Add(item);
+                    }
                 }
 
                 await Client.SyncContext.PushAsync();

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MvvmHelpers;
+using System;
+using System.Collections.Generic;
 
 namespace BadmintonClub.Models
 {
@@ -21,7 +23,9 @@ namespace BadmintonClub.Models
         public string Title { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
-        public double WinPercentage { get { return GamesPlayed == 0 ? 0 : GamesWon / GamesPlayed * 100; } }
+        public string WinPercentage { get { return GamesPlayed == 0 ? "0 %" : 
+            Math.Round((double)GamesWon / (double)GamesPlayed * 100.0, 2, MidpointRounding.AwayFromZero).ToString() 
+            + " %"; } }
 
         [Newtonsoft.Json.JsonIgnore]
         public int GamesLost { get { return GamesPlayed - GamesWon - GamesDrawn; } }
@@ -29,7 +33,7 @@ namespace BadmintonClub.Models
         public int PointDifference { get { return PointsFor - PointsAgainst; } }
 
         [Newtonsoft.Json.JsonIgnore]
-        public List<Match> Matches { get; set; }
+        public ObservableRangeCollection<Match> Matches { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
@@ -45,7 +49,7 @@ namespace BadmintonClub.Models
             LastName = lastName;
             Title = title;
             ClearanceLevel = clearanceLevel;
-            Matches = new List<Match>();
+            Matches = new ObservableRangeCollection<Match>();
         }
 
         // Public Methods

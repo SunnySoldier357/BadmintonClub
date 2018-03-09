@@ -15,18 +15,37 @@
 
                 <Setter Property="Padding"
                         Value="10"/>
+            </Style>
+
+            <Style x:Key="StatsLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes"
+                        Value="Bold"/>
+
+                <Setter Property="HorizontalOptions"
+                        Value="Center"/>
             </Style> 
         </ResourceDictionary>
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout>
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
             <Label Text="{Binding FullName}"
-                   FontAttributes="Bold"
                    FontSize="Large"
-                   HorizontalOptions="Center"/>
+                   Style="{StaticResource StatsLabelStyle}"/>
 
-            <Grid>
+            <Label Grid.Row="1" 
+                   Text="Statistics"
+                   Style="{StaticResource StatsLabelStyle}"/>
+
+            <Grid Grid.Row="2" 
+                  VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -41,30 +60,164 @@
 
                 <StackLayout Style="{StaticResource StatsStackLayoutStyle}">
                     <Label Text="Games Played"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"/>
+                           Style="{StaticResource StatsLabelStyle}"/>
 
                     <Label Text="{Binding GamesPlayed}"
                            HorizontalOptions="Center"/>
                 </StackLayout>
 
                 <StackLayout Grid.Column="1"
-                             BackgroundColor="Gray"
-                             Margin="10"
-                             Padding="10">
+                             Style="{StaticResource StatsStackLayoutStyle}">
                     <Label Text="Games Won"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"/>
+                           Style="{StaticResource StatsLabelStyle}"/>
 
                     <Label Text="{Binding GamesWon}"
                            HorizontalOptions="Center"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="1"
-                             BackgroundColor="Gray">
-                    
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Games Drawn"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding GamesDrawn}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1"
+                             Grid.Column="1"
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Games Lost"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding GamesLost}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Win Percentage"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding WinPercentage}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
+                             Grid.Column="1"
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Points For"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding PointsFor}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3"
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Points Against"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding PointsAgainst}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="3"
+                             Grid.Column="1"
+                             Style="{StaticResource StatsStackLayoutStyle}">
+                    <Label Text="Point Difference"
+                           Style="{StaticResource StatsLabelStyle}"/>
+
+                    <Label Text="{Binding PointDifference}"
+                           HorizontalOptions="Center"/>
                 </StackLayout>
             </Grid>
-        </StackLayout>
+
+            <ListView Grid.Row="3"
+                      ItemsSource="{Binding Matches}"
+                      HasUnevenRows="True"
+                      Margin="10">
+                <ListView.Header>
+                    <Label Text="Matches"
+                           Margin="0,0,0,20"
+                           Style="{StaticResource StatsLabelStyle}"/>
+                </ListView.Header>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="10"
+                                      ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <BoxView Grid.ColumnSpan="5" 
+                                         Color="LimeGreen"
+                                         HeightRequest="3"
+                                         HorizontalOptions="FillAndExpand"/>
+
+                                <BoxView Grid.Row="3" 
+                                         Grid.ColumnSpan="5" 
+                                         Color="LimeGreen"
+                                         HeightRequest="3"
+                                         HorizontalOptions="FillAndExpand"/>
+
+                                <BoxView Grid.RowSpan="4"
+                                         Color="LimeGreen"
+                                         WidthRequest="3"
+                                         VerticalOptions="FillAndExpand"/>
+
+                                <BoxView Grid.Column="4" 
+                                         Grid.RowSpan="4"
+                                         Color="LimeGreen"
+                                         WidthRequest="3"
+                                         VerticalOptions="FillAndExpand"/>
+
+                                <Label Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       Text="{Binding Player.FullName}"
+                                       HorizontalOptions="Center"/>
+
+                                <Label Grid.Row="1" 
+                                       Grid.Column="2" 
+                                       Text="vs."/>
+
+                                <Label Grid.Row="1" 
+                                       Grid.Column="3"
+                                       Text="{Binding Opponent.FullName}"
+                                       HorizontalOptions="Center"/>
+
+                                <Label Grid.Row="2"
+                                       Grid.Column="1" 
+                                       Text="{Binding PlayerScore}"
+                                       HorizontalOptions="Center"/>
+
+                                <Label Grid.Row="2"
+                                       Grid.Column="2"
+                                       Text="-"
+                                       HorizontalOptions="Center"/>
+
+                                <Label Grid.Row="2"
+                                       Grid.Column="3"
+                                       Text="{Binding OpponentScore}"
+                                       HorizontalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

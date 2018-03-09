@@ -1,10 +1,10 @@
 ﻿Main things that I have to do:
  - Make match fixtures for the season
  - Admin editing user names
- - Table for season stats vs user stats
- - Show stats
+ - Table for season stats
 
 Things that are necessary before release:
+ - Update SeasonData as well when adding match
  - Hide the add buttons when switching tabs (Season Page)
  - Glossary for Season Table
  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank (Adding stuff)
@@ -23,6 +23,9 @@ UI
  - Justified text
  - Optimisations for desktop vs. phone
  - Season Table can be ordered by the selected column
+
+User Input
+ - Matches can be added to a queue so that when the user has finished adding all the matches he wishes, they are uploaded together
 
 Features
  - Edit BlogPosts

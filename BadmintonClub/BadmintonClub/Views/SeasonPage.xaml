@@ -212,10 +212,6 @@
                     <Label Text="Longest Current Winless Streak" />
 
                     <Label Text="TOP PLAYERS" />
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding test}" />
-                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ContentPage.Content>

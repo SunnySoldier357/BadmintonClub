@@ -37,3 +37,6 @@ Data Processing
 
 User Authentication
  - Done through Microsoft, Google and Facebook
+
+Organisation
+ - For UWP, move pictures into Assets folder

@@ -23,6 +23,13 @@ namespace BadmintonClub.Views
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
                 Padding = new Thickness(0, 20, 0, 0);
+
+            ToolbarItems.Add(new ToolbarItem
+            {
+                Text = "Log Out",
+                Command = new Command(() => (Application.Current as App).RestartApp()),
+                Icon = "refresh.png"
+            });
         }
     }
 }

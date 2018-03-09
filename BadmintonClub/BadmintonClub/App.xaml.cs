@@ -21,16 +21,9 @@ namespace BadmintonClub
         public App()
 		{
 			InitializeComponent();
-            Properties.Clear();
-            
+
             UserVM = new UserViewModel();
-            if (!Properties.ContainsKey("SignedInUserId"))
-                MainPage = new LoginPage();
-            else
-            {
-                SignedInUserId = Properties["SignedInUserId"].ToString();
-                MainPage = new MainPage();
-            }
+            initialiseData();
         }
 
         // Event Handlers
@@ -50,9 +43,28 @@ namespace BadmintonClub
         }
 
         // Public Methods
+        public void RestartApp()
+        {
+            SignedInUserId = string.Empty;
+            Properties.Clear();
+            initialiseData();
+        }
+
         public void StartMainApplication()
         {
             MainPage = new MainPage();
+        }
+
+        // Private Methods
+        private void initialiseData()
+        {
+            if (!Properties.ContainsKey("SignedInUserId"))
+                MainPage = new LoginPage();
+            else
+            {
+                SignedInUserId = Properties["SignedInUserId"].ToString();
+                MainPage = new MainPage();
+            }
         }
 
         // Classes. Structs, etc...

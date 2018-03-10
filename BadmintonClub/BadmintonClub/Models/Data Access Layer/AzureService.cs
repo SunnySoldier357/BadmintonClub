@@ -16,19 +16,30 @@ namespace BadmintonClub.Models.Data_Access_Layer
 {
     public partial class AzureService
     {
-        // Static Properties
+        #region Static Properties
         public static AzureService DefaultService { get; set; } = DependencyService.Get<AzureService>();
+        #endregion
 
-        // Private Properties
+        #region Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<SeasonData> seasonDataTable;
         private IMobileServiceSyncTable<User> userTable;
+        #endregion
 
-        // Public Properties
+        #region Public Properties
         public MobileServiceClient Client { get; set; }
+        #endregion
 
-        // Public Methods
+        #region Public Methods
+
+        /// <summary>
+        /// Adds a BlogPost object instance to the local SQLite table and if online tries to push the 
+        /// instance into the remote Azure SQL Database.
+        /// </summary>
+        /// <param name="title">The title of the BlogPost element.</param>
+        /// <param name="bodyOfPost">The body paragraph of the BlogPost element.</param>
+        /// <returns>Returns the BlogPost object instance that was added.</returns>
         public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
         {
             await InitialiseAsync();
@@ -48,6 +59,19 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
+        /// <summary>
+        /// Adds a Match object instance to the local SQLite table and if online tries to push the
+        /// instance into the remote Azure SQL Database. This also updates the statistics of the player
+        /// and the opponent according to the match details.
+        /// </summary>
+        /// <param name="playerScore">The player's score.</param>
+        /// <param name="opponentScore">The opponent's score.</param>
+        /// <param name="playerID">The ID associated with the player.</param>
+        /// <param name="opponentID">The ID associated with the opponent.</param>
+        /// <param name="newSeason">
+        /// Determines if a new season is to be created and updates all the season data accordingly.
+        /// </param>
+        /// <returns>Returns the Match object instance that was added.</returns>
         public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID, bool newSeason)
         {
             await InitialiseAsync();
@@ -94,6 +118,15 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return match;
         }
 
+        /// <summary>
+        /// Adds a User object instance to the local SQLite table and if online tries to push the 
+        /// instance into the remote Azure SQL Database. This also creates a new SeasonData object
+        /// instance that is associated with the User.
+        /// </summary>
+        /// <param name="firstName">The first name of the User.</param>
+        /// <param name="lastName">The last name of the User.</param>
+        /// <param name="password">The password of the User.</param>
+        /// <returns>Returns the User object instance that was added.</returns>
         public async Task<User> AddUserAsync(string firstName, string lastName, string password)
         {
             await InitialiseAsync();
@@ -321,5 +354,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Debug.WriteLine(ex);
             }
         }
+        #endregion
     }
 }

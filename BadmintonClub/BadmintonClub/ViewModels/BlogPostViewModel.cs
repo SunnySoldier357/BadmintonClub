@@ -106,6 +106,7 @@ namespace BadmintonClub.ViewModels
 
             try
             {
+                Stopwatch stopwatch = Stopwatch.StartNew();
                 LoadingMessage = "Loading Blog Posts...";
                 IsBusy = true;
                 var blogposts = await azureService.GetBlogPostsAsync();
@@ -123,6 +124,8 @@ namespace BadmintonClub.ViewModels
                 }
                 
                 sortBlogPosts();
+                stopwatch.Stop();
+                Debug.WriteLine(string.Format("\n  >>>>> Time taken to load BlogPosts: {0} ms\n", stopwatch.ElapsedMilliseconds));
             }
             catch (Exception ex)
             {

@@ -16,34 +16,44 @@ namespace BadmintonClub.Models.Data_Access_Layer
 {
     public partial class AzureService
     {
-        #region Static Properties
+        // Static Properties
         public static AzureService DefaultService { get; set; } = DependencyService.Get<AzureService>();
-        #endregion
 
-        #region Private Properties
+        // Private Properties
         private IMobileServiceSyncTable<BlogPost> blogPostTable;
         private IMobileServiceSyncTable<Match> matchTable;
         private IMobileServiceSyncTable<SeasonData> seasonDataTable;
         private IMobileServiceSyncTable<User> userTable;
-        #endregion
 
-        #region Public Properties
+        // Public Properties
         public MobileServiceClient Client { get; set; }
-        #endregion
 
-        #region Public Methods
+        // Constructor
+        public AzureService()
+        {
+            string appUrl = "https://badmintonclub.azurewebsites.net";
+            Client = new MobileServiceClient(appUrl);
 
-        /// <summary>
-        /// Adds a BlogPost object instance to the local SQLite table and if online tries to push the 
-        /// instance into the remote Azure SQL Database.
-        /// </summary>
-        /// <param name="title">The title of the BlogPost element.</param>
-        /// <param name="bodyOfPost">The body paragraph of the BlogPost element.</param>
-        /// <returns>Returns the BlogPost object instance that was added.</returns>
+            string path = "badmintonclubrecords.db";
+            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
+            var store = new MobileServiceSQLiteStore(path);
+
+            store.DefineTable<BlogPost>();
+            store.DefineTable<Match>();
+            store.DefineTable<SeasonData>();
+            store.DefineTable<User>();
+
+            Client.SyncContext.InitializeAsync(store);
+
+            blogPostTable = Client.GetSyncTable<BlogPost>();
+            matchTable = Client.GetSyncTable<Match>();
+            seasonDataTable = Client.GetSyncTable<SeasonData>();
+            userTable = Client.GetSyncTable<User>();
+        }
+
+        // Public Methods
         public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
         {
-            await InitialiseAsync();
-
             BlogPost blogpost = new BlogPost()
             {
                 Title = title,
@@ -59,23 +69,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
-        /// <summary>
-        /// Adds a Match object instance to the local SQLite table and if online tries to push the
-        /// instance into the remote Azure SQL Database. This also updates the statistics of the player
-        /// and the opponent according to the match details.
-        /// </summary>
-        /// <param name="playerScore">The player's score.</param>
-        /// <param name="opponentScore">The opponent's score.</param>
-        /// <param name="playerID">The ID associated with the player.</param>
-        /// <param name="opponentID">The ID associated with the opponent.</param>
-        /// <param name="newSeason">
-        /// Determines if a new season is to be created and updates all the season data accordingly.
-        /// </param>
-        /// <returns>Returns the Match object instance that was added.</returns>
-        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID, bool newSeason)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID)
         {
-            await InitialiseAsync();
-
             int seasonNumber = await GetSeasonNumberAsync();
 
             Match match = new Match()
@@ -84,7 +79,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 OpponentScore = opponentScore,
                 OpponentID = opponentID,
                 PlayerID = playerID,
-                SeasonNumber = newSeason ? seasonNumber : seasonNumber + 1
+                SeasonNumber = seasonNumber
             };
 
             await matchTable.InsertAsync(match);
@@ -118,19 +113,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return match;
         }
 
-        /// <summary>
-        /// Adds a User object instance to the local SQLite table and if online tries to push the 
-        /// instance into the remote Azure SQL Database. This also creates a new SeasonData object
-        /// instance that is associated with the User.
-        /// </summary>
-        /// <param name="firstName">The first name of the User.</param>
-        /// <param name="lastName">The last name of the User.</param>
-        /// <param name="password">The password of the User.</param>
-        /// <returns>Returns the User object instance that was added.</returns>
         public async Task<User> AddUserAsync(string firstName, string lastName, string password)
         {
-            await InitialiseAsync();
-
             User user = new User()
             {
                 Title = "Member",
@@ -155,7 +139,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<bool> DoesUserExistAsync(string fullName)
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var query = from user in userTable
@@ -169,7 +152,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<IEnumerable<BlogPost>> GetBlogPostsAsync()
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var data = await blogPostTable
@@ -181,7 +163,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<IEnumerable<Match>> GetMatchesAsync()
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var data = await matchTable.ToEnumerableAsync();
@@ -191,7 +172,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<IEnumerable<SeasonData>> GetSeasonDataAsync()
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var data = await seasonDataTable.ToEnumerableAsync();
@@ -201,7 +181,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<int> GetSeasonNumberAsync()
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var matches = await matchTable.ToEnumerableAsync();
@@ -211,14 +190,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<User> GetUserFromIdAsync(string id)
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
             return await userTable.LookupAsync(id);
         }
 
         public async Task<string> GetUserIdFromNameAsync(string name)
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var query = from user in userTable
@@ -231,7 +208,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var data = await userTable
@@ -240,34 +216,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task InitialiseAsync()
-        {
-            if (Client?.SyncContext?.IsInitialized ?? false)
-                return;
-
-            string appUrl = "https://badmintonclub.azurewebsites.net";
-            Client = new MobileServiceClient(appUrl);
-
-            string path = "badmintonclubrecords.db";
-            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
-            var store = new MobileServiceSQLiteStore(path);
-
-            store.DefineTable<BlogPost>();
-            store.DefineTable<Match>();
-            store.DefineTable<SeasonData>();
-            store.DefineTable<User>();
-
-            await Client.SyncContext.InitializeAsync(store);
-
-            blogPostTable = Client.GetSyncTable<BlogPost>();
-            matchTable = Client.GetSyncTable<Match>();
-            seasonDataTable = Client.GetSyncTable<SeasonData>();
-            userTable = Client.GetSyncTable<User>();
-        }
-
         public async Task<bool> LoginAsync(string fullName, string password)
         {
-            await InitialiseAsync();
             await SyncAllDataTablesAsync();
 
             var query = from user in userTable
@@ -288,10 +238,37 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return false;
         }
 
+        /// <summary>
+        /// Syncs the current tables in SQLite to the remote Azure SQL Database.
+        /// </summary>
+        /// <param name="syncBools">
+        /// A boolean array of specifically size 4 that is used to decide which tables are synced.
+        /// The order of the booleans are BlogPost, Match, SeasonData, and User.
+        /// </param>
+        /// <returns></returns>
+        public async Task SyncDataTablesAsync(bool[] syncBools)
+        {
+            try
+            {
+                await Client.SyncContext.PushAsync();
+
+                if (syncBools[0])
+                    await blogPostTable.PullAsync("allBlogPost", blogPostTable.CreateQuery());
+                if (syncBools[1])
+                    await matchTable.PullAsync("allMatch", matchTable.CreateQuery());
+                if (syncBools[2])
+                    await seasonDataTable.PullAsync("allSeasonData", seasonDataTable.CreateQuery());
+                if (syncBools[3])
+                    await userTable.PullAsync("allUser", userTable.CreateQuery());
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
         public async Task SyncAllDataTablesAsync()
         {
-            await InitialiseAsync();
-
             try
             {
                 // Device is offline, skip!
@@ -354,6 +331,105 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Debug.WriteLine(ex);
             }
         }
-        #endregion
+    }
+
+    public class AzureTransaction
+    {
+        // Private Properties
+        private AzureService azureService;
+
+        private bool transactionDone;
+
+        private Transaction[] transactions;
+
+        // Constructor
+        public AzureTransaction(params Transaction[] transactions)
+        {
+            azureService = AzureService.DefaultService;
+
+            transactionDone = false;
+
+            this.transactions = transactions;
+        }
+
+        // Public Methods
+        public async Task ExecuteAsync()
+        {
+            foreach (Transaction transaction in transactions)
+            {
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    if (transaction.transactionType == TransactionType.GetBlogPosts)
+                        await azureService.SyncDataTablesAsync(new bool[4] { true, true, true, true});
+                }
+                await transaction.RunTransaction(azureService);
+            }
+        }
+    }
+
+    public class Transaction
+    {
+        // Delegates might not work so I might need to refractor code to get methods
+
+        // Private Properties
+        private dynamic arguments;
+
+        // Public Properties
+        public TransactionType transactionType;
+
+        // Constructors
+        public Transaction(dynamic arguments, TransactionType transactionType)
+        {
+            this.arguments = arguments;
+            this.transactionType = transactionType;
+        }
+
+        // Public Methods
+        public async Task<dynamic> RunTransaction(AzureService azureService)
+        {
+            switch (transactionType)
+            {
+                case TransactionType.AddBlogPost:
+                    return await azureService.AddBlogPostAsync(arguments.Title, arguments.BodyOfPost);
+
+                case TransactionType.GetBlogPosts:
+                    return await azureService.GetBlogPostsAsync();
+
+                case TransactionType.AddMatch:
+                    return await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore), 
+                        int.Parse(arguments.OpponentScore), arguments.PlayerID, arguments.OpponentID);
+
+                case TransactionType.GetMatches:
+                    return await azureService.GetMatchesAsync();
+
+                case TransactionType.GetSeasonData:
+                    return await azureService.GetSeasonDataAsync();
+
+                case TransactionType.AddUser:
+                    return await azureService.AddUserAsync(arguments.FirstName, arguments.LastName, 
+                        arguments.Password);
+
+                case TransactionType.GetUsers:
+                    return await azureService.GetUsersAsync();
+
+                default:
+                    return null;
+            }
+        }
+    }
+
+    // Enumerations
+    public enum TransactionType
+    {
+        AddBlogPost,
+        GetBlogPosts,
+
+        AddMatch,
+        GetMatches,
+
+        GetSeasonData,
+
+        AddUser,
+        GetUsers,
     }
 }

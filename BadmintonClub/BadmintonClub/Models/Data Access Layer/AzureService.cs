@@ -152,12 +152,15 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<IEnumerable<BlogPost>> GetBlogPostsAsync()
         {
-            await SyncAllDataTablesAsync();
+            //await SyncAllDataTablesAsync();
 
             var data = await blogPostTable
                        .OrderByDescending(bp => bp.DateTimePublished)
                        .ToEnumerableAsync();
 
+            foreach (var item in data)
+                item.Publisher = await userTable.LookupAsync(item.Id);
+         
             return data;
         }
 
@@ -331,105 +334,5 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 Debug.WriteLine(ex);
             }
         }
-    }
-
-    public class AzureTransaction
-    {
-        // Private Properties
-        private AzureService azureService;
-
-        private bool transactionDone;
-
-        private Transaction[] transactions;
-
-        // Constructor
-        public AzureTransaction(params Transaction[] transactions)
-        {
-            azureService = AzureService.DefaultService;
-
-            transactionDone = false;
-
-            this.transactions = transactions;
-        }
-
-        // Public Methods
-        public async Task ExecuteAsync()
-        {
-            foreach (Transaction transaction in transactions)
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    if (transaction.transactionType == TransactionType.GetBlogPosts)
-                        await azureService.SyncDataTablesAsync(new bool[4] { true, true, true, true});
-                }
-                await transaction.RunTransaction(azureService);
-            }
-        }
-    }
-
-    public class Transaction
-    {
-        // Delegates might not work so I might need to refractor code to get methods
-
-        // Private Properties
-        private dynamic arguments;
-
-        // Public Properties
-        public TransactionType transactionType;
-
-        // Constructors
-        public Transaction(dynamic arguments, TransactionType transactionType)
-        {
-            this.arguments = arguments;
-            this.transactionType = transactionType;
-        }
-
-        // Public Methods
-        public async Task<dynamic> RunTransaction(AzureService azureService)
-        {
-            switch (transactionType)
-            {
-                case TransactionType.AddBlogPost:
-                    return await azureService.AddBlogPostAsync(arguments.Title, arguments.BodyOfPost);
-
-                case TransactionType.GetBlogPosts:
-                    return await azureService.GetBlogPostsAsync();
-
-                case TransactionType.AddMatch:
-                    return await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore), 
-                        int.Parse(arguments.OpponentScore), arguments.PlayerID, arguments.OpponentID);
-
-                case TransactionType.GetMatches:
-                    return await azureService.GetMatchesAsync();
-
-                case TransactionType.GetSeasonData:
-                    return await azureService.GetSeasonDataAsync();
-
-                case TransactionType.AddUser:
-                    return await azureService.AddUserAsync(arguments.FirstName, arguments.LastName, 
-                        arguments.Password);
-
-                case TransactionType.GetUsers:
-                    return await azureService.GetUsersAsync();
-
-                default:
-                    return null;
-            }
-        }
-    }
-
-    // Enumerations
-    public enum TransactionType
-    {
-        AddBlogPost,
-        GetBlogPosts,
-
-        AddMatch,
-        GetMatches,
-
-        GetSeasonData,
-
-        AddUser,
-        GetUsers,
     }
 }

@@ -111,25 +111,35 @@ namespace BadmintonClub.ViewModels
 
                 LoadingMessage = "Loading Blog Posts...";
                 IsBusy = true;
+
                 Stopwatch stopwatch2 = Stopwatch.StartNew();
                 AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.GetBlogPosts));
+
                 //var blogposts = await azureService.GetBlogPostsAsync();
                 var blogposts = (await azureTransaction.ExecuteAsync()) as IEnumerable<BlogPost>;
                 stopwatch2.Stop();
                 Debug.WriteLine(string.Format("\n  >>>>> Time taken to load BlogPosts in AzureTransaction: {0} ms\n", stopwatch.ElapsedMilliseconds));
-
-                BlogPosts.ReplaceRange(blogposts);
-                //BlogPosts.Clear();
-                //foreach (var item in blogposts)
-                //{
-                //    BlogPosts.Add(new BlogPost()
-                //    {
-                //        Title = item.Title,
-                //        BodyOfPost = item.BodyOfPost,
-                //        DateTimePublished = item.DateTimePublished,
-                //        Publisher = await azureService.GetUserFromIdAsync(item.Id)
-                //    });
-                //}
+                Debug.WriteLine("blogpost Count: " + blogposts.Count());
+                foreach (var item in blogposts)
+                {
+                    Debug.WriteLine(item.Publisher.ToString());
+                }
+                //BlogPosts.ReplaceRange(blogposts);
+                BlogPosts.Clear();
+                Debug.WriteLine("In BlogPostViewModel: ");
+                foreach (var item in blogposts)
+                {
+                    Debug.WriteLine(item.Publisher?.ToString() ?? "null!!!");
+                    BlogPosts.Add(new BlogPost()
+                    {
+                        Title = item.Title,
+                        BodyOfPost = item.BodyOfPost,
+                        DateTimePublished = item.DateTimePublished,
+                        Id = item.Id,
+                        UserID = item.UserID,
+                        Publisher = item.Publisher
+                    });
+                }
 
                 sortBlogPosts();
                 stopwatch.Stop();

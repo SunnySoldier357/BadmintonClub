@@ -52,6 +52,14 @@ namespace BadmintonClub.Models
         // Constructors
         public User() : this("Default", "Default", "Member", 0) { }
 
+        public User(User user)
+        {
+            this.FirstName = user.FirstName;
+            this.LastName = user.LastName;
+            this.Title = user.Title;
+            this.ClearanceLevel = user.ClearanceLevel;
+        }
+
         public User(string firstName, string lastName, string title, int clearanceLevel)
         {
             FirstName = firstName;

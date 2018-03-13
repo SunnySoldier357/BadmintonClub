@@ -155,11 +155,17 @@ namespace BadmintonClub.Models.Data_Access_Layer
             //await SyncAllDataTablesAsync();
 
             var data = await blogPostTable
-                       .OrderByDescending(bp => bp.DateTimePublished)
-                       .ToEnumerableAsync();
+                       .OrderByDescending(bp => bp.DateTimePublished).ToListAsync();
+                       //.ToEnumerableAsync();
 
+            Debug.WriteLine("In AzureService.GetBlogPostsAsync(): ");
             foreach (var item in data)
-                item.Publisher = await userTable.LookupAsync(item.Id);
+            {
+                var result = await userTable.LookupAsync(item.UserID);
+                Debug.WriteLine(result.ToString());
+                item.Publisher = result;
+                Debug.WriteLine(item.Publisher.ToString());
+            }
          
             return data;
         }

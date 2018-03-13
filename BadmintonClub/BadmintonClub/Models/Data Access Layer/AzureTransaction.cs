@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace BadmintonClub.Models.Data_Access_Layer
@@ -75,7 +76,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             foreach (Transaction transaction in transactions)
             {
+                Debug.WriteLine("Theer is a transaction...");
                 result = await transaction.RunTransaction(azureService);
+                foreach (var item in result)
+                {
+                    Debug.WriteLine((item as BlogPost).Publisher.ToString());
+                }
             }
 
             if (addingItem)

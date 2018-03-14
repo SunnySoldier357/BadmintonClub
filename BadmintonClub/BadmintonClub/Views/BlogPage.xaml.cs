@@ -69,7 +69,6 @@ namespace BadmintonClub.Views
         // Private Methods
         private void adminAppPostButton()
         {
-            Debug.WriteLine((Application.Current as App).SignedInUser?.ToString() ?? "null!!!!");
             if ((Application.Current as App).SignedInUser?.IsAdmin() ?? false)
             {
                 ToolbarItems.Add(new ToolbarItem

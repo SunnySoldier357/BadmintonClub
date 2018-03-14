@@ -12,5 +12,8 @@
 
         AddUser,
         GetUsers,
+
+        LogIn,
+        SignUp
     }
 }

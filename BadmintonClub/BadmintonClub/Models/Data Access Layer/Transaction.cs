@@ -45,6 +45,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 case TransactionType.GetUsers:
                     return await azureService.GetUsersAsync();
 
+                case TransactionType.LogIn:
+
+
                 default:
                     return null;
             }

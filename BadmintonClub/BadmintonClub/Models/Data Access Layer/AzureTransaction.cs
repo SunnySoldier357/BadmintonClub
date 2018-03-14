@@ -1,6 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace BadmintonClub.Models.Data_Access_Layer
@@ -38,16 +37,14 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     switch (transaction.transactionType)
                     {
                         case TransactionType.AddBlogPost:
+                        case TransactionType.AddMatch:
+                        case TransactionType.AddUser:
                             addingItem = true;
                             break;
 
                         case TransactionType.GetBlogPosts:
                             syncTables[0] = true;
                             syncTables[3] = true;
-                            break;
-
-                        case TransactionType.AddMatch:
-                            addingItem = true;
                             break;
 
                         case TransactionType.GetMatches:
@@ -58,11 +55,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
                             syncTables[2] = true;
                             break;
 
-                        case TransactionType.AddUser:
-                            addingItem = true;
+                        case TransactionType.GetUsers:
+                            syncTables[3] = true;
                             break;
 
-                        case TransactionType.GetUsers:
+                        case TransactionType.LogIn:
+                        case TransactionType.SignUp:
                             syncTables[3] = true;
                             break;
 

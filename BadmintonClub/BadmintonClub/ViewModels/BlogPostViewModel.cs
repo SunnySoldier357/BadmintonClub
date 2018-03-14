@@ -88,8 +88,9 @@ namespace BadmintonClub.ViewModels
                 AzureTransaction azureTransaction = new AzureTransaction(
                     new Transaction(arguments, TransactionType.AddBlogPost));
 
-                var blogpost = (await azureTransaction.ExecuteAsync()) as BlogPost;
+                var blogpost = (await azureTransaction.ExecuteAsync())[0] as BlogPost;
                 BlogPosts.Add(blogpost);
+
                 sortBlogPosts();
             }
             catch (Exception ex)

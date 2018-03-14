@@ -265,10 +265,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     await userTable.PullAsync("allUser", userTable.CreateQuery());
 
                 if ((Application.Current as App).SignedInUser == null)
-                {
-                    //var result = ;
                     (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
-                }
             }
             catch (Exception ex)
             {

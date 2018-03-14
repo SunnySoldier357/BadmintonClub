@@ -62,7 +62,6 @@ namespace BadmintonClub.Views
                 PlayerScore = PlayerScoreEntry.Text.Trim(),
                 OpponentName = OpponentNamePicker.SelectedItem.ToString().Trim(),
                 PlayerName = PlayerNamePicker.SelectedItem.ToString().Trim(),
-                NewSeason = NewSeasonSwitch.IsToggled ? bool.TrueString : bool.FalseString
             });
             switchToMainView();
         }
@@ -83,6 +82,11 @@ namespace BadmintonClub.Views
                 seasonDataViewModel.ListViewColumnWidth = GridLength.Star;
             else
                 seasonDataViewModel.ListViewColumnWidth = 0;
+
+            PlayerNamePicker.SelectedItem = null;
+            OpponentNamePicker.SelectedItem = null;
+            PlayerScoreEntry.Text = string.Empty;
+            OpponentScoreEntry.Text = string.Empty;
         }
 
         private void switchToMainView()

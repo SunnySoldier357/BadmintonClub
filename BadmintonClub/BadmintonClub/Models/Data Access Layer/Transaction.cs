@@ -30,7 +30,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
                 case TransactionType.AddMatch:
                     return await azureService.AddMatchAsync(int.Parse(arguments.PlayerScore),
-                        int.Parse(arguments.OpponentScore), arguments.PlayerID, arguments.OpponentID);
+                        int.Parse(arguments.OpponentScore), arguments.PlayerName, arguments.OpponentName);
 
                 case TransactionType.GetMatches:
                     return await azureService.GetMatchesAsync();

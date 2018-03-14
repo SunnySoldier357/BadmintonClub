@@ -52,7 +52,7 @@
             else if (isPlayer ? match.IsPlayerWinner() : !match.IsPlayerWinner())
             {
                 GamesWon++;
-                PointsInCurrentSeason += 3;
+                PointsInCurrentSeason += 2;
             }
 
             PointsFor += isPlayer ? match.PlayerScore : match.OpponentScore;

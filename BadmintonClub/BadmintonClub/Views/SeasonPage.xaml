@@ -49,19 +49,23 @@
                                    FontAttributes="Bold"/>
                             <Label Grid.Column="2"
                                    Text="W" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                   TextColor="LimeGreen"/>
                             <Label Grid.Column="3"
                                    Text="D" 
                                    FontAttributes="Bold"/>
                             <Label Grid.Column="4"
                                    Text="L" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                   TextColor="Red"/>
                             <Label Grid.Column="5"
                                    Text="F" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                   TextColor="LimeGreen"/>
                             <Label Grid.Column="6"
                                    Text="A" 
-                                   FontAttributes="Bold"/>
+                                   FontAttributes="Bold"
+                                   TextColor="Red"/>
                             <Label Grid.Column="7"
                                    Text="PD" 
                                    FontAttributes="Bold"/>
@@ -91,17 +95,21 @@
                                     <Label Grid.Column="1"
                                            Text="{Binding GamesPlayed}"/>
                                     <Label Grid.Column="2"
-                                           Text="{Binding GamesWon}" />
+                                           Text="{Binding GamesWon}" 
+                                           TextColor="LimeGreen"/>
                                     <Label Grid.Column="3"
-                                           Text="{Binding GamesDrawn}" />
+                                           Text="{Binding GamesDrawn}"/>
                                     <Label Grid.Column="4"
-                                           Text="{Binding GamesLost}" />
+                                           Text="{Binding GamesLost}"
+                                           TextColor="Red"/>
                                     <Label Grid.Column="5"
-                                           Text="{Binding PointsFor}" />
+                                           Text="{Binding PointsFor}"
+                                           TextColor="LimeGreen"/>
                                     <Label Grid.Column="6"
-                                           Text="{Binding PointsAgainst}" />
+                                           Text="{Binding PointsAgainst}"
+                                           TextColor="Red"/>
                                     <Label Grid.Column="7"
-                                           Text="{Binding PointDifference}" />
+                                           Text="{Binding PointDifference}"/>
                                     <Label Grid.Column="8"
                                            Text="{Binding PointsInCurrentSeason}"/>
                                 </Grid>
@@ -112,12 +120,98 @@
 
                 <StackLayout Grid.Row="1">
                     <Label Text="GLOSSARY" />
-                    <StackLayout Orientation="Horizontal">
-                        <StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="10"
+                                 Margin="5">
+                        <StackLayout Spacing="20">
                             <Label>
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span />
+                                        <Span Text="GP: "
+                                              FontAttributes="Bold"/>
+                                        <Span Text="Games Played"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="W: "
+                                              FontAttributes="Bold"
+                                              ForegroundColor="LimeGreen"/>
+                                        <Span Text="Games Won"
+                                              ForegroundColor="LimeGreen"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="D: "
+                                              FontAttributes="Bold"/>
+                                        <Span Text="Games Drawed"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Spacing="20">
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="L: "
+                                              FontAttributes="Bold"
+                                              ForegroundColor="Red"/>
+                                        <Span Text="Games Lost"
+                                              ForegroundColor="Red"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="F: "
+                                              FontAttributes="Bold"
+                                              ForegroundColor="LimeGreen"/>
+                                        <Span Text="Points Scored"
+                                              ForegroundColor="LimeGreen"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="A: "
+                                              FontAttributes="Bold"
+                                              ForegroundColor="Red"/>
+                                        <Span Text="Points Conceded"
+                                              ForegroundColor="Red"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Spacing="20">
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="PD: "
+                                              FontAttributes="Bold"/>
+                                        <Span Text="Point Difference"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="P: "
+                                              FontAttributes="Bold"/>
+                                        <Span Text="Overall Standing in Points"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

@@ -37,9 +37,15 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     switch (transaction.transactionType)
                     {
                         case TransactionType.AddBlogPost:
-                        case TransactionType.AddMatch:
                         case TransactionType.AddUser:
                             addingItem = true;
+                            break;
+
+                        case TransactionType.AddMatch:
+                            addingItem = true;
+                            syncTables[1] = true;
+                            syncTables[2] = true;
+                            syncTables[3] = true;
                             break;
 
                         case TransactionType.GetBlogPosts:
@@ -53,6 +59,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
                         case TransactionType.GetSeasonData:
                             syncTables[2] = true;
+                            syncTables[3] = true;
                             break;
 
                         case TransactionType.GetUsers:

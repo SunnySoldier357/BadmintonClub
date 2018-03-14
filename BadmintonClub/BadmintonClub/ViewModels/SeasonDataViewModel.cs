@@ -2,6 +2,7 @@
 using BadmintonClub.Models.Data_Access_Layer;
 using MvvmHelpers;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,6 +51,8 @@ namespace BadmintonClub.ViewModels
         public ICommand LoadSeasonDataCommand => loadSeasonDataCommand ?? (loadSeasonDataCommand =
             new Command(async () => await executeLoadSeasonDataCommandAsync()));
 
+        public ObservableObject LargestPointDifferentialMatch { get; }
+
         public ObservableRangeCollection<SeasonData> SeasonDataCollection { get; }
         public ObservableRangeCollection<SeasonData> SeasonDataSorted { get; }
         public ObservableRangeCollection<string> UserNamesOpponent { get; }
@@ -71,6 +74,8 @@ namespace BadmintonClub.ViewModels
             listViewColumnWidth = GridLength.Star;
             newMatchColumnWidth = 0;
 
+            LargestPointDifferentialMatch = new ObservableObject();
+
             SeasonDataCollection = new ObservableRangeCollection<SeasonData>();
             SeasonDataSorted = new ObservableRangeCollection<SeasonData>();
             UserNamesOpponent = new ObservableRangeCollection<string>();
@@ -88,14 +93,9 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding New Match...";
                 IsBusy = true;
 
-                string playerId = await azureService.GetUserIdFromNameAsync(arguments.PlayerName);
-                string opponentId = await azureService.GetUserIdFromNameAsync(arguments.OpponentName);
+                AzureTransaction azureTransaction = new AzureTransaction(new Transaction(arguments, TransactionType.AddMatch));
 
-                var match = await azureService.AddMatchAsync(
-                    int.Parse(arguments.PlayerScore),
-                    int.Parse(arguments.OpponentScore),
-                    playerId,
-                    opponentId);
+                await azureTransaction.ExecuteAsync();
             }
             catch (Exception ex)
             {
@@ -120,14 +120,11 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Loading Season Data...";
                 IsBusy = true;
 
-                var seasonData = await azureService.GetSeasonDataAsync();
-                
-                SeasonDataCollection.Clear();
-                foreach (var item in seasonData)
-                {
-                    item.Player = await azureService.GetUserFromIdAsync(item.UserID);
-                    SeasonDataCollection.Add(item);
-                }
+                AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.GetSeasonData));
+
+                var seasonData = (await azureTransaction.ExecuteAsync())[0] as List<SeasonData>;
+
+                SeasonDataCollection.ReplaceRange(seasonData);
 
                 sortSeasonData();
             }

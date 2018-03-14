@@ -1,13 +1,11 @@
 ﻿Main things that I have to do:
- - Make match fixtures for the season
  - Admin editing user names
  - Table for season stats
- - Change all SeasonData when making a new season
+ - Start New Season Functionalty
+ - Error Messages for adding seasonData (same person or score is not a number)
 
 Things that are necessary before release:
- - Update SeasonData as well when adding match
  - Hide the add buttons when switching tabs (Season Page)
- - Glossary for Season Table
  - Picker enhancements cannot pick the same person as well as text blocks cannot be blank (Adding stuff)
  - No connection (Offline Stack)
  - Loading notification for logging in and signing up

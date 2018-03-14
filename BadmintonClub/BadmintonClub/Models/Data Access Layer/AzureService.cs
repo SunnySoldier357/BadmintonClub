@@ -68,7 +68,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
-        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerID, string opponentID)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerName, string opponentName)
         {
             int seasonNumber = await GetSeasonNumberAsync();
 
@@ -76,8 +76,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
             {
                 PlayerScore = playerScore,
                 OpponentScore = opponentScore,
-                OpponentID = opponentID,
-                PlayerID = playerID,
+                OpponentID = await GetUserIdFromNameAsync(opponentName),
+                PlayerID = await GetUserIdFromNameAsync(playerName),
                 SeasonNumber = seasonNumber
             };
 
@@ -104,10 +104,9 @@ namespace BadmintonClub.Models.Data_Access_Layer
             await seasonDataTable.UpdateAsync(match.Opponent.UserSeasonData);
             await userTable.UpdateAsync(match.Player);
             await userTable.UpdateAsync(match.Opponent);
-            await SyncAllDataTablesAsync();
 
-            if (playerID.Equals((Application.Current as App).SignedInUserId) ||
-                opponentID.Equals((Application.Current as App).SignedInUserId))
+            if (match.PlayerID.Equals((Application.Current as App).SignedInUserId) ||
+                match.OpponentID.Equals((Application.Current as App).SignedInUserId))
                 (Application.Current as App).SignedInUser.Matches.Add(match);
             return match;
         }
@@ -151,9 +150,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<List<BlogPost>> GetBlogPostsAsync()
         {
-            var data = await blogPostTable
-                       .OrderByDescending(bp => bp.DateTimePublished)
-                       .ToListAsync();
+            var data = await blogPostTable.ToListAsync();
 
             foreach (var item in data)
             {
@@ -173,19 +170,21 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task<IEnumerable<SeasonData>> GetSeasonDataAsync()
+        public async Task<List<SeasonData>> GetSeasonDataAsync()
         {
-            await SyncAllDataTablesAsync();
+            var data = await seasonDataTable.ToListAsync();
 
-            var data = await seasonDataTable.ToEnumerableAsync();
+            foreach (var item in data)
+            {
+                var result = await userTable.LookupAsync(item.UserID);
+                item.Player = result;
+            }
 
             return data;
         }
 
         public async Task<int> GetSeasonNumberAsync()
         {
-            await SyncAllDataTablesAsync();
-
             var matches = await matchTable.ToEnumerableAsync();
 
             return matches.Count() == 0 ? 1 : matches.Max(match => match.SeasonNumber);
@@ -199,8 +198,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<string> GetUserIdFromNameAsync(string name)
         {
-            await SyncAllDataTablesAsync();
-
             var query = from user in userTable
                         where (user.FirstName + " " + user.LastName) == name
                         select user.Id;

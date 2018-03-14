@@ -64,7 +64,6 @@ namespace BadmintonClub.Models.Data_Access_Layer
             };
 
             await blogPostTable.InsertAsync(blogpost);
-            await SyncAllDataTablesAsync();
 
             return blogpost;
         }
@@ -150,21 +149,16 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return users.Count() == 1;
         }
 
-        public async Task<IEnumerable<BlogPost>> GetBlogPostsAsync()
+        public async Task<List<BlogPost>> GetBlogPostsAsync()
         {
-            //await SyncAllDataTablesAsync();
-
             var data = await blogPostTable
-                       .OrderByDescending(bp => bp.DateTimePublished).ToListAsync();
-                       //.ToEnumerableAsync();
+                       .OrderByDescending(bp => bp.DateTimePublished)
+                       .ToListAsync();
 
-            Debug.WriteLine("In AzureService.GetBlogPostsAsync(): ");
             foreach (var item in data)
             {
                 var result = await userTable.LookupAsync(item.UserID);
-                Debug.WriteLine(result.ToString());
                 item.Publisher = result;
-                Debug.WriteLine(item.Publisher.ToString());
             }
          
             return data;
@@ -269,6 +263,12 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     await seasonDataTable.PullAsync("allSeasonData", seasonDataTable.CreateQuery());
                 if (syncBools[3])
                     await userTable.PullAsync("allUser", userTable.CreateQuery());
+
+                if ((Application.Current as App).SignedInUser == null)
+                {
+                    //var result = ;
+                    (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+                }
             }
             catch (Exception ex)
             {

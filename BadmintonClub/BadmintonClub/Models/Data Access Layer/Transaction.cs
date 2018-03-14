@@ -23,7 +23,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             switch (transactionType)
             {
                 case TransactionType.AddBlogPost:
-                    return await azureService.AddBlogPostAsync(arguments.Title, arguments.BodyOfPost);
+                    return await azureService.AddBlogPostAsync(arguments.BlogTitle, arguments.BodyOfPost);
 
                 case TransactionType.GetBlogPosts:
                     return await azureService.GetBlogPostsAsync();

@@ -59,9 +59,9 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Linq.dll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Collections.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Collections.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Reflection.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.ComponentModel.dll
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll

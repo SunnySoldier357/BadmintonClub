@@ -1,3 +1,4 @@
+WinMetadata\Windows.winmd
 add.png
 Assets\LargeTile.scale-100.png
 Assets\LargeTile.scale-125.png
@@ -53,4 +54,3 @@ BadmintonClub.UWP.xr.xml
 profile.png
 Properties\Default.rd.xml
 refresh.png
-WinMetadata\Windows.winmd

@@ -85,7 +85,10 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Adding new Blog Post...";
                 IsBusy = true;
 
-                var blogpost = await azureService.AddBlogPostAsync(arguments.BlogTitle, arguments.BodyOfPost);
+                AzureTransaction azureTransaction = new AzureTransaction(
+                    new Transaction(arguments, TransactionType.AddBlogPost));
+
+                var blogpost = (await azureTransaction.ExecuteAsync()) as BlogPost;
                 BlogPosts.Add(blogpost);
                 sortBlogPosts();
             }
@@ -107,43 +110,15 @@ namespace BadmintonClub.ViewModels
 
             try
             {
-                Stopwatch stopwatch = Stopwatch.StartNew();
-
                 LoadingMessage = "Loading Blog Posts...";
                 IsBusy = true;
 
-                Stopwatch stopwatch2 = Stopwatch.StartNew();
                 AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.GetBlogPosts));
 
-                //var blogposts = await azureService.GetBlogPostsAsync();
-                var blogposts = (await azureTransaction.ExecuteAsync()) as IEnumerable<BlogPost>;
-                stopwatch2.Stop();
-                Debug.WriteLine(string.Format("\n  >>>>> Time taken to load BlogPosts in AzureTransaction: {0} ms\n", stopwatch.ElapsedMilliseconds));
-                Debug.WriteLine("blogpost Count: " + blogposts.Count());
-                foreach (var item in blogposts)
-                {
-                    Debug.WriteLine(item.Publisher.ToString());
-                }
-                //BlogPosts.ReplaceRange(blogposts);
-                BlogPosts.Clear();
-                Debug.WriteLine("In BlogPostViewModel: ");
-                foreach (var item in blogposts)
-                {
-                    Debug.WriteLine(item.Publisher?.ToString() ?? "null!!!");
-                    BlogPosts.Add(new BlogPost()
-                    {
-                        Title = item.Title,
-                        BodyOfPost = item.BodyOfPost,
-                        DateTimePublished = item.DateTimePublished,
-                        Id = item.Id,
-                        UserID = item.UserID,
-                        Publisher = item.Publisher
-                    });
-                }
+                var blogposts = (await azureTransaction.ExecuteAsync())[0] as List<BlogPost>;
+                BlogPosts.ReplaceRange(blogposts);
 
                 sortBlogPosts();
-                stopwatch.Stop();
-                Debug.WriteLine(string.Format("\n  >>>>> Time taken to load BlogPosts in BlogPostViewModel: {0} ms\n", stopwatch.ElapsedMilliseconds));
             }
             catch (Exception ex)
             {

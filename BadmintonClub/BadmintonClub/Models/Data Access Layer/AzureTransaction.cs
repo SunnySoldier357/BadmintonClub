@@ -74,14 +74,10 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 await azureService.SyncDataTablesAsync(syncTables);
             }
 
-            foreach (Transaction transaction in transactions)
+            result = new object[transactions.Length];
+            for (int i = 0; i < transactions.Length; i++)
             {
-                Debug.WriteLine("Theer is a transaction...");
-                result = await transaction.RunTransaction(azureService);
-                foreach (var item in result)
-                {
-                    Debug.WriteLine((item as BlogPost).Publisher.ToString());
-                }
+                result[i] = await transactions[i].RunTransaction(azureService);
             }
 
             if (addingItem)

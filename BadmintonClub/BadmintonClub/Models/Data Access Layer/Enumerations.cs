@@ -7,6 +7,7 @@
 
         AddMatch,
         GetMatches,
+        SyncUserMatches,
 
         GetSeasonData,
 

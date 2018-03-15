@@ -2,6 +2,7 @@
  - Table for season stats
  - Start New Season Functionality
  - Error Messages for adding seasonData (same person or score is not a number)
+ - If I don't use UserViewModel then delete the class
 
 Things that are necessary before release:
  - Hide the add buttons when switching tabs (Season Page)
@@ -9,6 +10,8 @@ Things that are necessary before release:
  - Loading notification for logging in and signing up
  - Logging in capitalisation for name should not matter and password entry should not be trimmed
  - Signing up names should be in a nice format
+ - Check all icons
+ - Set up an actual club PIN
 
                                                    POSSIBLE IMPOVEMENTS
 

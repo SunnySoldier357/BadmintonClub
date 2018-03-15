@@ -29,9 +29,9 @@ namespace BadmintonClub.Views
             resetErrorLabels();
             if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
             {
-                if (await azureService.DoesUserExistAsync(FullNameEntry.Text.Trim()))
+                if (await azureService.DoesUserExistAsync(formatName(FullNameEntry.Text)))
                 {
-                    if (await azureService.LoginAsync(FullNameEntry.Text.Trim(), LogInPasswordEntry.Text.Trim()))
+                    if (await azureService.LoginAsync(formatName(FullNameEntry.Text), LogInPasswordEntry.Text))
                         (Application.Current as App).StartMainApplication();
                     else
                         showLabel(LogInErrorLabel, "The name or password entered was incorrect.");
@@ -52,13 +52,13 @@ namespace BadmintonClub.Views
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    if (await azureService.DoesUserExistAsync(FirstNameEntry.Text.Trim() + " " +  LastNameEntry.Text.Trim()))
+                    if (await azureService.DoesUserExistAsync(formatName(FirstNameEntry.Text) + " " + formatName(LastNameEntry.Text)))
                         showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
                     else
                     {
                         if (CrossConnectivity.Current.IsConnected)
                         {
-                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(FirstNameEntry.Text.Trim(), LastNameEntry.Text.Trim(), SignUpPasswordEntry.Text.Trim());
+                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(formatName(FirstNameEntry.Text), formatName(LastNameEntry.Text), SignUpPasswordEntry.Text);
                             (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
                             (Application.Current as App).StartMainApplication();
                         }
@@ -74,6 +74,17 @@ namespace BadmintonClub.Views
         }
 
         // Private Methods
+        private string formatName(string name)
+        {
+            string result = string.Empty;
+            string cleanedString = System.Text.RegularExpressions.Regex.Replace(name, @"\s+", " ");
+
+            foreach (string item in cleanedString.Trim().Split(' '))
+                result += item.Substring(0, 1).ToUpper() + item.Substring(1).ToLower() + " ";
+
+            return result.Trim();
+        }
+
         private void resetErrorLabels()
         {
             LogInErrorLabel.IsVisible = false;

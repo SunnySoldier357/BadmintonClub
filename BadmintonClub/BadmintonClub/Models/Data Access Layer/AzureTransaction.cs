@@ -54,6 +54,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                             break;
 
                         case TransactionType.GetMatches:
+                        case TransactionType.SyncUserMatches:
                             syncTables[1] = true;
                             break;
 

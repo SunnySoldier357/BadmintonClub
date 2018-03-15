@@ -261,8 +261,24 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 if (syncBools[3])
                     await userTable.PullAsync("allUser", userTable.CreateQuery());
 
-                if ((Application.Current as App).SignedInUser == null)
+                if ((Application.Current as App).SignedInUser == null || syncBools[1])
+                {
                     (Application.Current as App).SignedInUser = await userTable.LookupAsync((Application.Current as App).SignedInUserId);
+
+                    var query = from match in matchTable
+                                where match.OpponentID == (Application.Current as App).SignedInUserId ||
+                                      match.PlayerID == (Application.Current as App).SignedInUserId
+                                select match;
+
+                    (Application.Current as App).SignedInUser.Matches.Clear();
+                    var data = await matchTable.ReadAsync(query);
+                    foreach (var item in data)
+                    {
+                        item.Player = await userTable.LookupAsync(item.PlayerID);
+                        item.Opponent = await userTable.LookupAsync(item.OpponentID);
+                        (Application.Current as App).SignedInUser.Matches.Add(item);
+                    }
+                }
             }
             catch (Exception ex)
             {

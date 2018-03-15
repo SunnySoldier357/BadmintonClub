@@ -1,5 +1,4 @@
 ﻿using BadmintonClub.Models;
-using BadmintonClub.ViewModels;
 using BadmintonClub.Views;
 using Xamarin.Forms;
 
@@ -15,14 +14,11 @@ namespace BadmintonClub
 
         public User SignedInUser { get; set; }
 
-        public UserViewModel UserVM { get; set; }
-
         // Constructor
         public App()
 		{
 			InitializeComponent();
 
-            UserVM = new UserViewModel();
             initialiseData();
         }
 

@@ -1,5 +1,5 @@
 ﻿using BadmintonClub.Models;
-using BadmintonClub.ViewModels;
+using BadmintonClub.Models.Data_Access_Layer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,13 +11,10 @@ namespace BadmintonClub.Views
         // Private Properties
         private User signedInUser;
 
-        private UserViewModel userViewModel;
-
         // Constructor
 		public ProfilePage()
 		{
 			InitializeComponent();
-            userViewModel = (Application.Current as App).UserVM;
             BindingContext = signedInUser = (Application.Current as App).SignedInUser;
 
             // Padding for iOS to not cover status bar
@@ -26,9 +23,20 @@ namespace BadmintonClub.Views
 
             ToolbarItems.Add(new ToolbarItem
             {
+                Text = "Refresh",
+                Command = new Command(async () => 
+                {
+                    AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.SyncUserMatches));
+                    await azureTransaction.ExecuteAsync();
+                }),
+                Icon = "refresh.png"
+            });
+
+            ToolbarItems.Add(new ToolbarItem
+            {
                 Text = "Log Out",
                 Command = new Command(() => (Application.Current as App).RestartApp()),
-                Icon = "refresh.png"
+                Icon = "contacts.png"
             });
         }
     }

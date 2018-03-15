@@ -1,7 +1,7 @@
 ﻿Main things that I have to do:
  - Admin editing user names
  - Table for season stats
- - Start New Season Functionalty
+ - Start New Season Functionality
  - Error Messages for adding seasonData (same person or score is not a number)
 
 Things that are necessary before release:

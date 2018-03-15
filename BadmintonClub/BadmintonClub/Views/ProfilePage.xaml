@@ -7,9 +7,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style  x:Key="StatsStackLayoutStyle" TargetType="StackLayout">
-                <Setter Property="BackgroundColor"
-                        Value="Gray"/>
-
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="#C7C7C7" />
+                            <On Platform="iOS, UWP" Value="#383838" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Margin"
                         Value="10"/>
 

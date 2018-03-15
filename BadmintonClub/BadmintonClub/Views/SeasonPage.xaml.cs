@@ -56,14 +56,36 @@ namespace BadmintonClub.Views
 
         public void MatchSaveButton_Clicked(object sender, EventArgs e)
         {
-            seasonDataViewModel.AddMatchCommand.Execute(new
+            resetErrorLabel();
+
+            if (OpponentNamePicker.SelectedItem == null || PlayerNamePicker.SelectedItem == null)
+                showError("A Player and an opponent have to be picked!");
+            else
             {
-                OpponentScore = OpponentScoreEntry.Text.Trim(),
-                PlayerScore = PlayerScoreEntry.Text.Trim(),
-                OpponentName = OpponentNamePicker.SelectedItem.ToString().Trim(),
-                PlayerName = PlayerNamePicker.SelectedItem.ToString().Trim(),
-            });
-            switchToMainView();
+                if (OpponentNamePicker.SelectedItem.ToString().Equals(PlayerNamePicker.SelectedItem.ToString()))
+                    showError("You cannot play yourself in a game!");
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(OpponentScoreEntry.Text) || string.IsNullOrWhiteSpace(PlayerScoreEntry.Text))
+                        showError("Do not leave the fields empty!");
+                    else
+                    {
+                        if (!(int.TryParse(OpponentScoreEntry.Text, out int x) && int.TryParse(PlayerScoreEntry.Text, out int y)))
+                            showError("Score Entries only accept integers!");
+                        else
+                        {
+                            seasonDataViewModel.AddMatchCommand.Execute(new
+                            {
+                                OpponentScore = OpponentScoreEntry.Text.Trim(),
+                                PlayerScore = PlayerScoreEntry.Text.Trim(),
+                                OpponentName = OpponentNamePicker.SelectedItem.ToString().Trim(),
+                                PlayerName = PlayerNamePicker.SelectedItem.ToString().Trim(),
+                            });
+                            switchToMainView();
+                        }
+                    }
+                }
+            }
         }
 
         protected override void OnAppearing()
@@ -74,6 +96,18 @@ namespace BadmintonClub.Views
         }
 
         // Private Methods
+        private void resetErrorLabel()
+        {
+            ErrorLabel.IsVisible = false;
+            ErrorLabel.Text = string.Empty;
+        }
+
+        private void showError(string error)
+        {
+            ErrorLabel.IsVisible = true;
+            ErrorLabel.Text = "Error! " + error;
+        }
+
         private void switchToEditView()
         {
             seasonDataViewModel.AddingNewMatch = true;
@@ -87,6 +121,7 @@ namespace BadmintonClub.Views
             OpponentNamePicker.SelectedItem = null;
             PlayerScoreEntry.Text = string.Empty;
             OpponentScoreEntry.Text = string.Empty;
+            resetErrorLabel();
         }
 
         private void switchToMainView()

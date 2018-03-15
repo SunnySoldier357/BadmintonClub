@@ -78,7 +78,8 @@
                             VerticalOptions="FillAndExpand" />
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="End">
                     <Button x:Name="BlogPostSaveButton"
                             Clicked="BlogPostSaveButton_Clicked"
                             Text="Save" />

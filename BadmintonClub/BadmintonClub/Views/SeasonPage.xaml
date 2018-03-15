@@ -295,7 +295,8 @@
                                HorizontalOptions="FillAndExpand" />
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="End">
                         <Button x:Name="MatchSaveButton"
                                 Clicked="MatchSaveButton_Clicked"
                                 Text="Save" />
@@ -305,12 +306,9 @@
                                 Text="Cancel" />
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Start a new Season? "/>
-
-                        <Switch x:Name="NewSeasonSwitch" 
-                                IsToggled="False"/>
-                    </StackLayout>
+                    <Label x:Name="ErrorLabel"
+                           TextColor="Red"
+                           IsVisible="False"/>
                 </StackLayout>
 
                 <StackLayout IsVisible="{Binding IsBusy}"

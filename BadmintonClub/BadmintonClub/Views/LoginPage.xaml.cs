@@ -27,7 +27,7 @@ namespace BadmintonClub.Views
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
             resetErrorLabels();
-            if (!(FullNameEntry.Text == null || LogInPasswordEntry.Text == null))
+            if (!(string.IsNullOrWhiteSpace(FullNameEntry.Text) || string.IsNullOrEmpty(LogInPasswordEntry.Text)))
             {
                 if (await azureService.DoesUserExistAsync(formatName(FullNameEntry.Text)))
                 {
@@ -47,8 +47,8 @@ namespace BadmintonClub.Views
         {
             resetErrorLabels();
 
-            if (!(LastNameEntry.Text == null || FirstNameEntry.Text == null 
-                || SignUpPasswordEntry.Text == null || ClubPINEntry.Text == null))
+            if (!(string.IsNullOrWhiteSpace(LastNameEntry.Text) || string.IsNullOrWhiteSpace(FirstNameEntry.Text)
+                || string.IsNullOrEmpty(SignUpPasswordEntry.Text) || string.IsNullOrWhiteSpace(ClubPINEntry.Text)))
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
@@ -97,7 +97,7 @@ namespace BadmintonClub.Views
         private void showLabel(Label label, string message)
         {
             label.IsVisible = true;
-            label.Text = message;
+            label.Text = "Error! " + message;
 
             LogInPasswordEntry.Text = string.Empty;
             SignUpPasswordEntry.Text = string.Empty;

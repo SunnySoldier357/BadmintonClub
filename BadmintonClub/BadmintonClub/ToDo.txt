@@ -1,23 +1,21 @@
 ﻿Main things that I have to do:
  - Table for season stats
  - Start New Season Functionality
- - Error Messages for adding seasonData (same person or score is not a number)
+ - Error message for BlogPost adding
  - If I don't use UserViewModel then delete the class
 
 Things that are necessary before release:
- - Hide the add buttons when switching tabs (Season Page)
- - No connection (Offline Stack)
  - Loading notification for logging in and signing up
- - Logging in capitalisation for name should not matter and password entry should not be trimmed
- - Signing up names should be in a nice format
  - Check all icons
  - Set up an actual club PIN
 
                                                    POSSIBLE IMPOVEMENTS
 
 UI
+ - No connection (Offline Stack)
  - Colour coding for season table like green vs red for positive or negative point difference
  - Make date look nicer (no seconds)
+ - Hide the add buttons when switching tabs (Season Page)
  - Margins make text nicer
  - Feedback Section
  - Settings Section 

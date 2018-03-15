@@ -11,8 +11,7 @@
 namespace BadmintonClub.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\sande_gblcen6\\Desktop\\C#\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views" +
-        "\\BlogPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\BadmintonClub\\BadmintonClub\\BadmintonClub\\Views\\BlogPage.xaml")]
     public partial class BlogPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -34,6 +33,9 @@ namespace BadmintonClub.Views {
         private global::Xamarin.Forms.Button BlogPostCancelButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label ErrorLabel;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(BlogPage));
             BlogPostGrid = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Grid>(this, "BlogPostGrid");
@@ -42,6 +44,7 @@ namespace BadmintonClub.Views {
             BlogPostBodyEditor = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Editor>(this, "BlogPostBodyEditor");
             BlogPostSaveButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "BlogPostSaveButton");
             BlogPostCancelButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "BlogPostCancelButton");
+            ErrorLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "ErrorLabel");
         }
     }
 }

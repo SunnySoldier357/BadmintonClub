@@ -58,7 +58,7 @@ namespace BadmintonClub.Views
                     {
                         if (CrossConnectivity.Current.IsConnected)
                         {
-                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(formatName(FirstNameEntry.Text), formatName(LastNameEntry.Text), SignUpPasswordEntry.Text);
+                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(formatName(FirstNameEntry.Text), formatName(LastNameEntry.Text), SignUpPasswordEntry.Text, CompetitivePlaySwitch.IsToggled);
                             (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
                             (Application.Current as App).StartMainApplication();
                         }

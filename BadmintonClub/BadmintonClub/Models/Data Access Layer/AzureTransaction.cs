@@ -1,6 +1,7 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace BadmintonClub.Models.Data_Access_Layer
 {
@@ -34,7 +35,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             {
                 foreach (Transaction transaction in transactions)
                 {
-                    switch (transaction.transactionType)
+                    switch (transaction.TransactType)
                     {
                         case TransactionType.AddBlogPost:
                         case TransactionType.AddUser:
@@ -67,8 +68,13 @@ namespace BadmintonClub.Models.Data_Access_Layer
                             syncTables[3] = true;
                             break;
 
-                        case TransactionType.LogIn:
                         case TransactionType.SignUp:
+                            syncTables[1] = true;
+                            syncTables[3] = true;
+                            addingItem = true;
+                            break;
+
+                        case TransactionType.LogIn:
                             syncTables[3] = true;
                             break;
 
@@ -83,7 +89,25 @@ namespace BadmintonClub.Models.Data_Access_Layer
             result = new object[transactions.Length];
             for (int i = 0; i < transactions.Length; i++)
             {
-                result[i] = await transactions[i].RunTransaction(azureService);
+                if (transactions[i].TransactType == TransactionType.SignUp)
+                {
+                    result = new object[2];
+                    Transaction transaction = transactions[0];
+                    result[0] = null;
+                    if (await azureService.DoesUserExistAsync(transaction.Arguments.FirstName + " " + transaction.Arguments.LastName))
+                    {
+                        if (CrossConnectivity.Current.IsConnected)
+                        {
+                            result[0] = await azureService.AddUserAsync();
+                        }
+                        else
+                            result[1] = "Device is offline.Sign - up is only available when device is online.";
+                    }
+                    else
+                        result[1] = "User already exists! Please sign in!";
+                }
+                else
+                    result[i] = await transactions[i].RunTransaction(azureService);
             }
 
             if (addingItem)

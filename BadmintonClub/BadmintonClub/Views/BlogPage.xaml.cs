@@ -51,12 +51,22 @@ namespace BadmintonClub.Views
 
         public void BlogPostSaveButton_Clicked(object sender, EventArgs e)
         {
-            blogPostViewModel.AddBlogPostCommand.Execute(new
+            resetErrorLabel();
+
+            if (string.IsNullOrWhiteSpace(BlogPostTitleEntry.Text) || string.IsNullOrWhiteSpace(BlogPostBodyEditor.Text))
             {
-                BlogTitle = BlogPostTitleEntry.Text.Trim(),
-                BodyOfPost = BlogPostBodyEditor.Text.Trim()
-            });
-            switchToMainView();
+                ErrorLabel.IsVisible = true;
+                ErrorLabel.Text = "Error! Do not leave the fields empty!";
+            }
+            else
+            {
+                blogPostViewModel.AddBlogPostCommand.Execute(new
+                {
+                    BlogTitle = BlogPostTitleEntry.Text.Trim(),
+                    BodyOfPost = BlogPostBodyEditor.Text.Trim()
+                });
+                switchToMainView();
+            }
         }
 
         protected override void OnAppearing()
@@ -71,13 +81,21 @@ namespace BadmintonClub.Views
         {
             if ((Application.Current as App).SignedInUser?.IsAdmin() ?? false)
             {
-                ToolbarItems.Add(new ToolbarItem
+                ToolbarItem addItem = new ToolbarItem
                 {
                     Text = "Add Post",
                     Command = new Command(() => switchToEditView(false)),
                     Icon = "add.png"
-                });
+                };
+                if (!ToolbarItems.Contains(addItem))
+                    ToolbarItems.Add(addItem);
             }
+        }
+
+        private void resetErrorLabel()
+        {
+            ErrorLabel.IsVisible = false;
+            ErrorLabel.Text = string.Empty;
         }
 
         private void switchToMainView()
@@ -98,6 +116,7 @@ namespace BadmintonClub.Views
 
             BlogPostTitleEntry.Text = string.Empty;
             BlogPostBodyEditor.Text = string.Empty;
+            resetErrorLabel();
         }
     }
 }

@@ -88,6 +88,10 @@
                             Clicked="BlogPostCancelButton_Clicked"
                             Text="Cancel"/>
                 </StackLayout>
+
+                <Label x:Name="ErrorLabel"
+                       TextColor="Red"
+                       IsVisible="False"/>
             </StackLayout>
 
             <StackLayout IsVisible="{Binding IsBusy}"

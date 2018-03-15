@@ -1,8 +1,6 @@
 ﻿Main things that I have to do:
  - Table for season stats
- - Start New Season Functionality
- - Error message for BlogPost adding
- - If I don't use UserViewModel then delete the class
+ - New Season Functionality
 
 Things that are necessary before release:
  - Loading notification for logging in and signing up
@@ -26,6 +24,7 @@ UI
 User Input
  - Matches can be added to a queue so that when the user has finished adding all the matches he wishes, they are uploaded together
  - Picker enhancements cannot pick the same person
+ - BlogPost, when entering title automaticcaly capitalises all words except prepositions, maybe even the same for the body of post.
 
 Features
  - Edit BlogPosts

@@ -111,7 +111,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return match;
         }
 
-        public async Task<User> AddUserAsync(string firstName, string lastName, string password)
+        public async Task<User> AddUserAsync(string firstName, string lastName, string password, bool competitive)
         {
             User user = new User()
             {
@@ -119,7 +119,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 FirstName = firstName,
                 LastName = lastName,
                 ClearanceLevel = 0,
-                Password = password
+                Password = password,
+                IsCompetitive = competitive
             };
 
             await userTable.InsertAsync(user);
@@ -180,7 +181,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 item.Player = result;
             }
 
-            return data;
+            return data.Where(s => s.Player.IsCompetitive).ToList();
         }
 
         public async Task<int> GetSeasonNumberAsync()

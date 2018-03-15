@@ -54,7 +54,7 @@ namespace BadmintonClub
         // Private Methods
         private void initialiseData()
         {
-            if (!Properties.ContainsKey("SignedInUserId"))
+            if (!Properties.ContainsKey("SignedInUserId") || string.IsNullOrWhiteSpace(Properties["SignedInUserId"].ToString()))
                 MainPage = new LoginPage();
             else
             {

@@ -1,6 +1,6 @@
 ﻿namespace BadmintonClub.Models
 {
-    public class SeasonData
+    public class SeasonData : TableData
     {
         // Public Properties
         public int GamesPlayed { get; set; }
@@ -11,7 +11,6 @@
         public int PointsInCurrentSeason { get; set; }
         public int SeasonNumber { get; set; }
 
-        public string Id { get; set; }
         public string UserID { get; set; }
 
         [Newtonsoft.Json.JsonIgnore]

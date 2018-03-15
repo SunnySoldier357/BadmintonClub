@@ -1,13 +1,12 @@
 ﻿namespace BadmintonClub.Models
 {
-    public class Match
+    public class Match : TableData
     {
         // Public Properties
         public int OpponentScore { get; set; }
         public int PlayerScore { get; set; }
         public int SeasonNumber { get; set; }
 
-        public string Id { get; set; }
         public string OpponentID { get; set; }
         public string PlayerID { get; set; }
 

@@ -1,1 +1,1 @@
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\BadmintonClub.UWP.csproj;x64
+C:\BadmintonClub\BadmintonClub\BadmintonClub.UWP\BadmintonClub.UWP.csproj;x64

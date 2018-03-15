@@ -6,7 +6,8 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style  x:Key="StatsStackLayoutStyle" TargetType="StackLayout">
+            <Style x:Key="StatsStackLayoutStyle" 
+                   TargetType="StackLayout">
                 <Setter Property="BackgroundColor">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="Color">
@@ -15,6 +16,7 @@
                         </OnPlatform>
                     </Setter.Value>
                 </Setter>
+                
                 <Setter Property="Margin"
                         Value="10"/>
 
@@ -22,13 +24,26 @@
                         Value="10"/>
             </Style>
 
-            <Style x:Key="StatsLabelStyle" TargetType="Label">
+            <Style x:Key="StatsLabelStyle" 
+                   TargetType="Label">
                 <Setter Property="FontAttributes"
                         Value="Bold"/>
 
                 <Setter Property="HorizontalOptions"
                         Value="Center"/>
-            </Style> 
+            </Style>
+
+            <Style x:Key="BorderBoxViewStyle" 
+                   TargetType="BoxView">
+                <Setter Property="Color">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="ForestGreen" />
+                            <On Platform="iOS, UWP" Value="LimeGreen" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -169,26 +184,29 @@
                                 </Grid.ColumnDefinitions>
 
                                 <BoxView Grid.ColumnSpan="5" 
-                                         Color="LimeGreen"
                                          HeightRequest="3"
-                                         HorizontalOptions="FillAndExpand"/>
+                                         HorizontalOptions="FillAndExpand"
+                                         Style="{StaticResource BorderBoxViewStyle}"/>
 
                                 <BoxView Grid.Row="3" 
                                          Grid.ColumnSpan="5" 
                                          Color="LimeGreen"
                                          HeightRequest="3"
-                                         HorizontalOptions="FillAndExpand"/>
+                                         HorizontalOptions="FillAndExpand"
+                                         Style="{StaticResource BorderBoxViewStyle}"/>
 
                                 <BoxView Grid.RowSpan="4"
                                          Color="LimeGreen"
                                          WidthRequest="3"
-                                         VerticalOptions="FillAndExpand"/>
+                                         VerticalOptions="FillAndExpand"
+                                         Style="{StaticResource BorderBoxViewStyle}"/>
 
                                 <BoxView Grid.Column="4" 
                                          Grid.RowSpan="4"
                                          Color="LimeGreen"
                                          WidthRequest="3"
-                                         VerticalOptions="FillAndExpand"/>
+                                         VerticalOptions="FillAndExpand"
+                                         Style="{StaticResource BorderBoxViewStyle}"/>
 
                                 <Label Grid.Row="1" 
                                        Grid.Column="1" 

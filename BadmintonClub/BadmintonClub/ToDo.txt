@@ -1,19 +1,18 @@
 ﻿Main things that I have to do:
- - Admin editing user names
  - Table for season stats
  - Start New Season Functionality
  - Error Messages for adding seasonData (same person or score is not a number)
 
 Things that are necessary before release:
  - Hide the add buttons when switching tabs (Season Page)
- - Picker enhancements cannot pick the same person as well as text blocks cannot be blank (Adding stuff)
  - No connection (Offline Stack)
  - Loading notification for logging in and signing up
+ - Logging in capitalisation for name should not matter and password entry should not be trimmed
+ - Signing up names should be in a nice format
 
                                                    POSSIBLE IMPOVEMENTS
 
 UI
- - Colours LimeGreen vs DarkGreen for better viewing
  - Colour coding for season table like green vs red for positive or negative point difference
  - Make date look nicer (no seconds)
  - Margins make text nicer
@@ -25,6 +24,7 @@ UI
 
 User Input
  - Matches can be added to a queue so that when the user has finished adding all the matches he wishes, they are uploaded together
+ - Picker enhancements cannot pick the same person
 
 Features
  - Edit BlogPosts

@@ -42,8 +42,14 @@
                                        HorizontalOptions="End" />
                                 <BoxView HeightRequest="3"
                                          HorizontalOptions="Fill"
-                                         BackgroundColor="LimeGreen" 
-                                         Margin="0,0,0,5"/>
+                                         Margin="0,0,0,5">
+                                    <BoxView.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color">
+                                            <On Platform="Android" Value="ForestGreen" />
+                                            <On Platform="iOS, UWP" Value="LimeGreen" />
+                                        </OnPlatform>
+                                    </BoxView.BackgroundColor>
+                                </BoxView>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -86,8 +92,8 @@
             <StackLayout IsVisible="{Binding IsBusy}"
                          Grid.ColumnSpan="2"
                          Style="{StaticResource LoadingStackLayoutStyle}">
-                <ActivityIndicator IsRunning="{Binding IsBusy}" 
-                                   Color="LimeGreen" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   Color="LimeGreen"/>
 
                 <Label Text="{Binding LoadingMessage}"
                        HorizontalOptions="Center"

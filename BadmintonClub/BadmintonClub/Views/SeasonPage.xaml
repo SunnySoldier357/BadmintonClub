@@ -5,8 +5,23 @@
             xmlns:local="clr-namespace:BadmintonClub.Views"
             Title="Season">
 
-    <ContentPage Title="Table">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LimeGreenLabelStyle" 
+                   TargetType="Label">
+                <Setter Property="TextColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="ForestGreen" />
+                            <On Platform="iOS, UWP" Value="LimeGreen" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
 
+    <ContentPage Title="Table">
         <ContentPage.Content>
             <Grid HorizontalOptions="FillAndExpand">
 
@@ -50,7 +65,7 @@
                             <Label Grid.Column="2"
                                    Text="W" 
                                    FontAttributes="Bold"
-                                   TextColor="LimeGreen"/>
+                                   Style="{StaticResource LimeGreenLabelStyle}"/>
                             <Label Grid.Column="3"
                                    Text="D" 
                                    FontAttributes="Bold"/>
@@ -61,7 +76,7 @@
                             <Label Grid.Column="5"
                                    Text="F" 
                                    FontAttributes="Bold"
-                                   TextColor="LimeGreen"/>
+                                   Style="{StaticResource LimeGreenLabelStyle}"/>
                             <Label Grid.Column="6"
                                    Text="A" 
                                    FontAttributes="Bold"
@@ -96,7 +111,7 @@
                                            Text="{Binding GamesPlayed}"/>
                                     <Label Grid.Column="2"
                                            Text="{Binding GamesWon}" 
-                                           TextColor="LimeGreen"/>
+                                           Style="{StaticResource LimeGreenLabelStyle}"/>
                                     <Label Grid.Column="3"
                                            Text="{Binding GamesDrawn}"/>
                                     <Label Grid.Column="4"
@@ -104,7 +119,7 @@
                                            TextColor="Red"/>
                                     <Label Grid.Column="5"
                                            Text="{Binding PointsFor}"
-                                           TextColor="LimeGreen"/>
+                                           Style="{StaticResource LimeGreenLabelStyle}"/>
                                     <Label Grid.Column="6"
                                            Text="{Binding PointsAgainst}"
                                            TextColor="Red"/>
@@ -138,10 +153,22 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="W: "
-                                              FontAttributes="Bold"
-                                              ForegroundColor="LimeGreen"/>
-                                        <Span Text="Games Won"
-                                              ForegroundColor="LimeGreen"/>
+                                              FontAttributes="Bold">
+                                            <Span.ForegroundColor>
+                                                <OnPlatform x:TypeArguments="Color">
+                                                    <On Platform="Android" Value="ForestGreen" />
+                                                    <On Platform="iOS, UWP" Value="LimeGreen" />
+                                                </OnPlatform>
+                                            </Span.ForegroundColor>
+                                        </Span>
+                                        <Span Text="Games Won">
+                                            <Span.ForegroundColor>
+                                                <OnPlatform x:TypeArguments="Color">
+                                                    <On Platform="Android" Value="ForestGreen" />
+                                                    <On Platform="iOS, UWP" Value="LimeGreen" />
+                                                </OnPlatform>
+                                            </Span.ForegroundColor>
+                                        </Span>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -151,7 +178,7 @@
                                     <FormattedString>
                                         <Span Text="D: "
                                               FontAttributes="Bold"/>
-                                        <Span Text="Games Drawed"/>
+                                        <Span Text="Games Drawn"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
@@ -174,10 +201,22 @@
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="F: "
-                                              FontAttributes="Bold"
-                                              ForegroundColor="LimeGreen"/>
-                                        <Span Text="Points Scored"
-                                              ForegroundColor="LimeGreen"/>
+                                              FontAttributes="Bold">
+                                            <Span.ForegroundColor>
+                                                <OnPlatform x:TypeArguments="Color">
+                                                    <On Platform="Android" Value="ForestGreen" />
+                                                    <On Platform="iOS, UWP" Value="LimeGreen" />
+                                                </OnPlatform>
+                                            </Span.ForegroundColor>
+                                        </Span>
+                                        <Span Text="Points Scored">
+                                            <Span.ForegroundColor>
+                                                <OnPlatform x:TypeArguments="Color">
+                                                    <On Platform="Android" Value="ForestGreen" />
+                                                    <On Platform="iOS, UWP" Value="LimeGreen" />
+                                                </OnPlatform>
+                                            </Span.ForegroundColor>
+                                        </Span>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>

@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-15T00:08:08.526</Modified>
+      <Modified>2018-03-15T01:41:45.232</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.exe">
       <PackagePath>entrypoint\BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-15T00:08:06.888</Modified>
+      <Modified>2018-03-15T01:41:43.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
       <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
@@ -589,7 +589,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.dll">
       <PackagePath>BadmintonClub.dll</PackagePath>
-      <Modified>2018-03-15T00:08:04.692</Modified>
+      <Modified>2018-03-15T01:41:41.318</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\add.png">
       <PackagePath>add.png</PackagePath>
@@ -854,7 +854,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.xr.xml">
       <PackagePath>BadmintonClub.UWP.xr.xml</PackagePath>
-      <Modified>2018-02-28T00:10:54.212</Modified>
+      <Modified>2018-03-15T00:44:18.215</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -867,11 +867,11 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-15T00:08:07.708</Modified>
+      <Modified>2018-03-15T01:41:44.572</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
       <PackagePath>BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-15T00:08:08.522</Modified>
+      <Modified>2018-03-15T01:41:45.229</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

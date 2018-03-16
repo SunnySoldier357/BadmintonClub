@@ -1,6 +1,6 @@
 ﻿Main things that I have to do:
- - Table for season stats
  - New Season Functionality
+ - Profile Page loading as well
 
 Things that are necessary before release:
  - Loading notification for logging in and signing up
@@ -24,15 +24,18 @@ UI
 User Input
  - Matches can be added to a queue so that when the user has finished adding all the matches he wishes, they are uploaded together
  - Picker enhancements cannot pick the same person
- - BlogPost, when entering title automaticcaly capitalises all words except prepositions, maybe even the same for the body of post.
+ - BlogPost, when entering title automatically capitalises all words except prepositions, maybe even the same for the body of post.
 
 Features
  - Edit BlogPosts
 
 Data Processing
  - Ensure that loading is done before adding or refreshing again
+ - Sync over WiFi as a setting
  - Loading is only done when stuff is not up to date and that the local stuff is only update not deleted and recreated
  - Make data loading happen faster
+ - Code-First Migrations for backend
+ - Client => Paging support with ListView integration for BlogPost and Signed-In User's Matches
 
 User Authentication
  - Done through Microsoft, Google and Facebook

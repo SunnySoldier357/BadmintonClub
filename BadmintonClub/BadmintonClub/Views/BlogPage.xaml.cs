@@ -87,7 +87,11 @@ namespace BadmintonClub.Views
                     Command = new Command(() => switchToEditView(false)),
                     Icon = "add.png"
                 };
-                if (!ToolbarItems.Contains(addItem))
+
+                if ((Device.RuntimePlatform == Device.Android || Device.RuntimePlatform == Device.iOS) && 
+                    ToolbarItems.Count == 0)
+                    ToolbarItems.Add(addItem);
+                else if (Device.RuntimePlatform == Device.UWP && ToolbarItems.Count == 1)
                     ToolbarItems.Add(addItem);
             }
         }

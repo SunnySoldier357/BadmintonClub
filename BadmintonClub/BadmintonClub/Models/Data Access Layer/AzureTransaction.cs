@@ -94,17 +94,35 @@ namespace BadmintonClub.Models.Data_Access_Layer
                     result = new object[2];
                     Transaction transaction = transactions[0];
                     result[0] = null;
-                    if (await azureService.DoesUserExistAsync(transaction.Arguments.FirstName + " " + transaction.Arguments.LastName))
+                    if (!(await azureService.DoesUserExistAsync(transaction.Arguments.FirstName + " " + transaction.Arguments.LastName)))
                     {
                         if (CrossConnectivity.Current.IsConnected)
                         {
-                            result[0] = await azureService.AddUserAsync();
+                            result[0] = await azureService.AddUserAsync(transaction.Arguments.FirstName, 
+                                transaction.Arguments.LastName,
+                                transaction.Arguments.Password,
+                                transaction.Arguments.IsCompetitive);
                         }
                         else
-                            result[1] = "Device is offline.Sign - up is only available when device is online.";
+                            result[1] = "Device is offline. Sign-up is only available when device is online.";
                     }
                     else
                         result[1] = "User already exists! Please sign in!";
+                }
+                else if (transactions[i].TransactType == TransactionType.LogIn)
+                {
+                    result = new object[2];
+                    Transaction transaction = transactions[0];
+                    result[0] = null;
+                    if (await azureService.DoesUserExistAsync(transaction.Arguments.FullName))
+                    {
+                        if (await azureService.LoginAsync(transaction.Arguments.FullName, transaction.Arguments.Password))
+                            result[0] = bool.TrueString;
+                        else
+                            result[1] = "The name or password entered was incorrect.";
+                    }
+                    else
+                        result[1] = "User does not exist. Please sign up!";
                 }
                 else
                     result[i] = await transactions[i].RunTransaction(azureService);

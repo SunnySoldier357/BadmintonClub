@@ -124,28 +124,23 @@ namespace BadmintonClub.Models.Data_Access_Layer
             };
 
             await userTable.InsertAsync(user);
-            await SyncAllDataTablesAsync();
 
             await seasonDataTable.InsertAsync(new SeasonData(user.Id)
             {
                 SeasonNumber = await GetSeasonNumberAsync()
             });
 
-            await SyncAllDataTablesAsync();
-
             return user;
         }
 
         public async Task<bool> DoesUserExistAsync(string fullName)
         {
-            await SyncAllDataTablesAsync();
-
             var query = from user in userTable
                         where (user.FirstName + " " + user.LastName) == fullName
                         select user;
 
             var users = await userTable.ReadAsync(query);
-            
+
             return users.Count() == 1;
         }
 
@@ -158,7 +153,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 var result = await userTable.LookupAsync(item.UserID);
                 item.Publisher = result;
             }
-         
+
             return data;
         }
 
@@ -203,7 +198,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                         where (user.FirstName + " " + user.LastName) == name
                         select user.Id;
 
-            var result =  await userTable.ReadAsync(query);
+            var result = await userTable.ReadAsync(query);
             return result.First();
         }
 
@@ -219,10 +214,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<bool> LoginAsync(string fullName, string password)
         {
-            await SyncAllDataTablesAsync();
-
             var query = from user in userTable
-                        where (user.FirstName + " " + user.LastName).ToLower() == fullName.ToLower()
+                        where (user.FirstName + " " + user.LastName) == fullName
                                 && user.Password == password
                         select user;
 

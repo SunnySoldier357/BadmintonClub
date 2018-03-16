@@ -15,8 +15,6 @@ namespace BadmintonClub.ViewModels
     public class SeasonDataViewModel : BaseViewModel
     {
         // Private Properties
-        private AzureService azureService;
-
         private bool addingNewMatch;
 
         private GridLength listViewColumnWidth;
@@ -67,8 +65,6 @@ namespace BadmintonClub.ViewModels
         // Constructor
         public SeasonDataViewModel()
         {
-            azureService = AzureService.DefaultService;
-
             addingNewMatch = false;
 
             listViewColumnWidth = GridLength.Star;

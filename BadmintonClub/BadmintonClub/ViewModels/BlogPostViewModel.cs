@@ -15,8 +15,6 @@ namespace BadmintonClub.ViewModels
     public class BlogPostViewModel : BaseViewModel
     {
         // Private Properties
-        private AzureService azureService;
-
         private bool addingNewItem;
 
         private GridLength listViewColumnWidth;
@@ -46,9 +44,9 @@ namespace BadmintonClub.ViewModels
             set => SetProperty(ref newItemColumnWidth, value);
         }
 
-        public ICommand AddBlogPostCommand =>addBlogPostCommand ?? (addBlogPostCommand = 
+        public ICommand AddBlogPostCommand => addBlogPostCommand ?? (addBlogPostCommand = 
             new Command(async (dynamic arguments) => await executeAddBlogPostCommandAsync(arguments)));
-        public ICommand LoadBlogPostsCommand =>loadBlogPostsCommand ?? (loadBlogPostsCommand = 
+        public ICommand LoadBlogPostsCommand => loadBlogPostsCommand ?? (loadBlogPostsCommand = 
             new Command(async () => await executeLoadBlogPostsCommandAsync()));
 
         public ObservableRangeCollection<BlogPost> BlogPosts { get; }
@@ -63,8 +61,6 @@ namespace BadmintonClub.ViewModels
         // Constructors
         public BlogPostViewModel()
         {
-            azureService = AzureService.DefaultService;
-
             addingNewItem = false;
 
             listViewColumnWidth = GridLength.Star;

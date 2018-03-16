@@ -1,5 +1,5 @@
-﻿using BadmintonClub.Models.Data_Access_Layer;
-using Plugin.Connectivity;
+﻿using BadmintonClub.Models;
+using BadmintonClub.Models.Data_Access_Layer;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -10,13 +10,26 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        // Private Methods
-        private AzureService azureService = AzureService.DefaultService;
+        // Public Properties
+        public bool Test { get; set; } = false;
+        public ObservableObject<bool> PageBusy { get; }
+        public ObservableObject<string> LoadingMessage { get; }
 
         // Constructor
         public LoginPage()
 		{
 			InitializeComponent();
+            BindingContext = this;
+
+            PageBusy = new ObservableObject<bool>
+            {
+                Object = false
+            };
+
+            LoadingMessage = new ObservableObject<string>
+            {
+                Object = string.Empty
+            };
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
@@ -26,25 +39,47 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
+            PageBusy.Object = true;
+            LoadingMessage.Object = "Logging in...";
+
             resetErrorLabels();
             if (!(string.IsNullOrWhiteSpace(FullNameEntry.Text) || string.IsNullOrEmpty(LogInPasswordEntry.Text)))
             {
-                if (await azureService.DoesUserExistAsync(formatName(FullNameEntry.Text)))
+                var arguments = new
                 {
-                    if (await azureService.LoginAsync(formatName(FullNameEntry.Text), LogInPasswordEntry.Text))
-                        (Application.Current as App).StartMainApplication();
-                    else
-                        showLabel(LogInErrorLabel, "The name or password entered was incorrect.");
-                }
+                    FullName = formatName(FullNameEntry.Text),
+                    Password = LogInPasswordEntry.Text
+                };
+                AzureTransaction azureTransaction = new AzureTransaction(
+                    new Transaction(arguments, TransactionType.LogIn));
+                var result = await azureTransaction.ExecuteAsync() as object[];
+                
+                if (result[0] == null)
+                    showLabel(LogInErrorLabel, result[1].ToString());
                 else
-                    showLabel(LogInErrorLabel, "User does not exist. Please sign up!");
+                {
+                    if (bool.Parse(result[0].ToString()))
+                    {
+                        PageBusy.Object = false;
+                        LoadingMessage.Object = string.Empty;
+                        (Application.Current as App).StartMainApplication();
+                    }
+                    else
+                        showLabel(LogInErrorLabel, result[1].ToString());
+                }
             }
             else
                 showLabel(LogInErrorLabel, "Do not leave the fields empty!");
+
+            PageBusy.Object = false;
+            LoadingMessage.Object = string.Empty;
         }
 
         public async Task SignUpButton_ClickedAsync(object sender, EventArgs e)
         {
+            PageBusy.Object = true;
+            LoadingMessage.Object = "Signing up...";
+
             resetErrorLabels();
 
             if (!(string.IsNullOrWhiteSpace(LastNameEntry.Text) || string.IsNullOrWhiteSpace(FirstNameEntry.Text)
@@ -52,18 +87,29 @@ namespace BadmintonClub.Views
             {
                 if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
                 {
-                    if (await azureService.DoesUserExistAsync(formatName(FirstNameEntry.Text) + " " + formatName(LastNameEntry.Text)))
-                        showLabel(SignUpErrorLabel, "User already exists! Please sign in!");
+                    var arguments = new
+                    {
+                        FirstName = formatName(FirstNameEntry.Text),
+                        LastName = formatName(LastNameEntry.Text),
+                        Password = SignUpPasswordEntry.Text,
+                        IsCompetitive = CompetitivePlaySwitch.IsToggled
+                    };
+                    AzureTransaction azureTransaction = new AzureTransaction(
+                        new Transaction(arguments, TransactionType.SignUp));
+                    var result = await azureTransaction.ExecuteAsync() as object[];
+
+                    if (result[0] == null)
+                        showLabel(SignUpErrorLabel, result[1].ToString());
                     else
                     {
-                        if (CrossConnectivity.Current.IsConnected)
-                        {
-                            (Application.Current as App).SignedInUser = await azureService.AddUserAsync(formatName(FirstNameEntry.Text), formatName(LastNameEntry.Text), SignUpPasswordEntry.Text, CompetitivePlaySwitch.IsToggled);
-                            (Application.Current as App).SignedInUserId = (Application.Current as App).SignedInUser.Id;
-                            (Application.Current as App).StartMainApplication();
-                        }
-                        else
-                            showLabel(SignUpErrorLabel, "Device is offline. Sign-up is only available when device is online.");
+                        User resultUser = result[0] as User;
+                        (Application.Current as App).SignedInUser = resultUser;
+                        (Application.Current as App).SignedInUserId = resultUser.Id;
+
+                        PageBusy.Object = false;
+                        LoadingMessage.Object = string.Empty;
+
+                        (Application.Current as App).StartMainApplication();
                     }
                 }
                 else
@@ -71,6 +117,9 @@ namespace BadmintonClub.Views
             }
             else
                 showLabel(SignUpErrorLabel, "Do not leave the fields empty!");
+
+            PageBusy.Object = false;
+            LoadingMessage.Object = string.Empty;
         }
 
         // Private Methods

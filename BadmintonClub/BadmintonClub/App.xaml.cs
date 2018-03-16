@@ -31,6 +31,7 @@ namespace BadmintonClub
 		protected override void OnSleep()
 		{
             Properties["SignedInUserId"] = SignedInUserId;
+            Current.SavePropertiesAsync();
 		}
 
         protected override void OnStart()

@@ -152,6 +152,18 @@
                            TextColor="Red"
                            IsVisible="False"/>
                 </Grid>
+
+                <StackLayout IsVisible="{Binding PageBusy.Object}" 
+                             Grid.RowSpan="2"
+                             Style="{StaticResource LoadingStackLayoutStyle}">
+                    <ActivityIndicator IsRunning="{Binding PageBusy.Object}"
+                                       Color="LimeGreen"/>
+
+                    <Label Text="{Binding LoadingMessage.Object}"
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           Style="{DynamicResource ListItemTextStyle}"/>
+                </StackLayout>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

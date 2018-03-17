@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadmintonClub.Android", "BadmintonClub\BadmintonClub.Android\BadmintonClub.Android.csproj", "{B3F83A95-EF5C-47AF-AD55-E5C856514D13}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadmintonClub.iOS", "Badmin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadmintonClub.UWP", "BadmintonClub\BadmintonClub.UWP\BadmintonClub.UWP.csproj", "{E76DD4DC-2558-4554-B15F-885DDC60566A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadmintonClub", "BadmintonClub\BadmintonClub\BadmintonClub.csproj", "{EBFBE641-281C-4AFB-9CCB-DE63E1DF8695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BadmintonClub", "BadmintonClub\BadmintonClub\BadmintonClub.csproj", "{EBFBE641-281C-4AFB-9CCB-DE63E1DF8695}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -188,9 +188,9 @@ Global
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x64.ActiveCfg = Debug|x64
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x64.Build.0 = Debug|x64
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x64.Deploy.0 = Debug|x64
-		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.ActiveCfg = Debug|x86
-		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.Build.0 = Debug|x86
-		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.Deploy.0 = Debug|x86
+		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.ActiveCfg = Debug|x64
+		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.Build.0 = Debug|x64
+		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Debug|x86.Deploy.0 = Debug|x64
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Release|Any CPU.ActiveCfg = Release|x86
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Release|ARM.ActiveCfg = Release|ARM
 		{E76DD4DC-2558-4554-B15F-885DDC60566A}.Release|ARM.Build.0 = Release|ARM

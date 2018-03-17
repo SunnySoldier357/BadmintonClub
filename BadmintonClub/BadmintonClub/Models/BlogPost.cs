@@ -1,28 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BadmintonClub.Models
 {
-    public class BlogPost
+    public class BlogPost : TableData
     {
-        // Properties
-        public string Title { get; set; }
-
+        // Public Properties
         public DateTime DateTimePublished { get; set; }
-        public string DateTimePublishedString {
-            get { return string.Format("Posted on {0} {1}.", DateTimePublished.ToShortDateString(), 
-                DateTimePublished.ToShortTimeString().ToLower()); } } 
 
         public string BodyOfPost { get; set; }
-        public User User { get; set; }
+        public string Title { get; set; }
+        public string UserID { get; set; }
+
+        [Newtonsoft.Json.JsonIgnore]
+        public string DateTimePublishedString
+        {
+            get { return string.Format("Posted on {0}.", DateTimePublished.ToString().ToLower()); }
+        } 
+
+        [Newtonsoft.Json.JsonIgnore]
+        public User Publisher { get; set; }
+
+        // Constructors
+        public BlogPost() : this("NIL", DateTime.Now, "NIL", new User()) {}
 
         public BlogPost(string title, DateTime dateTimePublished, string bodyOfPost, User user)
         {
             Title = title;
             DateTimePublished = dateTimePublished;
             BodyOfPost = bodyOfPost;
-            User = user;
+            Publisher = user;
+        }
+
+        // DEBUG PURPOSES
+        public override string ToString()
+        {
+            return string.Format("ID: {0}, Title: {1}, UserID: {2}, User: [{3}]", Id, Title, UserID, Publisher.ToString());
         }
     }
 }

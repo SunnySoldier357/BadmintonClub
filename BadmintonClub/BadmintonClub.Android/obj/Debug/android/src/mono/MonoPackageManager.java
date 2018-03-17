@@ -110,6 +110,7 @@ class MonoPackageManager_Resources {
 		"BadmintonClub.dll",
 		"FormsViewGroup.dll",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
 		"Microsoft.AppCenter.Analytics.dll",
@@ -117,6 +118,25 @@ class MonoPackageManager_Resources {
 		"Microsoft.AppCenter.Crashes.Android.Bindings.dll",
 		"Microsoft.AppCenter.Crashes.dll",
 		"Microsoft.AppCenter.dll",
+>>>>>>> GUI_Design
+=======
+		"Microsoft.Azure.Mobile.Client.dll",
+		"Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
+		"MvvmHelpers.dll",
+		"Newtonsoft.Json.dll",
+		"PCLCrypto.dll",
+		"PInvoke.BCrypt.dll",
+		"PInvoke.Kernel32.dll",
+		"PInvoke.NCrypt.dll",
+		"PInvoke.Windows.Core.dll",
+		"Plugin.Connectivity.Abstractions.dll",
+		"Plugin.Connectivity.dll",
+		"SQLitePCLRaw.batteries_green.dll",
+		"SQLitePCLRaw.batteries_v2.dll",
+		"SQLitePCLRaw.core.dll",
+		"SQLitePCLRaw.lib.e_sqlite3.dll",
+		"SQLitePCLRaw.provider.e_sqlite3.dll",
+		"Validation.dll",
 >>>>>>> GUI_Design
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
@@ -126,6 +146,7 @@ class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.Compat.dll",
 		"Xamarin.Android.Support.Core.UI.dll",
 		"Xamarin.Android.Support.Core.Utils.dll",
+		"Xamarin.Android.Support.CustomTabs.dll",
 		"Xamarin.Android.Support.Design.dll",
 		"Xamarin.Android.Support.Fragment.dll",
 		"Xamarin.Android.Support.Media.Compat.dll",

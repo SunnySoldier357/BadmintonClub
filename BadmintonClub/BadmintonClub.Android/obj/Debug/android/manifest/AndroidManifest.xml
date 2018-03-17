@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.BadmintonClub">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.BadmintonClub" android:installLocation="auto">
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="BadmintonClub.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <application android:label="Badminton Club" android:icon="@drawable/badmintonclublogo" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="BadmintonClub" android:theme="@style/MainTheme" android:name="md53fa26719889a72bc0266de120a3d8fe4.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:label="Web Authenticator" android:name="md5ff7ab77db4f245bffa5244a84a5a1bca.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="md5ff7ab77db4f245bffa5244a84a5a1bca.WebAuthenticatorActivity" />
+    <activity android:label="Web Authenticator Native Broswer" android:launchMode="singleTop" android:name="md5ff7ab77db4f245bffa5244a84a5a1bca.WebAuthenticatorNativeBrowserActivity" />
+    <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" />
+    <receiver android:enabled="true" android:label="Connectivity Plugin Broadcast Receiver" android:name="md592d74be4bac08a7af63848ae15d2f86e.ConnectivityChangeBroadcastReceiver" />
+    <service android:name="md59f70a99687498e7ba187118950981d26.KeepAliveService" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.BadmintonClub.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
@@ -28,6 +36,9 @@
     <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT" />
     <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
   </application>
+<<<<<<< HEAD
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+>>>>>>> GUI_Design
+=======
 >>>>>>> GUI_Design
 </manifest>

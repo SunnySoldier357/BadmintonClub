@@ -1,25 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BadmintonClub.Models
+﻿namespace BadmintonClub.Models
 {
-    public class Match
+    public class Match : TableData
     {
         // Public Properties
-        public string PlayerName { get; set; }
-        public string OpponentName { get; set; }
-        public int PlayerScore { get; set; }
         public int OpponentScore { get; set; }
+        public int PlayerScore { get; set; }
+        public int SeasonNumber { get; set; }
 
-        public string MatchWinner { get { return PlayerScore > OpponentScore ? PlayerName : OpponentName; } }
+        public string OpponentID { get; set; }
+        public string PlayerID { get; set; }
 
-        public Match(User player, User opponent, int playerScore, int opponentScore)
+        [Newtonsoft.Json.JsonIgnore]
+        public User Opponent { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        public User Player { get; set; }
+
+        // Constructor
+        public Match() : this("0", "0", 0, 0) { }
+
+        public Match(string playerID, string opponentID, int playerScore, int opponentScore)
         {
-            PlayerName = player.FullName;
-            OpponentName = opponent.FullName;
+            PlayerID = playerID;
+            OpponentID = opponentID;
             PlayerScore = playerScore;
             OpponentScore = opponentScore;
+        }
+
+        // Getters
+        public bool IsDraw()
+        {
+            return PlayerScore == OpponentScore;
+        }
+
+        public bool IsPlayerWinner()
+        {
+            return PlayerScore > OpponentScore;
         }
     }
 }

@@ -1,9 +1,13 @@
 {
   "version": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "2zBBYWsXSMncHfuVBJgu3TOMjgz+YHF4pO6u1VMxGdE92AEjOeXL69/2W1voRR5kWozxtf2DjTgLgbAroZc/yw==",
 =======
   "dgSpecHash": "rqs4Y7w+0nF870Zmo9A5boh7HTSHg8njTq4c1MUaCINRR+ejWUHVqpqEkFRgHFi8fW/lXbwkWiBU1v46pCs7Eg==",
+>>>>>>> GUI_Design
+=======
+  "dgSpecHash": "+2cQX1acqa9/v5eWkijajSKhAs+THkBM6y6vmlWkZJbmrlZTEoBufNcWDhkGB8rUq4oc75jFUQymq4qM4Aqa9g==",
 >>>>>>> GUI_Design
   "success": true
 }

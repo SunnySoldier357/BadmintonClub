@@ -1,6 +1,7 @@
 BadmintonClub
 FormsViewGroup
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Microsoft.AppCenter.Analytics.Android.Bindings
 Microsoft.AppCenter.Analytics
@@ -9,7 +10,26 @@ Microsoft.AppCenter.Crashes.Android.Bindings
 Microsoft.AppCenter.Crashes
 Microsoft.AppCenter
 >>>>>>> GUI_Design
+=======
+Microsoft.Azure.Mobile.Client
+Microsoft.Azure.Mobile.Client.SQLiteStore
+MvvmHelpers
+Newtonsoft.Json
+PCLCrypto
+PInvoke.BCrypt
+PInvoke.Kernel32
+PInvoke.NCrypt
+PInvoke.Windows.Core
+Plugin.Connectivity.Abstractions
+Plugin.Connectivity
+SQLitePCLRaw.batteries_green
+SQLitePCLRaw.batteries_v2
+SQLitePCLRaw.core
+SQLitePCLRaw.lib.e_sqlite3
+SQLitePCLRaw.provider.e_sqlite3
+>>>>>>> GUI_Design
 System.Runtime
+Validation
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common
 Xamarin.Android.Arch.Lifecycle.Runtime
@@ -18,6 +38,7 @@ Xamarin.Android.Support.Annotations
 Xamarin.Android.Support.Compat
 Xamarin.Android.Support.Core.UI
 Xamarin.Android.Support.Core.Utils
+Xamarin.Android.Support.CustomTabs
 Xamarin.Android.Support.Design
 Xamarin.Android.Support.Fragment
 Xamarin.Android.Support.Media.Compat
@@ -33,6 +54,15 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
-netstandard
+System.Diagnostics.Debug
+System.Diagnostics.Tools
+System.Threading.Tasks
+System.ObjectModel
+System.Dynamic.Runtime
+System.Collections
 System.ComponentModel
+System.Resources.ResourceManager
+System.Threading
+System.Globalization
+netstandard
 System.Reflection.Extensions

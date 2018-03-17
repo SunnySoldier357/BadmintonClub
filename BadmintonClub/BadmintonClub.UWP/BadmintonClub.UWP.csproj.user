@@ -8,9 +8,8 @@
     <Source>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</Source>
     <SmallTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</SmallTileSource>
     <MediumTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</MediumTileSource>
-    <WideTileSource>
-    </WideTileSource>
-    <LargeTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.png</LargeTileSource>
+    <WideTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.png</WideTileSource>
+    <LargeTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</LargeTileSource>
     <AppIconSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</AppIconSource>
     <SplashScreenSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</PackageLogoSource>

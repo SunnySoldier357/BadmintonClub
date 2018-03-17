@@ -141,6 +141,21 @@
     <BundleResource Include="Resources\hamburger.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\contacts.png" />
+    <BundleResource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\season.png" />
   </ItemGroup>
 </Project>

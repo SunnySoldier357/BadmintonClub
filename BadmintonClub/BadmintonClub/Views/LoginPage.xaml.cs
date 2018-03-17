@@ -10,26 +10,10 @@ namespace BadmintonClub.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
-        // Public Properties
-        public bool Test { get; set; } = false;
-        public ObservableObject<bool> PageBusy { get; }
-        public ObservableObject<string> LoadingMessage { get; }
-
         // Constructor
         public LoginPage()
 		{
 			InitializeComponent();
-            BindingContext = this;
-
-            PageBusy = new ObservableObject<bool>
-            {
-                Object = false
-            };
-
-            LoadingMessage = new ObservableObject<string>
-            {
-                Object = string.Empty
-            };
 
             // Padding for iOS to not cover status bar
             if (Device.RuntimePlatform == Device.iOS)
@@ -39,8 +23,7 @@ namespace BadmintonClub.Views
         // Event Handlers
         public async Task LogInButton_ClickedAsync(object sender, EventArgs e)
         {
-            PageBusy.Object = true;
-            LoadingMessage.Object = "Logging in...";
+            showLoading("Logging in...");
 
             resetErrorLabels();
             if (!(string.IsNullOrWhiteSpace(FullNameEntry.Text) || string.IsNullOrEmpty(LogInPasswordEntry.Text)))
@@ -60,8 +43,7 @@ namespace BadmintonClub.Views
                 {
                     if (bool.Parse(result[0].ToString()))
                     {
-                        PageBusy.Object = false;
-                        LoadingMessage.Object = string.Empty;
+                        resetBindings();
                         (Application.Current as App).StartMainApplication();
                     }
                     else
@@ -71,21 +53,19 @@ namespace BadmintonClub.Views
             else
                 showLabel(LogInErrorLabel, "Do not leave the fields empty!");
 
-            PageBusy.Object = false;
-            LoadingMessage.Object = string.Empty;
+            resetBindings();
         }
 
         public async Task SignUpButton_ClickedAsync(object sender, EventArgs e)
         {
-            PageBusy.Object = true;
-            LoadingMessage.Object = "Signing up...";
+            showLoading("Signing up...");
 
             resetErrorLabels();
 
             if (!(string.IsNullOrWhiteSpace(LastNameEntry.Text) || string.IsNullOrWhiteSpace(FirstNameEntry.Text)
                 || string.IsNullOrEmpty(SignUpPasswordEntry.Text) || string.IsNullOrWhiteSpace(ClubPINEntry.Text)))
             {
-                if (ClubPINEntry.Text?.Equals("testPIN") ?? false)
+                if (ClubPINEntry.Text?.Equals("shsbadmintonclub0110") ?? false)
                 {
                     var arguments = new
                     {
@@ -106,8 +86,7 @@ namespace BadmintonClub.Views
                         (Application.Current as App).SignedInUser = resultUser;
                         (Application.Current as App).SignedInUserId = resultUser.Id;
 
-                        PageBusy.Object = false;
-                        LoadingMessage.Object = string.Empty;
+                        resetBindings();
 
                         (Application.Current as App).StartMainApplication();
                     }
@@ -118,8 +97,7 @@ namespace BadmintonClub.Views
             else
                 showLabel(SignUpErrorLabel, "Do not leave the fields empty!");
 
-            PageBusy.Object = false;
-            LoadingMessage.Object = string.Empty;
+            resetBindings();
         }
 
         // Private Methods
@@ -132,6 +110,15 @@ namespace BadmintonClub.Views
                 result += item.Substring(0, 1).ToUpper() + item.Substring(1).ToLower() + " ";
 
             return result.Trim();
+        }
+
+        private void resetBindings()
+        {
+            LoadingStackLayout.IsVisible = false;
+            LoadingActivityIndicator.IsRunning = false;
+            LoadingMessageLabel.Text = string.Empty;
+            LogInButton.IsEnabled = true;
+            SignUpButton.IsEnabled = true;
         }
 
         private void resetErrorLabels()
@@ -151,6 +138,15 @@ namespace BadmintonClub.Views
             LogInPasswordEntry.Text = string.Empty;
             SignUpPasswordEntry.Text = string.Empty;
             ClubPINEntry.Text = string.Empty;
+        }
+
+        private void showLoading(string loadingMessage)
+        {
+            LoadingStackLayout.IsVisible = true;
+            LoadingActivityIndicator.IsRunning = true;
+            LoadingMessageLabel.Text = loadingMessage;
+            LogInButton.IsEnabled = false;
+            SignUpButton.IsEnabled = false;
         }
     }
 }

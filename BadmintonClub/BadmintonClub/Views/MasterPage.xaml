@@ -13,11 +13,11 @@
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type model:MasterPageItem}">
                     <model:MasterPageItem Title="Blog" 
-                                          IconSource="hamburger.png" 
+                                          IconSource="blog.png" 
                                           TargetType="{x:Type local:BlogPage}" />
 
                     <model:MasterPageItem Title="Season" 
-                                          IconSource="hamburger.png" 
+                                          IconSource="season.png" 
                                           TargetType="{x:Type local:SeasonPage}" />
 
                     <model:MasterPageItem Title="Profile"

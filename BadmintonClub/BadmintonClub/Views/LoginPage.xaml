@@ -153,13 +153,14 @@
                            IsVisible="False"/>
                 </Grid>
 
-                <StackLayout IsVisible="{Binding PageBusy.Object}" 
+                <StackLayout x:Name="LoadingStackLayout" 
+                             IsVisible="False" 
                              Grid.RowSpan="2"
                              Style="{StaticResource LoadingStackLayoutStyle}">
-                    <ActivityIndicator IsRunning="{Binding PageBusy.Object}"
+                    <ActivityIndicator x:Name="LoadingActivityIndicator" 
                                        Color="LimeGreen"/>
 
-                    <Label Text="{Binding LoadingMessage.Object}"
+                    <Label x:Name="LoadingMessageLabel" 
                            HorizontalOptions="Center"
                            TextColor="White"
                            Style="{DynamicResource ListItemTextStyle}"/>

@@ -36,7 +36,7 @@ namespace BadmintonClub.Views
             {
                 Text = "Log Out",
                 Command = new Command(() => (Application.Current as App).RestartApp()),
-                Icon = "contacts.png"
+                Icon = "logout.png"
             });
         }
     }

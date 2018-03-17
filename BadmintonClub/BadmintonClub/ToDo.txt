@@ -1,11 +1,8 @@
 ﻿Main things that I have to do:
  - New Season Functionality
- - Profile Page loading as well
 
 Things that are necessary before release:
- - Loading notification for logging in and signing up
  - Check all icons
- - Set up an actual club PIN
 
                                                    POSSIBLE IMPOVEMENTS
 

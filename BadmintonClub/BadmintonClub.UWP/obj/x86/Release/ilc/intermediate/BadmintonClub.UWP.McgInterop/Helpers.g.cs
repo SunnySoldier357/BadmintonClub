@@ -1231,7 +1231,8 @@ namespace __Interop
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
-					int arg1)
+					void* arg1, 
+					int arg2)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -1240,13 +1241,23 @@ namespace __Interop
 		internal static int StdCall__61(
 					global::System.IntPtr pfn, 
 					void* pthis, 
-					global::Windows.UI.Xaml.GridLength arg0)
+					void* arg0, 
+					int arg1)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
 		}
 
 		internal static int StdCall__62(
+					global::System.IntPtr pfn, 
+					void* pthis, 
+					global::Windows.UI.Xaml.GridLength arg0)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__63(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Color arg0, 
@@ -1256,7 +1267,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__63(
+		internal static int StdCall__64(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Color arg0)
@@ -1265,7 +1276,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__64(
+		internal static int StdCall__65(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1275,7 +1286,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__65(
+		internal static int StdCall__66(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1288,7 +1299,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__66(
+		internal static int StdCall__67(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Xaml.Duration arg0)
@@ -1297,7 +1308,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__67(
+		internal static int StdCall__68(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Xaml.Media.Animation.RepeatBehavior arg0)
@@ -1306,7 +1317,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__68(
+		internal static int StdCall__69(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1316,7 +1327,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__69(
+		internal static int StdCall__70(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					void* arg0, 
@@ -1328,7 +1339,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__70(
+		internal static int StdCall__71(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Xaml.Media.Animation.KeyTime arg0)
@@ -1337,7 +1348,7 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__71(
+		internal static int StdCall__72(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					global::Windows.UI.Xaml.CornerRadius arg0)
@@ -1346,22 +1357,11 @@ namespace __Interop
 			return 0;
 		}
 
-		internal static int StdCall__72(
+		internal static int StdCall__73(
 					global::System.IntPtr pfn, 
 					void* pthis, 
 					double arg0, 
 					double arg1)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__73(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					void* arg0, 
-					void* arg1, 
-					int arg2)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;
@@ -3155,202 +3155,202 @@ namespace __Interop
 
 		public delegate void AddrOfTarget194(
 					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs a2);
-
-		public delegate void AddrOfTarget195(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs a2);
-
-		public delegate void AddrOfTarget196(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
-					global::Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs a2);
-
-		public delegate void AddrOfTarget197(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.TextChangedEventArgs a2);
-
-		public delegate void AddrOfTarget198(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ContextMenuEventArgs a2);
-
-		public delegate void AddrOfTarget199(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.TextControlPasteEventArgs a2);
-
-		public delegate void AddrOfTarget200(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs a2);
-
-		public delegate void AddrOfTarget201(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs a2);
-
-		public delegate void AddrOfTarget202(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs a2);
-
-		public delegate void AddrOfTarget203(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs a2);
-
-		public delegate void AddrOfTarget204(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs a2);
-
-		public delegate void AddrOfTarget205(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextControlCopyingToClipboardEventArgs a2);
-
-		public delegate void AddrOfTarget206(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextControlCuttingToClipboardEventArgs a2);
-
-		public delegate void AddrOfTarget207(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBox a1, 
-					global::Windows.UI.Xaml.Controls.TextBoxBeforeTextChangingEventArgs a2);
-
-		public delegate void AddrOfTarget208(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs a2);
-
-		public delegate void AddrOfTarget209(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs a2);
-
-		public delegate void AddrOfTarget210(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.VisualStateChangedEventArgs a2);
-
-		public delegate void AddrOfTarget211(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Documents.TextElement a1, 
-					global::Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs a2);
-
-		public delegate void AddrOfTarget212(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Documents.TextElement a1, 
-					global::Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs a2);
-
-		public delegate void AddrOfTarget213(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Documents.TextElement a1, 
-					global::Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs a2);
-
-		public delegate void AddrOfTarget214(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.TextBlock a1, 
-					global::Windows.UI.Xaml.Controls.IsTextTrimmedChangedEventArgs a2);
-
-		public delegate void AddrOfTarget215(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.ItemClickEventArgs a2);
-
-		public delegate void AddrOfTarget216(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.DragItemsStartingEventArgs a2);
-
-		public delegate void AddrOfTarget217(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventArgs a2);
-
-		public delegate void AddrOfTarget218(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
-					global::Windows.UI.Xaml.Controls.ContainerContentChangingEventArgs a2);
-
-		public delegate void AddrOfTarget219(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
-					global::Windows.UI.Xaml.Controls.DragItemsCompletedEventArgs a2);
-
-		public delegate void AddrOfTarget220(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
-					global::Windows.UI.Xaml.Controls.ChoosingItemContainerEventArgs a2);
-
-		public delegate void AddrOfTarget221(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
-					global::Windows.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs a2);
-
-		public delegate void AddrOfTarget222(
-					global::System.__ComObject a0, 
-					global::Windows.Foundation.Collections.IObservableVector<global::Windows.UI.Xaml.Controls.ICommandBarElement> a1, 
-					global::Windows.Foundation.Collections.IVectorChangedEventArgs a2);
-
-		public delegate void AddrOfTarget223(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.CommandBar a1, 
-					global::Windows.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs a2);
-
-		public delegate void AddrOfTarget224(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs a2);
-
-		public delegate void AddrOfTarget225(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.SplitView a1, 
-					global::Windows.UI.Xaml.Controls.SplitViewPaneClosingEventArgs a2);
-
-		public delegate void AddrOfTarget226(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.SplitView a1, 
-					object a2);
-
-		public delegate void AddrOfTarget227(
-					global::System.__ComObject a0, 
-					object a1, 
-					global::Windows.UI.Xaml.ExceptionRoutedEventArgs a2);
-
-		public delegate void AddrOfTarget228(
-					global::System.__ComObject a0, 
-					global::Windows.UI.Xaml.Controls.Pivot a1, 
-					global::Windows.UI.Xaml.Controls.PivotItemEventArgs a2);
-
-		public delegate void AddrOfTarget229(
-					global::System.__ComObject a0, 
 					global::Windows.UI.Xaml.ApplicationInitializationCallbackParams a1);
 
-		public delegate void AddrOfTarget230(
+		public delegate void AddrOfTarget195(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.UI.Xaml.UnhandledExceptionEventArgs a2);
 
-		public delegate void AddrOfTarget231(
+		public delegate void AddrOfTarget196(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.ApplicationModel.SuspendingEventArgs a2);
 
-		public delegate void AddrOfTarget232(
+		public delegate void AddrOfTarget197(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.ApplicationModel.LeavingBackgroundEventArgs a2);
 
-		public delegate void AddrOfTarget233(
+		public delegate void AddrOfTarget198(
 					global::System.__ComObject a0, 
 					object a1, 
 					global::Windows.ApplicationModel.EnteredBackgroundEventArgs a2);
+
+		public delegate void AddrOfTarget199(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs a2);
+
+		public delegate void AddrOfTarget200(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs a2);
+
+		public delegate void AddrOfTarget201(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBox a1, 
+					global::Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs a2);
+
+		public delegate void AddrOfTarget202(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.TextChangedEventArgs a2);
+
+		public delegate void AddrOfTarget203(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.ContextMenuEventArgs a2);
+
+		public delegate void AddrOfTarget204(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.TextControlPasteEventArgs a2);
+
+		public delegate void AddrOfTarget205(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionStartedEventArgs a2);
+
+		public delegate void AddrOfTarget206(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs a2);
+
+		public delegate void AddrOfTarget207(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextCompositionEndedEventArgs a2);
+
+		public delegate void AddrOfTarget208(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.CandidateWindowBoundsChangedEventArgs a2);
+
+		public delegate void AddrOfTarget209(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextBoxTextChangingEventArgs a2);
+
+		public delegate void AddrOfTarget210(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextControlCopyingToClipboardEventArgs a2);
+
+		public delegate void AddrOfTarget211(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextControlCuttingToClipboardEventArgs a2);
+
+		public delegate void AddrOfTarget212(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBox a1, 
+					global::Windows.UI.Xaml.Controls.TextBoxBeforeTextChangingEventArgs a2);
+
+		public delegate void AddrOfTarget213(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs a2);
+
+		public delegate void AddrOfTarget214(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.ScrollViewerViewChangingEventArgs a2);
+
+		public delegate void AddrOfTarget215(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.VisualStateChangedEventArgs a2);
+
+		public delegate void AddrOfTarget216(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs a2);
+
+		public delegate void AddrOfTarget217(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs a2);
+
+		public delegate void AddrOfTarget218(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Documents.TextElement a1, 
+					global::Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs a2);
+
+		public delegate void AddrOfTarget219(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.TextBlock a1, 
+					global::Windows.UI.Xaml.Controls.IsTextTrimmedChangedEventArgs a2);
+
+		public delegate void AddrOfTarget220(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.ItemClickEventArgs a2);
+
+		public delegate void AddrOfTarget221(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.DragItemsStartingEventArgs a2);
+
+		public delegate void AddrOfTarget222(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.SemanticZoomViewChangedEventArgs a2);
+
+		public delegate void AddrOfTarget223(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
+					global::Windows.UI.Xaml.Controls.ContainerContentChangingEventArgs a2);
+
+		public delegate void AddrOfTarget224(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
+					global::Windows.UI.Xaml.Controls.DragItemsCompletedEventArgs a2);
+
+		public delegate void AddrOfTarget225(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
+					global::Windows.UI.Xaml.Controls.ChoosingItemContainerEventArgs a2);
+
+		public delegate void AddrOfTarget226(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.ListViewBase a1, 
+					global::Windows.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs a2);
+
+		public delegate void AddrOfTarget227(
+					global::System.__ComObject a0, 
+					global::Windows.Foundation.Collections.IObservableVector<global::Windows.UI.Xaml.Controls.ICommandBarElement> a1, 
+					global::Windows.Foundation.Collections.IVectorChangedEventArgs a2);
+
+		public delegate void AddrOfTarget228(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.CommandBar a1, 
+					global::Windows.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs a2);
+
+		public delegate void AddrOfTarget229(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs a2);
+
+		public delegate void AddrOfTarget230(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.SplitView a1, 
+					global::Windows.UI.Xaml.Controls.SplitViewPaneClosingEventArgs a2);
+
+		public delegate void AddrOfTarget231(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.SplitView a1, 
+					object a2);
+
+		public delegate void AddrOfTarget232(
+					global::System.__ComObject a0, 
+					object a1, 
+					global::Windows.UI.Xaml.ExceptionRoutedEventArgs a2);
+
+		public delegate void AddrOfTarget233(
+					global::System.__ComObject a0, 
+					global::Windows.UI.Xaml.Controls.Pivot a1, 
+					global::Windows.UI.Xaml.Controls.PivotItemEventArgs a2);
 
 		public delegate void AddrOfTarget234(
 					global::System.__ComObject a0, 

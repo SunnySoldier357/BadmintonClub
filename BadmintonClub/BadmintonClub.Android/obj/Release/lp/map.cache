@@ -42,3 +42,15 @@ Xamarin.Forms.Core
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
+System.Diagnostics.Debug
+System.Diagnostics.Tools
+System.Threading.Tasks
+System.ObjectModel
+System.Dynamic.Runtime
+System.Collections
+System.ComponentModel
+System.Resources.ResourceManager
+System.Threading
+System.Globalization
+netstandard
+System.Reflection.Extensions

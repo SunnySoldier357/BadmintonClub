@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.4/",
-    "signature": "0f394c78ec242861b7fa3d9a8088bde1d323de4c"
+    "signature": "be2754d169532ba76aa64ab0691d155aadf8c567"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,18 +9,32 @@
     ".NETStandard,Version=v1.4/": {
       "BadmintonClub/1.0.0": {
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "1.5.0",
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "Microsoft.Azure.Mobile.Client.SQLiteStore": "4.0.2",
           "Microsoft.CSharp": "4.4.1",
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "11.0.1",
           "Refractored.MvvmHelpers": "1.3.0",
-          "System.Data.SqlClient": "4.4.2",
+          "System.Data.SqlClient": "4.4.3",
           "Xam.Plugin.Connectivity": "3.1.1",
           "Xamarin.Forms": "2.5.0.280555"
         },
         "runtime": {
           "BadmintonClub.dll": {}
+        }
+      },
+      "Microsoft.AppCenter/1.5.0": {
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/1.5.0": {
+        "dependencies": {
+          "Microsoft.AppCenter": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll": {}
         }
       },
       "Microsoft.Azure.Mobile.Client/4.0.2": {
@@ -299,7 +313,7 @@
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
       },
-      "System.Data.SqlClient/4.4.2": {
+      "System.Data.SqlClient/4.4.3": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "System.Data.Common": "4.3.0",
@@ -1005,6 +1019,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.AppCenter/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b5zwK2qn1AddEwOHDpJHJK1umZDlq4/GmeMLqe9ez6tmyjkLu1umb/MhV85v3dvSyrKylAk7LoLuwd2QsEAjMA==",
+      "path": "microsoft.appcenter/1.5.0",
+      "hashPath": "microsoft.appcenter.1.5.0.nupkg.sha512"
+    },
+    "Microsoft.AppCenter.Analytics/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J4VNZj9PO+V0XiPAsGXoTEcco+ge5QarMrv/E8fRvYGpXjnPcQDVMSrfSj+qZ9W3C/s0xKsvoh1jogR5lC4g/g==",
+      "path": "microsoft.appcenter.analytics/1.5.0",
+      "hashPath": "microsoft.appcenter.analytics.1.5.0.nupkg.sha512"
+    },
     "Microsoft.Azure.Mobile.Client/4.0.2": {
       "type": "package",
       "serviceable": true,
@@ -1264,12 +1292,12 @@
       "path": "system.data.common/4.3.0",
       "hashPath": "system.data.common.4.3.0.nupkg.sha512"
     },
-    "System.Data.SqlClient/4.4.2": {
+    "System.Data.SqlClient/4.4.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Bv5J2EBAdP7FSgehKYN4O6iw1AaZrw4rFFqwt9vZSjRvC70FpwP2d9UG4aTaI2wh3vfrBKK+tjewowGM2Y6c1w==",
-      "path": "system.data.sqlclient/4.4.2",
-      "hashPath": "system.data.sqlclient.4.4.2.nupkg.sha512"
+      "sha512": "sha512-D1hEOS1oPLJ6WcGCzpTWe8SauWVxnDoDTUWhv5XCNdRm/QeSUk4BQ3ZDe7BH+zNVHDBkPYjVzpVjnCl43eOSGg==",
+      "path": "system.data.sqlclient/4.4.3",
+      "hashPath": "system.data.sqlclient.4.4.3.nupkg.sha512"
     },
     "System.Diagnostics.Debug/4.3.0": {
       "type": "package",

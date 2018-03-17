@@ -4,7 +4,7 @@
     <AppxPackageIsForStore>False</AppxPackageIsForStore>
     <AppxShowAllApps>False</AppxShowAllApps>
     <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
     <Source>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</Source>
     <SmallTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</SmallTileSource>
     <MediumTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</MediumTileSource>

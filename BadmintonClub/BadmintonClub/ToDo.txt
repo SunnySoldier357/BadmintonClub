@@ -1,10 +1,4 @@
-﻿Main things that I have to do:
- - New Season Functionality
-
-Things that are necessary before release:
- - Check all icons
-
-                                                   POSSIBLE IMPOVEMENTS
+﻿                                                   POSSIBLE IMPOVEMENTS
 
 UI
  - No connection (Offline Stack)
@@ -24,6 +18,7 @@ User Input
  - BlogPost, when entering title automatically capitalises all words except prepositions, maybe even the same for the body of post.
 
 Features
+ - New Season Functionality
  - Edit BlogPosts
 
 Data Processing

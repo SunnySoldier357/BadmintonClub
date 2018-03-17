@@ -133,7 +133,8 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <StackLayout Grid.Row="1">
+                <StackLayout x:Name="GlossaryStackLayout" 
+                             Grid.Row="1">
                     <Label Text="GLOSSARY" />
                     <StackLayout Orientation="Horizontal"
                                  Spacing="10"
@@ -296,14 +297,23 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start">
+                        <Label Text="Season Match?"
+                               Margin="5,0,5,0"/>
+
+                        <Switch x:Name="SeasonMatchSwitch"
+                                HorizontalOptions="Start"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="End">
                         <Button x:Name="MatchSaveButton"
                                 Clicked="MatchSaveButton_Clicked"
-                                Text="Save" />
+                                Text="Save"/>
 
                         <Button x:Name="MatchCancelButton"
                                 Clicked="MatchCancelButton_Clicked" 
-                                Text="Cancel" />
+                                Text="Cancel"/>
                     </StackLayout>
 
                     <Label x:Name="ErrorLabel"

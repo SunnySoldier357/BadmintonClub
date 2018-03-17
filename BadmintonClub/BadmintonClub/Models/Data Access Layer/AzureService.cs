@@ -68,7 +68,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
-        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerName, string opponentName)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerName, string opponentName, bool isSeasonMatch)
         {
             int seasonNumber = await GetSeasonNumberAsync();
 
@@ -85,23 +85,33 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
             // Updating player's statistics according to Match results
             match.Player = await userTable.LookupAsync(match.PlayerID);
-            var query = from season in seasonDataTable
-                        where season.UserID == match.PlayerID
-                        select season;
-            match.Player.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
+            if (isSeasonMatch)
+            {
+                var query = from season in seasonDataTable
+                            where season.UserID == match.PlayerID
+                            select season;
+                match.Player.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
+                match.Player.UserSeasonData.AddMatch(match, true);
+            }
             match.Player.AddMatch(match, true);
-            match.Player.UserSeasonData.AddMatch(match, true);
 
             match.Opponent = await userTable.LookupAsync(match.OpponentID);
-            query = from season in seasonDataTable
-                    where season.UserID == match.OpponentID
-                    select season;
-            match.Opponent.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
-            match.Opponent.AddMatch(match, false);
-            match.Opponent.UserSeasonData.AddMatch(match, false);
+            if (isSeasonMatch)
+            {
+                var query = from season in seasonDataTable
+                            where season.UserID == match.OpponentID
+                            select season;
+                match.Opponent.UserSeasonData = (await seasonDataTable.ReadAsync(query)).FirstOrDefault();
 
-            await seasonDataTable.UpdateAsync(match.Player.UserSeasonData);
-            await seasonDataTable.UpdateAsync(match.Opponent.UserSeasonData);
+                match.Opponent.UserSeasonData.AddMatch(match, false);
+            }
+            match.Opponent.AddMatch(match, false);
+
+            if (isSeasonMatch)
+            {
+                await seasonDataTable.UpdateAsync(match.Player.UserSeasonData);
+                await seasonDataTable.UpdateAsync(match.Opponent.UserSeasonData);
+            }
             await userTable.UpdateAsync(match.Player);
             await userTable.UpdateAsync(match.Opponent);
 

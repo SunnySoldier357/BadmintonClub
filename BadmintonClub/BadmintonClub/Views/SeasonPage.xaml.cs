@@ -80,6 +80,7 @@ namespace BadmintonClub.Views
                                 PlayerScore = PlayerScoreEntry.Text.Trim(),
                                 OpponentName = OpponentNamePicker.SelectedItem.ToString().Trim(),
                                 PlayerName = PlayerNamePicker.SelectedItem.ToString().Trim(),
+                                IsSeasonMatch = SeasonMatchSwitch.IsToggled
                             });
                             switchToMainView();
                         }
@@ -110,6 +111,7 @@ namespace BadmintonClub.Views
 
         private void switchToEditView()
         {
+            GlossaryStackLayout.IsVisible = false;
             seasonDataViewModel.AddingNewMatch = true;
             seasonDataViewModel.NewMatchColumnWidth = GridLength.Star;
             if (Device.RuntimePlatform == Device.UWP && Application.Current.MainPage.Width >= 1000)
@@ -126,6 +128,7 @@ namespace BadmintonClub.Views
 
         private void switchToMainView()
         {
+            GlossaryStackLayout.IsVisible = true;
             seasonDataViewModel.AddingNewMatch = false;
             seasonDataViewModel.NewMatchColumnWidth = 0;
             seasonDataViewModel.ListViewColumnWidth = GridLength.Star;

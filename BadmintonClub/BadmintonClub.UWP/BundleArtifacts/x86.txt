@@ -1,0 +1,2 @@
+MainPackage=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x86\Release\BadmintonClub.UWP_1.0.1.0_x86.appx
+SymbolPackage=C:\Users\sande_gblcen6\Desktop\BadmintonClub.UWP_1.0.1.0_Test\BadmintonClub.UWP_1.0.1.0_x86.appxsym

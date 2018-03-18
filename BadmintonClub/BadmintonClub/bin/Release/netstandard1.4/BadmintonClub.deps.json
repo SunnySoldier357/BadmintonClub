@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.4/",
-    "signature": "be2754d169532ba76aa64ab0691d155aadf8c567"
+    "signature": "994862ae5ddf482830531daac0b65345401937eb"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,7 @@
       "BadmintonClub/1.0.0": {
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "1.5.0",
+          "Microsoft.AppCenter.Crashes": "1.5.0",
           "Microsoft.Azure.Mobile.Client": "4.0.2",
           "Microsoft.Azure.Mobile.Client.SQLiteStore": "4.0.2",
           "Microsoft.CSharp": "4.4.1",
@@ -35,6 +36,14 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/1.5.0": {
+        "dependencies": {
+          "Microsoft.AppCenter": "1.5.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll": {}
         }
       },
       "Microsoft.Azure.Mobile.Client/4.0.2": {
@@ -1032,6 +1041,13 @@
       "sha512": "sha512-J4VNZj9PO+V0XiPAsGXoTEcco+ge5QarMrv/E8fRvYGpXjnPcQDVMSrfSj+qZ9W3C/s0xKsvoh1jogR5lC4g/g==",
       "path": "microsoft.appcenter.analytics/1.5.0",
       "hashPath": "microsoft.appcenter.analytics.1.5.0.nupkg.sha512"
+    },
+    "Microsoft.AppCenter.Crashes/1.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U3urryubALgLzAp2KUn1E1q60AfBBQNu9tsed6u6jJZXNUPSOFMenejtWJA25fwXdV5+4ec17P7yCH7dpng5dA==",
+      "path": "microsoft.appcenter.crashes/1.5.0",
+      "hashPath": "microsoft.appcenter.crashes.1.5.0.nupkg.sha512"
     },
     "Microsoft.Azure.Mobile.Client/4.0.2": {
       "type": "package",

@@ -19,11 +19,63 @@
         <ScrollView Margin="20">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid RowSpacing="30"
+                      ColumnSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.ColumnSpan="2" 
+                           Text="Log in"
+                           FontSize="Large"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Grid.Row="1"
+                           Text="Full Name:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="FullNameEntry"
+                           Grid.Row="1"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Label Grid.Row="2"
+                           Text="Password:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="LogInPasswordEntry"
+                           Grid.Row="2"
+                           IsPassword="True"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Button x:Name="LogInButton"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            Text="Log In"
+                            Clicked="LogInButton_ClickedAsync"/>
+
+                    <Label x:Name="LogInErrorLabel"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           TextColor="Red"
+                           IsVisible="False"/>
+                </Grid>
+
+                <Grid Grid.Row="1" 
+                      RowSpacing="30"
                       ColumnSpacing="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -101,57 +153,7 @@
                            IsVisible="False"/>
                 </Grid>
 
-                <Grid Grid.Row="1" 
-                      RowSpacing="30"
-                      ColumnSpacing="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Label Grid.ColumnSpan="2" 
-                           Text="Log in"
-                           FontSize="Large"
-                           FontAttributes="Bold" 
-                           HorizontalOptions="Center"/>
-
-                    <Label Grid.Row="1"
-                           Text="Full Name:"
-                           VerticalOptions="Center"/>
-
-                    <Entry x:Name="FullNameEntry"
-                           Grid.Row="1"
-                           Style="{StaticResource GirdEntryStyle}"/>
-
-                    <Label Grid.Row="2"
-                           Text="Password:"
-                           VerticalOptions="Center"/>
-
-                    <Entry x:Name="LogInPasswordEntry"
-                           Grid.Row="2"
-                           IsPassword="True"
-                           Style="{StaticResource GirdEntryStyle}"/>
-
-                    <Button x:Name="LogInButton"
-                            Grid.Row="3"
-                            Grid.ColumnSpan="2"
-                            Text="Log In"
-                            Clicked="LogInButton_ClickedAsync"/>
-
-                    <Label x:Name="LogInErrorLabel"
-                           Grid.Row="4"
-                           Grid.ColumnSpan="2"
-                           TextColor="Red"
-                           IsVisible="False"/>
-                </Grid>
+                
 
                 <StackLayout x:Name="LoadingStackLayout" 
                              IsVisible="False" 

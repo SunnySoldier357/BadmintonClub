@@ -10,6 +10,9 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+using BadmintonClub.ViewModels;
 
 [assembly: Dependency(typeof(AzureService))]
 namespace BadmintonClub.Models.Data_Access_Layer
@@ -28,32 +31,10 @@ namespace BadmintonClub.Models.Data_Access_Layer
         // Public Properties
         public MobileServiceClient Client { get; set; }
 
-        // Constructor
-        public AzureService()
-        {
-            string appUrl = "https://badmintonclub.azurewebsites.net";
-            Client = new MobileServiceClient(appUrl);
-
-            string path = "badmintonclubrecords.db";
-            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
-            var store = new MobileServiceSQLiteStore(path);
-
-            store.DefineTable<BlogPost>();
-            store.DefineTable<Match>();
-            store.DefineTable<SeasonData>();
-            store.DefineTable<User>();
-
-            Client.SyncContext.InitializeAsync(store);
-
-            blogPostTable = Client.GetSyncTable<BlogPost>();
-            matchTable = Client.GetSyncTable<Match>();
-            seasonDataTable = Client.GetSyncTable<SeasonData>();
-            userTable = Client.GetSyncTable<User>();
-        }
-
         // Public Methods
         public async Task<BlogPost> AddBlogPostAsync(string title, string bodyOfPost)
         {
+            Analytics.TrackEvent("Adding a Blog Post");
             BlogPost blogpost = new BlogPost()
             {
                 Title = title,
@@ -68,9 +49,11 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return blogpost;
         }
 
-        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerName, string opponentName, bool isSeasonMatch)
+        public async Task<Match> AddMatchAsync(int playerScore, int opponentScore, string playerName, string opponentName, bool isSeasonMatch, bool newSeason)
         {
-            int seasonNumber = await GetSeasonNumberAsync();
+            Analytics.TrackEvent("Adding a Match");
+            int tempSsnNumber = await GetSeasonNumberAsync();
+            int seasonNumber = newSeason ? tempSsnNumber + 1 : tempSsnNumber;
 
             Match match = new Match()
             {
@@ -78,10 +61,13 @@ namespace BadmintonClub.Models.Data_Access_Layer
                 OpponentScore = opponentScore,
                 OpponentID = await GetUserIdFromNameAsync(opponentName),
                 PlayerID = await GetUserIdFromNameAsync(playerName),
-                SeasonNumber = seasonNumber
+                SeasonNumber = isSeasonMatch ? seasonNumber : 0
             };
 
             await matchTable.InsertAsync(match);
+
+            if (newSeason)
+                await resetAllSeasonDataAsync();
 
             // Updating player's statistics according to Match results
             match.Player = await userTable.LookupAsync(match.PlayerID);
@@ -123,6 +109,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<User> AddUserAsync(string firstName, string lastName, string password, bool competitive)
         {
+            Analytics.TrackEvent("Adding a User");
             User user = new User()
             {
                 Title = "Member",
@@ -156,6 +143,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
 
         public async Task<List<BlogPost>> GetBlogPostsAsync()
         {
+            Analytics.TrackEvent("Getting all Blog Posts");
             var data = await blogPostTable.ToListAsync();
 
             foreach (var item in data)
@@ -167,17 +155,27 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return data;
         }
 
-        public async Task<IEnumerable<Match>> GetMatchesAsync()
+        public async Task<List<Match>> GetMatchesAsync()
         {
+            Analytics.TrackEvent("Getting all Matches");
             await SyncAllDataTablesAsync();
 
-            var data = await matchTable.ToEnumerableAsync();
+            var data = await matchTable.ToListAsync();
+
+            foreach (var item in data)
+            {
+                var result = await userTable.LookupAsync(item.PlayerID);
+                item.Player = result;
+                result = await userTable.LookupAsync(item.OpponentID);
+                item.Opponent = result;
+            }
 
             return data;
         }
 
         public async Task<List<SeasonData>> GetSeasonDataAsync()
         {
+            Analytics.TrackEvent("Getting all Season Data");
             var data = await seasonDataTable.ToListAsync();
 
             foreach (var item in data)
@@ -193,7 +191,10 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             var matches = await matchTable.ToEnumerableAsync();
 
-            return matches.Count() == 0 ? 1 : matches.Max(match => match.SeasonNumber);
+            int max = matches.Count() == 0 ? 1 : matches.Max(match => match.SeasonNumber);
+            SeasonDataViewModel.SeasonNumber = max;
+
+            return max;
         }
 
         public async Task<User> GetUserFromIdAsync(string id)
@@ -212,18 +213,47 @@ namespace BadmintonClub.Models.Data_Access_Layer
             return result.First();
         }
 
-        public async Task<IEnumerable<User>> GetUsersAsync()
+        public async Task<List<User>> GetUsersAsync()
         {
+            Analytics.TrackEvent("Getting all Users");
             await SyncAllDataTablesAsync();
 
             var data = await userTable
                 .OrderByDescending(user => user.FirstName)
-                .ToEnumerableAsync();
+                .ToListAsync();
             return data;
+        }
+
+        public async Task InitialiseAsync()
+        {
+            if (Client?.SyncContext?.IsInitialized ?? false)
+                return;
+
+            Analytics.TrackEvent("Initialising AzureService");
+
+            string appUrl = "https://badmintonclub.azurewebsites.net";
+            Client = new MobileServiceClient(appUrl);
+
+            string path = "badmintonclubrecords.db";
+            path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
+            var store = new MobileServiceSQLiteStore(path);
+
+            store.DefineTable<BlogPost>();
+            store.DefineTable<Match>();
+            store.DefineTable<SeasonData>();
+            store.DefineTable<User>();
+
+            await Client.SyncContext.InitializeAsync(store);
+
+            blogPostTable = Client.GetSyncTable<BlogPost>();
+            matchTable = Client.GetSyncTable<Match>();
+            seasonDataTable = Client.GetSyncTable<SeasonData>();
+            userTable = Client.GetSyncTable<User>();
         }
 
         public async Task<bool> LoginAsync(string fullName, string password)
         {
+            Analytics.TrackEvent("Logging in");
             var query = from user in userTable
                         where (user.FirstName + " " + user.LastName) == fullName
                                 && user.Password == password
@@ -252,6 +282,13 @@ namespace BadmintonClub.Models.Data_Access_Layer
         /// <returns></returns>
         public async Task SyncDataTablesAsync(bool[] syncBools)
         {
+            Analytics.TrackEvent("Syncing Data Tables", new Dictionary<string, string>
+            {
+                { "Sync BlogPosts", syncBools[0].ToString() },
+                { "Sync Matches", syncBools[1].ToString() },
+                { "Sync SeasonData", syncBools[2].ToString() },
+                { "Sync Users", syncBools[3].ToString() }
+            });
             try
             {
                 await Client.SyncContext.PushAsync();
@@ -275,7 +312,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                                 select match;
 
                     (Application.Current as App).SignedInUser.Matches.Clear();
-                    var data = await matchTable.ReadAsync(query);
+                    var data = (await matchTable.ReadAsync(query)).ToList();
                     foreach (var item in data)
                     {
                         item.Player = await userTable.LookupAsync(item.PlayerID);
@@ -286,12 +323,17 @@ namespace BadmintonClub.Models.Data_Access_Layer
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "AzureService.SyncDataTablesAsync()" }
+                });
                 Debug.WriteLine(ex.Message);
             }
         }
 
         public async Task SyncAllDataTablesAsync()
         {
+            Analytics.TrackEvent("Syncing all Data Tables");
             try
             {
                 // Device is offline, skip!
@@ -315,7 +357,7 @@ namespace BadmintonClub.Models.Data_Access_Layer
                                 select match;
 
                     (Application.Current as App).SignedInUser.Matches.Clear();
-                    var data = await matchTable.ReadAsync(query);
+                    var data = (await matchTable.ReadAsync(query)).ToList();
                     foreach (var item in data)
                     {
                         item.Player = await userTable.LookupAsync(item.PlayerID);
@@ -328,6 +370,11 @@ namespace BadmintonClub.Models.Data_Access_Layer
             }
             catch (MobileServicePushFailedException ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "AzureService.SyncAllDataTablesAsync()" },
+                    { "Issue", "Push to Azure SQL Database failed."}
+                });
                 // Simple error/conflict handling
                 if (ex.PushResult != null)
                 {
@@ -351,7 +398,27 @@ namespace BadmintonClub.Models.Data_Access_Layer
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "AzureService.SyncAllDataTablesAsync()" }
+                });
                 Debug.WriteLine(ex);
+            }
+        }
+
+        // Private Methods
+        private async Task resetAllSeasonDataAsync()
+        {
+            var result = await seasonDataTable.ToListAsync();
+
+            foreach (var item in result)
+            {
+                item.GamesDrawn = 0;
+                item.GamesPlayed = 0;
+                item.GamesWon = 0;
+                item.PointsAgainst = 0;
+                item.PointsFor = 0;
+                item.PointsInCurrentSeason = 0;
             }
         }
     }

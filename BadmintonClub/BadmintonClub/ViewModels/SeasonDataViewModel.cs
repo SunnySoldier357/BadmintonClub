@@ -1,5 +1,6 @@
 ﻿using BadmintonClub.Models;
 using BadmintonClub.Models.Data_Access_Layer;
+using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace BadmintonClub.ViewModels
 {
     public class SeasonDataViewModel : BaseViewModel
     {
+        // Public Static Properties
+        public static int SeasonNumber = 1;
+
         // Private Properties
         private bool addingNewMatch;
 
@@ -22,6 +26,9 @@ namespace BadmintonClub.ViewModels
 
         private ICommand addMatchCommand;
         private ICommand loadSeasonDataCommand;
+
+        private Match largestPointDifferential;
+        private Match largestPointTotal;
 
         private string loadingMessage;
 
@@ -49,7 +56,16 @@ namespace BadmintonClub.ViewModels
         public ICommand LoadSeasonDataCommand => loadSeasonDataCommand ?? (loadSeasonDataCommand =
             new Command(async () => await executeLoadSeasonDataCommandAsync()));
 
-        public ObservableObject LargestPointDifferentialMatch { get; }
+        public Match LargestPointDifferential
+        {
+            get => largestPointDifferential;
+            set => SetProperty(ref largestPointDifferential, value);
+        }
+        public Match LargestPointTotal
+        {
+            get => largestPointTotal;
+            set => SetProperty(ref largestPointTotal, value);
+        }
 
         public ObservableRangeCollection<SeasonData> SeasonDataCollection { get; }
         public ObservableRangeCollection<SeasonData> SeasonDataSorted { get; }
@@ -70,7 +86,20 @@ namespace BadmintonClub.ViewModels
             listViewColumnWidth = GridLength.Star;
             newMatchColumnWidth = 0;
 
-            LargestPointDifferentialMatch = new ObservableObject();
+            largestPointDifferential = new Match()
+            {
+                Opponent = new User() { FirstName = "NIL", LastName = "" },
+                Player = new User() { FirstName = "NIL", LastName = "" },
+                PlayerScore = 0,
+                OpponentScore = 0
+            };
+            largestPointTotal = new Match()
+            {
+                Opponent = new User() { FirstName = "NIL", LastName = "" },
+                Player = new User() { FirstName = "NIL", LastName = "" },
+                PlayerScore = 0,
+                OpponentScore = 0
+            };
 
             SeasonDataCollection = new ObservableRangeCollection<SeasonData>();
             SeasonDataSorted = new ObservableRangeCollection<SeasonData>();
@@ -95,6 +124,10 @@ namespace BadmintonClub.ViewModels
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "SeasonDataViewModel.executeAddMatchCommandAsync()" }
+                });
                 Debug.WriteLine(ex);
             }
             finally
@@ -116,16 +149,44 @@ namespace BadmintonClub.ViewModels
                 LoadingMessage = "Loading Season Data...";
                 IsBusy = true;
 
-                AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.GetSeasonData));
+                AzureTransaction azureTransaction = new AzureTransaction(new Transaction(null, TransactionType.GetSeasonData), 
+                    new Transaction(null, TransactionType.GetMatches));
 
-                var seasonData = (await azureTransaction.ExecuteAsync())[0] as List<SeasonData>;
+                var result = (await azureTransaction.ExecuteAsync()) as object[];
+
+                var seasonData = result[0] as List<SeasonData>;
 
                 SeasonDataCollection.ReplaceRange(seasonData);
-
                 sortSeasonData();
+
+                var matches = result[1] as List<Match>;
+                if (matches != null && matches.Count() != 0)
+                {
+                    var matchQuery = matches
+                        .Where(
+                            m =>
+                            m.SeasonNumber == matches.Max(a => a.SeasonNumber));
+
+                    LargestPointDifferential = matchQuery
+                        .Where(
+                            m =>
+                            Math.Abs(m.PlayerScore - m.OpponentScore) == matchQuery.Max(a => Math.Abs(a.PlayerScore - a.OpponentScore)))
+                        .SingleOrDefault();
+
+                    LargestPointTotal = matchQuery
+                        .Where(
+                            m =>
+                            m.PlayerScore + m.OpponentScore == matchQuery.Max(a => a.PlayerScore + a.OpponentScore))
+                        .SingleOrDefault();
+                }
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "SeasonDataViewModel.executeLoadSeasonDataCommandAsync()" }
+                });
+                Debug.WriteLine(ex);
                 Debug.WriteLine("\nOH NO! " + ex);
 
                 await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync season data, you may be offline", "OK");

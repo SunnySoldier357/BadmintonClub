@@ -1,5 +1,6 @@
 ﻿using BadmintonClub.Models;
 using BadmintonClub.Models.Data_Access_Layer;
+using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using System;
 using System.Collections.Generic;
@@ -91,6 +92,10 @@ namespace BadmintonClub.ViewModels
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "BlogPostViewModel.executeAddBlogPostCommandAsync()" },
+                });
                 Debug.WriteLine("OH NO! " + ex);
             }
             finally
@@ -119,6 +124,10 @@ namespace BadmintonClub.ViewModels
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex, new Dictionary<string, string>
+                {
+                    { "Location", "BlogPostViewModel.executeLoadBlogPostsCommandAsync()" },
+                });
                 Debug.WriteLine("\nOH NO! " + ex);
 
                 await Application.Current.MainPage.DisplayAlert("Sync Error", "Unable to sync blog posts, you may be offline", "OK");

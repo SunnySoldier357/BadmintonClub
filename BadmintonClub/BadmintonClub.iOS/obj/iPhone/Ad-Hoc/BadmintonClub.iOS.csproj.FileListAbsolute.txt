@@ -83,3 +83,4 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Ad-Hoc\BadmintonClub.iOS.csproj.CoreCompileInputs.cache
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Ad-Hoc\BadmintonClub.iOS.csproj.CopyComplete
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Ad-Hoc\BadmintonClub.iOS.exe
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Ad-Hoc\BadmintonClub.iOS.csprojResolveAssemblyReference.cache

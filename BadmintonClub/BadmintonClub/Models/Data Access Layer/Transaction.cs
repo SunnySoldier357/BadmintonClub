@@ -32,7 +32,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
                         int.Parse(Arguments.OpponentScore), 
                         Arguments.PlayerName, 
                         Arguments.OpponentName,
-                        Arguments.IsSeasonMatch);
+                        Arguments.IsSeasonMatch,
+                        Arguments.StartNewSeason);
 
                 case TransactionType.GetMatches:
                     return await azureService.GetMatchesAsync();

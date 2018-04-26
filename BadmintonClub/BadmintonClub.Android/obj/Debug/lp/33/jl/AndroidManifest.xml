@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
    Copyright (C) 2015 The Android Open Source Project
@@ -23,6 +24,9 @@
         <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
 =======
 <?xml version="1.0" encoding="utf-8"?>
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+>>>>>>> GUI_Design
 <!--
  Copyright (C) 2014 The Android Open Source Project
 
@@ -38,18 +42,18 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="android.support.v4" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.coreutils">
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        tools:overrideLibrary="android.support.v4" />
+    <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.coreutils" />
 
     <application>
+<<<<<<< HEAD
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
+>>>>>>> GUI_Design
+=======
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
 >>>>>>> GUI_Design
     </application>
 

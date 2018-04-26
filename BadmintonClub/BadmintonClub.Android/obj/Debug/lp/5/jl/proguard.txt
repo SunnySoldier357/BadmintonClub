@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 -keepattributes *Annotation*
 
 -keepclassmembers enum android.arch.lifecycle.Lifecycle$Event {
@@ -15,6 +16,12 @@
 -keepclassmembers class ** {
     @android.arch.lifecycle.OnLifecycleEvent *;
 }
+=======
+# The following options are set by default.
+# Make sure they are always set, even if the default proguard config changes.
+-dontskipnonpubliclibraryclasses
+-verbose
+>>>>>>> GUI_Design
 =======
 # The following options are set by default.
 # Make sure they are always set, even if the default proguard config changes.

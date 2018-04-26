@@ -111,15 +111,21 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> GUI_Design
 		"Microsoft.AppCenter.Analytics.Android.Bindings.dll",
 		"Microsoft.AppCenter.Analytics.dll",
 		"Microsoft.AppCenter.Android.Bindings.dll",
 		"Microsoft.AppCenter.Crashes.Android.Bindings.dll",
 		"Microsoft.AppCenter.Crashes.dll",
 		"Microsoft.AppCenter.dll",
+<<<<<<< HEAD
 >>>>>>> GUI_Design
 =======
+=======
+>>>>>>> GUI_Design
 		"Microsoft.Azure.Mobile.Client.dll",
 		"Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
 		"MvvmHelpers.dll",

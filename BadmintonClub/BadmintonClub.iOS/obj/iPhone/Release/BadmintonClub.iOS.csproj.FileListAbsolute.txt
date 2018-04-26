@@ -78,3 +78,9 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Release\BadmintonClub.iOS.csproj.CoreCompileInputs.cache
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Release\BadmintonClub.iOS.csproj.CopyComplete
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\obj\iPhone\Release\BadmintonClub.iOS.exe
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.iOS.Bindings.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.Analytics.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.Analytics.iOS.Bindings.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.Crashes.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.iOS\bin\iPhone\Release\Microsoft.AppCenter.Crashes.iOS.Bindings.dll

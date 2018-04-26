@@ -1,5 +1,11 @@
 BadmintonClub
 FormsViewGroup
+Microsoft.AppCenter.Analytics.Android.Bindings
+Microsoft.AppCenter.Analytics
+Microsoft.AppCenter.Android.Bindings
+Microsoft.AppCenter.Crashes.Android.Bindings
+Microsoft.AppCenter.Crashes
+Microsoft.AppCenter
 Microsoft.Azure.Mobile.Client
 Microsoft.Azure.Mobile.Client.SQLiteStore
 MvvmHelpers

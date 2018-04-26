@@ -2,15 +2,21 @@ BadmintonClub
 FormsViewGroup
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> GUI_Design
 Microsoft.AppCenter.Analytics.Android.Bindings
 Microsoft.AppCenter.Analytics
 Microsoft.AppCenter.Android.Bindings
 Microsoft.AppCenter.Crashes.Android.Bindings
 Microsoft.AppCenter.Crashes
 Microsoft.AppCenter
+<<<<<<< HEAD
 >>>>>>> GUI_Design
 =======
+=======
+>>>>>>> GUI_Design
 Microsoft.Azure.Mobile.Client
 Microsoft.Azure.Mobile.Client.SQLiteStore
 MvvmHelpers

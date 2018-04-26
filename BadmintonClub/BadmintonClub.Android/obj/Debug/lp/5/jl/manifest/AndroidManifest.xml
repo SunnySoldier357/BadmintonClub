@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--
   ~ Copyright (C) 2016 The Android Open Source Project
   ~
@@ -22,6 +23,10 @@
   </application>
 =======
 <manifest package="com.microsoft.appcenter.crashes" xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="29" android:versionName="1.2.0">
+  <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="27" />
+>>>>>>> GUI_Design
+=======
+<manifest package="com.microsoft.appcenter.crashes" xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="31" android:versionName="1.4.0">
   <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="27" />
 >>>>>>> GUI_Design
 </manifest>

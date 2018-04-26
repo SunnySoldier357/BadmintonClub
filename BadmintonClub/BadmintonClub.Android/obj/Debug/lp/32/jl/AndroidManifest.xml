@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 <<<<<<< HEAD
+<<<<<<< HEAD
  Copyright (C) 2013 The Android Open Source Project
 =======
  Copyright (C) 2016 The Android Open Source Project
+>>>>>>> GUI_Design
+=======
+ Copyright (C) 2014 The Android Open Source Project
 >>>>>>> GUI_Design
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,12 +23,16 @@
      limitations under the License.
 -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="android.support.v7.recyclerview">
 =======
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="android.support.transition">
 >>>>>>> GUI_Design
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.coreui">
+>>>>>>> GUI_Design
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.coreui" />
 
     <application>
         <meta-data android:name="android.support.VERSION" android:value="26.1.0" />

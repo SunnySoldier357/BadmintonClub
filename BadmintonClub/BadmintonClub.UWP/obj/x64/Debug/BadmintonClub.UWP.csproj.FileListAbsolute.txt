@@ -507,3 +507,9 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x64\Debug\Plugin.Connectivity.pri.xml
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x64\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\WatsonRegistrationUtility.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Microsoft.AppCenter.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Microsoft.AppCenter.Analytics.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Microsoft.AppCenter.Crashes.dll
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\WatsonRegistrationUtility.winmd
+C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\SQLite-net.dll

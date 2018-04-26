@@ -19,25 +19,41 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>0A450256E54247AA1CCC822914789C1D5FF50D0A5BA82D27E2D62BAC792B392C</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>ec0cc741-fd3e-485c-81be-68815c480690_1.0.1.0_x64__8prvtndxh4hzt</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>F5F765EDDCBA9C752AA5CEF9CC1B7F658CFA72CCFD732CB26B91BCF75D17C846</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>ec0cc741-fd3e-485c-81be-68815c480690_1.1.1.0_x64__8prvtndxh4hzt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ec0cc741-fd3e-485c-81be-68815c480690_8prvtndxh4hzt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ec0cc741-fd3e-485c-81be-68815c480690</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=sande_gblcen6</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.1.0</RegisteredVersion>
+    <RegisteredVersion>1.1.1.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-17T00:39:34.641</Modified>
+      <Modified>2018-03-21T01:51:44.570</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.exe">
       <PackagePath>entrypoint\BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-17T00:39:33.250</Modified>
+      <Modified>2018-03-21T01:51:43.128</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.appcenter.crashes\1.5.0\build\uap10.0\..\..\runtimes\win10-x64\native\WatsonRegistrationUtility.dll">
+      <PackagePath>WatsonRegistrationUtility.dll</PackagePath>
+      <Modified>2018-02-28T08:41:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.appcenter\1.5.0\lib\uap10.0\Microsoft.AppCenter.dll">
+      <PackagePath>Microsoft.AppCenter.dll</PackagePath>
+      <Modified>2018-02-28T08:41:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.appcenter.analytics\1.5.0\lib\uap10.0\Microsoft.AppCenter.Analytics.dll">
+      <PackagePath>Microsoft.AppCenter.Analytics.dll</PackagePath>
+      <Modified>2018-02-28T08:41:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.appcenter.crashes\1.5.0\runtimes\win10-x64\lib\uap10.0\Microsoft.AppCenter.Crashes.dll">
+      <PackagePath>Microsoft.AppCenter.Crashes.dll</PackagePath>
+      <Modified>2018-02-28T08:41:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
       <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
@@ -223,6 +239,10 @@
       <PackagePath>System.Private.Uri.dll</PackagePath>
       <Modified>2016-11-05T11:56:36.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\sqlite-net-pcl\1.3.1\lib\netstandard1.1\SQLite-net.dll">
+      <PackagePath>SQLite-net.dll</PackagePath>
+      <Modified>2017-01-16T20:56:02.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\sqlitepclraw.bundle_green\1.1.2\lib\uap10.0\SQLitePCLRaw.batteries_green.dll">
       <PackagePath>SQLitePCLRaw.batteries_green.dll</PackagePath>
       <Modified>2017-01-04T17:54:32.000</Modified>
@@ -291,9 +311,9 @@
       <PackagePath>System.Data.Common.dll</PackagePath>
       <Modified>2016-11-05T11:55:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\system.data.sqlclient\4.4.2\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll">
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\system.data.sqlclient\4.4.3\runtimes\win\lib\netstandard1.3\System.Data.SqlClient.dll">
       <PackagePath>System.Data.SqlClient.dll</PackagePath>
-      <Modified>2017-11-21T02:09:04.000</Modified>
+      <Modified>2018-02-12T20:21:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\system.diagnostics.contracts\4.3.0\lib\netcore50\System.Diagnostics.Contracts.dll">
       <PackagePath>System.Diagnostics.Contracts.dll</PackagePath>
@@ -589,98 +609,152 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub\bin\Debug\netstandard1.4\BadmintonClub.dll">
       <PackagePath>BadmintonClub.dll</PackagePath>
-      <Modified>2018-03-17T00:39:30.194</Modified>
+      <Modified>2018-03-21T01:51:39.566</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\.nuget\packages\microsoft.appcenter.crashes\1.5.0\runtimes\win10-x64\lib\uap10.0\WatsonRegistrationUtility.winmd">
+      <PackagePath>WatsonRegistrationUtility.winmd</PackagePath>
+      <Modified>2018-02-28T08:41:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\add.png">
       <PackagePath>add.png</PackagePath>
-      <Modified>2018-02-28T00:29:55.415</Modified>
+      <Modified>2018-03-17T16:07:23.698</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:41.345</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:41.375</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:41.414</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:41.489</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:41.692</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.739</Modified>
+      <Modified>2018-03-17T16:07:19.535</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SmallTile.scale-125.png">
       <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.754</Modified>
+      <Modified>2018-03-17T16:07:19.558</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SmallTile.scale-150.png">
       <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.770</Modified>
+      <Modified>2018-03-17T16:07:19.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.793</Modified>
+      <Modified>2018-03-17T16:07:19.694</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.856</Modified>
+      <Modified>2018-03-17T16:07:19.949</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.757</Modified>
+      <Modified>2018-03-17T16:07:21.813</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-24.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.765</Modified>
+      <Modified>2018-03-17T16:07:21.823</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.015</Modified>
+      <Modified>2018-03-17T16:07:21.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.774</Modified>
+      <Modified>2018-03-17T16:07:21.934</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.784</Modified>
+      <Modified>2018-03-17T16:07:21.957</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.645</Modified>
+      <Modified>2018-03-17T16:07:21.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.656</Modified>
+      <Modified>2018-03-17T16:07:21.998</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.668</Modified>
+      <Modified>2018-03-17T16:07:22.014</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.683</Modified>
+      <Modified>2018-03-17T16:07:22.031</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.716</Modified>
+      <Modified>2018-03-17T16:07:23.682</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:17.290</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:17.315</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:17.343</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:17.390</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-03-18T02:18:17.523</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\blog.png">
       <PackagePath>blog.png</PackagePath>
-      <Modified>2018-03-16T23:55:20.868</Modified>
+      <Modified>2018-03-17T16:07:37.853</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\logout.png">
       <PackagePath>logout.png</PackagePath>
-      <Modified>2018-03-16T23:43:43.121</Modified>
+      <Modified>2018-03-17T16:07:37.854</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\profile.png">
       <PackagePath>profile.png</PackagePath>
-      <Modified>2018-02-14T16:54:01.352</Modified>
+      <Modified>2018-03-17T16:07:53.755</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\LockScreenLogo.scale-100.png">
       <PackagePath>Assets\LockScreenLogo.scale-100.png</PackagePath>
@@ -705,105 +779,105 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.167</Modified>
+      <Modified>2018-03-17T16:07:19.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.276</Modified>
+      <Modified>2018-03-17T16:07:20.079</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.414</Modified>
+      <Modified>2018-03-17T16:07:20.266</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.668</Modified>
+      <Modified>2018-03-17T16:07:20.460</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:46.635</Modified>
+      <Modified>2018-03-17T16:07:20.906</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.880</Modified>
+      <Modified>2018-03-17T16:07:20.958</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.912</Modified>
+      <Modified>2018-03-17T16:07:21.160</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:42.971</Modified>
+      <Modified>2018-03-17T16:07:21.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:43.036</Modified>
+      <Modified>2018-03-17T16:07:21.595</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.684</Modified>
+      <Modified>2018-03-17T16:07:21.630</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.695</Modified>
+      <Modified>2018-03-17T16:07:21.639</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.706</Modified>
+      <Modified>2018-03-17T16:07:21.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.719</Modified>
+      <Modified>2018-03-17T16:07:21.742</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:44.748</Modified>
+      <Modified>2018-03-17T16:07:21.786</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-16_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.023</Modified>
+      <Modified>2018-03-17T16:07:21.815</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.032</Modified>
+      <Modified>2018-03-17T16:07:21.825</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-32_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.040</Modified>
+      <Modified>2018-03-17T16:07:21.936</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-48_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.050</Modified>
+      <Modified>2018-03-17T16:07:21.958</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Assets\Square44x44Logo.targetsize-256_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-16T23:40:45.097</Modified>
+      <Modified>2018-03-17T16:07:21.919</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\refresh.png">
       <PackagePath>refresh.png</PackagePath>
-      <Modified>2018-02-25T00:37:12.794</Modified>
+      <Modified>2018-03-17T16:07:53.757</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\season.png">
       <PackagePath>season.png</PackagePath>
-      <Modified>2018-03-16T23:53:42.866</Modified>
+      <Modified>2018-03-17T16:07:53.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -811,7 +885,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\BadmintonClub.UWP.xr.xml">
       <PackagePath>BadmintonClub.UWP.xr.xml</PackagePath>
-      <Modified>2018-03-15T00:44:18.215</Modified>
+      <Modified>2018-03-17T16:07:46.621</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -824,11 +898,11 @@
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-03-17T00:39:33.956</Modified>
+      <Modified>2018-03-21T01:51:43.916</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\x64\Debug\Core\BadmintonClub.UWP.exe">
       <PackagePath>BadmintonClub.UWP.exe</PackagePath>
-      <Modified>2018-03-17T00:39:34.636</Modified>
+      <Modified>2018-03-21T01:51:44.566</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

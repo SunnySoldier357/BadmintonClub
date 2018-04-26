@@ -3,13 +3,13 @@
   <PropertyGroup>
     <AppxPackageIsForStore>False</AppxPackageIsForStore>
     <AppxShowAllApps>False</AppxShowAllApps>
-    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
-    <PackageOptionalProjectsInIdeBuilds>True</PackageOptionalProjectsInIdeBuilds>
+    <AppxBuildConfigurationSelection>x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
     <Source>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</Source>
     <SmallTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</SmallTileSource>
     <MediumTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</MediumTileSource>
-    <WideTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogo.png</WideTileSource>
-    <LargeTileSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</LargeTileSource>
+    <WideTileSource>C:\Users\sande_gblcen6\Desktop\thG4VSD6MR.jpg</WideTileSource>
+    <LargeTileSource>C:\Users\sande_gblcen6\Desktop\thG4VSD6MR.jpg</LargeTileSource>
     <AppIconSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</AppIconSource>
     <SplashScreenSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\sande_gblcen6\Desktop\badmintonclublogobig.png</PackageLogoSource>

@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="android.support.v7.palette">
 
     <uses-sdk android:minSdkVersion="14" />
@@ -22,6 +23,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.mediacompat">
 
     <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.mediacompat" />
+>>>>>>> GUI_Design
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="android.support.compat">
+
+    <uses-sdk android:minSdkVersion="14" tools:overrideLibrary="android.support.compat" />
 >>>>>>> GUI_Design
 
     <application>

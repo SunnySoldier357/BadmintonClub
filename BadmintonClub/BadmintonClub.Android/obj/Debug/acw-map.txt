@@ -4,7 +4,10 @@ BadmintonClub.Droid.MainActivity;md53fa26719889a72bc0266de120a3d8fe4.MainActivit
 badmintonclub.droid.MainActivity;md53fa26719889a72bc0266de120a3d8fe4.MainActivity
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> GUI_Design
 Com.Microsoft.Appcenter.Analytics.Channel.IAnalyticsListenerImplementor, Microsoft.AppCenter.Analytics.Android.Bindings;mono.com.microsoft.appcenter.analytics.channel.AnalyticsListenerImplementor
 Com.Microsoft.Appcenter.Analytics.Channel.IAnalyticsListenerImplementor, Microsoft.AppCenter.Analytics.Android.Bindings, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.microsoft.appcenter.analytics.channel.AnalyticsListenerImplementor
 Com.Microsoft.Appcenter.Analytics.Channel.IAnalyticsListenerImplementor;mono.com.microsoft.appcenter.analytics.channel.AnalyticsListenerImplementor
@@ -29,8 +32,11 @@ Microsoft.AppCenter.Crashes.Crashes/AndroidCrashListener, Microsoft.AppCenter.Cr
 Microsoft.AppCenter.Crashes.Crashes+AndroidCrashListener, Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5077d3f1b65f0ebbab0ee71c2383ed9a2.Crashes_AndroidCrashListener
 Microsoft.AppCenter.Crashes.Crashes.AndroidCrashListener;md5077d3f1b65f0ebbab0ee71c2383ed9a2.Crashes_AndroidCrashListener
 microsoft.appcenter.crashes.Crashes_AndroidCrashListener;md5077d3f1b65f0ebbab0ee71c2383ed9a2.Crashes_AndroidCrashListener
+<<<<<<< HEAD
 >>>>>>> GUI_Design
 =======
+=======
+>>>>>>> GUI_Design
 Xamarin.Auth._MobileServices.AndroidAccountStore/SecretAccount, Microsoft.Azure.Mobile.Client;md5ff7ab77db4f245bffa5244a84a5a1bca.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore+SecretAccount, Microsoft.Azure.Mobile.Client, Version=4.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md5ff7ab77db4f245bffa5244a84a5a1bca.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore.SecretAccount;md5ff7ab77db4f245bffa5244a84a5a1bca.AndroidAccountStore_SecretAccount

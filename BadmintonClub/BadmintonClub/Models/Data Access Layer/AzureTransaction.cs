@@ -29,6 +29,8 @@ namespace BadmintonClub.Models.Data_Access_Layer
         {
             dynamic result = null;
 
+            await azureService.InitialiseAsync();
+
             // Syncing necessary data tables before running transactions
             bool[] syncTables = new bool[4];
             if (CrossConnectivity.Current.IsConnected)

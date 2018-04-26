@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BadmintonClub.Views.LoginPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GirdEntryStyle" TargetType="Entry">
+                <Setter Property="Grid.Column"
+                        Value="1"/>
+
+                <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid RowSpacing="30"
+                      ColumnSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.ColumnSpan="2" 
+                           Text="Log in"
+                           FontSize="Large"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Grid.Row="1"
+                           Text="Full Name:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="FullNameEntry"
+                           Grid.Row="1"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Label Grid.Row="2"
+                           Text="Password:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="LogInPasswordEntry"
+                           Grid.Row="2"
+                           IsPassword="True"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Button x:Name="LogInButton"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            Text="Log In"
+                            Clicked="LogInButton_ClickedAsync"/>
+
+                    <Label x:Name="LogInErrorLabel"
+                           Grid.Row="4"
+                           Grid.ColumnSpan="2"
+                           TextColor="Red"
+                           IsVisible="False"/>
+                </Grid>
+
+                <Grid Grid.Row="1" 
+                      RowSpacing="30"
+                      ColumnSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.ColumnSpan="2" 
+                           Text="Sign Up"
+                           FontSize="Large"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"/>
+
+                    <Label Grid.Row="1"
+                           Text="First Name:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="FirstNameEntry"
+                           Grid.Row="1"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Label Grid.Row="2" 
+                           Text="Last Name:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="LastNameEntry"
+                           Grid.Row="2"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Label Grid.Row="3"
+                           Text="Competitive Play?"
+                           VerticalOptions="Center"/>
+
+                    <Switch x:Name="CompetitivePlaySwitch" 
+                            Grid.Row="3"
+                            Grid.Column="1"/>
+
+                    <Label Grid.Row="4"
+                           Text="Password:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="SignUpPasswordEntry"
+                           Grid.Row="4"
+                           IsPassword="True"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Label Grid.Row="5" 
+                           Text="Club PIN:"
+                           VerticalOptions="Center"/>
+
+                    <Entry x:Name="ClubPINEntry"
+                           Grid.Row="5"
+                           Style="{StaticResource GirdEntryStyle}"/>
+
+                    <Button x:Name="SignUpButton"
+                            Grid.Row="6"
+                            Grid.ColumnSpan="2"
+                            Text="Sign Up"
+                            Clicked="SignUpButton_ClickedAsync"/>
+
+                    <Label x:Name="SignUpErrorLabel"
+                           Grid.Row="7"
+                           Grid.ColumnSpan="2"
+                           TextColor="Red"
+                           IsVisible="False"/>
+                </Grid>
+
+                
+
+                <StackLayout x:Name="LoadingStackLayout" 
+                             IsVisible="False" 
+                             Grid.RowSpan="2"
+                             Style="{StaticResource LoadingStackLayoutStyle}">
+                    <ActivityIndicator x:Name="LoadingActivityIndicator" 
+                                       Color="LimeGreen"/>
+
+                    <Label x:Name="LoadingMessageLabel" 
+                           HorizontalOptions="Center"
+                           TextColor="White"
+                           Style="{DynamicResource ListItemTextStyle}"/>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

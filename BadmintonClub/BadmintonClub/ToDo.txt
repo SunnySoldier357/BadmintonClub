@@ -1,0 +1,36 @@
+﻿                                                   POSSIBLE IMPOVEMENTS
+
+UI
+ - No connection (Offline Stack)
+ - Colour coding for season table like green vs red for positive or negative point difference
+ - Make date look nicer (no seconds)
+ - Hide the add buttons when switching tabs (Season Page)
+ - Margins make text nicer
+ - Feedback Section
+ - Settings Section 
+ - Justified text
+ - Optimisations for desktop vs. phone
+ - Season Table can be ordered by the selected column
+
+User Input
+ - Matches can be added to a queue so that when the user has finished adding all the matches he wishes, they are uploaded together
+ - Picker enhancements cannot pick the same person
+ - BlogPost, when entering title automatically capitalises all words except prepositions, maybe even the same for the body of post.
+
+Features
+ - New Season Functionality
+ - Edit BlogPosts
+
+Data Processing
+ - Ensure that loading is done before adding or refreshing again
+ - Sync over WiFi as a setting
+ - Loading is only done when stuff is not up to date and that the local stuff is only update not deleted and recreated
+ - Make data loading happen faster
+ - Code-First Migrations for backend
+ - Client => Paging support with ListView integration for BlogPost and Signed-In User's Matches
+
+User Authentication
+ - Done through Microsoft, Google and Facebook
+
+Organisation
+ - For UWP, move pictures into Assets folder

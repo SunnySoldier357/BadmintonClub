@@ -1,6 +1,0 @@
-MainPackage=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\ARM\Release\BadmintonClub.UWP_1.2.0.0_ARM.appx
-SymbolPackage=C:\Users\sande_gblcen6\Desktop\BadmintonClub.UWP_1.2.0.0_Test\BadmintonClub.UWP_1.2.0.0_ARM.appxsym
-ResourcePack=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\ARM\Release\BadmintonClub.UWP_1.2.0.0_scale-100.appx
-ResourcePack=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\ARM\Release\BadmintonClub.UWP_1.2.0.0_scale-125.appx
-ResourcePack=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\ARM\Release\BadmintonClub.UWP_1.2.0.0_scale-150.appx
-ResourcePack=C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.UWP\bin\ARM\Release\BadmintonClub.UWP_1.2.0.0_scale-400.appx

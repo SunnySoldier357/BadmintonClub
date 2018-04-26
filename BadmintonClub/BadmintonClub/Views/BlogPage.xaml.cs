@@ -84,7 +84,7 @@ namespace BadmintonClub.Views
                 ToolbarItem addItem = new ToolbarItem
                 {
                     Text = "Add Post",
-                    Command = new Command(() => switchToEditView(false)),
+                    Command = new Command(() => switchToEditView()),
                     Icon = "add.png"
                 };
 
@@ -109,7 +109,7 @@ namespace BadmintonClub.Views
             blogPostViewModel.ListViewColumnWidth = GridLength.Star;
         }
 
-        private void switchToEditView(bool editing)
+        private void switchToEditView()
         {
             blogPostViewModel.AddingNewItem = true;
             blogPostViewModel.NewItemColumnWidth = GridLength.Star;

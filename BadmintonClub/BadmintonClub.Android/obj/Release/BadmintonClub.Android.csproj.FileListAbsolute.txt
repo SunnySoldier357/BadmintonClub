@@ -105,7 +105,6 @@ C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Andr
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Release\android\assets\System.ServiceModel.Internals.pdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Release\android\assets\System.Xml.Linq.pdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Release\android\assets\System.Xml.pdb
-C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Release\BadmintonClub.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\obj\Release\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Release\BadmintonClub.Android.dll.mdb
 C:\Users\sande_gblcen6\Desktop\C#\BadmintonClub\BadmintonClub\BadmintonClub.Android\bin\Release\BadmintonClub.Android.dll

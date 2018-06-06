@@ -32,8 +32,6 @@
                 <Setter Property="HorizontalOptions"
                         Value="Center"/>
             </Style>
-
-            
         </ResourceDictionary>
     </ContentPage.Resources>
     

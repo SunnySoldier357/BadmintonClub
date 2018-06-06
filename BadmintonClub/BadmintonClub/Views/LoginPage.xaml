@@ -153,8 +153,6 @@
                            IsVisible="False"/>
                 </Grid>
 
-                
-
                 <StackLayout x:Name="LoadingStackLayout" 
                              IsVisible="False" 
                              Grid.RowSpan="2"

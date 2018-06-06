@@ -1,7 +1,6 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace BadmintonClub.Models.Data_Access_Layer
 {

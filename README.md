@@ -1,6 +1,7 @@
-# Badminton Club Application
+# Badminton Club Application 
 
-![Badminton Club Logo](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/badminton-club-logo.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/badminton-club-logo.png" 
+     height="150" />
 
 A mobile application made for the Badminton Club of Skyline High
 School. The application is made using Xamarin.Forms as well as
@@ -12,7 +13,8 @@ statistics.
 
 ## Logging in
 
-![Login Page](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/login-page.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/login-page.png" 
+     width="300" />
 
 The user is initially presented with a login page and can either log-in
 or sign-up.
@@ -26,7 +28,8 @@ club pin to ensure that only Badminton Club members can sign-up.
 
 ## Blog Page
 
-![Blog Page](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/blog-page.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/blog-page.png" 
+     width="300" />
 
 The blog page showcases all the blogs in a reverse chronological order.
 In addition to the actual blog, the person who wrote the blog, their
@@ -35,7 +38,8 @@ blog can be refreshed at any time by pressing the refresh button.
 
 ### Adding a new Blog Post
 
-![Adding a Blog Post](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/blog-page-add.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/blog-page-add.png" 
+     width="300" />
 
 **Only Admins can add new Blog Posts**
 
@@ -46,14 +50,16 @@ of that blog post.
 
 ### League Sub-Page
 
-![League Sub-Page](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-league-page.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-league-page.png" 
+     width="300" />
 
 The league sub-page presents a league table with rankings according to
 al the season matches played between players.
 
 #### Adding a Match
 
-![Adding a Match](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-match-add.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-match-add.png" 
+     width="300" />
 
 **Only Admins can add new Matches**
 
@@ -67,8 +73,17 @@ Selecting the 'New Season?' options completely resets the league table.
 
 ### Statistics Sub-Page
 
-![Statistics Sub-Page](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-statistics-page.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/season-statistics-page.png" 
+     width="300" />
+     
+The statistics sub-page displays interesting statistics on all the
+matches in the league.
 
 ## Profile Page
 
-![Profile Page](https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/profile-page.png)
+<img src="https://github.com/SunnySoldier357/BadmintonClub/blob/master/Images/profile-page.png" 
+     width="300" />
+     
+The profile page showcases all the individual statistics of the
+player as well as a history of past matches (both season and
+friendly). The user can also log out on this page.

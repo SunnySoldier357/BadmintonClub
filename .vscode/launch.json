@@ -5,11 +5,10 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": ".NET Core Launch (Backend)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
+            "preLaunchTask": "build-Backend",
             "program": "${workspaceFolder}/Backend/bin/Debug/netcoreapp2.1/Backend.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Backend",

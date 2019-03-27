@@ -28,10 +28,18 @@ namespace MobileApp.Models.DB
         public string TitleDisplay =>
             Title + (Title.ToLower().Contains("of") ? " for" : " of") + " Badminton Club";
 
-        public string WinPercentage =>
-            Statistics.GamesPlayed == 0 ? "0 %" : Math.Round(
-                (double)Statistics.GamesWon / (double)Statistics.GamesPlayed * 100.0, 
-                2, MidpointRounding.AwayFromZero).ToString() + " %";
+        public string WinPercentage
+        {
+            get
+            {
+                if (Statistics == null)
+                    return null;
+
+                return Statistics.GamesPlayed == 0 ? "0 %" : Math.Round(
+                    (double)Statistics.GamesWon / Statistics.GamesPlayed * 100.0,
+                    2, MidpointRounding.AwayFromZero).ToString() + " %";
+            }
+        }
 
         // Constructors
         public User() : this(null, null, "Member", 0) { }

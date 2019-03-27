@@ -45,7 +45,7 @@ namespace Backend.Models.DB
                     return null;
 
                 return Statistics.GamesPlayed == 0 ? "0 %" : Math.Round(
-                    (double)Statistics.GamesWon / (double)Statistics.GamesPlayed * 100.0,
+                    (double)Statistics.GamesWon / Statistics.GamesPlayed * 100.0,
                     2, MidpointRounding.AwayFromZero).ToString() + " %";
             }
         }
